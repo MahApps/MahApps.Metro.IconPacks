@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Entypo", "MahApps.Metro.IconPacks.Entypo\MahApps.Metro.IconPacks.Entypo.csproj", "{BFC0E4FC-083F-41DC-9051-590C82C1FE52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.FontAwesome", "MahApps.Metro.IconPacks.FontAwesome\MahApps.Metro.IconPacks.FontAwesome.csproj", "{35E0E114-8336-4FFA-BB16-E376331DCA44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Material", "MahApps.Metro.IconPacks.Material\MahApps.Metro.IconPacks.Material.csproj", "{0B9B153E-AF8C-4764-9475-4FFFFD616D18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Modern", "MahApps.Metro.IconPacks.Modern\MahApps.Metro.IconPacks.Modern.csproj", "{E79D663B-B4ED-4936-9489-512220CFB831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj", "{E55968FD-91B1-4ACE-B711-30724797A662}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFC0E4FC-083F-41DC-9051-590C82C1FE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC0E4FC-083F-41DC-9051-590C82C1FE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC0E4FC-083F-41DC-9051-590C82C1FE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC0E4FC-083F-41DC-9051-590C82C1FE52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35E0E114-8336-4FFA-BB16-E376331DCA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35E0E114-8336-4FFA-BB16-E376331DCA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35E0E114-8336-4FFA-BB16-E376331DCA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35E0E114-8336-4FFA-BB16-E376331DCA44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B9B153E-AF8C-4764-9475-4FFFFD616D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B9B153E-AF8C-4764-9475-4FFFFD616D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B9B153E-AF8C-4764-9475-4FFFFD616D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B9B153E-AF8C-4764-9475-4FFFFD616D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E79D663B-B4ED-4936-9489-512220CFB831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E79D663B-B4ED-4936-9489-512220CFB831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E79D663B-B4ED-4936-9489-512220CFB831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E79D663B-B4ED-4936-9489-512220CFB831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E55968FD-91B1-4ACE-B711-30724797A662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E55968FD-91B1-4ACE-B711-30724797A662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E55968FD-91B1-4ACE-B711-30724797A662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E55968FD-91B1-4ACE-B711-30724797A662}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

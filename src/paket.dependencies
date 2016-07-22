@@ -1,0 +1,4 @@
+source https://nuget.org/api/v2
+framework >= net40
+
+github ControlzEx/ControlzEx:72aa238cd565ef63e8d52c29982a587e039d04ec src/ControlzEx/PackIconBase.cs

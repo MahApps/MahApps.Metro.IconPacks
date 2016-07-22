@@ -17,6 +17,7 @@
 [Rr]eleases/
 x64/
 x86/
+build/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -162,6 +163,9 @@ PublishScripts/
 *.nuget.props
 *.nuget.targets
 
+# scriptcs
+**/scriptcs_packages/*
+
 # Microsoft Azure Build Output
 csx/
 *.build.csdef
@@ -241,7 +245,7 @@ FakesAssemblies/
 _Pvt_Extensions
 
 # Paket dependency manager
-.paket/paket.exe
+#.paket/paket.exe
 paket-files/
 
 # FAKE - F# Make
