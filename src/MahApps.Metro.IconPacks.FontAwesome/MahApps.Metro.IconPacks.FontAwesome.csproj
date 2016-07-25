@@ -108,6 +108,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\Converter\MarkupConverter.cs">
       <Link>Converter\MarkupConverter.cs</Link>
     </Compile>
