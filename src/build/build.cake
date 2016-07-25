@@ -12,7 +12,7 @@ var configGitLink = new GitLinkSettings {
 };
 
 // Tasks
-Task("GitLink_master")
+Task("GitLink")
   .Does(() =>
 {
   GitLink("../../", configGitLink);
@@ -32,17 +32,6 @@ Task("GitLink_dev")
   .Does(() =>
 {
   configGitLink.Branch = "dev";
-  GitLink("../../", configGitLink);
-  configGitLink.Configuration = "Release_NET45";
-  GitLink("../../", configGitLink);
-  configGitLink.Configuration = "Release_NET451";
-  GitLink("../../", configGitLink);
-  configGitLink.Configuration = "Release_NET452";
-  GitLink("../../", configGitLink);
-  configGitLink.Configuration = "Release_NET46";
-  GitLink("../../", configGitLink);
-  configGitLink.Configuration = "Release_NET461";
-  GitLink("../../", configGitLink);
 });
 
 Task("UpdateAssemblyInfo")
@@ -71,9 +60,9 @@ Task("Build")
 });
 
 // Task Targets
-Task("Default").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink_master");
+Task("Default").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink");
 
-Task("dev").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink_dev");
+Task("dev").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink_dev").IsDependentOn("GitLink");
 
 // Execution
 RunTarget(target);
