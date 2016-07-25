@@ -19,6 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\bin\Debug\</OutputPath>
+    <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Debug\$(AssemblyName).XML</DocumentationFile>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -29,6 +30,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\bin\Release\</OutputPath>
+    <IntermediateOutputPath>obj\Release\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release\$(AssemblyName).XML</DocumentationFile>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -38,6 +40,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_NET45|AnyCPU'">
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <OutputPath>..\bin\Release_NET45\</OutputPath>
+    <IntermediateOutputPath>obj\Release_NET45\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET45\$(AssemblyName).XML</DocumentationFile>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
@@ -51,6 +54,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_NET451|AnyCPU'">
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <OutputPath>..\bin\Release_NET451\</OutputPath>
+    <IntermediateOutputPath>obj\Release_NET451\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET451\$(AssemblyName).XML</DocumentationFile>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
@@ -64,6 +68,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_NET452|AnyCPU'">
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <OutputPath>..\bin\Release_NET452\</OutputPath>
+    <IntermediateOutputPath>obj\Release_NET452\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET452\$(AssemblyName).XML</DocumentationFile>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
@@ -77,6 +82,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_NET46|AnyCPU'">
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <OutputPath>..\bin\Release_NET46\</OutputPath>
+    <IntermediateOutputPath>obj\Release_NET46\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET46\$(AssemblyName).XML</DocumentationFile>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
@@ -90,6 +96,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_NET461|AnyCPU'">
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <OutputPath>..\bin\Release_NET461\</OutputPath>
+    <IntermediateOutputPath>obj\Release_NET461\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET461\$(AssemblyName).XML</DocumentationFile>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
