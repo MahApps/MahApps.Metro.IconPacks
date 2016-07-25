@@ -239,7 +239,7 @@ Task("NuGetPack")
 // Task Targets
 Task("Default").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink").IsDependentOn("NuGetPack");
 
-Task("dev").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink_dev").IsDependentOn("GitLink").IsDependentOn("NuGetPack");
+Task("dev").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink_dev").IsDependentOn("GitLink");
 
 Task("pack").IsDependentOn("NuGetPack");
 
