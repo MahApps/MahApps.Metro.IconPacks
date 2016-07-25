@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>MahApps.Metro.IconPacks</id>
+    <version>1.0.0.0</version>
+    <title>MahApps.Metro.IconPacks</title>
+    <authors>Jan Karger</authors>
+    <owners>punker76</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/MahApps/MahApps.Metro.IconPacks</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/MahApps/MahApps.Metro/master/mahapps.metro.logo2.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>IconPacks for stylish awesome UI WPF apps.</description>
+    <summary>IconPacks contains an easy to use icon control to allow devs quickly and easily use awesome icons with minimal effort.</summary>
+    <releaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</releaseNotes>
+	  <tags>WPF UI Metro ModernUI Material XAML Toolkit Library .NET Icon</tags>
+  </metadata>
+</package>

@@ -2,9 +2,7 @@
 
 // Arguments
 var target = Argument("target", "Default");
-
 var version = "1.0.0.0";
-
 var configGitLink = new GitLinkSettings {
   RepositoryUrl = "https://github.com/MahApps/MahApps.Metro.IconPacks",
   Branch        = "master",
@@ -59,10 +57,191 @@ Task("Build")
   MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET461").UseToolVersion(MSBuildToolVersion.VS2015));
 });
 
-// Task Targets
-Task("Default").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink");
+Task("NuGetPack")
+  .Does(() =>
+{
+  var iconPacksNuGet = "MahApps.Metro.IconPacks";
+  var nuGetPackSettings   = new NuGetPackSettings {
+    BasePath                = "../bin/",
+    Id                      = iconPacksNuGet,
+    Version                 = version,
+    Title                   = iconPacksNuGet,
+    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Files                   = new [] {
+                                       new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net40/{0}.XML", iconPacksNuGet)},
+                                       
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net45/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net45/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net45/{0}.XML", iconPacksNuGet)},
 
-Task("dev").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink_dev").IsDependentOn("GitLink");
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net451/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net451/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net451/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net452/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net452/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net452/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net46/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net46/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net46/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net461/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net461/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net461/{0}.XML", iconPacksNuGet)}
+                                    }
+  };
+  NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
+
+  iconPacksNuGet = "MahApps.Metro.IconPacks.Entypo";
+  nuGetPackSettings   = new NuGetPackSettings {
+    BasePath                = "../bin/",
+    Id                      = iconPacksNuGet,
+    Version                 = version,
+    Title                   = iconPacksNuGet,
+    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Files                   = new [] {
+                                       new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net40/{0}.XML", iconPacksNuGet)},
+                                       
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net45/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net45/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net45/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net451/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net451/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net451/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net452/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net452/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net452/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net46/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net46/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net46/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net461/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net461/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net461/{0}.XML", iconPacksNuGet)}
+                                    }
+  };
+  NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
+
+  iconPacksNuGet = "MahApps.Metro.IconPacks.FontAwesome";
+  nuGetPackSettings   = new NuGetPackSettings {
+    BasePath                = "../bin/",
+    Id                      = iconPacksNuGet,
+    Version                 = version,
+    Title                   = iconPacksNuGet,
+    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Files                   = new [] {
+                                       new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net40/{0}.XML", iconPacksNuGet)},
+                                       
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net45/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net45/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net45/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net451/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net451/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net451/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net452/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net452/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net452/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net46/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net46/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net46/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net461/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net461/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net461/{0}.XML", iconPacksNuGet)}
+                                    }
+  };
+  NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
+
+  iconPacksNuGet = "MahApps.Metro.IconPacks.Material";
+  nuGetPackSettings   = new NuGetPackSettings {
+    BasePath                = "../bin/",
+    Id                      = iconPacksNuGet,
+    Version                 = version,
+    Title                   = iconPacksNuGet,
+    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Files                   = new [] {
+                                       new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net40/{0}.XML", iconPacksNuGet)},
+                                       
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net45/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net45/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net45/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net451/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net451/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net451/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net452/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net452/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net452/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net46/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net46/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net46/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net461/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net461/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net461/{0}.XML", iconPacksNuGet)}
+                                    }
+  };
+  NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
+
+  iconPacksNuGet = "MahApps.Metro.IconPacks.Modern";
+  nuGetPackSettings   = new NuGetPackSettings {
+    BasePath                = "../bin/",
+    Id                      = iconPacksNuGet,
+    Version                 = version,
+    Title                   = iconPacksNuGet,
+    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Files                   = new [] {
+                                       new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net40/{0}.XML", iconPacksNuGet)},
+                                       
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net45/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net45/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net45/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net451/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net451/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET451/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net451/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net452/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net452/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET452/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net452/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net46/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net46/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net46/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net461/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net461/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET461/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net461/{0}.XML", iconPacksNuGet)}
+                                    }
+  };
+  NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
+});
+
+// Task Targets
+Task("Default").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink").IsDependentOn("NuGetPack");
+
+Task("dev").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink_dev").IsDependentOn("GitLink").IsDependentOn("NuGetPack");
+
+Task("pack").IsDependentOn("NuGetPack");
 
 // Execution
 RunTarget(target);
