@@ -145,11 +145,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="..\MahApps.Metro.IconPacks\Themes\PackIconBase.xaml">
-      <Link>Themes\PackIconBase.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="..\MahApps.Metro.IconPacks\Themes\PackIconFontAwesome.xaml">
       <Link>Themes\PackIconFontAwesome.xaml</Link>
       <Generator>MSBuild:Compile</Generator>

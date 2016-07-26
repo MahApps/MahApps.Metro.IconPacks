@@ -138,10 +138,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\PackIconBase.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Themes\PackIconEntypo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
