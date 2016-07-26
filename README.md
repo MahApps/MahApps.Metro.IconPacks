@@ -89,19 +89,19 @@ Here is the resource dictionary content.
 
 Resource dictionaries for the single NuGet packages are
 
-- for `MahApps.Metro.IconPacks.Entypo`
+- for `MahApps.Metro.IconPacks.Entypo`  
   ```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Entypo;component/Themes/PackIconEntypo.xaml" />
   ```
-- for `MahApps.Metro.FontAwesome`
+- for `MahApps.Metro.FontAwesome`  
   ```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FontAwesome;component/Themes/PackIconFontAwesome.xaml" />
   ```
-- for `MahApps.Metro.Material`
+- for `MahApps.Metro.Material`  
   ```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Material;component/Themes/PackIconMaterial.xaml" />
   ```
-- for `MahApps.Metro.Modern`
+- for `MahApps.Metro.Modern`  
   ```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Modern;component/Themes/PackIconModern.xaml" />
   ```
