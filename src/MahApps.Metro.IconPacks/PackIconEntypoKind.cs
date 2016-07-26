@@ -1,7 +1,7 @@
-﻿using System.ComponentModel;
-
-namespace MahApps.Metro.IconPacks
+﻿namespace MahApps.Metro.IconPacks
 {
+    using System.ComponentModel;
+
     /// ******************************************
     /// This code is auto generated. Do not amend.
     /// ******************************************
