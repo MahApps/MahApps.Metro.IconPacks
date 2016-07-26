@@ -2,7 +2,7 @@
 
 Some awesome icons all together...
 
-The IconPacks are a side project of [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) and contains controls to use the [Material](https://materialdesignicons.com/) (v1.6.50) and [Modern](http://modernuiicons.com/) icons, the [Fontawesome](http://fontawesome.io/icons/) icons (v4.6) and the [Entypo+](http://www.entypo.com/) icons in a simple way.
+The IconPacks are a side project of [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) and contains controls to use the [Material](https://materialdesignicons.com/) (v1.6.50) and [Modern](http://modernuiicons.com/) icons, the [Fontawesome](http://fontawesome.io/icons/) icons (v4.6) and the [Entypo+](http://www.entypo.com/) icons in a simple way. It's not necessary to install MahApps.Metro, but it would be nice ;-D
 
 ## Usage
 
@@ -27,6 +27,8 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
 <iconPacks:PackIconEntypo Kind="EmojiHappy" />
 ```
 ![2016-07-26_02h30_11](https://cloud.githubusercontent.com/assets/658431/17122173/7573d3ca-52d9-11e6-9a2e-8ecadad254e4.png)
+
+The Xaml namespace for all icon packs is `xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"`.
 
 ## NuGet
 
