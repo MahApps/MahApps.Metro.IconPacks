@@ -32,10 +32,10 @@ The Xaml namespace for all icon packs is `xmlns:iconPacks="http://metro.mahapps.
 
 ## NuGet
 
-- `MahApps.Metro.IconPacks` [NuGet package]()
-- `MahApps.Metro.IconPacks.Entypo` [NuGet package]()
-- `MahApps.Metro.FontAwesome` [NuGet package]()
-- `MahApps.Metro.Material` [NuGet package]()
-- `MahApps.Metro.Modern` [NuGet package]()
+- `MahApps.Metro.IconPacks` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks/)
+- `MahApps.Metro.IconPacks.Entypo` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/)
+- `MahApps.Metro.FontAwesome` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
+- `MahApps.Metro.Material` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
+- `MahApps.Metro.Modern` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
 
 ![iconpacks](https://cloud.githubusercontent.com/assets/658431/16098473/6a88963a-3353-11e6-8b97-71c07700c17c.gif)
