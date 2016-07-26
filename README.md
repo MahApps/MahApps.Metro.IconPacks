@@ -32,7 +32,7 @@ The Xaml namespace for all icon packs is `xmlns:iconPacks="http://metro.mahapps.
 
 ## Styles
 
-All controls have also styles, so you can use it for globally changes or anything else.
+All controls have also styles, so you can use it for global changes or anything else.
 
 For the `MahApps.Metro.IconPacks` you can e.g. create a custom resource dictionary and add it to the `App.xaml` resource tag.
 
@@ -90,21 +90,21 @@ Here is the resource dictionary content.
 Resource dictionaries for the single NuGet packages are
 
 - for `MahApps.Metro.IconPacks.Entypo`  
-  ```xaml
+```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Entypo;component/Themes/PackIconEntypo.xaml" />
-  ```
+```
 - for `MahApps.Metro.FontAwesome`  
-  ```xaml
+```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FontAwesome;component/Themes/PackIconFontAwesome.xaml" />
-  ```
+```
 - for `MahApps.Metro.Material`  
-  ```xaml
+```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Material;component/Themes/PackIconMaterial.xaml" />
-  ```
+```
 - for `MahApps.Metro.Modern`  
-  ```xaml
+```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Modern;component/Themes/PackIconModern.xaml" />
-  ```
+```
 
 The styles are the same as in the `MahApps.Metro.IconPacks` package.
 
