@@ -47,7 +47,7 @@ For the `MahApps.Metro.IconPacks` you can e.g. create a custom resource dictiona
                 <!-- other resources -->
                 
                 <!-- custom app resources -->
-                <ResourceDictionary Source="pack://application:,,,/IconPacksTest;component/Resources/CustomIconPacksStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/themes/IconPacks.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
