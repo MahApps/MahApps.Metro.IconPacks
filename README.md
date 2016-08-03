@@ -4,6 +4,11 @@ Some awesome icons all together...
 
 The IconPacks are a side project of [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) and contains controls to use the [Material](https://materialdesignicons.com/) (v1.6.50) and [Modern](http://modernuiicons.com/) icons, the [Fontawesome](http://fontawesome.io/icons/) icons (v4.6) and the [Entypo+](http://www.entypo.com/) icons in a simple way. It's not necessary to install MahApps.Metro, but it would be nice ;-D
 
+## Want to say thanks?
+
++ This framework is free, can be used in commercial applications too, so please hit the :star: Star :star: button, cause this is the only payment (Cash donations are also being accepted ;-P ).
+
+
 ## Usage
 
 If you want all icons together then just install the `MahApps.Metro.IconPacks` NuGet package. You can also only install one of the icon packs if you don't need them all.
@@ -30,11 +35,7 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
 
 The Xaml namespace for all icon packs is `xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"`.
 
-## Styles
-
-All controls have also styles, so you can use it for global changes or anything else.
-
-For the `MahApps.Metro.IconPacks` you can e.g. create a custom resource dictionary and add it to the `App.xaml` resource tag.
+So here is an `App.xaml` if you want to use the complete IconPacks NuGet package.
 
 ```xaml
 <Application x:Class="IconPacksTest.App"
@@ -44,50 +45,39 @@ For the `MahApps.Metro.IconPacks` you can e.g. create a custom resource dictiona
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!-- other resources -->
-                
-                <!-- custom app resources -->
-                <ResourceDictionary Source="pack://application:,,,/IconPacksTest;component/Resources/CustomIconPacksStyles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+
+                <!-- this resource dictionary exists only for the complete IconPacks -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/IconPacks.xaml" />
+
+          </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
 ```
 
-Here is the resource dictionary content.
+You can also use the separate resource dictionaries.
 
 ```xaml
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+<Application x:Class="IconPacksTest.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterial.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
-    </ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterial.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
 
-    <Style TargetType="{x:Type iconPacks:PackIconMaterial}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterial}">
-        <Setter Property="Width" Value="32" />
-        <Setter Property="Height" Value="32" />
-    </Style>
-    <Style TargetType="{x:Type iconPacks:PackIconModern}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconModern}">
-        <Setter Property="HorizontalAlignment" Value="Center" />
-    </Style>
-    <Style TargetType="{x:Type iconPacks:PackIconFontAwesome}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}">
-        <Setter Property="Width" Value="24" />
-        <Setter Property="Height" Value="24" />
-    </Style>
-    <Style TargetType="{x:Type iconPacks:PackIconEntypo}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}">
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-    </Style>
+          </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+```
 
-</ResourceDictionary>
-``` 
-
-Resource dictionaries for the single NuGet packages are
+These are the resource dictionaries for the single NuGet packages (if you don't need the big IconPack).
 
 - for `MahApps.Metro.IconPacks.Entypo`  
 ```xaml
@@ -107,6 +97,67 @@ Resource dictionaries for the single NuGet packages are
 ```
 
 The styles are the same as in the `MahApps.Metro.IconPacks` package.
+
+## Styles
+
+Sometimes it's necessary to change some properties for all used icon pack controls. All controls have styles which can be use for global changes or anything else.
+
+For the `MahApps.Metro.IconPacks` you can e.g. create a custom resource dictionary (called here `CustomIconPacksStyles.xaml`) and add it to the `App.xaml` resource tag.
+
+```xaml
+<Application x:Class="IconPacksTest.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- some other resources -->
+                
+                <!-- your custom icon resource -->
+                <ResourceDictionary Source="pack://application:,,,/IconPacksTest;component/Resources/CustomIconPacksStyles.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+```
+
+Here is the resource dictionary content (for `CustomIconPacksStyles.xaml`).
+
+```xaml
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+
+    <ResourceDictionary.MergedDictionaries>
+        <!-- reference all necessary original resource dictionaries -->
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterial.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- now make some global changes for the icon pack controls without using new keys -->
+
+    <Style TargetType="{x:Type iconPacks:PackIconMaterial}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterial}">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+    </Style>
+    <Style TargetType="{x:Type iconPacks:PackIconModern}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconModern}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style TargetType="{x:Type iconPacks:PackIconFontAwesome}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+    </Style>
+    <Style TargetType="{x:Type iconPacks:PackIconEntypo}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+</ResourceDictionary>
+``` 
 
 ## NuGet
 
