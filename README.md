@@ -163,9 +163,9 @@ Here is the resource dictionary content (for `CustomIconPacksStyles.xaml`).
 
 - `MahApps.Metro.IconPacks` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks/)
 - `MahApps.Metro.IconPacks.Entypo` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/)
-- `MahApps.Metro.FontAwesome` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
-- `MahApps.Metro.Material` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
-- `MahApps.Metro.Modern` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
+- `MahApps.Metro.IconPacks.FontAwesome` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
+- `MahApps.Metro.IconPacks.Material` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
+- `MahApps.Metro.IconPacks.Modern` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
 
 ## Strong naming
 
