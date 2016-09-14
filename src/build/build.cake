@@ -2,7 +2,7 @@
 
 // Arguments
 var target = Argument("target", "Default");
-var version = "1.0.0.0";
+var version = "1.1.0.0";
 var configGitLink = new GitLinkSettings {
   RepositoryUrl = "https://github.com/MahApps/MahApps.Metro.IconPacks",
   Branch        = "master",
@@ -13,6 +13,8 @@ var configGitLink = new GitLinkSettings {
 Task("GitLink")
   .Does(() =>
 {
+  GitLink("../../", configGitLink);
+  configGitLink.Configuration = "Release";
   GitLink("../../", configGitLink);
   configGitLink.Configuration = "Release_NET45";
   GitLink("../../", configGitLink);
