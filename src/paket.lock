@@ -1,5 +1,9 @@
 FRAMEWORK: >= NET40
+NUGET
+  remote: https://www.nuget.org/api/v2
+    JetBrains.Annotations (10.1.5)
+    MahApps.Metro (1.3.0-ALPHA198)
+    MahApps.Metro.IconPacks (1.0)
 GITHUB
   remote: ControlzEx/ControlzEx
-  specs:
     src/ControlzEx/PackIconBase.cs (72aa238cd565ef63e8d52c29982a587e039d04ec)

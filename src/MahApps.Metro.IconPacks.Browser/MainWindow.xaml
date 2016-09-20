@@ -1,0 +1,34 @@
+﻿<controls:MetroWindow x:Class="MahApps.Metro.IconPacks.Browser.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:local="clr-namespace:MahApps.Metro.IconPacks.Browser"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                      mc:Ignorable="d"
+                      d:DesignHeight="400" d:DesignWidth="600"
+                      Title="IconPacks Browser" Height="600" Width="800"
+                      TitleCharacterCasing="Normal"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+                      ResizeMode="CanResizeWithGrip"
+                      WindowStartupLocation="CenterScreen">
+
+    <controls:MetroWindow.WindowButtonCommands>
+        <controls:WindowButtonCommands Template="{DynamicResource MahApps.Metro.Templates.WindowButtonCommands.Win10}" />
+    </controls:MetroWindow.WindowButtonCommands>
+    <controls:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <iconPacks:PackIconMaterial Kind="FileFind"
+                                        Foreground="{DynamicResource IdealForegroundColorBrush}"
+                                        Margin="2"
+                                        Padding="4"
+                                        Width="{TemplateBinding Width}"
+                                        Height="{TemplateBinding Height}" />
+        </DataTemplate>
+    </controls:MetroWindow.IconTemplate>
+
+    <Grid />
+
+</controls:MetroWindow>
