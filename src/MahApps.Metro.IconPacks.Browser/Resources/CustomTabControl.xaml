@@ -4,7 +4,8 @@
                     xmlns:behaviours="http://metro.mahapps.com/winfx/xaml/shared"
                     xmlns:viewModels="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
                     xmlns:virtualizing="clr-namespace:MahApps.Metro.IconPacks.Browser.Virtualizing"
-                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    xmlns:converter="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks">
 
     <SolidColorBrush x:Key="TabItemPanelBackgroundBrush" Color="{DynamicResource Gray8}" />
     <SolidColorBrush x:Key="TabItemBackgroundIsSelectedBrush" Color="{DynamicResource Gray2}" />
@@ -12,6 +13,48 @@
     <SolidColorBrush x:Key="TabItemForegroundIsSelectedBrush" Color="{DynamicResource IdealForegroundColor}" />
     <SolidColorBrush x:Key="TabItemSelectorBrush" Color="LawnGreen" />
     <SolidColorBrush x:Key="TabControlBackgroundBrush" Color="WhiteSmoke" />
+
+    <DataTemplate x:Key="SelectedIconContentTemplate" DataType="{x:Type viewModels:IIconViewModel}">
+        <ContentControl x:Name="IconContent" Content="{Binding}" Focusable="False" IsTabStop="False" />
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconMaterialKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconMaterial Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" UseLayoutRounding="True" BorderThickness="1" BorderBrush="{DynamicResource BlackBrush}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconModernKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconModern Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" UseLayoutRounding="True" BorderThickness="1" BorderBrush="{DynamicResource BlackBrush}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconFontAwesome Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" UseLayoutRounding="True" BorderThickness="1" BorderBrush="{DynamicResource BlackBrush}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconEntypoKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconEntypo Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" UseLayoutRounding="True" BorderThickness="1" BorderBrush="{DynamicResource BlackBrush}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
 
     <DataTemplate x:Key="CustomTabItemItemTemplate"
                   x:Shared="False"
@@ -38,6 +81,50 @@
                          BorderThickness="0 0 0 1"
                          Background="Transparent"
                          Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+
+                <StackPanel HorizontalAlignment="Right"
+                            Margin="10 0 10 10"
+                            Orientation="Horizontal">
+                    <ContentControl VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Right"
+                                    Margin="0 0 5 0"
+                                    Width="16"
+                                    Height="16"
+                                    Background="Transparent"
+                                    Content="{Binding SelectedIcon, Mode=OneWay}"
+                                    ContentTemplate="{StaticResource SelectedIconContentTemplate}"
+                                    Focusable="False"
+                                    IsTabStop="False" />
+                    <ContentControl VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Right"
+                                    Margin="0 0 5 0"
+                                    Width="24"
+                                    Height="24"
+                                    Background="Transparent"
+                                    Content="{Binding SelectedIcon, Mode=OneWay}"
+                                    ContentTemplate="{StaticResource SelectedIconContentTemplate}"
+                                    Focusable="False"
+                                    IsTabStop="False" />
+                    <ContentControl VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Right"
+                                    Margin="0 0 5 0"
+                                    Width="48"
+                                    Height="48"
+                                    Background="Transparent"
+                                    Content="{Binding SelectedIcon, Mode=OneWay}"
+                                    ContentTemplate="{StaticResource SelectedIconContentTemplate}"
+                                    Focusable="False"
+                                    IsTabStop="False" />
+                    <ContentControl VerticalAlignment="Bottom"
+                                    HorizontalAlignment="Right"
+                                    Width="76"
+                                    Height="76"
+                                    Background="Transparent"
+                                    Content="{Binding SelectedIcon, Mode=OneWay}"
+                                    ContentTemplate="{StaticResource SelectedIconContentTemplate}"
+                                    Focusable="False"
+                                    IsTabStop="False" />
+                </StackPanel>
             </Grid>
 
             <ListBox x:Name="PackIconFontAwesomeKindListBox"
