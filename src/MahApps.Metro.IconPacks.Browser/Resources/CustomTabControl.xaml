@@ -62,7 +62,7 @@
         <Grid>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" MinHeight="100" />
+                <RowDefinition Height="Auto" MinHeight="120" />
                 <RowDefinition Height="*" /> <!-- ListBox -->
             </Grid.RowDefinitions>
 
@@ -82,12 +82,18 @@
                          Background="Transparent"
                          Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
 
-                <StackPanel HorizontalAlignment="Right"
-                            Margin="10 0 10 10"
-                            Orientation="Horizontal">
-                    <ContentControl VerticalAlignment="Bottom"
-                                    HorizontalAlignment="Right"
-                                    Margin="0 0 5 0"
+                <TextBlock Margin="10 10 10 0"
+                           FontSize="14"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Right"
+                           Text="{Binding SelectedIcon.Name, Mode=OneWay}" />
+
+                <StackPanel Margin="10 0 10 10"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Right">
+                    <ContentControl Margin="0 0 5 0"
+                                    VerticalAlignment="Bottom"
                                     Width="16"
                                     Height="16"
                                     Background="Transparent"
@@ -95,9 +101,8 @@
                                     ContentTemplate="{StaticResource SelectedIconContentTemplate}"
                                     Focusable="False"
                                     IsTabStop="False" />
-                    <ContentControl VerticalAlignment="Bottom"
-                                    HorizontalAlignment="Right"
-                                    Margin="0 0 5 0"
+                    <ContentControl Margin="0 0 5 0"
+                                    VerticalAlignment="Bottom"
                                     Width="24"
                                     Height="24"
                                     Background="Transparent"
@@ -105,9 +110,8 @@
                                     ContentTemplate="{StaticResource SelectedIconContentTemplate}"
                                     Focusable="False"
                                     IsTabStop="False" />
-                    <ContentControl VerticalAlignment="Bottom"
-                                    HorizontalAlignment="Right"
-                                    Margin="0 0 5 0"
+                    <ContentControl Margin="0 0 5 0"
+                                    VerticalAlignment="Bottom"
                                     Width="48"
                                     Height="48"
                                     Background="Transparent"
@@ -116,7 +120,6 @@
                                     Focusable="False"
                                     IsTabStop="False" />
                     <ContentControl VerticalAlignment="Bottom"
-                                    HorizontalAlignment="Right"
                                     Width="76"
                                     Height="76"
                                     Background="Transparent"
@@ -130,6 +133,7 @@
             <ListBox x:Name="PackIconFontAwesomeKindListBox"
                      Grid.Row="1"
                      Margin="0"
+                     FocusVisualStyle="{x:Null}"
                      Style="{DynamicResource VirtualisedMetroListBox}"
                      ItemsSource="{Binding Icons}"
                      SelectedValue="{Binding SelectedIcon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=False, NotifyOnValidationError=False}"
@@ -142,13 +146,35 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                        <Grid x:Name="Root" Background="Transparent"
+                        <Grid x:Name="Root"
+                              Background="Transparent"
                               Width="128" Height="128">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <ContentControl x:Name="IconContent" Content="{Binding}" Focusable="False" IsTabStop="False" />
+                            <ContentControl Grid.Row="0" x:Name="IconContent" Content="{Binding}" Focusable="False" IsTabStop="False" />
+                            <Button x:Name="Copy2ClipboardButton"
+                                    Command="{Binding CopyToClipboard}"
+                                    CommandParameter="{Binding}"
+                                    Grid.Row="0"
+                                    Focusable="False"
+                                    IsTabStop="False"
+                                    Visibility="Collapsed"
+                                    Style="{StaticResource CustomMetroCircleButtonStyle}"
+                                    Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
+                                    Padding="0"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Left"
+                                    BorderThickness="0"
+                                    Width="32"
+                                    Height="32"
+                                    Margin="2">
+                                <Button.ToolTip>
+                                    <TextBlock Text="{Binding Value, StringFormat='{}Copy {0} to Clipboard'}" />
+                                </Button.ToolTip>
+                                <iconPacks:PackIconFontAwesome Kind="Clipboard" />
+                            </Button>
                             <TextBlock Grid.Row="1"
                                        Margin="2"
                                        HorizontalAlignment="Center"
@@ -156,6 +182,9 @@
                                        TextTrimming="CharacterEllipsis" />
                         </Grid>
                         <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
+                                <Setter TargetName="Copy2ClipboardButton" Property="Visibility" Value="Visible" />
+                            </DataTrigger>
                             <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconMaterialKind}">
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>

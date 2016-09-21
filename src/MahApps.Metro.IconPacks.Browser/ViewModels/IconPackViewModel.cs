@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
@@ -103,6 +105,34 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
     public class IconViewModel : ViewModelBase, IIconViewModel
     {
+        public IconViewModel()
+        {
+            this.CopyToClipboard =
+                new SimpleCommand
+                {
+                    CanExecuteDelegate = x => (x != null),
+                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        var icon = (IIconViewModel) x;
+                        var text = $"<iconPacks:{icon.Type.Name} Kind=\"{icon.Name}\" />";
+                        Clipboard.SetDataObject(text);
+                    }))
+                };
+        }
+
+        private ICommand _copyToClipboard;
+
+        public ICommand CopyToClipboard
+        {
+            get { return _copyToClipboard; }
+            set
+            {
+                if (Equals(value, _copyToClipboard)) return;
+                _copyToClipboard = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string Name { get; set; }
 
         public string Description { get; set; }

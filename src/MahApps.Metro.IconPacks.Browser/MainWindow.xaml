@@ -41,10 +41,17 @@
     </controls:MetroWindow.IconTemplate>
 
     <Grid>
-        <TabControl Style="{StaticResource CustomTabControlStyle}"
-                    Margin="0 0 0 20"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0"
+                    Style="{StaticResource CustomTabControlStyle}"
                     ItemsSource="{Binding IconPacks, Mode=OneWay}"
                     DisplayMemberPath="Caption" />
+        <StatusBar Grid.Row="1">
+            <StatusBarItem Content="{Binding AppVersion, Mode=OneWay}" />
+        </StatusBar>
     </Grid>
 
 </controls:MetroWindow>

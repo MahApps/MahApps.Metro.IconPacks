@@ -20,6 +20,55 @@
                 <Setter Property="Padding" Value="0" />
             </Style>
 
+            <Style x:Key="CustomMetroCircleButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MetroCircleButtonStyle}">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush3}" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Padding" Value="1" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ButtonBase}">
+                            <Grid>
+                                <Ellipse Fill="{TemplateBinding Background}" StrokeThickness="0" />
+                                <Ellipse x:Name="ellipsebg"
+                                         Fill="{DynamicResource BlackBrush}"
+                                         StrokeThickness="0"
+                                         Opacity="0" />
+                                <Ellipse x:Name="ellipse"
+                                         Stroke="{TemplateBinding BorderBrush}"
+                                         StrokeThickness="{Binding RelativeSource={x:Static RelativeSource.TemplatedParent}, Path=BorderThickness.Left}" />
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="ellipse" Property="Opacity" Value="1" />
+                                    <Setter TargetName="ellipsebg" Property="Opacity" Value="0.3" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter TargetName="ellipse" Property="Opacity" Value="0.7" />
+                                    <Setter TargetName="ellipsebg" Property="Opacity" Value="0" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="ellipsebg" Property="Opacity" Value="0.5" />
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="{DynamicResource GrayBrush7}" />
+                                    <Setter TargetName="ellipse" Property="Opacity" Value="0.3" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
