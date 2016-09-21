@@ -11,7 +11,7 @@
     <SolidColorBrush x:Key="TabItemBackgroundIsMouseOverBrush" Color="{DynamicResource Gray5}" />
     <SolidColorBrush x:Key="TabItemForegroundIsSelectedBrush" Color="{DynamicResource IdealForegroundColor}" />
     <SolidColorBrush x:Key="TabItemSelectorBrush" Color="LawnGreen" />
-    <SolidColorBrush x:Key="TabControlBackgroundBrush" Color="{DynamicResource Gray10}" />
+    <SolidColorBrush x:Key="TabControlBackgroundBrush" Color="WhiteSmoke" />
 
     <DataTemplate x:Key="CustomTabItemItemTemplate"
                   x:Shared="False"
@@ -23,11 +23,29 @@
                 <RowDefinition Height="*" /> <!-- ListBox -->
             </Grid.RowDefinitions>
 
+            <Grid Grid.Row="0"
+                  RenderOptions.ClearTypeHint="Enabled"
+                  TextOptions.TextFormattingMode="Display">
+                <TextBox x:Name="FontAwesomeFilterTextBox"
+                         UseLayoutRounding="True"
+                         controls:TextBoxHelper.ClearTextButton="False"
+                         controls:TextBoxHelper.UseFloatingWatermark="True"
+                         controls:TextBoxHelper.Watermark="Filter by..."
+                         VerticalAlignment="Bottom"
+                         HorizontalAlignment="Left"
+                         Margin="10 0 10 10"
+                         Width="250"
+                         BorderThickness="0 0 0 1"
+                         Background="Transparent"
+                         Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+            </Grid>
+
             <ListBox x:Name="PackIconFontAwesomeKindListBox"
                      Grid.Row="1"
                      Margin="0"
                      Style="{DynamicResource VirtualisedMetroListBox}"
                      ItemsSource="{Binding Icons}"
+                     SelectedValue="{Binding SelectedIcon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=False, NotifyOnValidationError=False}"
                      Validation.ErrorTemplate="{x:Null}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
