@@ -69,8 +69,12 @@
             <Grid Grid.Row="0"
                   RenderOptions.ClearTypeHint="Enabled"
                   TextOptions.TextFormattingMode="Display">
+                <TextBlock Text="{Binding Caption, StringFormat='{}{0} icon collection'}"
+                           Foreground="{DynamicResource GrayBrush6}"
+                           FontWeight="Bold"
+                           FontSize="36"
+                           Margin="20 5 0 0" />
                 <TextBox x:Name="FontAwesomeFilterTextBox"
-                         UseLayoutRounding="True"
                          controls:TextBoxHelper.ClearTextButton="False"
                          controls:TextBoxHelper.UseFloatingWatermark="True"
                          controls:TextBoxHelper.Watermark="Filter by..."
@@ -79,7 +83,8 @@
                          Margin="10 0 10 10"
                          Width="250"
                          BorderThickness="0 0 0 1"
-                         Background="Transparent"
+                         UseLayoutRounding="True"
+                         Background="{StaticResource TabControlBackgroundBrush}"
                          Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
 
                 <TextBlock Margin="10 10 10 0"
