@@ -6,7 +6,7 @@ NUGET
     Fody (1.29.4)
     JetBrains.Annotations (10.1.5)
     MahApps.Metro (1.3.0-ALPHA200)
-    MahApps.Metro.IconPacks (1.0)
+    MahApps.Metro.IconPacks (1.1)
 GITHUB
   remote: ControlzEx/ControlzEx
     src/ControlzEx/PackIconBase.cs (72aa238cd565ef63e8d52c29982a587e039d04ec)
