@@ -51,53 +51,11 @@
     <NoWarn>0067,1591,0168</NoWarn>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_NET451|AnyCPU'">
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <OutputPath>..\bin\Release_NET451\</OutputPath>
-    <IntermediateOutputPath>obj\Release_NET451\</IntermediateOutputPath>
-    <DocumentationFile>..\bin\Release_NET451\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0067,1591,0168</NoWarn>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_NET452|AnyCPU'">
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <OutputPath>..\bin\Release_NET452\</OutputPath>
-    <IntermediateOutputPath>obj\Release_NET452\</IntermediateOutputPath>
-    <DocumentationFile>..\bin\Release_NET452\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0067,1591,0168</NoWarn>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_NET46|AnyCPU'">
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <OutputPath>..\bin\Release_NET46\</OutputPath>
     <IntermediateOutputPath>obj\Release_NET46\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET46\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0067,1591,0168</NoWarn>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_NET461|AnyCPU'">
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <OutputPath>..\bin\Release_NET461\</OutputPath>
-    <IntermediateOutputPath>obj\Release_NET461\</IntermediateOutputPath>
-    <DocumentationFile>..\bin\Release_NET461\$(AssemblyName).XML</DocumentationFile>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>

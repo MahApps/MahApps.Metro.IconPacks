@@ -2,12 +2,21 @@
 
 Some awesome icons all together...
 
-The IconPacks are a side project of [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) and contains controls to use the [Material](https://materialdesignicons.com/) (v1.6.50) and [Modern](http://modernuiicons.com/) icons, the [Fontawesome](http://fontawesome.io/icons/) icons (v4.6) and the [Entypo+](http://www.entypo.com/) icons in a simple way. It's not necessary to install MahApps.Metro, but it would be nice ;-D
+The IconPacks are a side project of [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) and contains controls to use
+- [Material](https://materialdesignicons.com/) (v1.7.12)
+- [Modern](http://modernuiicons.com/) icons
+- [Fontawesome](http://fontawesome.io/icons/) icons (v4.6)
+- [Entypo+](http://www.entypo.com/) icons
+
+in a simple way.
+
+It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your app nicer.
 
 ## Want to say thanks?
 
-+ This framework is free, can be used in commercial applications too, so please hit the :star: Star :star: button, cause this is the only payment (Cash donations are also being accepted ;-P ).
++ This framework is free and can be used anywhere, so please hit the :star: Star :star: button, cause this is the only payment (Cash donations are also being accepted ;-P ).
 
+![iconbrowserfinal](https://cloud.githubusercontent.com/assets/658431/18764958/ec20dd3e-8113-11e6-8793-b012eaec2302.gif)
 
 ## Usage
 
@@ -83,15 +92,15 @@ These are the resource dictionaries for the single NuGet packages (if you don't 
 ```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Entypo;component/Themes/PackIconEntypo.xaml" />
 ```
-- for `MahApps.Metro.FontAwesome`  
+- for `MahApps.Metro.IconPacks.FontAwesome`  
 ```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FontAwesome;component/Themes/PackIconFontAwesome.xaml" />
 ```
-- for `MahApps.Metro.Material`  
+- for `MahApps.Metro.IconPacks.Material`  
 ```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Material;component/Themes/PackIconMaterial.xaml" />
 ```
-- for `MahApps.Metro.Modern`  
+- for `MahApps.Metro.IconPacks.Modern`  
 ```xaml
   <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Modern;component/Themes/PackIconModern.xaml" />
 ```
@@ -163,12 +172,10 @@ Here is the resource dictionary content (for `CustomIconPacksStyles.xaml`).
 
 - `MahApps.Metro.IconPacks` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks/)
 - `MahApps.Metro.IconPacks.Entypo` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/)
-- `MahApps.Metro.FontAwesome` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
-- `MahApps.Metro.Material` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
-- `MahApps.Metro.Modern` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
+- `MahApps.Metro.IconPacks.FontAwesome` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
+- `MahApps.Metro.IconPacks.Material` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
+- `MahApps.Metro.IconPacks.Modern` [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
 
 ## Strong naming
 
 I will not do this for this packages. If you need this then you should use the [Strong Namer](https://github.com/dsplaisted/strongnamer) from @dsplaisted.
-
-![iconpacks](https://cloud.githubusercontent.com/assets/658431/16098473/6a88963a-3353-11e6-8b97-71c07700c17c.gif)
