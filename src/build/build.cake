@@ -6,7 +6,8 @@ var version = "1.1.0.0";
 var configGitLink = new GitLinkSettings {
   RepositoryUrl = "https://github.com/MahApps/MahApps.Metro.IconPacks",
   Branch        = "master",
-  Configuration = "Release"
+  Configuration = "Release",
+  SolutionFileName = "src/MahApps.Metro.IconPacks.sln"
 };
 
 // Tasks
@@ -37,7 +38,7 @@ Task("UpdateAssemblyInfo")
     Version = version,
     FileVersion = version,
     InformationalVersion = version,
-    Copyright = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year)
+    Copyright = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year)
   };
   CreateAssemblyInfo("../GlobalAssemblyInfo.cs", newAssemblyInfoSettings);
 });
@@ -48,6 +49,7 @@ Task("Build")
   MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release").UseToolVersion(MSBuildToolVersion.VS2015));
   MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET45").UseToolVersion(MSBuildToolVersion.VS2015));
   MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET46").UseToolVersion(MSBuildToolVersion.VS2015));
+  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Release").UseToolVersion(MSBuildToolVersion.VS2015));
 });
 
 Task("NuGetPack")
