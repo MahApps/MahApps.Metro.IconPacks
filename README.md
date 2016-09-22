@@ -8,6 +8,7 @@ The IconPacks are a side project of [MahApps.Metro](https://github.com/MahApps/M
 
 + This framework is free, can be used in commercial applications too, so please hit the :star: Star :star: button, cause this is the only payment (Cash donations are also being accepted ;-P ).
 
+![iconbrowserfinal](https://cloud.githubusercontent.com/assets/658431/18764958/ec20dd3e-8113-11e6-8793-b012eaec2302.gif)
 
 ## Usage
 
@@ -170,5 +171,3 @@ Here is the resource dictionary content (for `CustomIconPacksStyles.xaml`).
 ## Strong naming
 
 I will not do this for this packages. If you need this then you should use the [Strong Namer](https://github.com/dsplaisted/strongnamer) from @dsplaisted.
-
-![iconpacks](https://cloud.githubusercontent.com/assets/658431/16098473/6a88963a-3353-11e6-8b97-71c07700c17c.gif)
