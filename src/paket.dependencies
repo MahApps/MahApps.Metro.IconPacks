@@ -3,6 +3,7 @@ framework >= net40
 
 nuget JetBrains.Annotations
 nuget MahApps.Metro ~> 1.3 prerelease
+nuget Costura.Fody
 nuget MahApps.Metro.IconPacks
 
 github ControlzEx/ControlzEx:72aa238cd565ef63e8d52c29982a587e039d04ec src/ControlzEx/PackIconBase.cs
