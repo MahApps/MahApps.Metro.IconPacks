@@ -7,13 +7,14 @@ The IconPacks are a side project of [MahApps.Metro](https://github.com/MahApps/M
 - [Modern](http://modernuiicons.com/) icons
 - [Fontawesome](http://fontawesome.io/icons/) icons (v4.6)
 - [Entypo+](http://www.entypo.com/) icons
+
 in a simple way.
 
 It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your app nicer.
 
 ## Want to say thanks?
 
-+ This framework is free, can be used in commercial applications too, so please hit the :star: Star :star: button, cause this is the only payment (Cash donations are also being accepted ;-P ).
++ This framework is free and can be used anywhere, so please hit the :star: Star :star: button, cause this is the only payment (Cash donations are also being accepted ;-P ).
 
 ![iconbrowserfinal](https://cloud.githubusercontent.com/assets/658431/18764958/ec20dd3e-8113-11e6-8793-b012eaec2302.gif)
 
