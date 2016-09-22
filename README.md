@@ -2,7 +2,14 @@
 
 Some awesome icons all together...
 
-The IconPacks are a side project of [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) and contains controls to use the [Material](https://materialdesignicons.com/) (v1.6.50) and [Modern](http://modernuiicons.com/) icons, the [Fontawesome](http://fontawesome.io/icons/) icons (v4.6) and the [Entypo+](http://www.entypo.com/) icons in a simple way. It's not necessary to install MahApps.Metro, but it would be nice ;-D
+The IconPacks are a side project of [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) and contains controls to use
+- [Material](https://materialdesignicons.com/) (v1.7.12)
+- [Modern](http://modernuiicons.com/) icons
+- [Fontawesome](http://fontawesome.io/icons/) icons (v4.6)
+- [Entypo+](http://www.entypo.com/) icons
+in a simple way.
+
+It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your app nicer.
 
 ## Want to say thanks?
 
