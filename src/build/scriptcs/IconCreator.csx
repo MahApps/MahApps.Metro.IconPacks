@@ -130,6 +130,7 @@ public class IconConverter
             }
         }
         iconDataList = iconDataList.OrderBy(d => d.Name, StringComparer.InvariantCultureIgnoreCase).ToList();
+        iconDataList.Insert(0, new PackIconData() { Name = "None", Description = "Empty placeholder", Data = "" });
         Console.WriteLine("Got " + iconDataList.Count + " Items");
 
         Console.WriteLine("Updating PackIconFontAwesomeKind...");
@@ -178,6 +179,7 @@ public class IconConverter
 	        iconDataList.Add(new PackIconData() { Name = name, Description = id, Data = data });
     	}
         iconDataList = iconDataList.OrderBy(d => d.Name, StringComparer.InvariantCultureIgnoreCase).ToList();
+        iconDataList.Insert(0, new PackIconData() { Name = "None", Description = "Empty placeholder", Data = "" });
         Console.WriteLine("Got " + iconDataList.Count + " Items");
 
         Console.WriteLine("Updating PackIconEntypoKind...");
@@ -212,14 +214,17 @@ public class IconConverter
     private IEnumerable<PackIconData> GetPackIconData(string sourceData)
     {
         var jObject = JObject.Parse(sourceData);
-        return jObject["icons"].Select(t => {
+        var icons = jObject["icons"].Select(t => {
                 var aliases = string.Join(", ", t["aliases"].Values<string>().Select(a => GetName(a)));
                 if (!string.IsNullOrEmpty(aliases))
                 {
                     aliases = string.Format(" ({0})", aliases);
                 }
                 return new PackIconData() { Name = GetName(t["name"].ToString()), Description = t["name"].ToString() + aliases, Data = t["data"].ToString().Trim() };
-            });
+            })
+        	.ToList();
+        icons.Insert(0, new PackIconData() { Name = "None", Description = "Empty placeholder", Data = "" });
+        return icons;
     }
 
     private IEnumerable<Tuple<string, string>> GetNameDataOldModernPairs(string sourceData)
@@ -282,7 +287,7 @@ public class IconConverter
     {
         // line 17
         var allLines = File.ReadAllLines(sourceFile).ToList();
-        allLines.InsertRange(17, iconDataList.Where(d => !string.IsNullOrEmpty(d.Name) && !string.IsNullOrEmpty(d.Data))
+        allLines.InsertRange(17, iconDataList.Where(d => Equals(d.Name, "None") || (!string.IsNullOrEmpty(d.Name) && !string.IsNullOrEmpty(d.Data)))
                                              .Select(d => string.Format("        [Description(\"{0}\")] {1},", d.Description, d.Name)).ToArray());
         return string.Join(Environment.NewLine, allLines);
     }
@@ -291,7 +296,7 @@ public class IconConverter
     {
         // line 14
         var allLines = File.ReadAllLines(sourceFile).ToList();
-        allLines.InsertRange(14, iconDataList.Where(d => !string.IsNullOrEmpty(d.Name) && !string.IsNullOrEmpty(d.Data))
+        allLines.InsertRange(14, iconDataList.Where(d => Equals(d.Name, "None") || (!string.IsNullOrEmpty(d.Name) && !string.IsNullOrEmpty(d.Data)))
                                              .Select(d => string.Format("                       {{{0}.{1}, \"{2}\"}},", enumKind, d.Name, d.Data)).ToArray());
         return string.Join(Environment.NewLine, allLines);
     }

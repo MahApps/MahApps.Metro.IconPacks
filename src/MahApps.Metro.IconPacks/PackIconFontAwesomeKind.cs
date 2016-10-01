@@ -15,6 +15,7 @@
     /// </remarks>
     public enum PackIconFontAwesomeKind
     {
+        [Description("Empty placeholder")] None,
         [Description("500px")] _500px,
         [Description("adjust")] Adjust,
         [Description("App.net")] Adn,
