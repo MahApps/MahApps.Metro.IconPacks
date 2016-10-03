@@ -16,10 +16,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private string _filterText;
         private IIconViewModel _selectedIcon;
 
-        public IconPackViewModel(string caption, Type iconPackType)
+        public IconPackViewModel(string caption, Type enumType, Type packType)
         {
             this.Caption = caption;
-            this.Icons = GetIcons(iconPackType);
+            this.Icons = GetIcons(enumType, packType);
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -43,18 +43,25 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             return attribute != null ? attribute.Description : value.ToString();
         }
 
-        private static IEnumerable<IIconViewModel> GetIcons(Type enumType)
+        private static IEnumerable<IIconViewModel> GetIcons(Type enumType, Type packType)
         {
             return new ObservableCollection<IIconViewModel>(
                 Enum.GetValues(enumType)
                     .OfType<Enum>()
-                    .Select(k => GetIconViewModel(enumType, k))
+                    .Select(k => GetIconViewModel(enumType, packType, k))
                     .OrderBy(m => m.Name, StringComparer.InvariantCultureIgnoreCase));
         }
 
-        private static IIconViewModel GetIconViewModel(Type enumType, Enum k)
+        private static IIconViewModel GetIconViewModel(Type enumType, Type packType, Enum k)
         {
-            return new IconViewModel() {Name = k.ToString(), Description = GetDescription(k), Type = enumType, Value = k};
+            return new IconViewModel()
+            {
+                Name = k.ToString(),
+                Description = GetDescription(k),
+                IconPackType = packType,
+                IconType = enumType,
+                Value = k
+            };
         }
 
         public string Caption { get; private set; }
@@ -99,7 +106,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
     {
         string Name { get; set; }
         string Description { get; set; }
-        Type Type { get; set; }
+        Type IconPackType { get; set; }
+        Type IconType { get; set; }
         object Value { get; set; }
     }
 
@@ -114,7 +122,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
                         var icon = (IIconViewModel) x;
-                        var text = $"<iconPacks:{icon.Type.Name} Kind=\"{icon.Name}\" />";
+                        var text = $"<iconPacks:{icon.IconPackType.Name} Kind=\"{icon.Name}\" />";
                         Clipboard.SetDataObject(text);
                     }))
                 };
@@ -137,7 +145,9 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         public string Description { get; set; }
 
-        public Type Type { get; set; }
+        public Type IconPackType { get; set; }
+
+        public Type IconType { get; set; }
 
         public object Value { get; set; }
     }
