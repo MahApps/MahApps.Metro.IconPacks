@@ -16,12 +16,14 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type iconPacks:PackIconModern}">
-                    <Grid>
-                        <Border Background="{TemplateBinding Background}"
+                    <Grid x:Name="PART_OuterGrid">
+                        <Border x:Name="PART_Border"
+                                Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        <Grid Margin="{TemplateBinding BorderThickness}">
+                        <Grid x:Name="PART_InnerGrid"
+                              Margin="{TemplateBinding BorderThickness}">
                             <Viewbox Margin="{TemplateBinding Padding}">
                                 <Path Fill="{TemplateBinding Foreground}"
                                       Stretch="Uniform"

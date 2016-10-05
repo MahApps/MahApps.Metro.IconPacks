@@ -114,8 +114,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter\FlipToScaleValueConverter.cs" />
     <Compile Include="Converter\MarkupConverter.cs" />
     <Compile Include="Converter\NullToUnsetValueConverter.cs" />
+    <Compile Include="PackIcon.cs" />
     <Compile Include="PackIconEntypo.cs" />
     <Compile Include="PackIconEntypoDataFactory.cs" />
     <Compile Include="PackIconEntypoKind.cs" />

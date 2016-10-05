@@ -1,12 +1,11 @@
 ﻿using System.Windows;
-using ControlzEx;
 
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
     /// Icons from the Material Design Icons project, <see><cref>https://materialdesignicons.com/</cref></see>.
     /// </summary>
-    public class PackIconMaterial : PackIconBase<PackIconMaterialKind>
+    public class PackIconMaterial : PackIcon<PackIconMaterialKind>
     {        
         static PackIconMaterial()
         {
