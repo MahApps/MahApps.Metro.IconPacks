@@ -278,7 +278,7 @@ namespace MahApps.Metro.IconPacks
         }
 
         /// <summary>
-        /// /// Gets or sets the AutoReverse of the spinning animation. This will also restart the spin animation.
+        /// Gets or sets the AutoReverse of the spinning animation. This will also restart the spin animation.
         /// </summary>
         /// <value><c>true</c> if [spin automatic reverse]; otherwise, <c>false</c>.</value>
         public bool SpinAutoReverse
