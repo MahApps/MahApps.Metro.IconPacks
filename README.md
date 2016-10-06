@@ -4,7 +4,7 @@ Some awesome icons all together...
 
 The IconPacks library contains controls to use awesome icons from
 
-- [Material](https://materialdesignicons.com/) (v1.7.12)
+- [Material](https://materialdesignicons.com/) (v1.7.22)
 - [Modern](http://modernuiicons.com/)
 - [Font Awesome](http://fontawesome.io/icons/) (v4.6)
 - [Entypo+](http://www.entypo.com/)
