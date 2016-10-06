@@ -1,12 +1,11 @@
 ﻿using System.Windows;
-using ControlzEx;
 
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
     /// Icons from the Modern UI Icons project, <see><cref>http://modernuiicons.com</cref></see>.
     /// </summary>
-    public class PackIconModern : PackIconBase<PackIconModernKind>
+    public class PackIconModern : PackIcon<PackIconModernKind>
     {        
         static PackIconModern()
         {

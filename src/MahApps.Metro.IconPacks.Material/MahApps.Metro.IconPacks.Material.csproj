@@ -69,11 +69,17 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\Converter\FlipToScaleValueConverter.cs">
+      <Link>Converter\FlipToScaleValueConverter.cs</Link>
+    </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\Converter\MarkupConverter.cs">
       <Link>Converter\MarkupConverter.cs</Link>
     </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\Converter\NullToUnsetValueConverter.cs">
       <Link>Converter\NullToUnsetValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIcon.cs">
+      <Link>PackIcon.cs</Link>
     </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterial.cs">
       <Link>PackIconMaterial.cs</Link>

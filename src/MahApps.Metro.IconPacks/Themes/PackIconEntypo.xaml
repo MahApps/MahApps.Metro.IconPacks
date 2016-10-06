@@ -21,7 +21,17 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        <Grid Margin="{TemplateBinding BorderThickness}">
+                        <Grid x:Name="PART_InnerGrid"
+                              RenderTransformOrigin="0.5 0.5"
+                              Margin="{TemplateBinding BorderThickness}">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleXValueConverter}}"
+                                                    ScaleY="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleYValueConverter}}" />
+                                    <RotateTransform Angle="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Rotation, Mode=OneWay}" />
+                                    <RotateTransform />
+                                </TransformGroup>
+                            </Grid.RenderTransform>
                             <Viewbox Margin="{TemplateBinding Padding}">
                                 <Path Fill="{TemplateBinding Foreground}"
                                       Stretch="Uniform"
