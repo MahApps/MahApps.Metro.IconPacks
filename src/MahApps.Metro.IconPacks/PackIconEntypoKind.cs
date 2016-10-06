@@ -15,6 +15,7 @@
     /// </remarks>
     public enum PackIconEntypoKind
     {
+        [Description("Empty placeholder")] None,
         [Description("500px (Social Extension)")] _500px,
         [Description("500px-with-circle (Social Extension)")] _500pxWithCircle,
         [Description("address")] Address,

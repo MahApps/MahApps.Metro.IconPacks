@@ -15,6 +15,7 @@
     /// </remarks>
     public enum PackIconModernKind
     {
+        [Description("Empty placeholder")] None,
         [Description("3d-3ds")] _3d3ds,
         [Description("3d-collada")] _3dCollada,
         [Description("3d-obj")] _3dObj,

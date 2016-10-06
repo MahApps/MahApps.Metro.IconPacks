@@ -25,10 +25,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public ObservableCollection<IconPackViewModel> IconPacks { get; set; } = new ObservableCollection<IconPackViewModel>(
             new[]
             {
-                new IconPackViewModel("Material", typeof(PackIconMaterialKind)),
-                new IconPackViewModel("Modern", typeof(PackIconModernKind)),
-                new IconPackViewModel("FontAwesome", typeof(PackIconFontAwesomeKind)),
-                new IconPackViewModel("Entypo+", typeof(PackIconEntypoKind))
+                new IconPackViewModel("Material", typeof(PackIconMaterialKind), typeof(PackIconMaterial)),
+                new IconPackViewModel("FontAwesome", typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome)),
+                new IconPackViewModel("Modern", typeof(PackIconModernKind), typeof(PackIconModern)),
+                new IconPackViewModel("Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo))
             });
 
         public string AppVersion

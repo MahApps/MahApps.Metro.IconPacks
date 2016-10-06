@@ -17,7 +17,7 @@
     <DataTemplate x:Key="SelectedIconContentTemplate" DataType="{x:Type viewModels:IIconViewModel}">
         <ContentControl x:Name="IconContent" Content="{Binding}" Focusable="False" IsTabStop="False" />
         <DataTemplate.Triggers>
-            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconMaterialKind}">
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMaterialKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
@@ -26,7 +26,7 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
-            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconModernKind}">
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconModernKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
@@ -35,7 +35,7 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
-            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
@@ -44,7 +44,7 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
-            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconEntypoKind}">
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconEntypoKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
@@ -190,7 +190,7 @@
                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
                                 <Setter TargetName="Copy2ClipboardButton" Property="Visibility" Value="Visible" />
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconMaterialKind}">
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMaterialKind}">
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
@@ -199,7 +199,7 @@
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconModernKind}">
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconModernKind}">
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
@@ -208,7 +208,7 @@
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
@@ -217,7 +217,7 @@
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
-                            <DataTrigger Binding="{Binding Type}" Value="{x:Type iconPacks:PackIconEntypoKind}">
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconEntypoKind}">
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
