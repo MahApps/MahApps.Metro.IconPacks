@@ -27,6 +27,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             {
                 new IconPackViewModel("Material", typeof(PackIconMaterialKind), typeof(PackIconMaterial)),
                 new IconPackViewModel("FontAwesome", typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome)),
+                new IconPackViewModel("Octicons", typeof(PackIconOcticonsKind), typeof(PackIconOcticons)),
                 new IconPackViewModel("Modern", typeof(PackIconModernKind), typeof(PackIconModern)),
                 new IconPackViewModel("Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo))
             });

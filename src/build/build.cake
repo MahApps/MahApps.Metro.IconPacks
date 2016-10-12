@@ -2,7 +2,7 @@
 
 // Arguments
 var target = Argument("target", "Default");
-var version = "1.2.0.0";
+var version = "1.3.0.0";
 var configGitLink = new GitLinkSettings {
   RepositoryUrl = "https://github.com/MahApps/MahApps.Metro.IconPacks",
   Branch        = "master",
@@ -52,6 +52,30 @@ Task("Build")
   MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Release").UseToolVersion(MSBuildToolVersion.VS2015));
 });
 
+Task("BuildAll")
+  .Does(() =>
+{
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Debug").UseToolVersion(MSBuildToolVersion.VS2015));
+  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Debug").UseToolVersion(MSBuildToolVersion.VS2015));
+
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release").UseToolVersion(MSBuildToolVersion.VS2015));
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET45").UseToolVersion(MSBuildToolVersion.VS2015));
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET46").UseToolVersion(MSBuildToolVersion.VS2015));
+  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Release").UseToolVersion(MSBuildToolVersion.VS2015));
+});
+
+Task("ZipDebug")
+  .Does(() =>
+{
+  Zip("../bin/MahApps.Metro.IconPacks.Browser/Debug/", "IconPacks.Browser.Debug.zip");
+});
+
+Task("ZipRelease")
+  .Does(() =>
+{
+  Zip("../bin/MahApps.Metro.IconPacks.Browser/Release/", "IconPacks.Browser.Release.zip");
+});
+
 Task("NuGetPack")
   .Does(() =>
 {
@@ -61,7 +85,7 @@ Task("NuGetPack")
     Id                      = iconPacksNuGet,
     Version                 = version,
     Title                   = iconPacksNuGet,
-    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
                                        new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
                                        new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
@@ -84,7 +108,7 @@ Task("NuGetPack")
     Id                      = iconPacksNuGet,
     Version                 = version,
     Title                   = iconPacksNuGet,
-    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
                                        new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
                                        new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
@@ -107,7 +131,7 @@ Task("NuGetPack")
     Id                      = iconPacksNuGet,
     Version                 = version,
     Title                   = iconPacksNuGet,
-    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
                                        new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
                                        new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
@@ -130,7 +154,7 @@ Task("NuGetPack")
     Id                      = iconPacksNuGet,
     Version                 = version,
     Title                   = iconPacksNuGet,
-    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
                                        new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
                                        new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
@@ -153,7 +177,30 @@ Task("NuGetPack")
     Id                      = iconPacksNuGet,
     Version                 = version,
     Title                   = iconPacksNuGet,
-    Copyright               = string.Format("Copyright © MahApps.Metro 2011 - {0}", DateTime.Now.Year),
+    Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
+    Files                   = new [] {
+                                       new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net40/{0}.XML", iconPacksNuGet)},
+                                       
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net45/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net45/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET45/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net45/{0}.XML", iconPacksNuGet)},
+
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net46/{0}.dll", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net46/{0}.pdb", iconPacksNuGet)},
+                                       new NuSpecContent {Source = string.Format("Release_NET46/{0}.XML", iconPacksNuGet), Target = string.Format("lib/net46/{0}.XML", iconPacksNuGet)}
+                                    }
+  };
+  NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
+
+  iconPacksNuGet = "MahApps.Metro.IconPacks.Octicons";
+  nuGetPackSettings   = new NuGetPackSettings {
+    BasePath                = "../bin/",
+    Id                      = iconPacksNuGet,
+    Version                 = version,
+    Title                   = iconPacksNuGet,
+    Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
                                        new NuSpecContent {Source = string.Format("Release/{0}.dll", iconPacksNuGet), Target = string.Format("lib/net40/{0}.dll", iconPacksNuGet)},
                                        new NuSpecContent {Source = string.Format("Release/{0}.pdb", iconPacksNuGet), Target = string.Format("lib/net40/{0}.pdb", iconPacksNuGet)},
@@ -171,12 +218,28 @@ Task("NuGetPack")
   NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
 });
 
+Task("CleanOutput")
+  .ContinueOnError()
+  .Does(() =>
+{
+  CleanDirectories("../bin");
+  DeleteFiles("./IconPacks.Browser*.zip");
+  DeleteFiles("./MahApps.Metro.IconPacks*.nupkg");
+});
+
 // Task Targets
-Task("Default").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink").IsDependentOn("NuGetPack");
-
-Task("dev").IsDependentOn("UpdateAssemblyInfo").IsDependentOn("Build").IsDependentOn("GitLink_dev").IsDependentOn("GitLink");
-
-Task("pack").IsDependentOn("NuGetPack");
+Task("Default").IsDependentOn("CleanOutput")
+               .IsDependentOn("UpdateAssemblyInfo")
+               .IsDependentOn("Build")
+               .IsDependentOn("GitLink")
+               .IsDependentOn("ZipRelease")
+               .IsDependentOn("NuGetPack");
+Task("dev").IsDependentOn("CleanOutput")
+           .IsDependentOn("UpdateAssemblyInfo")
+           .IsDependentOn("BuildAll")
+           .IsDependentOn("GitLink_dev").IsDependentOn("GitLink")
+           .IsDependentOn("ZipDebug").IsDependentOn("ZipRelease")
+           .IsDependentOn("NuGetPack");
 
 // Execution
 RunTarget(target);

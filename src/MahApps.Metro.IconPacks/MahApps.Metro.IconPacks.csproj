@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -112,6 +113,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\PackIconOcticons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converter\FlipToScaleValueConverter.cs" />
@@ -130,6 +135,9 @@
     <Compile Include="PackIconModern.cs" />
     <Compile Include="PackIconModernDataFactory.cs" />
     <Compile Include="PackIconModernKind.cs" />
+    <Compile Include="PackIconOcticons.cs" />
+    <Compile Include="PackIconOcticonsDataFactory.cs" />
+    <Compile Include="PackIconOcticonsKind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
