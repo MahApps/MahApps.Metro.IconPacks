@@ -45,13 +45,14 @@ public class IconConverter
         GetModernUIIconsAndGeneratePackIconData();
         GetFontAwesomeIconsAndGeneratePackIconData();
         GetEntypoIconsAndGeneratePackIconData();
+        GetOcticonsIconsAndGeneratePackIconData();
     }
 
     private void GetMaterialDesignIconsAndGeneratePackIconData()
     {
         Console.WriteLine("Downloading Material Design icon data...");
         var nameDataMaterialPairs = GetPackIconData(GetSourceData("https://materialdesignicons.com/api/package/38EF63D0-4744-11E4-B3CF-842B2B6CFE1B")).ToList();
-        Console.WriteLine("Got "  + nameDataMaterialPairs.Count + " Items");
+        Console.WriteLine("Finally "  + nameDataMaterialPairs.Count + " Items");
 
         Console.WriteLine("Updating PackIconMaterialKind...");
         var newEnumSource = UpdatePackIconKind("PackIconMaterialKind.template.cs", nameDataMaterialPairs);
@@ -69,7 +70,7 @@ public class IconConverter
         Console.WriteLine("Downloading Modern UI icon data...");
         var nameDataModernPairs = GetPackIconData(GetSourceData("https://materialdesignicons.com/api/package/DFFB9B7E-C30A-11E5-A4E9-842B2B6CFE1B")).ToList();
         var nameDataOldModernPairs = GetNameDataOldModernPairs(GetSourceData("http://modernuiicons.com/icons/package")).ToList();
-        Console.WriteLine("Got " + nameDataModernPairs.Count + " Items");
+        Console.WriteLine("Finally " + nameDataModernPairs.Count + " Items");
 
         Console.WriteLine("Updating PackIconModernKind...");
         var newEnumSource = UpdatePackIconKind("PackIconModernKind.template.cs", nameDataModernPairs);
@@ -131,7 +132,7 @@ public class IconConverter
         }
         iconDataList = iconDataList.OrderBy(d => d.Name, StringComparer.InvariantCultureIgnoreCase).ToList();
         iconDataList.Insert(0, new PackIconData() { Name = "None", Description = "Empty placeholder", Data = "" });
-        Console.WriteLine("Got " + iconDataList.Count + " Items");
+        Console.WriteLine("Finally " + iconDataList.Count + " Items");
 
         Console.WriteLine("Updating PackIconFontAwesomeKind...");
         var newEnumSource = UpdatePackIconKind("PackIconFontAwesomeKind.template.cs", iconDataList);
@@ -141,6 +142,68 @@ public class IconConverter
         Write(newDataFactorySource, "PackIconFontAwesomeDataFactory.cs");
 
         Console.WriteLine("FontAwesome done!");
+        Console.WriteLine();
+    }
+
+    private void GetOcticonsIconsAndGeneratePackIconData()
+    {
+        Console.WriteLine("Downloading Octicons icon data...");
+
+        var iconSourceFolder = ".\\node_modules\\octicons\\build\\svg";
+        var allSVGFiles = new List<string>();
+        ProcessDirectory(iconSourceFolder, allSVGFiles);
+        Console.WriteLine("Found " + allSVGFiles.Count + " icons");
+
+        var jObject = JObject.Parse(File.ReadAllText(".\\node_modules\\octicons\\lib\\keywords.json"));
+        var octiKeysAndAliases = jObject.Children()
+                                        .OfType<JProperty>()
+                                        .Select(p => {
+                                            var aliases = string.Join(", ", p.Value["keywords"].Values<string>().Select(a => GetName(a)));
+                                            if (!string.IsNullOrEmpty(aliases))
+                                            {
+                                                aliases = string.Format(" ({0})", aliases);
+                                            }
+                                            //Console.WriteLine(p.Name + " => " + GetName(p.Name) + aliases);
+                                            return new Tuple<string, string>(p.Name, GetName(p.Name) + aliases);
+                                        })
+                                        .ToDictionary(t => t.Item1, t => t.Item2);
+        Console.WriteLine("Found " + allSVGFiles.Count + " icon keys (with aliases)");
+
+        var iconDataList = new List<PackIconData>();
+        foreach (var fileName in allSVGFiles)
+        {
+            var svgData = File.ReadAllText(fileName);
+            var xmlDoc = XDocument.Parse(svgData);
+            var id = Path.GetFileNameWithoutExtension(fileName);
+            var alias = octiKeysAndAliases[id];
+            var name = GetName(id);
+
+            var paths = xmlDoc.Root.Descendants("{http://www.w3.org/2000/svg}path");
+            if (paths.Count() > 1)
+            {
+                Console.WriteLine("Too many path data in " + name + " -> " + id);
+                continue;
+            }
+            var data = (string)paths.First().Attribute("d");
+            if (data == null)
+            {
+                Console.WriteLine("No path for " + name + " -> " + id);
+            }
+
+            iconDataList.Add(new PackIconData() { Name = name, Description = alias, Data = data });
+        }
+        iconDataList = iconDataList.OrderBy(d => d.Name, StringComparer.InvariantCultureIgnoreCase).ToList();
+        iconDataList.Insert(0, new PackIconData() { Name = "None", Description = "Empty placeholder", Data = "" });
+        Console.WriteLine("Finally " + iconDataList.Count + " Items");
+
+        Console.WriteLine("Updating PackIconOcticonsKind...");
+        var newEnumSource = UpdatePackIconKind("PackIconOcticonsKind.template.cs", iconDataList);
+        Write(newEnumSource, "PackIconOcticonsKind.cs");
+        Console.WriteLine("Updating PackIconOcticonsDataFactory...");
+        var newDataFactorySource = UpdatePackIconDataFactory("PackIconOcticonsDataFactory.template.cs", "PackIconOcticonsKind", iconDataList);
+        Write(newDataFactorySource, "PackIconOcticonsDataFactory.cs");
+
+        Console.WriteLine("Octicons done!");
         Console.WriteLine();
     }
 
@@ -180,7 +243,7 @@ public class IconConverter
     	}
         iconDataList = iconDataList.OrderBy(d => d.Name, StringComparer.InvariantCultureIgnoreCase).ToList();
         iconDataList.Insert(0, new PackIconData() { Name = "None", Description = "Empty placeholder", Data = "" });
-        Console.WriteLine("Got " + iconDataList.Count + " Items");
+        Console.WriteLine("Finally " + iconDataList.Count + " Items");
 
         Console.WriteLine("Updating PackIconEntypoKind...");
         var newEnumSource = UpdatePackIconKind("PackIconEntypoKind.template.cs", iconDataList);

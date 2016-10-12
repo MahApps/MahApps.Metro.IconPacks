@@ -5,8 +5,9 @@ Some awesome icons all together...
 The IconPacks library contains controls to use awesome icons from
 
 - [Material](https://materialdesignicons.com/) (v1.7.22)
-- [Modern](http://modernuiicons.com/)
 - [Font Awesome](http://fontawesome.io/icons/) (v4.6)
+- [GitHub Octicons](https://octicons.github.com/) (v4.3.0)
+- [Modern](http://modernuiicons.com/)
 - [Entypo+](http://www.entypo.com/)
 
 in a simple way.
@@ -21,7 +22,7 @@ It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps
 
 ## Install
 
-To install the IconPacks, you can run the following commands in the NuGet Package Manager Console (or in the NuGet Package Manager extension in VS)
+To install the IconPacks, run the following commands in the NuGet Package Manager Console or install it with the NuGet Package Manager extension.
 
 - `MahApps.Metro.IconPacks` includes all Icons in one package [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks/)
 ```bash
@@ -34,6 +35,10 @@ To install the IconPacks, you can run the following commands in the NuGet Packag
 - `MahApps.Metro.IconPacks.FontAwesome` separate [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks.FontAwesome
+```
+- `MahApps.Metro.IconPacks.Octicons` separate [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/)
+```bash
+  PM> Install-Package MahApps.Metro.IconPacks.Octicons
 ```
 - `MahApps.Metro.IconPacks.Modern` separate [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
 ```bash
@@ -51,28 +56,30 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
 ```xaml
 <iconPacks:PackIconMaterial Kind="EmoticonCool" />
 ```
-![2016-07-26_02h28_22](https://cloud.githubusercontent.com/assets/658431/17122168/71270be8-52d9-11e6-89a2-d670bd72aabb.png)
-
-```xaml
-<iconPacks:PackIconModern Kind="ThumbsUp" />
-```
-![2016-07-26_02h28_37](https://cloud.githubusercontent.com/assets/658431/17122171/729eb156-52d9-11e6-8baf-12345ddb9262.png)
 
 ```xaml
 <iconPacks:PackIconFontAwesome Kind="FontAwesome" />
 ```
-![2016-07-26_02h29_35](https://cloud.githubusercontent.com/assets/658431/17122172/73fe79f0-52d9-11e6-821e-204d1ee99fc3.png)
+
+```xaml
+<iconPacks:PackIconOcticons Kind="MarkGithub" />
+```
+
+```xaml
+<iconPacks:PackIconModern Kind="ThumbsUp" />
+```
 
 ```xaml
 <iconPacks:PackIconEntypo Kind="EmojiHappy" />
 ```
-![2016-07-26_02h30_11](https://cloud.githubusercontent.com/assets/658431/17122173/7573d3ca-52d9-11e6-9a2e-8ecadad254e4.png)
 
 The Xaml namespace for all icon packs is:
 
 ```xaml
 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
 ```
+
+![iconpacks001](https://cloud.githubusercontent.com/assets/658431/19322565/d6ec652c-90b9-11e6-8a06-00e326ca390a.gif)
 
 ## Sample
 
@@ -137,10 +144,11 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
 
     <ResourceDictionary.MergedDictionaries>
         <!-- reference all necessary original resource dictionaries -->
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterial.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconOcticons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!-- now make some global changes for the icon pack controls without using new keys -->
@@ -149,13 +157,21 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
         <Setter Property="Width" Value="32" />
         <Setter Property="Height" Value="32" />
     </Style>
-    <Style TargetType="{x:Type iconPacks:PackIconModern}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconModern}">
-        <Setter Property="HorizontalAlignment" Value="Center" />
-    </Style>
+
     <Style TargetType="{x:Type iconPacks:PackIconFontAwesome}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}">
         <Setter Property="Width" Value="24" />
         <Setter Property="Height" Value="24" />
     </Style>
+
+    <Style TargetType="{x:Type iconPacks:PackIconOcticons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}">
+        <Setter Property="Width" Value="48" />
+        <Setter Property="Height" Value="48" />
+    </Style>
+
+    <Style TargetType="{x:Type iconPacks:PackIconModern}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconModern}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
     <Style TargetType="{x:Type iconPacks:PackIconEntypo}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -171,4 +187,4 @@ If you use the IconPack with all included icons you can also use this resource d
 
 ## Strong naming
 
-I will not do this for this packages. If you need this then you should use the [Strong Namer](https://github.com/dsplaisted/strongnamer) from @dsplaisted.
+If you need strong named dlls then you should use the [Strong Namer](https://github.com/dsplaisted/strongnamer) from @dsplaisted.

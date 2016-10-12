@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj", "{E55968FD-91B1-4ACE-B711-30724797A662}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Octicons", "MahApps.Metro.IconPacks.Octicons\MahApps.Metro.IconPacks.Octicons.csproj", "{236D572B-BE98-4A0E-B5BF-DDA200AC4D7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{E55968FD-91B1-4ACE-B711-30724797A662}.Release_NET46|Any CPU.Build.0 = Release_NET46|Any CPU
 		{E55968FD-91B1-4ACE-B711-30724797A662}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E55968FD-91B1-4ACE-B711-30724797A662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{236D572B-BE98-4A0E-B5BF-DDA200AC4D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{236D572B-BE98-4A0E-B5BF-DDA200AC4D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{236D572B-BE98-4A0E-B5BF-DDA200AC4D7F}.Release_NET45|Any CPU.ActiveCfg = Release_NET45|Any CPU
+		{236D572B-BE98-4A0E-B5BF-DDA200AC4D7F}.Release_NET45|Any CPU.Build.0 = Release_NET45|Any CPU
+		{236D572B-BE98-4A0E-B5BF-DDA200AC4D7F}.Release_NET46|Any CPU.ActiveCfg = Release_NET46|Any CPU
+		{236D572B-BE98-4A0E-B5BF-DDA200AC4D7F}.Release_NET46|Any CPU.Build.0 = Release_NET46|Any CPU
+		{236D572B-BE98-4A0E-B5BF-DDA200AC4D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{236D572B-BE98-4A0E-B5BF-DDA200AC4D7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
