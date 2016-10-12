@@ -79,6 +79,8 @@ The Xaml namespace for all icon packs is:
 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
 ```
 
+![iconpacks001](https://cloud.githubusercontent.com/assets/658431/19322565/d6ec652c-90b9-11e6-8a06-00e326ca390a.gif)
+
 ## Sample
 
 ```xaml
