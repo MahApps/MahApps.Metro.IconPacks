@@ -127,11 +127,13 @@ namespace MahApps.Metro.IconPacks
         }
 
         private static readonly string SpinnerStoryBoardName = $"{typeof(PackIcon<TKind>).Name}SpinnerStoryBoard";
-        private FrameworkElement innerGrid;
+
+        private FrameworkElement _innerGrid;
+        private FrameworkElement InnerGrid => this._innerGrid ?? (this._innerGrid = this.GetTemplateChild("PART_InnerGrid") as FrameworkElement);
 
         private void BeginSpinAnimation()
         {
-            var element = this.innerGrid ?? this.GetTemplateChild("PART_InnerGrid") as FrameworkElement;
+            var element = this.InnerGrid;
             if (null == element)
             {
                 return;
@@ -171,7 +173,7 @@ namespace MahApps.Metro.IconPacks
 
         private void StopSpinAnimation()
         {
-            var element = this.innerGrid ?? this.GetTemplateChild("PART_InnerGrid") as FrameworkElement;
+            var element = this.InnerGrid;
             if (null == element)
             {
                 return;
