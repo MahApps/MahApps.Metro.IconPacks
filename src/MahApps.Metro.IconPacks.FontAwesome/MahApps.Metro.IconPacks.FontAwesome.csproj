@@ -82,11 +82,17 @@
     <Compile Include="..\MahApps.Metro.IconPacks\PackIcon.cs">
       <Link>PackIcon.cs</Link>
     </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconExtension.cs">
+      <Link>PackIconExtension.cs</Link>
+    </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesome.cs">
       <Link>PackIconFontAwesome.cs</Link>
     </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesomeDataFactory.cs">
       <Link>PackIconFontAwesomeDataFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesomeExtension.cs">
+      <Link>PackIconFontAwesomeExtension.cs</Link>
     </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesomeKind.cs">
       <Link>PackIconFontAwesomeKind.cs</Link>

@@ -125,18 +125,24 @@
     <Compile Include="PackIcon.cs" />
     <Compile Include="PackIconEntypo.cs" />
     <Compile Include="PackIconEntypoDataFactory.cs" />
+    <Compile Include="PackIconEntypoExtension.cs" />
     <Compile Include="PackIconEntypoKind.cs" />
+    <Compile Include="PackIconExtension.cs" />
     <Compile Include="PackIconFontAwesome.cs" />
     <Compile Include="PackIconFontAwesomeDataFactory.cs" />
+    <Compile Include="PackIconFontAwesomeExtension.cs" />
     <Compile Include="PackIconFontAwesomeKind.cs" />
     <Compile Include="PackIconMaterial.cs" />
     <Compile Include="PackIconMaterialDataFactory.cs" />
+    <Compile Include="PackIconMaterialExtension.cs" />
     <Compile Include="PackIconMaterialKind.cs" />
     <Compile Include="PackIconModern.cs" />
     <Compile Include="PackIconModernDataFactory.cs" />
+    <Compile Include="PackIconModernExtension.cs" />
     <Compile Include="PackIconModernKind.cs" />
     <Compile Include="PackIconOcticons.cs" />
     <Compile Include="PackIconOcticonsDataFactory.cs" />
+    <Compile Include="PackIconOcticonsExtension.cs" />
     <Compile Include="PackIconOcticonsKind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
