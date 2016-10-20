@@ -21,7 +21,7 @@
     <OutputPath>..\bin\Debug\</OutputPath>
     <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Debug\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;FONTAWESOME</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>1591</NoWarn>
@@ -33,7 +33,7 @@
     <OutputPath>..\bin\Release\</OutputPath>
     <IntermediateOutputPath>obj\Release\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;FONTAWESOME</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0067,1591,0168</NoWarn>
@@ -43,7 +43,7 @@
     <OutputPath>..\bin\Release_NET45\</OutputPath>
     <IntermediateOutputPath>obj\Release_NET45\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET45\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;FONTAWESOME</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,7 +57,7 @@
     <OutputPath>..\bin\Release_NET46\</OutputPath>
     <IntermediateOutputPath>obj\Release_NET46\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET46\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;FONTAWESOME</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
