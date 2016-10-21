@@ -28,23 +28,23 @@ To install the IconPacks, run the following commands in the NuGet Package Manage
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks
 ```
-- `MahApps.Metro.IconPacks.Material` separate [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
+- `MahApps.Metro.IconPacks.Material` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks.Material
 ```
-- `MahApps.Metro.IconPacks.FontAwesome` separate [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
+- `MahApps.Metro.IconPacks.FontAwesome` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks.FontAwesome
 ```
-- `MahApps.Metro.IconPacks.Octicons` separate [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/)
+- `MahApps.Metro.IconPacks.Octicons` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/)
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks.Octicons
 ```
-- `MahApps.Metro.IconPacks.Modern` separate [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
+- `MahApps.Metro.IconPacks.Modern` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks.Modern
 ```
-- `MahApps.Metro.IconPacks.Entypo` separate [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/)
+- `MahApps.Metro.IconPacks.Entypo` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/)
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks.Entypo
 ```
@@ -96,6 +96,30 @@ xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
 
 </Window>
 ```
+
+## MarkupExtension
+
+A faster way to get a Button with an Icon is to use the MarkupExtension(s).
+
+If you want e.g. a Button with an Icon of the `PackIconFontAwesome` then you can use this one:
+
+```xaml
+<Button Content="{iconPacks:PackIconFontAwesome StarOutline}" />
+```
+
+It's also possible to change some properties of the icon itself like this:
+
+```xaml
+<Button Content="{iconPacks:PackIconFontAwesome Spinner, Width=32, Height=32, Spin=True}" />
+```
+
+It's also possible to use a general (generic) MarkupExtension:
+
+```xaml
+<Button Content="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Cookie}, Width=32, Height=32}" />
+```
+
+You can use these MarkupExtensions for all controls with Content property which can accept other objects (Controls).
 
 ## Properties
 
