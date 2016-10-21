@@ -21,7 +21,7 @@
     <OutputPath>..\bin\Debug\</OutputPath>
     <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Debug\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;ALL</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>1591</NoWarn>
@@ -33,7 +33,7 @@
     <OutputPath>..\bin\Release\</OutputPath>
     <IntermediateOutputPath>obj\Release\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;ALL</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0067,1591,0168</NoWarn>
@@ -43,7 +43,7 @@
     <OutputPath>..\bin\Release_NET45\</OutputPath>
     <IntermediateOutputPath>obj\Release_NET45\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET45\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;ALL</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,7 +57,7 @@
     <OutputPath>..\bin\Release_NET46\</OutputPath>
     <IntermediateOutputPath>obj\Release_NET46\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET46\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;ALL</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -125,18 +125,24 @@
     <Compile Include="PackIcon.cs" />
     <Compile Include="PackIconEntypo.cs" />
     <Compile Include="PackIconEntypoDataFactory.cs" />
+    <Compile Include="PackIconEntypoExtension.cs" />
     <Compile Include="PackIconEntypoKind.cs" />
+    <Compile Include="PackIconExtension.cs" />
     <Compile Include="PackIconFontAwesome.cs" />
     <Compile Include="PackIconFontAwesomeDataFactory.cs" />
+    <Compile Include="PackIconFontAwesomeExtension.cs" />
     <Compile Include="PackIconFontAwesomeKind.cs" />
     <Compile Include="PackIconMaterial.cs" />
     <Compile Include="PackIconMaterialDataFactory.cs" />
+    <Compile Include="PackIconMaterialExtension.cs" />
     <Compile Include="PackIconMaterialKind.cs" />
     <Compile Include="PackIconModern.cs" />
     <Compile Include="PackIconModernDataFactory.cs" />
+    <Compile Include="PackIconModernExtension.cs" />
     <Compile Include="PackIconModernKind.cs" />
     <Compile Include="PackIconOcticons.cs" />
     <Compile Include="PackIconOcticonsDataFactory.cs" />
+    <Compile Include="PackIconOcticonsExtension.cs" />
     <Compile Include="PackIconOcticonsKind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
