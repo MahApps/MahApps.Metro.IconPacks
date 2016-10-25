@@ -10,7 +10,7 @@ namespace MahApps.Metro.IconPacks.Browser
     {
         public MainWindow()
         {
-            this.DataContext = new MainViewModel();
+            this.DataContext = new MainViewModel(this.Dispatcher);
             InitializeComponent();
         }
     }
