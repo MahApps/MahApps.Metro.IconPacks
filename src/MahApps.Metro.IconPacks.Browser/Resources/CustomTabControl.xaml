@@ -21,7 +21,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconMaterial Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" UseLayoutRounding="True" BorderThickness="1" BorderBrush="{DynamicResource BlackBrush}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterial Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -30,7 +30,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconFontAwesome Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" UseLayoutRounding="True" BorderThickness="1" BorderBrush="{DynamicResource BlackBrush}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconFontAwesome Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -39,7 +39,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconOcticons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" UseLayoutRounding="True" BorderThickness="1" BorderBrush="{DynamicResource BlackBrush}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconOcticons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -48,7 +48,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconModern Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" UseLayoutRounding="True" BorderThickness="1" BorderBrush="{DynamicResource BlackBrush}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconModern Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -57,7 +57,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconEntypo Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" UseLayoutRounding="True" BorderThickness="1" BorderBrush="{DynamicResource BlackBrush}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconEntypo Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -83,18 +83,29 @@
                            FontWeight="Bold"
                            FontSize="36"
                            Margin="20 5 0 0" />
-                <TextBox x:Name="FontAwesomeFilterTextBox"
-                         controls:TextBoxHelper.ClearTextButton="False"
-                         controls:TextBoxHelper.UseFloatingWatermark="True"
-                         controls:TextBoxHelper.Watermark="Filter by..."
-                         VerticalAlignment="Bottom"
-                         HorizontalAlignment="Left"
-                         Margin="10 0 10 10"
-                         Width="250"
-                         BorderThickness="0 0 0 1"
-                         UseLayoutRounding="True"
-                         Background="{StaticResource TabControlBackgroundBrush}"
-                         Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left">
+                    <TextBox x:Name="FilterTextBox"
+                             controls:TextBoxHelper.ClearTextButton="False"
+                             controls:TextBoxHelper.UseFloatingWatermark="True"
+                             controls:TextBoxHelper.Watermark="Filter by..."
+                             Margin="10 0 10 10"
+                             Width="250"
+                             BorderThickness="0 0 0 1"
+                             SnapsToDevicePixels="True"
+                             Background="{StaticResource TabControlBackgroundBrush}"
+                             Text="{Binding MainViewModel.FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+                    <!-- not yet
+                    <CheckBox x:Name="FilterCheckBox"
+                              IsChecked="{Binding MainViewModel.FilterOverAll, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              SnapsToDevicePixels="True"
+                              VerticalAlignment="Bottom"
+                              Margin="0 0 0 10"
+                              FocusVisualStyle="{x:Null}"
+                              Content="Over all" />
+                    -->
+                </StackPanel>
 
                 <TextBlock Margin="10 10 10 0"
                            FontSize="14"

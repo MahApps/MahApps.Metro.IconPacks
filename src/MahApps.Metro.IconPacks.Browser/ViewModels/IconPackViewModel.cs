@@ -16,13 +16,16 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private string _filterText;
         private IIconViewModel _selectedIcon;
 
-        public IconPackViewModel(string caption, Type enumType, Type packType)
+        public IconPackViewModel(MainViewModel mainViewModel, string caption, Type enumType, Type packType)
         {
+            this.MainViewModel = mainViewModel;
             this.Caption = caption;
             this.Icons = GetIcons(enumType, packType);
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
+
+        public MainViewModel MainViewModel { get; private set; }
 
         private void PrepareFiltering()
         {
@@ -33,7 +36,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private bool FilterIconsPredicate(string filterText, IIconViewModel iconViewModel)
         {
             return string.IsNullOrWhiteSpace(filterText)
-                   || iconViewModel.Name.IndexOf(filterText, StringComparison.CurrentCultureIgnoreCase) >= 0;
+                   || iconViewModel.Name.IndexOf(filterText, StringComparison.CurrentCultureIgnoreCase) >= 0
+                   || (!string.IsNullOrWhiteSpace(iconViewModel.Description) && iconViewModel.Description.IndexOf(filterText, StringComparison.CurrentCultureIgnoreCase) >= 0);
         }
 
         private static string GetDescription(Enum value)
@@ -54,10 +58,11 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         private static IIconViewModel GetIconViewModel(Type enumType, Type packType, Enum k)
         {
+            var description = GetDescription(k);
             return new IconViewModel()
             {
                 Name = k.ToString(),
-                Description = GetDescription(k),
+                Description = description,
                 IconPackType = packType,
                 IconType = enumType,
                 Value = k
@@ -78,7 +83,6 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         }
 
         public string FilterText
-
         {
             get { return _filterText; }
             set

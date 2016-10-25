@@ -107,10 +107,13 @@ public class IconConverter
         var xmlDoc = XDocument.Parse(svgStream);
         var elements = xmlDoc
             .Root
-            .Elements("{http://www.w3.org/2000/svg}defs")
-            .Elements("{http://www.w3.org/2000/svg}font")
-            .Elements()
+            .Elements("defs")
+            .Elements("font")
+            //.Elements()
+            .Descendants("glyph")
             .ToList();
+
+        Console.WriteLine("Found " + elements.Count + " elements");
 
         var iconDataList = new List<PackIconData>();
         foreach (var xElement in elements)

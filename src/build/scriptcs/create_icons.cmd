@@ -1,2 +1,3 @@
- npm install --save octicons
- scriptcs IconCreator.csx
+npm install --save octicons
+
+scriptcs IconCreator.csx
