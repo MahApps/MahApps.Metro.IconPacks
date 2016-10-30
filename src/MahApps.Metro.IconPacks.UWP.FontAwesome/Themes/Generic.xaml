@@ -3,7 +3,7 @@
                     xmlns:uwp="using:MahApps.Metro.IconPacks">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconFontAwesome.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.FontAwesome/Themes/PackIconFontAwesome.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="uwp:PackIconFontAwesome" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}" />

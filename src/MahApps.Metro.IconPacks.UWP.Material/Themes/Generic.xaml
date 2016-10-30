@@ -3,7 +3,7 @@
                     xmlns:uwp="using:MahApps.Metro.IconPacks">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconMaterial.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Material/Themes/PackIconMaterial.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="uwp:PackIconMaterial" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterial}" />

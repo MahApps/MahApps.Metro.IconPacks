@@ -109,18 +109,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\MahApps.Metro.IconPacks.UWP\DescriptionAttribute.cs">
-      <Link>DescriptionAttribute.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\Converter\FlipToScaleValueConverter.cs">
-      <Link>Converter\FlipToScaleValueConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\Converter\NullToUnsetValueConverter.cs">
-      <Link>Converter\NullToUnsetValueConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIcon.cs">
-      <Link>PackIcon.cs</Link>
-    </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesome.cs">
       <Link>PackIconFontAwesome.cs</Link>
     </Compile>
@@ -129,10 +117,6 @@
     </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesomeKind.cs">
       <Link>PackIconFontAwesomeKind.cs</Link>
-    </Compile>
-    <Compile Include="..\paket-files\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
-      <Paket>True</Paket>
-      <Link>ControlzEx/PackIconBase.cs</Link>
     </Compile>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
@@ -144,13 +128,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\MahApps.Metro.IconPacks.UWP.FontAwesome.rd.xml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Page Include="..\MahApps.Metro.IconPacks.UWP\Themes\Converters.xaml">
-      <Link>Themes\Converters.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="..\MahApps.Metro.IconPacks.UWP\Themes\PackIconFontAwesome.xaml">
       <Link>Themes\PackIconFontAwesome.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
@@ -160,6 +138,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MahApps.Metro.IconPacks.UWP.Core\MahApps.Metro.IconPacks.UWP.Core.csproj">
+      <Project>{a6065de5-ea2e-43b9-abdf-00ada6bd2017}</Project>
+      <Name>MahApps.Metro.IconPacks.UWP.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

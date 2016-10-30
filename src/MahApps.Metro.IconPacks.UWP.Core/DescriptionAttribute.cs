@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MahApps.Metro.IconPacks
+namespace MahApps.Metro.IconPacks.Core
 {
     /// <summary>
     /// Specifies a description for a property or event.
