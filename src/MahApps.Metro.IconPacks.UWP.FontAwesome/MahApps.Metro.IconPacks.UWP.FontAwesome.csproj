@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3037BA79-20D6-4E6F-98BF-6DE237F968C9}</ProjectGuid>
+    <ProjectGuid>{1E624010-73DC-4556-82C3-715ACF9055DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
-    <AssemblyName>MahApps.Metro.IconPacks</AssemblyName>
+    <RootNamespace>MahApps.Metro.IconPacks.FontAwesome</RootNamespace>
+    <AssemblyName>MahApps.Metro.IconPacks.FontAwesome</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
@@ -22,24 +22,24 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug_UWP\IconPacks\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;ALL</DefineConstants>
+    <OutputPath>..\bin\Debug_UWP\IconPacksFontAwesome\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;FONTAWESOME</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>1591</NoWarn>
-    <DocumentationFile>..\bin\Debug_UWP\IconPacks\MahApps.Metro.IconPacks.xml</DocumentationFile>
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    <DocumentationFile>..\bin\Debug_UWP\IconPacksFontAwesome\MahApps.Metro.IconPacks.FontAwesome.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release_UWP\IconPacks\</OutputPath>
-    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;ALL</DefineConstants>
+    <OutputPath>..\bin\Release_UWP\IconPacksFontAwesome\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;FONTAWESOME</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
-    <DocumentationFile>..\bin\Release_UWP\IconPacks\MahApps.Metro.IconPacks.xml</DocumentationFile>
+    <DocumentationFile>..\bin\Release_UWP\IconPacksFontAwesome\MahApps.Metro.IconPacks.FontAwesome.XML</DocumentationFile>
     <NoWarn>0067,1591,0168</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -109,8 +109,8 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\GlobalAssemblyInfo.cs">
-      <Link>GlobalAssemblyInfo.cs</Link>
+    <Compile Include="..\MahApps.Metro.IconPacks.UWP\DescriptionAttribute.cs">
+      <Link>DescriptionAttribute.cs</Link>
     </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\Converter\FlipToScaleValueConverter.cs">
       <Link>Converter\FlipToScaleValueConverter.cs</Link>
@@ -121,15 +121,6 @@
     <Compile Include="..\MahApps.Metro.IconPacks\PackIcon.cs">
       <Link>PackIcon.cs</Link>
     </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconEntypo.cs">
-      <Link>PackIconEntypo.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconEntypoDataFactory.cs">
-      <Link>PackIconEntypoDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconEntypoKind.cs">
-      <Link>PackIconEntypoKind.cs</Link>
-    </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesome.cs">
       <Link>PackIconFontAwesome.cs</Link>
     </Compile>
@@ -139,33 +130,6 @@
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesomeKind.cs">
       <Link>PackIconFontAwesomeKind.cs</Link>
     </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterial.cs">
-      <Link>PackIconMaterial.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialDataFactory.cs">
-      <Link>PackIconMaterialDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialKind.cs">
-      <Link>PackIconMaterialKind.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconModern.cs">
-      <Link>PackIconModern.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconModernDataFactory.cs">
-      <Link>PackIconModernDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconModernKind.cs">
-      <Link>PackIconModernKind.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconOcticons.cs">
-      <Link>PackIconOcticons.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconOcticonsDataFactory.cs">
-      <Link>PackIconOcticonsDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconOcticonsKind.cs">
-      <Link>PackIconOcticonsKind.cs</Link>
-    </Compile>
     <Compile Include="..\paket-files\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
       <Paket>True</Paket>
       <Link>ControlzEx/PackIconBase.cs</Link>
@@ -174,40 +138,25 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DescriptionAttribute.cs" />
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\MahApps.Metro.IconPacks.UWP.rd.xml" />
+    <EmbeddedResource Include="Properties\MahApps.Metro.IconPacks.UWP.FontAwesome.rd.xml" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Page Include="Themes\Converters.xaml">
+    <Page Include="..\MahApps.Metro.IconPacks.UWP\Themes\Converters.xaml">
+      <Link>Themes\Converters.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\MahApps.Metro.IconPacks.UWP\Themes\PackIconFontAwesome.xaml">
+      <Link>Themes\PackIconFontAwesome.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\IconPacks.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconEntypo.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconFontAwesome.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconMaterial.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconModern.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconOcticons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
