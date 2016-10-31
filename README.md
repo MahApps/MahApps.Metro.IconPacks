@@ -10,9 +10,9 @@ The IconPacks library contains controls to use awesome icons from
 - [Modern](http://modernuiicons.com/)
 - [Entypo+](http://www.entypo.com/)
 
-in a simple way.
+for `WPF` and `UWP` apps in a simple way.
 
-It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your application nicer.
+It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) (for WPF), but it makes your application nicer.
 
 ![iconbrowserfinal](https://cloud.githubusercontent.com/assets/658431/18764958/ec20dd3e-8113-11e6-8793-b012eaec2302.gif)
 
@@ -73,15 +73,21 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
 <iconPacks:PackIconEntypo Kind="EmojiHappy" />
 ```
 
-The Xaml namespace for all icon packs is:
+The `Xaml` namespace for all icon packs is:
 
 ```xaml
 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
 ```
 
+and for the `UWP` packages:
+
+```xaml
+xmlns:iconPacks="using:MahApps.Metro.IconPacks"
+```
+
 ![iconpacks001](https://cloud.githubusercontent.com/assets/658431/19322565/d6ec652c-90b9-11e6-8a06-00e326ca390a.gif)
 
-## Sample
+## WPF Sample
 
 ```xaml
 <Window x:Class="IconPacksTest.App"
@@ -97,7 +103,29 @@ xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
 </Window>
 ```
 
-## MarkupExtension
+## UWP Sample
+
+```xaml
+<Page x:Class="MahApps.Metro.IconPacks.Test.App.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:iconPacks="using:MahApps.Metro.IconPacks"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <iconPacks:PackIconFontAwesome Width="32"
+                                       Height="32"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Kind="AddressBook" />
+    </Grid>
+
+</Page>
+```
+
+## MarkupExtension (only for WPF)
 
 A faster way to get a Button with an Icon is to use the MarkupExtension(s).
 
@@ -211,4 +239,4 @@ If you use the IconPack with all included icons you can also use this resource d
 
 ## Strong naming
 
-If you need strong named dlls then you should use the [Strong Namer](https://github.com/dsplaisted/strongnamer) from @dsplaisted.
+If you need strong named dlls then you should use the [Strong Namer](https://github.com/dsplaisted/strongnamer) from @dsplaisted. If this doesn't work then you can clone this repository and compile your own strongly named dlls.
