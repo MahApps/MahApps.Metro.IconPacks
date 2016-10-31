@@ -1,9 +1,37 @@
 ﻿using System;
+#if NETFX_CORE
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Data;
+#else
 using System.Globalization;
 using System.Windows;
+#endif
 
 namespace MahApps.Metro.IconPacks.Converter
 {
+#if NETFX_CORE
+    /// <summary>
+    /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleX value of a ScaleTransformation.
+    /// </summary>
+    public class FlipToScaleXValueConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is PackIconFlipOrientation)
+            {
+                var flip = (PackIconFlipOrientation)value;
+                var scaleX = flip == PackIconFlipOrientation.Horizontal || flip == PackIconFlipOrientation.Both ? -1 : 1;
+                return scaleX;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+    }
+#else
     /// <summary>
     /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleX value of a ScaleTransformation.
     /// </summary>
@@ -39,7 +67,31 @@ namespace MahApps.Metro.IconPacks.Converter
             return DependencyProperty.UnsetValue;
         }
     }
+#endif
 
+#if NETFX_CORE
+    /// <summary>
+    /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleY value of a ScaleTransformation.
+    /// </summary>
+    public class FlipToScaleYValueConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is PackIconFlipOrientation)
+            {
+                var flip = (PackIconFlipOrientation)value;
+                var scaleY = flip == PackIconFlipOrientation.Vertical || flip == PackIconFlipOrientation.Both ? -1 : 1;
+                return scaleY;
+            }
+            return DependencyProperty.UnsetValue;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            return DependencyProperty.UnsetValue;
+        }
+    }
+#else
     /// <summary>
     /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleY value of a ScaleTransformation.
     /// </summary>
@@ -75,4 +127,5 @@ namespace MahApps.Metro.IconPacks.Converter
             return DependencyProperty.UnsetValue;
         }
     }
+#endif
 }

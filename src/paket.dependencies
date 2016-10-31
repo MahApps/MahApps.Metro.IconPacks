@@ -5,4 +5,4 @@ nuget JetBrains.Annotations
 nuget MahApps.Metro prerelease
 nuget Costura.Fody
 
-github ControlzEx/ControlzEx:72aa238cd565ef63e8d52c29982a587e039d04ec src/ControlzEx/PackIconBase.cs
+github ControlzEx/ControlzEx:c5aeed0d597336bed9451ac6b5f80846267ce0f0 src/ControlzEx/PackIconBase.cs

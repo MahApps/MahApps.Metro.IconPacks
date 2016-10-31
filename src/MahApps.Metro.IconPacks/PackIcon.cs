@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+#if NETFX_CORE
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
+#else
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+#endif
 using ControlzEx;
 
 namespace MahApps.Metro.IconPacks
@@ -45,7 +51,11 @@ namespace MahApps.Metro.IconPacks
         {
         }
 
+#if NETFX_CORE
+        protected override void OnApplyTemplate()
+#else
         public override void OnApplyTemplate()
+#endif
         {
             base.OnApplyTemplate();
             if (this.Spin)
@@ -81,6 +91,9 @@ namespace MahApps.Metro.IconPacks
                 "Rotation",
                 typeof(double),
                 typeof(PackIcon<TKind>),
+#if NETFX_CORE
+                new PropertyMetadata(0d));
+#else
                 new PropertyMetadata(0d, null, RotationPropertyCoerceValueCallback));
 
         private static object RotationPropertyCoerceValueCallback(DependencyObject dependencyObject, object value)
@@ -88,6 +101,7 @@ namespace MahApps.Metro.IconPacks
             var val = (double)value;
             return val < 0 ? 0d : (val > 360 ? 360d : value);
         }
+#endif
 
         /// <summary>
         /// Gets or sets the rotation (angle).
@@ -147,7 +161,7 @@ namespace MahApps.Metro.IconPacks
             }
             else
             {
-                transformGroup.Children.Add(new RotateTransform(0.0));
+                transformGroup.Children.Add(new RotateTransform());
                 element.RenderTransform = transformGroup;
             }
 
@@ -164,8 +178,11 @@ namespace MahApps.Metro.IconPacks
             storyboard.Children.Add(animation);
 
             Storyboard.SetTarget(animation, element);
-            Storyboard.SetTargetProperty(animation,
-                new PropertyPath("(0).(1)[2].(2)", RenderTransformProperty, TransformGroup.ChildrenProperty, RotateTransform.AngleProperty));
+#if NETFX_CORE
+            Storyboard.SetTargetProperty(animation, "(RenderTransform).(TransformGroup.Children)[2].(Angle)");
+#else
+            Storyboard.SetTargetProperty(animation, new PropertyPath("(0).(1)[2].(2)", RenderTransformProperty, TransformGroup.ChildrenProperty, RotateTransform.AngleProperty));
+#endif
 
             element.Resources.Add(SpinnerStoryBoardName, storyboard);
             storyboard.Begin();
@@ -203,7 +220,11 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register("SpinDuration",
                 typeof(double),
                 typeof(PackIcon<TKind>),
+#if !NETFX_CORE
                 new PropertyMetadata(1d, SpinDurationPropertyChangedCallback, SpinDurationCoerceValueCallback));
+#else
+                new PropertyMetadata(1d, SpinDurationPropertyChangedCallback));
+#endif
 
         private static void SpinDurationPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
@@ -215,11 +236,13 @@ namespace MahApps.Metro.IconPacks
             }
         }
 
+#if !NETFX_CORE
         private static object SpinDurationCoerceValueCallback(DependencyObject dependencyObject, object value)
         {
             var val = (double)value;
             return val < 0 ? 0d : value;
         }
+#endif
 
         /// <summary>
         /// Gets or sets the duration of the spinning animation (in seconds). This will also restart the spin animation.
@@ -236,7 +259,11 @@ namespace MahApps.Metro.IconPacks
         /// </summary>
         public static readonly DependencyProperty SpinEasingFunctionProperty
             = DependencyProperty.Register("SpinEasingFunction",
+#if NETFX_CORE
+                typeof(EasingFunctionBase),
+#else
                 typeof(IEasingFunction),
+#endif
                 typeof(PackIcon<TKind>),
                 new PropertyMetadata(null, SpinEasingFunctionPropertyChangedCallback));
 
@@ -254,11 +281,19 @@ namespace MahApps.Metro.IconPacks
         /// Gets or sets the EasingFunction of the spinning animation. This will also restart the spin animation.
         /// </summary>
         /// <value>The spin easing function.</value>
+#if NETFX_CORE
+        public EasingFunctionBase SpinEasingFunction
+        {
+            get { return (EasingFunctionBase)this.GetValue(SpinEasingFunctionProperty); }
+            set { this.SetValue(SpinEasingFunctionProperty, value); }
+        }
+#else
         public IEasingFunction SpinEasingFunction
         {
             get { return (IEasingFunction)this.GetValue(SpinEasingFunctionProperty); }
             set { this.SetValue(SpinEasingFunctionProperty, value); }
         }
+#endif
 
         /// <summary>
         /// Identifies the SpinAutoReverse dependency property.
