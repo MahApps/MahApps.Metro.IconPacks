@@ -87,6 +87,12 @@ xmlns:iconPacks="using:MahApps.Metro.IconPacks"
 
 ![iconpacks001](https://cloud.githubusercontent.com/assets/658431/19322565/d6ec652c-90b9-11e6-8a06-00e326ca390a.gif)
 
+## IconPacks Browser
+
+If you have no idea which icon you're supposed to take, then you can use the IconPacks Browser. You can search in every IconPacks and copy a raw `Xaml` code snippet to the clipboard.
+
+You can download the latest version of the browser at the [release page](https://github.com/MahApps/MahApps.Metro.IconPacks/releases) or directly [here](https://github.com/MahApps/MahApps.Metro.IconPacks/releases/download/v1.6.0/IconPacks.Browser.NET45.zip) (a zipped pre-compiled .NET 4.5 executable). 
+
 ## WPF Sample
 
 ```xaml
