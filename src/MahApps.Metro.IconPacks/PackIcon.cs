@@ -47,9 +47,34 @@ namespace MahApps.Metro.IconPacks
     /// <seealso cref="ControlzEx.PackIconBase{TKind}" />
     public class PackIcon<TKind> : PackIconBase<TKind>
     {
+
+#if NETFX_CORE
+        private long opacityRegisterToken;
+
+        public PackIcon(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
+        {
+            this.Loaded += (sender, args) => this.opacityRegisterToken = this.RegisterPropertyChangedCallback(OpacityProperty, this.OpacityPropertyChangedCallback);
+            this.Unloaded += (sender, args) => this.UnregisterPropertyChangedCallback(OpacityProperty, this.opacityRegisterToken);
+        }
+
+        private void OpacityPropertyChangedCallback(DependencyObject sender, DependencyProperty dp)
+        {
+            var packIcon = sender as PackIcon<TKind>;
+            if (packIcon != null && dp == OpacityProperty)
+            {
+                this.Spin = packIcon.SpinDuration > 0 && packIcon.Opacity > 0;
+            }
+        }
+#else
+        static PackIcon()
+        {
+            OpacityProperty.OverrideMetadata(typeof(PackIcon<TKind>), new UIPropertyMetadata(1d, (d, e) => { d.CoerceValue(SpinProperty); }));
+        }
+
         public PackIcon(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
         {
         }
+#endif
 
 #if NETFX_CORE
         protected override void OnApplyTemplate()
@@ -121,7 +146,21 @@ namespace MahApps.Metro.IconPacks
                 "Spin",
                 typeof(bool),
                 typeof(PackIcon<TKind>),
+#if NETFX_CORE
                 new PropertyMetadata(default(bool), SpinPropertyChangedCallback));
+#else
+                new PropertyMetadata(default(bool), SpinPropertyChangedCallback, SpinPropertyCoerceValueCallback));
+
+        private static object SpinPropertyCoerceValueCallback(DependencyObject dependencyObject, object value)
+        {
+            var packIcon = dependencyObject as PackIcon<TKind>;
+            if (packIcon != null && (packIcon.Opacity <= 0 || packIcon.SpinDuration <= 0.0))
+            {
+                return false;
+            }
+            return value;
+        }
+#endif
 
         private static void SpinPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
