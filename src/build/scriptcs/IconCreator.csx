@@ -157,7 +157,7 @@ public class IconConverter
         ProcessDirectory(iconSourceFolder, allSVGFiles);
         Console.WriteLine("Found " + allSVGFiles.Count + " icons");
 
-        var jObject = JObject.Parse(File.ReadAllText(".\\node_modules\\octicons\\lib\\keywords.json"));
+        var jObject = JObject.Parse(File.ReadAllText(".\\node_modules\\octicons\\build\\data.json"));
         var octiKeysAndAliases = jObject.Children()
                                         .OfType<JProperty>()
                                         .Select(p => {
@@ -351,9 +351,9 @@ public class IconConverter
 
     private string UpdatePackIconKind(string sourceFile, IEnumerable<PackIconData> iconDataList)
     {
-        // line 17
+        // line 21
         var allLines = File.ReadAllLines(sourceFile).ToList();
-        allLines.InsertRange(17, iconDataList.Where(d => Equals(d.Name, "None") || (!string.IsNullOrEmpty(d.Name) && !string.IsNullOrEmpty(d.Data)))
+        allLines.InsertRange(21, iconDataList.Where(d => Equals(d.Name, "None") || (!string.IsNullOrEmpty(d.Name) && !string.IsNullOrEmpty(d.Data)))
                                              .Select(d => string.Format("        [Description(\"{0}\")] {1},", d.Description, d.Name)).ToArray());
         return string.Join(Environment.NewLine, allLines);
     }
