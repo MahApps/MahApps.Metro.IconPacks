@@ -18,7 +18,7 @@ It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps
 
 ## Want to say thanks?
 
-+ This framework is free and can be used anywhere, so please hit the :star: Star :star: button, cause this is the only payment (Cash donations are also being accepted ;-P ).
+This framework is free and can be used for free, open source and commercial applications. It's tested and contributed by many people... So mainly hit the :star: button, that's all... thx :squirrel: (:dollar:, :euro:, :beer: or some other gifts are also being accepted...).
 
 ## Install
 
