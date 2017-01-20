@@ -49,26 +49,36 @@ namespace MahApps.Metro.IconPacks
     {
 
 #if NETFX_CORE
-        private long opacityRegisterToken;
+        private long _opacityRegisterToken;
+        private long _visibilityRegisterToken;
 
         public PackIcon(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
         {
-            this.Loaded += (sender, args) => this.opacityRegisterToken = this.RegisterPropertyChangedCallback(OpacityProperty, this.OpacityPropertyChangedCallback);
-            this.Unloaded += (sender, args) => this.UnregisterPropertyChangedCallback(OpacityProperty, this.opacityRegisterToken);
+            this.Loaded += (sender, args) =>
+            {
+                this._opacityRegisterToken = this.RegisterPropertyChangedCallback(OpacityProperty, this.CoerceSpinProperty);
+                this._visibilityRegisterToken = this.RegisterPropertyChangedCallback(VisibilityProperty, this.CoerceSpinProperty);
+            };
+            this.Unloaded += (sender, args) =>
+            {
+                this.UnregisterPropertyChangedCallback(OpacityProperty, this._opacityRegisterToken);
+                this.UnregisterPropertyChangedCallback(VisibilityProperty, this._visibilityRegisterToken);
+            };
         }
 
-        private void OpacityPropertyChangedCallback(DependencyObject sender, DependencyProperty dp)
+        private void CoerceSpinProperty(DependencyObject sender, DependencyProperty dp)
         {
             var packIcon = sender as PackIcon<TKind>;
-            if (packIcon != null && dp == OpacityProperty)
+            if (packIcon != null && (dp == OpacityProperty || dp == VisibilityProperty))
             {
-                this.Spin = packIcon.SpinDuration > 0 && packIcon.Opacity > 0;
+                this.Spin = packIcon.Visibility == Visibility.Visible && packIcon.SpinDuration > 0 && packIcon.Opacity > 0;
             }
         }
 #else
         static PackIcon()
         {
             OpacityProperty.OverrideMetadata(typeof(PackIcon<TKind>), new UIPropertyMetadata(1d, (d, e) => { d.CoerceValue(SpinProperty); }));
+            VisibilityProperty.OverrideMetadata(typeof(PackIcon<TKind>), new UIPropertyMetadata(Visibility.Visible, (d, e) => { d.CoerceValue(SpinProperty); }));
         }
 
         public PackIcon(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
@@ -154,7 +164,7 @@ namespace MahApps.Metro.IconPacks
         private static object SpinPropertyCoerceValueCallback(DependencyObject dependencyObject, object value)
         {
             var packIcon = dependencyObject as PackIcon<TKind>;
-            if (packIcon != null && (packIcon.Opacity <= 0 || packIcon.SpinDuration <= 0.0))
+            if (packIcon != null && (!packIcon.IsVisible || packIcon.Opacity <= 0 || packIcon.SpinDuration <= 0.0))
             {
                 return false;
             }
