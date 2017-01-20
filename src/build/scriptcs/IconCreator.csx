@@ -52,7 +52,7 @@ public class IconConverter
     {
         Console.WriteLine("Downloading Material Design icon data...");
         var nameDataMaterialPairs = GetPackIconData(GetSourceData("https://materialdesignicons.com/api/package/38EF63D0-4744-11E4-B3CF-842B2B6CFE1B")).ToList();
-        Console.WriteLine("Finally "  + nameDataMaterialPairs.Count + " Items");
+        Console.WriteLine("Finally "  + (nameDataMaterialPairs.Count-1) + " Items");
 
         Console.WriteLine("Updating PackIconMaterialKind...");
         var newEnumSource = UpdatePackIconKind("PackIconMaterialKind.template.cs", nameDataMaterialPairs);
@@ -70,7 +70,7 @@ public class IconConverter
         Console.WriteLine("Downloading Modern UI icon data...");
         var nameDataModernPairs = GetPackIconData(GetSourceData("https://materialdesignicons.com/api/package/DFFB9B7E-C30A-11E5-A4E9-842B2B6CFE1B")).ToList();
         var nameDataOldModernPairs = GetNameDataOldModernPairs(GetSourceData("http://modernuiicons.com/icons/package")).ToList();
-        Console.WriteLine("Finally " + nameDataModernPairs.Count + " Items");
+        Console.WriteLine("Finally " + (nameDataModernPairs.Count-1) + " Items");
 
         Console.WriteLine("Updating PackIconModernKind...");
         var newEnumSource = UpdatePackIconKind("PackIconModernKind.template.cs", nameDataModernPairs);
@@ -135,7 +135,7 @@ public class IconConverter
         }
         iconDataList = iconDataList.OrderBy(d => d.Name, StringComparer.InvariantCultureIgnoreCase).ToList();
         iconDataList.Insert(0, new PackIconData() { Name = "None", Description = "Empty placeholder", Data = "" });
-        Console.WriteLine("Finally " + iconDataList.Count + " Items");
+        Console.WriteLine("Finally " + (iconDataList.Count-1) + " Items");
 
         Console.WriteLine("Updating PackIconFontAwesomeKind...");
         var newEnumSource = UpdatePackIconKind("PackIconFontAwesomeKind.template.cs", iconDataList);
@@ -197,7 +197,7 @@ public class IconConverter
         }
         iconDataList = iconDataList.OrderBy(d => d.Name, StringComparer.InvariantCultureIgnoreCase).ToList();
         iconDataList.Insert(0, new PackIconData() { Name = "None", Description = "Empty placeholder", Data = "" });
-        Console.WriteLine("Finally " + iconDataList.Count + " Items");
+        Console.WriteLine("Finally " + (iconDataList.Count-1) + " Items");
 
         Console.WriteLine("Updating PackIconOcticonsKind...");
         var newEnumSource = UpdatePackIconKind("PackIconOcticonsKind.template.cs", iconDataList);

@@ -4,11 +4,11 @@ Some awesome icons all together...
 
 The IconPacks library contains controls to use awesome icons from
 
-- [Material](https://materialdesignicons.com/) (v1.7.22 with 1813 icons)
+- [Material Design](https://materialdesignicons.com/) (v1.8.36 with 1843 icons)
 - [Font Awesome](http://fontawesome.io/icons/) (v4.7 with 675 icons)
 - [GitHub Octicons](https://octicons.github.com/) (v5.0.1 with 176 icons)
 - [Modern](http://modernuiicons.com/) (1224 icons)
-- [Entypo+](http://www.entypo.com/) (410 icons)
+- [Entypo+](http://www.entypo.com/) (411 icons)
 
 for `WPF` and `UWP` apps in a simple way.
 
