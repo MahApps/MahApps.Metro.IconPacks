@@ -157,7 +157,7 @@
 
             <ListBox x:Name="PackIconFontAwesomeKindListBox"
                      Grid.Row="1"
-                     Margin="0"
+                     Margin="2"
                      FocusVisualStyle="{x:Null}"
                      Style="{DynamicResource VirtualisedMetroListBox}"
                      ItemsSource="{Binding Icons}"

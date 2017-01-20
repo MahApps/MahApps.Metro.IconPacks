@@ -4,11 +4,11 @@ Some awesome icons all together...
 
 The IconPacks library contains controls to use awesome icons from
 
-- [Material](https://materialdesignicons.com/) (v1.7.22)
-- [Font Awesome](http://fontawesome.io/icons/) (v4.7)
-- [GitHub Octicons](https://octicons.github.com/) (v4.3.0)
-- [Modern](http://modernuiicons.com/)
-- [Entypo+](http://www.entypo.com/)
+- [Material Design](https://materialdesignicons.com/) (v1.8.36 with 1843 icons)
+- [Font Awesome](http://fontawesome.io/icons/) (v4.7 with 675 icons)
+- [GitHub Octicons](https://octicons.github.com/) (v5.0.1 with 176 icons)
+- [Modern](http://modernuiicons.com/) (1224 icons)
+- [Entypo+](http://www.entypo.com/) (411 icons)
 
 for `WPF` and `UWP` apps in a simple way.
 
@@ -18,7 +18,7 @@ It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps
 
 ## Want to say thanks?
 
-+ This framework is free and can be used anywhere, so please hit the :star: Star :star: button, cause this is the only payment (Cash donations are also being accepted ;-P ).
+This framework is free and can be used for free, open source and commercial applications. It's tested and contributed by many people... So mainly hit the :star: button, that's all... thx :squirrel: (:dollar:, :euro:, :beer: or some other gifts are also being accepted...).
 
 ## Install
 
