@@ -1,5 +1,7 @@
 # MahApps.Metro.IconPacks
 
+[![Join the chat at https://gitter.im/MahApps/MahApps.Metro.IconPacks](https://badges.gitter.im/MahApps/MahApps.Metro.IconPacks.svg)](https://gitter.im/MahApps/MahApps.Metro.IconPacks?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Some awesome icons all together...
 
 The IconPacks library contains controls to use awesome icons from
