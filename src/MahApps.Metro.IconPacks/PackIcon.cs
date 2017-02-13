@@ -88,16 +88,21 @@ namespace MahApps.Metro.IconPacks
 
 #if NETFX_CORE
         protected override void OnApplyTemplate()
-#else
-        public override void OnApplyTemplate()
-#endif
         {
             base.OnApplyTemplate();
+            this.CoerceSpinProperty(this, SpinProperty);
             if (this.Spin)
             {
                 this.BeginSpinAnimation();
             }
         }
+#else
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            this.CoerceValue(SpinProperty);
+        }
+#endif
 
         /// <summary>
         /// Identifies the Flip dependency property.
