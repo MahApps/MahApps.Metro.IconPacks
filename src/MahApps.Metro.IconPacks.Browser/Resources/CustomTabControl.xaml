@@ -107,11 +107,19 @@
                     -->
                 </StackPanel>
 
-                <TextBlock Margin="10 10 10 0"
-                           FontSize="14"
-                           VerticalAlignment="Top"
-                           HorizontalAlignment="Right"
-                           Text="{Binding SelectedIcon.Name, Mode=OneWay}" />
+                <StackPanel Margin="10 10 10 0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                    <TextBlock FontSize="14"
+                               Text="{Binding SelectedIcon.IconPackType.Name, Mode=OneWay}" />
+                    
+                    <TextBlock FontSize="14"
+                               Text="{Binding SelectedIcon.Name, Mode=OneWay}"
+                               Margin="5,0"/>
+
+                </StackPanel>
 
                 <StackPanel Margin="10 0 10 10"
                             Orientation="Horizontal"
