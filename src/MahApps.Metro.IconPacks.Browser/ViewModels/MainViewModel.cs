@@ -25,8 +25,11 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     new IconPackViewModel(this, "FontAwesome", typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome)),
                     new IconPackViewModel(this, "Octicons", typeof(PackIconOcticonsKind), typeof(PackIconOcticons)),
                     new IconPackViewModel(this, "Modern", typeof(PackIconModernKind), typeof(PackIconModern)),
-                    new IconPackViewModel(this, "Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo))
-                });
+                    new IconPackViewModel(this, "Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo)),
+                    new IconPackViewModel(this, "All", 
+                                          new Type[] { typeof(PackIconMaterialKind), typeof(PackIconFontAwesomeKind), typeof(PackIconOcticonsKind), typeof(PackIconModernKind), typeof(PackIconEntypoKind) },
+                                          new Type[] { typeof(PackIconMaterial), typeof(PackIconFontAwesome), typeof(PackIconOcticons), typeof(PackIconModern), typeof(PackIconEntypo) })
+                    });
             this.IconPacksVersion = Assembly.GetAssembly(typeof(PackIconMaterial)).GetName().Version.ToString();
             this.GoToGitHubCommand =
                 new SimpleCommand
