@@ -49,6 +49,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconMaterial, PackIconMaterialKind>((PackIconMaterialKind)this.Kind);
             }
 #endif
+#if ALL || MATERIALLIGHT
+            if (this.Kind is PackIconMaterialLightKind)
+            {
+                return this.GetPackIcon<PackIconMaterialLight, PackIconMaterialLightKind>((PackIconMaterialLightKind)this.Kind);
+            }
+#endif
 #if ALL || MODERN
             if (this.Kind is PackIconModernKind)
             {

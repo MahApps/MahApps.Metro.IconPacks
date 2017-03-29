@@ -3,6 +3,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconMaterial.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconMaterialLight.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconFontAwesome.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconOcticons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconModern.xaml" />

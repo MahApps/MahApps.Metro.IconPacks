@@ -2,7 +2,7 @@
 
 // Arguments
 var target = Argument("target", "Default");
-var version = "1.7.1.0";
+var version = "1.8.0.0";
 var configGitLink = new GitLinkSettings {
   RepositoryUrl = "https://github.com/MahApps/MahApps.Metro.IconPacks",
   Branch        = "master",
@@ -176,6 +176,31 @@ Task("NuGetPack")
        new NuSpecContent {Source = string.Format("Release_NET46\\{0}.XML", iconPacksNuGet), Target = "lib\\net46\\"},
 
        new NuSpecContent {Source = "Release_UWP\\IconPacksMaterial\\**\\*.*", Target = "lib\\uap10.0\\"},
+    }
+  };
+  NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
+
+  iconPacksNuGet = "MahApps.Metro.IconPacks.MaterialLight";
+  nuGetPackSettings   = new NuGetPackSettings {
+    BasePath                = "..\\bin",
+    Id                      = iconPacksNuGet,
+    Version                 = version,
+    Title                   = iconPacksNuGet,
+    Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
+    Files                   = new [] {
+       new NuSpecContent {Source = string.Format("Release\\{0}.dll", iconPacksNuGet), Target = "lib\\net40\\"},
+       new NuSpecContent {Source = string.Format("Release\\{0}.pdb", iconPacksNuGet), Target = "lib\\net40\\"},
+       new NuSpecContent {Source = string.Format("Release\\{0}.XML", iconPacksNuGet), Target = "lib\\net40\\"},
+       
+       new NuSpecContent {Source = string.Format("Release_NET45\\{0}.dll", iconPacksNuGet), Target = "lib\\net45\\"},
+       new NuSpecContent {Source = string.Format("Release_NET45\\{0}.pdb", iconPacksNuGet), Target = "lib\\net45\\"},
+       new NuSpecContent {Source = string.Format("Release_NET45\\{0}.XML", iconPacksNuGet), Target = "lib\\net45\\"},
+
+       new NuSpecContent {Source = string.Format("Release_NET46\\{0}.dll", iconPacksNuGet), Target = "lib\\net46\\"},
+       new NuSpecContent {Source = string.Format("Release_NET46\\{0}.pdb", iconPacksNuGet), Target = "lib\\net46\\"},
+       new NuSpecContent {Source = string.Format("Release_NET46\\{0}.XML", iconPacksNuGet), Target = "lib\\net46\\"},
+
+       new NuSpecContent {Source = "Release_UWP\\IconPacksMaterialLight\\**\\*.*", Target = "lib\\uap10.0\\"},
     }
   };
   NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
