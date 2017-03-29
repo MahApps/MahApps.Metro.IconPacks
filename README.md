@@ -7,6 +7,7 @@ Some awesome icons all together...
 The IconPacks library contains controls to use awesome icons from
 
 - [Material Design](https://materialdesignicons.com/) (v1.8.36 with 1843 icons)
+- [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) (v0.2.63 with 257 icons)
 - [Font Awesome](http://fontawesome.io/icons/) (v4.7 with 675 icons)
 - [GitHub Octicons](https://octicons.github.com/) (v5.0.1 with 176 icons)
 - [Modern](http://modernuiicons.com/) (1224 icons)
@@ -34,6 +35,10 @@ To install the IconPacks, run the following commands in the NuGet Package Manage
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks.Material
 ```
+- `MahApps.Metro.IconPacks.MaterialLight` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/)
+```bash
+  PM> Install-Package MahApps.Metro.IconPacks.MaterialLight
+```
 - `MahApps.Metro.IconPacks.FontAwesome` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks.FontAwesome
@@ -57,6 +62,10 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
 
 ```xaml
 <iconPacks:PackIconMaterial Kind="EmoticonCool" />
+```
+
+```xaml
+<iconPacks:PackIconMaterialLight Kind="Heart" />
 ```
 
 ```xaml
@@ -205,6 +214,7 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
     <ResourceDictionary.MergedDictionaries>
         <!-- reference all necessary original resource dictionaries -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterial.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterialLight.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconOcticons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
@@ -216,6 +226,11 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
     <Style TargetType="{x:Type iconPacks:PackIconMaterial}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterial}">
         <Setter Property="Width" Value="32" />
         <Setter Property="Height" Value="32" />
+    </Style>
+
+    <Style TargetType="{x:Type iconPacks:PackIconMaterialLight}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialLight}">
+        <Setter Property="Width" Value="28" />
+        <Setter Property="Height" Value="28" />
     </Style>
 
     <Style TargetType="{x:Type iconPacks:PackIconFontAwesome}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}">

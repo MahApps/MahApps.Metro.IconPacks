@@ -1,6 +1,6 @@
 ﻿using System.Windows.Markup;
 
-namespace MahApps.Metro.IconPacks.MarkupExtensions
+namespace MahApps.Metro.IconPacks
 {
     [MarkupExtensionReturnType(typeof(PackIconMaterialLight))]
     public class PackIconMaterialLightExtension : PackIconExtension<PackIconMaterialLight, PackIconMaterialLightKind>
