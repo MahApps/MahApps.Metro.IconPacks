@@ -25,6 +25,22 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             this.SelectedIcon = this.Icons.First();
         }
 
+        public IconPackViewModel(MainViewModel mainViewModel, string caption, Type[] enumTypes, Type[] packTypes)
+        {
+            IEnumerable<IIconViewModel> Icons = new List<IIconViewModel>();
+
+            for (int counter = 0; counter < enumTypes.Length; counter++)
+            {
+                Icons = Icons.Concat(GetIcons(enumTypes[counter], packTypes[counter]));
+            }
+
+            this.MainViewModel = mainViewModel;
+            this.Caption = caption;
+            this.Icons = Icons.OrderBy((x) => { return x.Name; });
+            this.PrepareFiltering();
+            this.SelectedIcon = this.Icons.First();
+        }
+
         public MainViewModel MainViewModel { get; private set; }
 
         private void PrepareFiltering()

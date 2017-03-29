@@ -139,6 +139,15 @@
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialKind.cs">
       <Link>PackIconMaterialKind.cs</Link>
     </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialLight.cs">
+      <Link>PackIconMaterialLight.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialLightDataFactory.cs">
+      <Link>PackIconMaterialLightDataFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialLightKind.cs">
+      <Link>PackIconMaterialLightKind.cs</Link>
+    </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconModern.cs">
       <Link>PackIconModern.cs</Link>
     </Compile>
@@ -182,6 +191,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\PackIconMaterial.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\PackIconMaterialLight.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

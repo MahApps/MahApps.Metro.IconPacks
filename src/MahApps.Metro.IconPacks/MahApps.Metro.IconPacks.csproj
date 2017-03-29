@@ -109,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\PackIconMaterialLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\PackIconModern.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,6 +140,10 @@
     <Compile Include="PackIconMaterialDataFactory.cs" />
     <Compile Include="PackIconMaterialExtension.cs" />
     <Compile Include="PackIconMaterialKind.cs" />
+    <Compile Include="PackIconMaterialLight.cs" />
+    <Compile Include="PackIconMaterialLightDataFactory.cs" />
+    <Compile Include="PackIconMaterialLightExtension.cs" />
+    <Compile Include="PackIconMaterialLightKind.cs" />
     <Compile Include="PackIconModern.cs" />
     <Compile Include="PackIconModernDataFactory.cs" />
     <Compile Include="PackIconModernExtension.cs" />

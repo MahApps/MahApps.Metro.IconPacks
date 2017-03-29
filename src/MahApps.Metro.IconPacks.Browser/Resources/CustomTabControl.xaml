@@ -26,6 +26,15 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMaterialLightKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconMaterialLight Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
@@ -71,7 +80,7 @@
         <Grid>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" MinHeight="120" />
+                <RowDefinition Height="Auto" MinHeight="125" />
                 <RowDefinition Height="*" /> <!-- ListBox -->
             </Grid.RowDefinitions>
 
@@ -83,37 +92,35 @@
                            FontWeight="Bold"
                            FontSize="36"
                            Margin="20 5 0 0" />
-                <StackPanel Orientation="Horizontal"
-                            VerticalAlignment="Bottom"
-                            HorizontalAlignment="Left">
-                    <TextBox x:Name="FilterTextBox"
-                             controls:TextBoxHelper.ClearTextButton="False"
-                             controls:TextBoxHelper.UseFloatingWatermark="True"
-                             controls:TextBoxHelper.Watermark="Filter by..."
-                             Margin="10 0 10 10"
-                             Width="250"
-                             BorderThickness="0 0 0 1"
-                             SnapsToDevicePixels="True"
-                             Background="{StaticResource TabControlBackgroundBrush}"
-                             Text="{Binding MainViewModel.FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
-                    <!-- not yet
-                    <CheckBox x:Name="FilterCheckBox"
-                              IsChecked="{Binding MainViewModel.FilterOverAll, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                              SnapsToDevicePixels="True"
-                              VerticalAlignment="Bottom"
-                              Margin="0 0 0 10"
-                              FocusVisualStyle="{x:Null}"
-                              Content="Over all" />
-                    -->
+                <TextBox x:Name="FilterTextBox"
+                         VerticalAlignment="Bottom"
+                         HorizontalAlignment="Left"
+                         controls:TextBoxHelper.ClearTextButton="False"
+                         controls:TextBoxHelper.UseFloatingWatermark="True"
+                         controls:TextBoxHelper.Watermark="Filter by..."
+                         Margin="10 0 10 5"
+                         Width="250"
+                         BorderThickness="0 0 0 1"
+                         SnapsToDevicePixels="True"
+                         Background="{StaticResource TabControlBackgroundBrush}"
+                         Text="{Binding MainViewModel.FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+
+                <StackPanel Margin="10 5 10 0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Orientation="Vertical">
+
+                    <TextBlock FontSize="12"
+                               HorizontalAlignment="Right"
+                               Text="{Binding SelectedIcon.IconPackType.Name, Mode=OneWay}" />
+                    
+                    <TextBlock FontSize="14"
+                               HorizontalAlignment="Right"
+                               Text="{Binding SelectedIcon.Name, Mode=OneWay}" />
+
                 </StackPanel>
 
-                <TextBlock Margin="10 10 10 0"
-                           FontSize="14"
-                           VerticalAlignment="Top"
-                           HorizontalAlignment="Right"
-                           Text="{Binding SelectedIcon.Name, Mode=OneWay}" />
-
-                <StackPanel Margin="10 0 10 10"
+                <StackPanel Margin="10 0 10 5"
                             Orientation="Horizontal"
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Right">
@@ -155,7 +162,7 @@
                 </StackPanel>
             </Grid>
 
-            <ListBox x:Name="PackIconFontAwesomeKindListBox"
+            <ListBox x:Name="IconListBox"
                      Grid.Row="1"
                      Margin="2"
                      FocusVisualStyle="{x:Null}"
@@ -219,6 +226,15 @@
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMaterialLightKind}">
+                                <Setter TargetName="IconContent" Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                            <iconPacks:PackIconMaterialLight Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding Value, Mode=OneWay}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
                             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
@@ -268,7 +284,7 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="10" />
-        <Setter Property="MinWidth" Value="120" />
+        <Setter Property="MinWidth" Value="100" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Template">
             <Setter.Value>
