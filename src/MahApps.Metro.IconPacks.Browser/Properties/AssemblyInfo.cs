@@ -11,5 +11,5 @@ using System.Windows;
 [assembly: AssemblyProduct("MahApps.Metro.IconPacks.Browser 1.3.0")]
 [assembly: AssemblyTitle("MahApps.Metro.IconPacks.Browser")]
 [assembly: AssemblyDescription("Application for the awesome IconPacks.")]
-[assembly: AssemblyCopyright("Copyright © MahApps.Metro 2016")]
+[assembly: AssemblyCopyright("Copyright © MahApps.Metro 2016-2017")]
 [assembly: AssemblyCompany("MahApps")]

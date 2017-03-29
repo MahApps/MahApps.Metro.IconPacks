@@ -26,6 +26,15 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMaterialLightKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconMaterialLight Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
@@ -217,6 +226,15 @@
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMaterialLightKind}">
+                                <Setter TargetName="IconContent" Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                            <iconPacks:PackIconMaterialLight Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding Value, Mode=OneWay}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
                             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
@@ -267,7 +285,7 @@
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="MinWidth" Value="100" />
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
