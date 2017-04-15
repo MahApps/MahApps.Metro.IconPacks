@@ -10,9 +10,9 @@
     <projectUrl>https://github.com/MahApps/MahApps.Metro.IconPacks</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/MahApps/MahApps.Metro/master/mahapps.metro.logo2.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>IconPacks for stylish awesome UI WPF apps.</description>
-    <summary>IconPacks contains an easy to use icon control to allow devs quickly and easily use awesome icons with minimal effort.</summary>
+    <description>IconPacks for stylish awesome WPF or UWP apps.</description>
+    <summary>The IconPacks contains an easy to use icon control to allow devs quickly and easily use awesome icons with minimal effort for WPF and UWP applications.</summary>
     <releaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</releaseNotes>
-	  <tags>WPF UI Metro ModernUI Material XAML Toolkit Library .NET Icon</tags>
+	  <tags>WPF UWP UAP Windows 10 Windows10 WinRT App Universal UI Metro ModernUI Material XAML Toolkit Library .NET Icon</tags>
   </metadata>
 </package>

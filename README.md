@@ -2,9 +2,7 @@
 
 [![Join the chat at https://gitter.im/MahApps/MahApps.Metro.IconPacks](https://badges.gitter.im/MahApps/MahApps.Metro.IconPacks.svg)](https://gitter.im/MahApps/MahApps.Metro.IconPacks?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Some awesome icons all together...
-
-The IconPacks library contains controls to use awesome icons from
+The `IconPacks` library contains controls to use awesome icons from
 
 - [Material Design](https://materialdesignicons.com/) (v1.8.36 with 1843 icons)
 - [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) (v0.2.63 with 257 icons)
@@ -12,6 +10,7 @@ The IconPacks library contains controls to use awesome icons from
 - [GitHub Octicons](https://octicons.github.com/) (v5.0.1 with 176 icons)
 - [Modern](http://modernuiicons.com/) (1224 icons)
 - [Entypo+](http://www.entypo.com/) (411 icons)
+- [Simple Icons](https://simpleicons.org/) (300 icons)
 
 for `WPF` and `UWP` apps in a simple way.
 
@@ -55,6 +54,10 @@ To install the IconPacks, run the following commands in the NuGet Package Manage
 ```bash
   PM> Install-Package MahApps.Metro.IconPacks.Entypo
 ```
+- `MahApps.Metro.IconPacks.SimpleIcons` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/)
+```bash
+  PM> Install-Package MahApps.Metro.IconPacks.SimpleIcons
+```
 
 ## Usage
 
@@ -82,6 +85,10 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
 
 ```xaml
 <iconPacks:PackIconEntypo Kind="EmojiHappy" />
+```
+
+```xaml
+<iconPacks:PackIconSimpleIcons Kind="StackOverflow" />
 ```
 
 The `Xaml` namespace for all icon packs is:
@@ -219,6 +226,7 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconOcticons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconSimpleIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!-- now make some global changes for the icon pack controls without using new keys -->
@@ -248,6 +256,11 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
     </Style>
 
     <Style TargetType="{x:Type iconPacks:PackIconEntypo}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style TargetType="{x:Type iconPacks:PackIconSimpleIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconSimpleIcons}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>

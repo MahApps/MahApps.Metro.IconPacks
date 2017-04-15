@@ -67,6 +67,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconOcticons, PackIconOcticonsKind>((PackIconOcticonsKind)this.Kind);
             }
 #endif
+#if ALL || SIMPLEICONS
+            if (this.Kind is PackIconSimpleIconsKind)
+            {
+                return this.GetPackIcon<PackIconSimpleIcons, PackIconSimpleIconsKind>((PackIconSimpleIconsKind)this.Kind);
+            }
+#endif
             return null;
         }
 
