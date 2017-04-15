@@ -20,7 +20,7 @@
     public enum PackIconSimpleIconsKind
     {
         [Description("Empty placeholder")] None,
-        [Description("500px, https://about.500px.com/press")] _500Px,
+        [Description("500px, https://about.500px.com/press")] _500px,
         [Description("About.me, https://about.me/assets")] AboutMe,
         [Description("ACM, http://identitystandards.acm.org/")] Acm,
         [Description("Air, http://getair.co")] Air,
