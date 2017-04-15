@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E55968FD-91B1-4ACE-B711-30724797A662}</ProjectGuid>
+    <ProjectGuid>{85E73E30-B880-4127-A770-E8F0DE6744CE}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
-    <AssemblyName>MahApps.Metro.IconPacks</AssemblyName>
+    <RootNamespace>MahApps.Metro.IconPacks.SimpleIcons</RootNamespace>
+    <AssemblyName>MahApps.Metro.IconPacks.SimpleIcons</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -21,7 +21,7 @@
     <OutputPath>..\bin\Debug\</OutputPath>
     <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Debug\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE;DEBUG;ALL</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SIMPLEICONS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>1591</NoWarn>
@@ -33,7 +33,7 @@
     <OutputPath>..\bin\Release\</OutputPath>
     <IntermediateOutputPath>obj\Release\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE;ALL</DefineConstants>
+    <DefineConstants>TRACE;SIMPLEICONS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0067,1591,0168</NoWarn>
@@ -43,7 +43,7 @@
     <OutputPath>..\bin\Release_NET45\</OutputPath>
     <IntermediateOutputPath>obj\Release_NET45\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET45\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE;ALL</DefineConstants>
+    <DefineConstants>TRACE;SIMPLEICONS</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,7 +57,7 @@
     <OutputPath>..\bin\Release_NET46\</OutputPath>
     <IntermediateOutputPath>obj\Release_NET46\</IntermediateOutputPath>
     <DocumentationFile>..\bin\Release_NET46\$(AssemblyName).XML</DocumentationFile>
-    <DefineConstants>TRACE;ALL</DefineConstants>
+    <DefineConstants>TRACE;SIMPLEICONS</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -69,6 +69,33 @@
   <ItemGroup>
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\Converter\FlipToScaleValueConverter.cs">
+      <Link>Converter\FlipToScaleValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\Converter\MarkupConverter.cs">
+      <Link>Converter\MarkupConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\Converter\NullToUnsetValueConverter.cs">
+      <Link>Converter\NullToUnsetValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIcon.cs">
+      <Link>PackIcon.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconExtension.cs">
+      <Link>PackIconExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconSimpleIcons.cs">
+      <Link>PackIconSimpleIcons.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconSimpleIconsDataFactory.cs">
+      <Link>PackIconSimpleIconsDataFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconSimpleIconsExtension.cs">
+      <Link>PackIconSimpleIconsExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconSimpleIconsKind.cs">
+      <Link>PackIconSimpleIconsKind.cs</Link>
     </Compile>
     <Compile Include="..\paket-files\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
       <Paket>True</Paket>
@@ -89,77 +116,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="..\MahApps.Metro.IconPacks\Themes\PackIconSimpleIcons.xaml">
+      <Link>Themes\PackIconSimpleIcons.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\IconPacks.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconEntypo.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconFontAwesome.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconMaterial.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconMaterialLight.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconModern.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconOcticons.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconSimpleIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Converter\FlipToScaleValueConverter.cs" />
-    <Compile Include="Converter\MarkupConverter.cs" />
-    <Compile Include="Converter\NullToUnsetValueConverter.cs" />
-    <Compile Include="PackIcon.cs" />
-    <Compile Include="PackIconEntypo.cs" />
-    <Compile Include="PackIconEntypoDataFactory.cs" />
-    <Compile Include="PackIconEntypoExtension.cs" />
-    <Compile Include="PackIconEntypoKind.cs" />
-    <Compile Include="PackIconExtension.cs" />
-    <Compile Include="PackIconFontAwesome.cs" />
-    <Compile Include="PackIconFontAwesomeDataFactory.cs" />
-    <Compile Include="PackIconFontAwesomeExtension.cs" />
-    <Compile Include="PackIconFontAwesomeKind.cs" />
-    <Compile Include="PackIconMaterial.cs" />
-    <Compile Include="PackIconMaterialDataFactory.cs" />
-    <Compile Include="PackIconMaterialExtension.cs" />
-    <Compile Include="PackIconMaterialKind.cs" />
-    <Compile Include="PackIconMaterialLight.cs" />
-    <Compile Include="PackIconMaterialLightDataFactory.cs" />
-    <Compile Include="PackIconMaterialLightExtension.cs" />
-    <Compile Include="PackIconMaterialLightKind.cs" />
-    <Compile Include="PackIconModern.cs" />
-    <Compile Include="PackIconModernDataFactory.cs" />
-    <Compile Include="PackIconModernExtension.cs" />
-    <Compile Include="PackIconModernKind.cs" />
-    <Compile Include="PackIconOcticons.cs" />
-    <Compile Include="PackIconOcticonsDataFactory.cs" />
-    <Compile Include="PackIconOcticonsExtension.cs" />
-    <Compile Include="PackIconOcticonsKind.cs" />
-    <Compile Include="PackIconSimpleIcons.cs" />
-    <Compile Include="PackIconSimpleIconsDataFactory.cs" />
-    <Compile Include="PackIconSimpleIconsExtension.cs" />
-    <Compile Include="PackIconSimpleIconsKind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

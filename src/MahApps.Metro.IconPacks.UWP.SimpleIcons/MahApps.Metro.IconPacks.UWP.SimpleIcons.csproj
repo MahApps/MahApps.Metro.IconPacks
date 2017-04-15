@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3037BA79-20D6-4E6F-98BF-6DE237F968C9}</ProjectGuid>
+    <ProjectGuid>{B01C85C8-7C88-4999-9148-7D5A28D02E97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
-    <AssemblyName>MahApps.Metro.IconPacks</AssemblyName>
+    <RootNamespace>MahApps.Metro.IconPacks.SimpleIcons</RootNamespace>
+    <AssemblyName>MahApps.Metro.IconPacks.SimpleIcons</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
@@ -22,24 +22,24 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug_UWP\IconPacks\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;ALL</DefineConstants>
+    <OutputPath>..\bin\Debug_UWP\IconPacksSimpleIcons\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_UWP;SIMPLEICONS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoWarn>1591</NoWarn>
-    <DocumentationFile>..\bin\Debug_UWP\IconPacks\MahApps.Metro.IconPacks.xml</DocumentationFile>
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    <DocumentationFile>..\bin\Debug_UWP\IconPacksSimpleIcons\MahApps.Metro.IconPacks.SimpleIcons.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release_UWP\IconPacks\</OutputPath>
-    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;ALL</DefineConstants>
+    <OutputPath>..\bin\Release_UWP\IconPacksSimpleIcons\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP;SIMPLEICONS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
-    <DocumentationFile>..\bin\Release_UWP\IconPacks\MahApps.Metro.IconPacks.xml</DocumentationFile>
+    <DocumentationFile>..\bin\Release_UWP\IconPacksSimpleIcons\MahApps.Metro.IconPacks.SimpleIcons.XML</DocumentationFile>
     <NoWarn>0067,1591,0168</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -109,63 +109,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\GlobalAssemblyInfo.cs">
-      <Link>GlobalAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconEntypo.cs">
-      <Link>PackIconEntypo.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconEntypoDataFactory.cs">
-      <Link>PackIconEntypoDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconEntypoKind.cs">
-      <Link>PackIconEntypoKind.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesome.cs">
-      <Link>PackIconFontAwesome.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesomeDataFactory.cs">
-      <Link>PackIconFontAwesomeDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconFontAwesomeKind.cs">
-      <Link>PackIconFontAwesomeKind.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterial.cs">
-      <Link>PackIconMaterial.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialDataFactory.cs">
-      <Link>PackIconMaterialDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialKind.cs">
-      <Link>PackIconMaterialKind.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialLight.cs">
-      <Link>PackIconMaterialLight.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialLightDataFactory.cs">
-      <Link>PackIconMaterialLightDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconMaterialLightKind.cs">
-      <Link>PackIconMaterialLightKind.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconModern.cs">
-      <Link>PackIconModern.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconModernDataFactory.cs">
-      <Link>PackIconModernDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconModernKind.cs">
-      <Link>PackIconModernKind.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconOcticons.cs">
-      <Link>PackIconOcticons.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconOcticonsDataFactory.cs">
-      <Link>PackIconOcticonsDataFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIconOcticonsKind.cs">
-      <Link>PackIconOcticonsKind.cs</Link>
-    </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconSimpleIcons.cs">
       <Link>PackIconSimpleIcons.cs</Link>
     </Compile>
@@ -179,43 +122,19 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\MahApps.Metro.IconPacks.UWP.rd.xml" />
+    <EmbeddedResource Include="Properties\MahApps.Metro.IconPacks.UWP.SimpleIcons.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="..\MahApps.Metro.IconPacks.UWP\Themes\PackIconSimpleIcons.xaml">
+      <Link>Themes\PackIconSimpleIcons.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\IconPacks.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconEntypo.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconFontAwesome.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconMaterial.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconMaterialLight.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconModern.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconOcticons.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\PackIconSimpleIcons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

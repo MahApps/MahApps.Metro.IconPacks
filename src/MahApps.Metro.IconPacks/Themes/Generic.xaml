@@ -12,5 +12,6 @@
     <Style TargetType="{x:Type local:PackIconOcticons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}" />
     <Style TargetType="{x:Type local:PackIconModern}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconModern}" />
     <Style TargetType="{x:Type local:PackIconEntypo}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}" />
+    <Style TargetType="{x:Type local:PackIconSimpleIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconSimpleIcons}" />
 
 </ResourceDictionary>
