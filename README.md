@@ -16,7 +16,7 @@ for `WPF` and `UWP` apps in a simple way.
 
 It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) (for WPF), but it makes your application nicer.
 
-![iconbrowserfinal](https://cloud.githubusercontent.com/assets/658431/18764958/ec20dd3e-8113-11e6-8793-b012eaec2302.gif)
+![iconbrowserfinal](./resources/iconpacks_latest.gif)
 
 ## Want to say thanks?
 
@@ -27,37 +27,37 @@ This framework is free and can be used for free, open source and commercial appl
 To install the IconPacks, run the following commands in the NuGet Package Manager Console or install it with the NuGet Package Manager extension.
 
 - `MahApps.Metro.IconPacks` includes all Icons in one package [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks/)
-```bash
-  PM> Install-Package MahApps.Metro.IconPacks
-```
+    ```bash
+    PM> Install-Package MahApps.Metro.IconPacks
+    ```
 - `MahApps.Metro.IconPacks.Material` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
-```bash
-  PM> Install-Package MahApps.Metro.IconPacks.Material
-```
+    ```bash
+    PM> Install-Package MahApps.Metro.IconPacks.Material
+    ```
 - `MahApps.Metro.IconPacks.MaterialLight` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/)
-```bash
-  PM> Install-Package MahApps.Metro.IconPacks.MaterialLight
-```
+    ```bash
+    PM> Install-Package MahApps.Metro.IconPacks.MaterialLight
+    ```
 - `MahApps.Metro.IconPacks.FontAwesome` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
-```bash
-  PM> Install-Package MahApps.Metro.IconPacks.FontAwesome
-```
+    ```bash
+    PM> Install-Package MahApps.Metro.IconPacks.FontAwesome
+    ```
 - `MahApps.Metro.IconPacks.Octicons` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/)
-```bash
-  PM> Install-Package MahApps.Metro.IconPacks.Octicons
-```
+    ```bash
+    PM> Install-Package MahApps.Metro.IconPacks.Octicons
+    ```
 - `MahApps.Metro.IconPacks.Modern` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
-```bash
-  PM> Install-Package MahApps.Metro.IconPacks.Modern
-```
+    ```bash
+    PM> Install-Package MahApps.Metro.IconPacks.Modern
+    ```
 - `MahApps.Metro.IconPacks.Entypo` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/)
-```bash
-  PM> Install-Package MahApps.Metro.IconPacks.Entypo
-```
+    ```bash
+    PM> Install-Package MahApps.Metro.IconPacks.Entypo
+    ```
 - `MahApps.Metro.IconPacks.SimpleIcons` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/)
-```bash
-  PM> Install-Package MahApps.Metro.IconPacks.SimpleIcons
-```
+    ```bash
+    PM> Install-Package MahApps.Metro.IconPacks.SimpleIcons
+    ```
 
 ## Usage
 
@@ -91,6 +91,8 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
 <iconPacks:PackIconSimpleIcons Kind="StackOverflow" />
 ```
 
+### Namespace
+
 The `Xaml` namespace for all icon packs is:
 
 ```xaml
@@ -102,8 +104,6 @@ and for the `UWP` packages:
 ```xaml
 xmlns:iconPacks="using:MahApps.Metro.IconPacks"
 ```
-
-![iconpacks001](https://cloud.githubusercontent.com/assets/658431/19322565/d6ec652c-90b9-11e6-8a06-00e326ca390a.gif)
 
 ## IconPacks Browser
 
