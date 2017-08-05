@@ -1,0 +1,389 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:iconpacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    xmlns:local="clr-namespace:MahApps.Metro.IconPacks.Browser">
+
+    <VisualBrush x:Key="AlphaBrush"
+                 Stretch="None"
+                 TileMode="Tile"
+                 Viewport="0,0,8,8"
+                 ViewportUnits="Absolute">
+        <VisualBrush.Visual>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4" />
+                    <ColumnDefinition Width="4" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="4" />
+                </Grid.RowDefinitions>
+                <Rectangle Grid.Row="0"
+                           Grid.Column="0"
+                           Fill="#FFF" />
+                <Rectangle Grid.Row="0"
+                           Grid.Column="1"
+                           Fill="#AAA" />
+                <Rectangle Grid.Row="1"
+                           Grid.Column="0"
+                           Fill="#AAA" />
+                <Rectangle Grid.Row="1"
+                           Grid.Column="1"
+                           Fill="#FFF" />
+            </Grid>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <!--  Gradient Stop Thumb Style  -->
+    <Style x:Key="SliderThumbStyle"
+           TargetType="Thumb">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="BorderBrush" Value="#000000" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Grid>
+                        <Path Width="14"
+                              Height="16"
+                              Data="M468.9,240 A71.7,71.7,0,1,0,593, 240 M468.9,240 L531,152 L593,240"
+                              Fill="#FFFFFF"
+                              Stretch="Fill"
+                              Stroke="{TemplateBinding BorderBrush}" />
+
+                        <Path Width="8"
+                              Height="12"
+                              Data="M468.9,240 A71.7,71.7,0,1,0,593,240 M468.9,240 L531,152 L593,240"
+                              Fill="{TemplateBinding Background}"
+                              Stretch="Fill" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  Gradient Stop Slider Style  -->
+    <Style x:Key="GradientStopSliderStyle"
+           TargetType="Slider">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Track x:Name="PART_Track">
+                        <Track.Thumb>
+                            <Thumb Background="{TemplateBinding Background}"
+                                   BorderBrush="{TemplateBinding BorderBrush}"
+                                   Style="{StaticResource SliderThumbStyle}" />
+                        </Track.Thumb>
+                    </Track>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  ******* ColorBox *******  -->
+    <Style TargetType="{x:Type local:ColorBox}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush3}" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ColorBox}">
+                    <Border x:Name="PART_Root"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border.InputBindings>
+                            <KeyBinding Key="Delete"
+                                        Command="{x:Static local:ColorBox.RemoveGradientStop}" />
+                        </Border.InputBindings>
+
+                        <StackPanel Margin="5">
+                            <ListBox x:Name="AvailableBrushTypeList"
+                                     HorizontalContentAlignment="Center"
+                                     ItemsSource="{Binding AvailableBrushTypes, RelativeSource={RelativeSource TemplatedParent}}"
+                                     SelectedItem="{Binding BrushType, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Columns="2"
+                                                     Rows="1" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate DataType="local:BrushTypes">
+                                        <iconpacks:PackIconMaterial x:Name="Icon"
+                                                                    Width="24"
+                                                                    Height="24"
+                                                                    HorizontalAlignment="Center">
+                                            <iconpacks:PackIconMaterial.Style>
+                                                <Style BasedOn="{StaticResource {x:Type iconpacks:PackIconMaterial}}"
+                                                       TargetType="iconpacks:PackIconMaterial">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding}"
+                                                                     Value="Solid">
+                                                            <Setter Property="Kind" Value="FormatColorFill" />
+                                                            <Setter Property="ToolTip" Value="Solid Brush" />
+                                                        </DataTrigger>
+
+                                                        <DataTrigger Binding="{Binding}"
+                                                                     Value="Radial">
+                                                            <Setter Property="Kind" Value="CheckBoxBlankCircle" />
+                                                            <Setter Property="ToolTip" Value="Radial Gradient Brush" />
+                                                            <Setter Property="Foreground">
+                                                                <Setter.Value>
+                                                                    <RadialGradientBrush>
+                                                                        <GradientStop Offset="1" Color="#000000" />
+                                                                        <GradientStop Color="#FFFFFF" />
+                                                                    </RadialGradientBrush>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </iconpacks:PackIconMaterial.Style>
+                                        </iconpacks:PackIconMaterial>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <ScrollViewer Margin="0,5,0,5"
+                                          HorizontalScrollBarVisibility="Disabled"
+                                          VerticalScrollBarVisibility="Disabled">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="5" />
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="5" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--  saturation / brightness selector  -->
+                                    <Grid Grid.Column="0"
+                                          ClipToBounds="true">
+                                        <local:SaturationBrightnessSelector x:Name="SV"
+                                                                            MinHeight="128"
+                                                                            Brightness="{Binding Path=Brightness, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                                            Hue="{Binding ElementName=H, Path=Hue}"
+                                                                            Saturation="{Binding Path=Saturation, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+
+                                        <Grid Width="12"
+                                              Height="12"
+                                              Margin="-6,-6,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top">
+                                            <Ellipse Stroke="#000000" />
+                                            <Ellipse Margin="1"
+                                                     Stroke="#FFFFFF" />
+                                            <Grid.RenderTransform>
+                                                <TranslateTransform X="{Binding ElementName=SV, Path=SaturationOffset}" Y="{Binding ElementName=SV, Path=BrightnessOffset}" />
+                                            </Grid.RenderTransform>
+                                        </Grid>
+                                    </Grid>
+
+                                    <!--  hue selector  -->
+                                    <local:HueSelector x:Name="H"
+                                                       Grid.Column="2"
+                                                       Hue="{Binding Path=Hue, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                                    <Path Grid.Column="2"
+                                          Margin="0,-5,0,5"
+                                          HorizontalAlignment="Left"
+                                          Data="M 0 0 L 7 5 L 0 10Z"
+                                          Fill="#000000"
+                                          Stroke="#FFFFFF">
+                                        <Path.RenderTransform>
+                                            <TranslateTransform Y="{Binding ElementName=H, Path=HueOffset}" />
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path Grid.Column="2"
+                                          Margin="0,-5,0,5"
+                                          HorizontalAlignment="Right"
+                                          Data="M 0 5 L 7 0 L 7 10 Z"
+                                          Fill="#000000"
+                                          Stroke="#FFFFFF">
+                                        <Path.RenderTransform>
+                                            <TranslateTransform Y="{Binding ElementName=H, Path=HueOffset}" />
+                                        </Path.RenderTransform>
+                                    </Path>
+
+                                    <!--  alpha selector  -->
+                                    <Rectangle Grid.Column="4"
+                                               Fill="{StaticResource AlphaBrush}" />
+                                    <local:AlphaSelector x:Name="A"
+                                                         Grid.Column="4"
+                                                         Alpha="{Binding Path=Alpha, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                                    <Path Grid.Column="4"
+                                          Margin="0,-5,0,5"
+                                          HorizontalAlignment="Left"
+                                          Data="M 0 0 L 7 5 L 0 10Z"
+                                          Fill="#000000"
+                                          Stroke="#FFFFFF">
+                                        <Path.RenderTransform>
+                                            <TranslateTransform Y="{Binding ElementName=A, Path=AlphaOffset}" />
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path Grid.Column="4"
+                                          Margin="0,-5,0,5"
+                                          HorizontalAlignment="Right"
+                                          Data="M 0 5 L 7 0 L 7 10 Z"
+                                          Fill="#000000"
+                                          Stroke="#FFFFFF">
+                                        <Path.RenderTransform>
+                                            <TranslateTransform Y="{Binding ElementName=A, Path=AlphaOffset}" />
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Grid>
+                            </ScrollViewer>
+
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Rectangle Height="20"
+                                           VerticalAlignment="Center">
+                                    <Rectangle.Fill>
+                                        <SolidColorBrush Color="{Binding Color, RelativeSource={RelativeSource TemplatedParent}}" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+
+                                <TextBox x:Name="PART_CurrentColor"
+                                         Grid.Column="2"
+                                         MinWidth="100"
+                                         BorderThickness="0,0,0,1"
+                                         Text="{Binding Color, RelativeSource={RelativeSource TemplatedParent}}" />
+
+                            </Grid>
+
+                            <Grid Margin="0,5,0,0"
+                                  Focusable="False">
+
+                                <Grid.Style>
+                                    <Style TargetType="Grid">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=AvailableBrushTypeList, Path=SelectedValue}"
+                                                         Value="Radial">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Grid.Style>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="Auto"
+                                                      MinWidth="45" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0"
+                                            Focusable="False">
+
+                                    <!--  Click to add gradient stop  -->
+                                    <local:GradientStopAdder Height="20"
+                                                             Margin="7,0"
+                                                             ColorBox="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                                                             FocusVisualStyle="{x:Null}"
+                                                             Focusable="False"
+                                                             IsTabStop="False">
+                                        <local:GradientStopAdder.Background>
+                                            <LinearGradientBrush GradientStops="{Binding Brush.GradientStops, RelativeSource={RelativeSource TemplatedParent}}" StartPoint="0,.5" EndPoint="1,.5" />
+                                        </local:GradientStopAdder.Background>
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <Border Background="{TemplateBinding Background}"
+                                                                    BorderThickness="0" />
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Button.Style>
+                                    </local:GradientStopAdder>
+
+                                    <!--  gradient stops  -->
+                                    <ListBox x:Name="lbGradientStops"
+                                             Background="{x:Null}"
+                                             BorderThickness="0"
+                                             FocusVisualStyle="{x:Null}"
+                                             Focusable="False"
+                                             IsTabStop="False"
+                                             ItemsSource="{Binding Path=Gradients, RelativeSource={RelativeSource TemplatedParent}}"
+                                             SelectedItem="{Binding SelectedGradient, RelativeSource={RelativeSource TemplatedParent}}"
+                                             Style="{x:Null}">
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="ListBoxItem">
+                                                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                                <Setter Property="IsTabStop" Value="False" />
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="ListBoxItem">
+                                                            <local:GradientStopSlider x:Name="PART_Slider"
+                                                                                      Margin="0,0,0,2"
+                                                                                      BorderBrush="#000000"
+                                                                                      ColorBox="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ColorBox}}}"
+                                                                                      IsTabStop="False"
+                                                                                      Maximum="1"
+                                                                                      Minimum="0"
+                                                                                      SelectedGradient="{Binding}"
+                                                                                      Style="{StaticResource GradientStopSliderStyle}"
+                                                                                      Value="{Binding Offset}">
+                                                                <local:GradientStopSlider.Background>
+                                                                    <SolidColorBrush Color="{Binding Color}" />
+                                                                </local:GradientStopSlider.Background>
+                                                            </local:GradientStopSlider>
+
+                                                            <ControlTemplate.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter TargetName="PART_Slider" Property="BorderBrush" Value="Orange" />
+                                                                </Trigger>
+                                                                <Trigger Property="IsSelected" Value="True">
+                                                                    <Setter TargetName="PART_Slider" Property="BorderBrush" Value="Blue" />
+                                                                    <Setter TargetName="PART_Slider" Property="Effect">
+                                                                        <Setter.Value>
+                                                                            <DropShadowEffect BlurRadius="2"
+                                                                                              Direction="270"
+                                                                                              ShadowDepth="2" />
+                                                                        </Setter.Value>
+                                                                    </Setter>
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+
+                                        <ListBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <Grid IsItemsHost="True" />
+                                            </ItemsPanelTemplate>
+                                        </ListBox.ItemsPanel>
+
+                                    </ListBox>
+
+                                </StackPanel>
+
+                                <Button Grid.Column="2"
+                                        BorderBrush="{Binding BorderBrush, RelativeSource={RelativeSource TemplatedParent}}"
+                                        Command="{x:Static local:ColorBox.ReverseGradientStop}"
+                                        ToolTip="Reverse gradient stops">
+                                    <iconpacks:PackIconMaterialLight Width="24"
+                                                                     Height="24"
+                                                                     Kind="UnFoldMoreVertical" />
+                                </Button>
+
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
