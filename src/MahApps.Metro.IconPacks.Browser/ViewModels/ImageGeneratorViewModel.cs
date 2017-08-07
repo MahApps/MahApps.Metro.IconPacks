@@ -14,6 +14,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
     public class ImageGeneratorViewModel : ViewModelBase
     {
+        private const int NativeDpi = 96;
+
         private readonly BusyStack _busyStack;
         private readonly MainViewModel _mainViewModel;
         private readonly IPackIconDataFactory _pathDatafactory;
@@ -186,6 +188,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
             var path = new System.Windows.Shapes.Path()
             {
+                LayoutTransform = GetTransformByType(icon.IconType),
                 Data = geometry,
                 Stretch = Stretch.Uniform,
                 Fill = brush,
@@ -199,7 +202,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             canvas.Measure(size);
             canvas.Arrange(new Rect(size));
 
-            var rtb = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96, 96, PixelFormats.Pbgra32);
+            var rtb = new RenderTargetBitmap((int)size.Width, (int)size.Height, NativeDpi, NativeDpi, PixelFormats.Pbgra32);
             rtb.Render(canvas);
 
             var encoder = SelectedType.EncoderFactory();
@@ -207,6 +210,19 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
             using (var stream = new FileStream(filePath, FileMode.Create))
                 encoder.Save(stream);
+        }
+
+        private Transform GetTransformByType(Type enumType)
+        {
+            if (enumType == typeof(PackIconFontAwesomeKind))
+            {
+                return new ScaleTransform
+                {
+                    ScaleY = -1,
+                };
+            }
+
+            return null;
         }
 
         private bool CanCreateImageFromIcon(object icon)
