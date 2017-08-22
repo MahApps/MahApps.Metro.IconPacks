@@ -135,7 +135,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
     {
         public IconViewModel()
         {
-            this.CopyToClipboard =
+            this.CopyToClipboardAsElement =
                 new SimpleCommand
                 {
                     CanExecuteDelegate = x => (x != null),
@@ -146,17 +146,41 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                         Clipboard.SetDataObject(text);
                     }))
                 };
+
+            this.CopyToClipboardAsContent =
+                new SimpleCommand
+                {
+                    CanExecuteDelegate = x => (x != null),
+                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        var icon = (IIconViewModel)x;
+                        var text = $"{{iconPacks:{icon.IconPackType.Name} Kind={icon.Name} }}";
+                        Clipboard.SetDataObject(text);
+                    }))
+                };
         }
 
-        private ICommand _copyToClipboard;
+        private ICommand _copyToClipboardAsElement;
+        private ICommand _copyToClipboardAsContent;
 
-        public ICommand CopyToClipboard
+        public ICommand CopyToClipboardAsElement
         {
-            get { return _copyToClipboard; }
+            get { return _copyToClipboardAsElement; }
             set
             {
-                if (Equals(value, _copyToClipboard)) return;
-                _copyToClipboard = value;
+                if (Equals(value, _copyToClipboardAsElement)) return;
+                _copyToClipboardAsElement = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand CopyToClipboardAsContent
+        {
+            get { return _copyToClipboardAsContent; }
+            set
+            {
+                if (Equals(value, _copyToClipboardAsContent)) return;
+                _copyToClipboardAsContent = value;
                 OnPropertyChanged();
             }
         }
