@@ -2,17 +2,23 @@
 using System.Collections.ObjectModel;
 using System.Reflection;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        private Brush _selectedBursh;
+        private IconPackViewModel _selectedIconPackViewModel;
+
         private string _appVersion;
         private string _iconPacksVersion;
-        private ICommand _goToGitHubCommand;
-        private Dispatcher _dispatcher;
         private string _filterText;
+
+        private ICommand _goToGitHubCommand;
+
+        private readonly Dispatcher _dispatcher;
 
         public MainViewModel(Dispatcher dispatcher)
         {
@@ -28,11 +34,12 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     new IconPackViewModel(this, "Modern", typeof(PackIconModernKind), typeof(PackIconModern)),
                     new IconPackViewModel(this, "Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo)),
                     new IconPackViewModel(this, "SimpleIcons", typeof(PackIconSimpleIconsKind), typeof(PackIconSimpleIcons)),
-                    new IconPackViewModel(this, "All", 
+                    new IconPackViewModel(this, "All",
                                           new Type[] { typeof(PackIconMaterialKind), typeof(PackIconMaterialLightKind), typeof(PackIconFontAwesomeKind), typeof(PackIconOcticonsKind), typeof(PackIconModernKind), typeof(PackIconEntypoKind), typeof(PackIconSimpleIconsKind) },
                                           new Type[] { typeof(PackIconMaterial), typeof(PackIconMaterialLight), typeof(PackIconFontAwesome), typeof(PackIconOcticons), typeof(PackIconModern), typeof(PackIconEntypo), typeof(PackIconSimpleIcons) })
                     });
             this.IconPacksVersion = Assembly.GetAssembly(typeof(PackIconMaterial)).GetName().Version.ToString();
+            this.ImageGeneratorViewModel = new ImageGeneratorViewModel(this);
             this.GoToGitHubCommand =
                 new SimpleCommand
                 {
@@ -42,6 +49,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         }
 
         public ObservableCollection<IconPackViewModel> IconPacks { get; set; }
+        public ImageGeneratorViewModel ImageGeneratorViewModel { get; }
 
         public string AppVersion
         {
@@ -72,6 +80,28 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             {
                 if (Equals(value, this._goToGitHubCommand)) return;
                 this._goToGitHubCommand = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        public Brush SelectedBrush
+        {
+            get { return this._selectedBursh; }
+            set
+            {
+                if (Equals(value, this._selectedBursh)) return;
+                this._selectedBursh = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        public IconPackViewModel SelectedIconPackViewModel
+        {
+            get { return this._selectedIconPackViewModel; }
+            set
+            {
+                if (value == this._selectedIconPackViewModel) return;
+                this._selectedIconPackViewModel = value;
                 this.OnPropertyChanged();
             }
         }
