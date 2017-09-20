@@ -2,7 +2,7 @@ source https://nuget.org/api/v2
 framework >= net40
 
 nuget JetBrains.Annotations
-nuget MahApps.Metro prerelease
+nuget MahApps.Metro
 nuget Costura.Fody
 
 github ControlzEx/ControlzEx:c5aeed0d597336bed9451ac6b5f80846267ce0f0 src/ControlzEx/PackIconBase.cs
