@@ -93,6 +93,7 @@ namespace MahApps.Metro.IconPacks
             this.CoerceSpinProperty(this, SpinProperty);
             if (this.Spin)
             {
+                this.StopSpinAnimation();
                 this.BeginSpinAnimation();
             }
         }
@@ -101,6 +102,11 @@ namespace MahApps.Metro.IconPacks
         {
             base.OnApplyTemplate();
             this.CoerceValue(SpinProperty);
+            if (this.Spin)
+            {
+                this.StopSpinAnimation();
+                this.BeginSpinAnimation();
+            }
         }
 #endif
 
