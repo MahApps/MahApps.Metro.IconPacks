@@ -2,7 +2,7 @@
 
 // Arguments
 var target = Argument("target", "Default");
-var version = "1.9.0.0";
+var version = "1.9.1.0";
 var configGitLink = new GitLinkSettings {
   RepositoryUrl = "https://github.com/MahApps/MahApps.Metro.IconPacks",
   Branch        = "master",
