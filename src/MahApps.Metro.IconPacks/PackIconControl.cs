@@ -15,7 +15,7 @@ using ControlzEx;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Enum PackIconFlipOrientation for the Flip property of the PackIcon
+    /// Enum PackIconFlipOrientation for the Flip property of any PackIcon control.
     /// </summary>
     public enum PackIconFlipOrientation
     {
@@ -41,18 +41,18 @@ namespace MahApps.Metro.IconPacks
     }
 
     /// <summary>
-    /// Class PackIcon which is the custom base class of MahApps.Metro.IconPacks.
+    /// Class PackIconControl which is the custom base class for any PackIcon control.
     /// </summary>
     /// <typeparam name="TKind">The type of the enum kind.</typeparam>
     /// <seealso cref="ControlzEx.PackIconBase{TKind}" />
-    public class PackIcon<TKind> : PackIconBase<TKind>
+    public abstract class PackIconControl<TKind> : PackIconBase<TKind>
     {
 
 #if NETFX_CORE
         private long _opacityRegisterToken;
         private long _visibilityRegisterToken;
 
-        public PackIcon(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
+        public PackIconControl(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
         {
             this.Loaded += (sender, args) =>
             {
@@ -68,20 +68,20 @@ namespace MahApps.Metro.IconPacks
 
         private void CoerceSpinProperty(DependencyObject sender, DependencyProperty dp)
         {
-            var packIcon = sender as PackIcon<TKind>;
+            var packIcon = sender as PackIconControl<TKind>;
             if (packIcon != null && (dp == OpacityProperty || dp == VisibilityProperty))
             {
                 this.Spin = packIcon.Visibility == Visibility.Visible && packIcon.SpinDuration > 0 && packIcon.Opacity > 0;
             }
         }
 #else
-        static PackIcon()
+        static PackIconControl()
         {
-            OpacityProperty.OverrideMetadata(typeof(PackIcon<TKind>), new UIPropertyMetadata(1d, (d, e) => { d.CoerceValue(SpinProperty); }));
-            VisibilityProperty.OverrideMetadata(typeof(PackIcon<TKind>), new UIPropertyMetadata(Visibility.Visible, (d, e) => { d.CoerceValue(SpinProperty); }));
+            OpacityProperty.OverrideMetadata(typeof(PackIconControl<TKind>), new UIPropertyMetadata(1d, (d, e) => { d.CoerceValue(SpinProperty); }));
+            VisibilityProperty.OverrideMetadata(typeof(PackIconControl<TKind>), new UIPropertyMetadata(Visibility.Visible, (d, e) => { d.CoerceValue(SpinProperty); }));
         }
 
-        public PackIcon(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
+        public PackIconControl(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
         {
         }
 #endif
@@ -117,7 +117,7 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register(
                 "Flip",
                 typeof(PackIconFlipOrientation),
-                typeof(PackIcon<TKind>),
+                typeof(PackIconControl<TKind>),
                 new PropertyMetadata(PackIconFlipOrientation.Normal));
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register(
                 "Rotation",
                 typeof(double),
-                typeof(PackIcon<TKind>),
+                typeof(PackIconControl<TKind>),
 #if NETFX_CORE
                 new PropertyMetadata(0d));
 #else
@@ -166,7 +166,7 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register(
                 "Spin",
                 typeof(bool),
-                typeof(PackIcon<TKind>),
+                typeof(PackIconControl<TKind>),
 #if NETFX_CORE
                 new PropertyMetadata(default(bool), SpinPropertyChangedCallback));
 #else
@@ -174,7 +174,7 @@ namespace MahApps.Metro.IconPacks
 
         private static object SpinPropertyCoerceValueCallback(DependencyObject dependencyObject, object value)
         {
-            var packIcon = dependencyObject as PackIcon<TKind>;
+            var packIcon = dependencyObject as PackIconControl<TKind>;
             if (packIcon != null && (!packIcon.IsVisible || packIcon.Opacity <= 0 || packIcon.SpinDuration <= 0.0))
             {
                 return false;
@@ -185,7 +185,7 @@ namespace MahApps.Metro.IconPacks
 
         private static void SpinPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var packIcon = dependencyObject as PackIcon<TKind>;
+            var packIcon = dependencyObject as PackIconControl<TKind>;
             if (packIcon != null && e.OldValue != e.NewValue && e.NewValue is bool)
             {
                 var spin = (bool)e.NewValue;
@@ -200,7 +200,7 @@ namespace MahApps.Metro.IconPacks
             }
         }
 
-        private static readonly string SpinnerStoryBoardName = $"{typeof(PackIcon<TKind>).Name}SpinnerStoryBoard";
+        private static readonly string SpinnerStoryBoardName = $"{typeof(PackIconControl<TKind>).Name}SpinnerStoryBoard";
 
         private FrameworkElement _innerGrid;
         private FrameworkElement InnerGrid => this._innerGrid ?? (this._innerGrid = this.GetTemplateChild("PART_InnerGrid") as FrameworkElement);
@@ -279,7 +279,7 @@ namespace MahApps.Metro.IconPacks
         public static readonly DependencyProperty SpinDurationProperty
             = DependencyProperty.Register("SpinDuration",
                 typeof(double),
-                typeof(PackIcon<TKind>),
+                typeof(PackIconControl<TKind>),
 #if !NETFX_CORE
                 new PropertyMetadata(1d, SpinDurationPropertyChangedCallback, SpinDurationCoerceValueCallback));
 #else
@@ -288,7 +288,7 @@ namespace MahApps.Metro.IconPacks
 
         private static void SpinDurationPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var packIcon = dependencyObject as PackIcon<TKind>;
+            var packIcon = dependencyObject as PackIconControl<TKind>;
             if (packIcon != null && e.OldValue != e.NewValue && packIcon.Spin && e.NewValue is double)
             {
                 packIcon.StopSpinAnimation();
@@ -324,12 +324,12 @@ namespace MahApps.Metro.IconPacks
 #else
                 typeof(IEasingFunction),
 #endif
-                typeof(PackIcon<TKind>),
+                typeof(PackIconControl<TKind>),
                 new PropertyMetadata(null, SpinEasingFunctionPropertyChangedCallback));
 
         private static void SpinEasingFunctionPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var packIcon = dependencyObject as PackIcon<TKind>;
+            var packIcon = dependencyObject as PackIconControl<TKind>;
             if (packIcon != null && e.OldValue != e.NewValue && packIcon.Spin)
             {
                 packIcon.StopSpinAnimation();
@@ -361,12 +361,12 @@ namespace MahApps.Metro.IconPacks
         public static readonly DependencyProperty SpinAutoReverseProperty
             = DependencyProperty.Register("SpinAutoReverse",
                 typeof(bool),
-                typeof(PackIcon<TKind>),
+                typeof(PackIconControl<TKind>),
                 new PropertyMetadata(default(bool), SpinAutoReversePropertyChangedCallback));
 
         private static void SpinAutoReversePropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var packIcon = dependencyObject as PackIcon<TKind>;
+            var packIcon = dependencyObject as PackIconControl<TKind>;
             if (packIcon != null && e.OldValue != e.NewValue && packIcon.Spin && e.NewValue is bool)
             {
                 packIcon.StopSpinAnimation();

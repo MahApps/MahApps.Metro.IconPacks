@@ -79,8 +79,8 @@
     <Compile Include="..\MahApps.Metro.IconPacks\Converter\NullToUnsetValueConverter.cs">
       <Link>Converter\NullToUnsetValueConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIcon.cs">
-      <Link>PackIcon.cs</Link>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconControl.cs">
+      <Link>PackIconControl.cs</Link>
     </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconExtension.cs">
       <Link>PackIconExtension.cs</Link>

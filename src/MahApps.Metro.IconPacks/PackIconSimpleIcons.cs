@@ -9,7 +9,7 @@ namespace MahApps.Metro.IconPacks
     /// All SVG icons for popular brands, maintained by Dan Leech <see><cref>https://twitter.com/bathtype</cref></see>.
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/danleech/simple-icons</cref></see>.
     /// </summary>
-    public class PackIconSimpleIcons : PackIcon<PackIconSimpleIconsKind>
+    public class PackIconSimpleIcons : PackIconControl<PackIconSimpleIconsKind>
     {
 #if !NETFX_CORE
         static PackIconSimpleIcons()

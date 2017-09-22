@@ -8,7 +8,7 @@ namespace MahApps.Metro.IconPacks
     /// <summary>
     /// Icons from GitHub Octicons - <see><cref>https://octicons.github.com</cref></see>
     /// </summary>
-    public class PackIconOcticons : PackIcon<PackIconOcticonsKind>
+    public class PackIconOcticons : PackIconControl<PackIconOcticonsKind>
     {
 #if !NETFX_CORE
         static PackIconOcticons()

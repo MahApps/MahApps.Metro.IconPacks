@@ -8,7 +8,7 @@ namespace MahApps.Metro.IconPacks
     /// <summary>
     /// Icons from the FontAwesome Icons project, <see><cref>http://fontawesome.io</cref></see>.
     /// </summary>
-    public class PackIconFontAwesome : PackIcon<PackIconFontAwesomeKind>
+    public class PackIconFontAwesome : PackIconControl<PackIconFontAwesomeKind>
     {
 #if !NETFX_CORE
         static PackIconFontAwesome()
