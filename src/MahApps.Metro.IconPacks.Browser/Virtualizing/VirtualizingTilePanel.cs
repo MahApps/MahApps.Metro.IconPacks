@@ -34,6 +34,40 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
             set { SetValue(ChildSizeProperty, value); }
         }
 
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            if (IsInitialized && IsVisible && IsLoaded && (sizeInfo.HeightChanged || sizeInfo.WidthChanged))
+            {
+                var offset = this.VerticalOffset + (sizeInfo.NewSize.Height - sizeInfo.PreviousSize.Height);
+                if (sizeInfo.NewSize.Height > sizeInfo.PreviousSize.Height)
+                {
+                    offset = this.VerticalOffset - (sizeInfo.NewSize.Height - sizeInfo.PreviousSize.Height);
+                }
+                if (offset < 0)
+                {
+                    offset = 0;
+                    _offset.Y = offset;
+                    _owner.InvalidateScrollInfo();
+                    _trans.Y = -offset;
+                    if (sizeInfo.WidthChanged)
+                        InvalidateMeasure();
+                }
+                else
+                {
+                    if ((this.VerticalOffset >= _extent.Height - sizeInfo.PreviousSize.Height) || (offset + sizeInfo.NewSize.Height >= _extent.Height))
+                    {
+                        offset = _extent.Height - sizeInfo.NewSize.Height;
+                        _offset.Y = offset;
+                        _owner.InvalidateScrollInfo();
+                        _trans.Y = -offset;
+                        if (sizeInfo.WidthChanged)
+                            InvalidateMeasure();
+                    }
+                }
+            }
+            base.OnRenderSizeChanged(sizeInfo);
+        }
+
         /// <summary>
         /// Measure the children
         /// </summary>
