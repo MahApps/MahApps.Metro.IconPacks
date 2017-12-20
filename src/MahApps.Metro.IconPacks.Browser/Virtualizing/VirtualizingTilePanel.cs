@@ -54,10 +54,21 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
                 }
                 else
                 {
-                    if ((this.VerticalOffset >= _extent.Height - sizeInfo.PreviousSize.Height) || (offset + sizeInfo.NewSize.Height >= _extent.Height))
+                    if ((this.VerticalOffset >= _extent.Height - sizeInfo.PreviousSize.Height))
                     {
-                        offset = _extent.Height - sizeInfo.NewSize.Height;
-                        _offset.Y = offset;
+                        //offset = _extent.Height - sizeInfo.NewSize.Height;
+                        offset = _extent.Height - sizeInfo.PreviousSize.Height;
+                        _offset.Y = Math.Max(0, offset);
+                        _owner.InvalidateScrollInfo();
+                        _trans.Y = -offset;
+                        if (sizeInfo.WidthChanged)
+                            InvalidateMeasure();
+                    }
+                    else if ((offset + sizeInfo.NewSize.Height >= _extent.Height))
+                    {
+                        //offset = _extent.Height - sizeInfo.NewSize.Height;
+                        offset = sizeInfo.NewSize.Height;
+                        _offset.Y = Math.Max(0, offset);
                         _owner.InvalidateScrollInfo();
                         _trans.Y = -offset;
                         if (sizeInfo.WidthChanged)
@@ -117,11 +128,12 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
                     else
                     {
                         // The child has already been created, let's be sure it's in the right spot
-                        Debug.Assert(child == children[childIndex], "Wrong child was generated");
+                        //if (childIndex >=0 )
+                          //Debug.Assert(child == children[childIndex], "Wrong child was generated");
                     }
 
                     // Measurements will depend on layout algorithm
-                    child.Measure(GetChildSize());
+                    child?.Measure(GetChildSize());
                 }
             }
 
