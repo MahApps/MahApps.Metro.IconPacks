@@ -20,7 +20,7 @@
     - ps: cd..
 
   build_script:
-    - ./src/build/build.cmd
+    - src\build\build.cmd
 
   cache:
     - src\packages -> **\packages.config
