@@ -151,18 +151,22 @@ You can download the latest version of the browser at the [release page](https:/
 
 ## MarkupExtension (only for WPF)
 
-A faster way to get a Button with an Icon is to use the MarkupExtension(s).
+A faster way to get a `Button` (or any other `ContentControl`) with an Icon is to use the MarkupExtension(s).
 
-If you want e.g. a Button with an Icon of the `PackIconFontAwesome` then you can use this one:
+If you want e.g. a Button with an Icon from the `PackIconFontAwesome` then you can do this one:
 
 ```xaml
-<Button Content="{iconPacks:PackIconFontAwesome StarOutline}" />
+<Button Content="{iconPacks:FontAwesome StarOutline}" />
+
+<!-- or -->
+
+<Button Content="{iconPacks:FontAwesome Kind=StarOutline}" />
 ```
 
 It's also possible to change some properties of the icon itself like this:
 
 ```xaml
-<Button Content="{iconPacks:PackIconFontAwesome Spinner, Width=32, Height=32, Spin=True}" />
+<Button Content="{iconPacks:FontAwesome Spinner, Width=32, Height=32, Spin=True}" />
 ```
 
 It's also possible to use a general (generic) MarkupExtension:
@@ -171,7 +175,21 @@ It's also possible to use a general (generic) MarkupExtension:
 <Button Content="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Cookie}, Width=32, Height=32}" />
 ```
 
-You can use these MarkupExtensions for all controls with Content property which can accept other objects (Controls).
+### Breaking change 1.9.x -> 2.0
+
+The MarkupExtension class names had to be renamed, cause the old ones doesn't worked well with the Visual Studio Designer (#29, #30).
+
+**Before**
+
+```xaml
+<Button Content="{iconPacks:PackIconFontAwesome Kind=StarOutline}" />
+```
+
+**Now**
+
+```xaml
+<Button Content="{iconPacks:FontAwesome Kind=StarOutline}" />
+```
 
 ## Properties
 

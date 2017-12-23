@@ -3,13 +3,13 @@
 namespace MahApps.Metro.IconPacks
 {
     [MarkupExtensionReturnType(typeof(PackIconModern))]
-    public class PackIconModernExtension : PackIconExtension<PackIconModern, PackIconModernKind>
+    public class ModernExtension : PackIconExtension<PackIconModern, PackIconModernKind>
     {
-        public PackIconModernExtension()
+        public ModernExtension()
         {
         }
 
-        public PackIconModernExtension(PackIconModernKind kind) : base(kind)
+        public ModernExtension(PackIconModernKind kind) : base(kind)
         {
         }
     }
