@@ -1,80 +1,112 @@
-#tool "nuget:?package=gitlink"
 
-// Arguments
+//////////////////////////////////////////////////////////////////////
+// TOOLS
+//////////////////////////////////////////////////////////////////////
+
+#tool "nuget:?package=GitVersion.CommandLine&version=3.6.5"
+
+//////////////////////////////////////////////////////////////////////
+// ARGUMENTS
+//////////////////////////////////////////////////////////////////////
+
 var target = Argument("target", "Default");
-var version = "1.9.1.0";
-var configGitLink = new GitLinkSettings {
-  RepositoryUrl = "https://github.com/MahApps/MahApps.Metro.IconPacks",
-  Branch        = "master",
-  Configuration = "Release",
-  SolutionFileName = "src\\MahApps.Metro.IconPacks.sln"
-};
-
-// Tasks
-Task("GitLink")
-  .Does(() =>
+if (string.IsNullOrWhiteSpace(target))
 {
-  configGitLink.Configuration = "Release";
-  GitLink("..\\..\\", configGitLink);
+    target = "Default";
+}
 
-  configGitLink.Configuration = "Release_NET45";
-  GitLink("..\\..\\", configGitLink);
+//////////////////////////////////////////////////////////////////////
+// PREPARATION
+//////////////////////////////////////////////////////////////////////
 
-  configGitLink.Configuration = "Release_NET46";
-  GitLink("..\\..\\", configGitLink);
+// Build configuration
+var msbuildtoolversion = MSBuildToolVersion.VS2017;
+
+var local = BuildSystem.IsLocalBuild;
+var isPullRequest = AppVeyor.Environment.PullRequest.IsPullRequest;
+var isDevelopBranch = StringComparer.OrdinalIgnoreCase.Equals("dev", AppVeyor.Environment.Repository.Branch);
+var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("master", AppVeyor.Environment.Repository.Branch);
+var isTagged = AppVeyor.Environment.Repository.Tag?.IsTag;
+
+// Version
+GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.BuildServer });
+var gitVersion = GitVersion(new GitVersionSettings { UpdateAssemblyInfo = true,  UpdateAssemblyInfoFilePath = "../GlobalAssemblyInfo.cs" });
+var majorMinorPatch = gitVersion.MajorMinorPatch;
+var informationalVersion = gitVersion.InformationalVersion;
+var nugetVersion = gitVersion.NuGetVersion;
+var buildVersion = gitVersion.FullBuildMetaData;
+
+var browserVersion = "1.5.0";
+
+// Define global marcos.
+Action Abort = () => { throw new Exception("a non-recoverable fatal error occurred."); };
+
+///////////////////////////////////////////////////////////////////////////////
+// SETUP / TEARDOWN
+///////////////////////////////////////////////////////////////////////////////
+
+Setup(context =>
+{
+    if (!IsRunningOnWindows())
+    {
+        throw new NotImplementedException("MahApps.Metro.IconPacks will only build on Windows because it's not possible to target WPF and Windows Forms from UNIX.");
+    }
+
+    Information("Building version {0} of MahApps.Metro.IconPacks. (isTagged: {1})", informationalVersion, isTagged);
 });
 
-Task("GitLink_dev")
-  .Does(() =>
+Teardown(context =>
 {
-  configGitLink.Branch = "dev";
+    // Executed AFTER the last task.
 });
+
+//////////////////////////////////////////////////////////////////////
+// TASKS
+//////////////////////////////////////////////////////////////////////
 
 Task("UpdateAssemblyInfo")
   .Does(() =>
 {
-  var assemblyInfo = ParseAssemblyInfo("../GlobalAssemblyInfo.cs");
+  var assemblyInfo = ParseAssemblyInfo("../MahApps.Metro.IconPacks.Browser/Properties/GlobalAssemblyInfo.cs");
   var newAssemblyInfoSettings = new AssemblyInfoSettings {
-    Product = string.Format("MahApps.Metro.IconPacks {0}", version),
-    Version = version,
-    FileVersion = version,
-    InformationalVersion = version,
-    Copyright = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year)
+    Version = browserVersion,
+    FileVersion = browserVersion,
+    InformationalVersion = browserVersion
   };
-  CreateAssemblyInfo("../GlobalAssemblyInfo.cs", newAssemblyInfoSettings);
+  CreateAssemblyInfo("../MahApps.Metro.IconPacks.Browser/Properties/GlobalAssemblyInfo.cs", newAssemblyInfoSettings);
 });
 
 Task("Build")
   .Does(() =>
 {
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release").UseToolVersion(MSBuildToolVersion.VS2015));
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET45").UseToolVersion(MSBuildToolVersion.VS2015));
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET46").UseToolVersion(MSBuildToolVersion.VS2015));
-  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Release").UseToolVersion(MSBuildToolVersion.VS2015));
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release").UseToolVersion(msbuildtoolversion));
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET45").UseToolVersion(msbuildtoolversion));
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET46").UseToolVersion(msbuildtoolversion));
+  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Release").UseToolVersion(msbuildtoolversion));
 });
 
 Task("BuildAll")
   .Does(() =>
 {
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Debug").UseToolVersion(MSBuildToolVersion.VS2015));
-  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Debug").UseToolVersion(MSBuildToolVersion.VS2015));
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Debug").UseToolVersion(msbuildtoolversion));
+  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Debug").UseToolVersion(msbuildtoolversion));
 
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release").UseToolVersion(MSBuildToolVersion.VS2015));
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET45").UseToolVersion(MSBuildToolVersion.VS2015));
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET46").UseToolVersion(MSBuildToolVersion.VS2015));
-  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Release").UseToolVersion(MSBuildToolVersion.VS2015));
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release").UseToolVersion(msbuildtoolversion));
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET45").UseToolVersion(msbuildtoolversion));
+  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET46").UseToolVersion(msbuildtoolversion));
+  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Release").UseToolVersion(msbuildtoolversion));
 });
 
 Task("ZipDebug")
   .Does(() =>
 {
-  Zip("..\\bin\\MahApps.Metro.IconPacks.Browser\\Debug\\", "IconPacks.Browser.Debug.NET45.zip");
+  Zip("..\\bin\\MahApps.Metro.IconPacks.Browser\\Debug\\", "IconPacks.Browser.Debug.v" + nugetVersion + ".zip");
 });
 
 Task("ZipRelease")
   .Does(() =>
 {
-  Zip("..\\bin\\MahApps.Metro.IconPacks.Browser\\Release\\", "IconPacks.Browser.NET45.zip");
+  Zip("..\\bin\\MahApps.Metro.IconPacks.Browser\\Release\\", "IconPacks.Browser.v" + nugetVersion + ".zip");
 });
 
 Task("NuGetPack")
@@ -84,7 +116,7 @@ Task("NuGetPack")
   var nuGetPackSettings   = new NuGetPackSettings {
     BasePath                = "..\\bin",
     Id                      = iconPacksNuGet,
-    Version                 = version,
+    Version                 = nugetVersion,
     Title                   = iconPacksNuGet,
     Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
@@ -109,7 +141,7 @@ Task("NuGetPack")
   nuGetPackSettings   = new NuGetPackSettings {
     BasePath                = "..\\bin",
     Id                      = iconPacksNuGet,
-    Version                 = version,
+    Version                 = nugetVersion,
     Title                   = iconPacksNuGet,
     Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
@@ -134,7 +166,7 @@ Task("NuGetPack")
   nuGetPackSettings   = new NuGetPackSettings {
     BasePath                = "..\\bin",
     Id                      = iconPacksNuGet,
-    Version                 = version,
+    Version                 = nugetVersion,
     Title                   = iconPacksNuGet,
     Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
@@ -159,7 +191,7 @@ Task("NuGetPack")
   nuGetPackSettings   = new NuGetPackSettings {
     BasePath                = "..\\bin",
     Id                      = iconPacksNuGet,
-    Version                 = version,
+    Version                 = nugetVersion,
     Title                   = iconPacksNuGet,
     Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
@@ -184,7 +216,7 @@ Task("NuGetPack")
   nuGetPackSettings   = new NuGetPackSettings {
     BasePath                = "..\\bin",
     Id                      = iconPacksNuGet,
-    Version                 = version,
+    Version                 = nugetVersion,
     Title                   = iconPacksNuGet,
     Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
@@ -209,7 +241,7 @@ Task("NuGetPack")
   nuGetPackSettings   = new NuGetPackSettings {
     BasePath                = "..\\bin",
     Id                      = iconPacksNuGet,
-    Version                 = version,
+    Version                 = nugetVersion,
     Title                   = iconPacksNuGet,
     Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
@@ -234,7 +266,7 @@ Task("NuGetPack")
   nuGetPackSettings   = new NuGetPackSettings {
     BasePath                = "..\\bin",
     Id                      = iconPacksNuGet,
-    Version                 = version,
+    Version                 = nugetVersion,
     Title                   = iconPacksNuGet,
     Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
@@ -259,7 +291,7 @@ Task("NuGetPack")
   nuGetPackSettings   = new NuGetPackSettings {
     BasePath                = "..\\bin",
     Id                      = iconPacksNuGet,
-    Version                 = version,
+    Version                 = nugetVersion,
     Title                   = iconPacksNuGet,
     Copyright               = string.Format("Copyright © MahApps.Metro {0}", DateTime.Now.Year),
     Files                   = new [] {
@@ -294,13 +326,11 @@ Task("CleanOutput")
 Task("Default").IsDependentOn("CleanOutput")
                .IsDependentOn("UpdateAssemblyInfo")
                .IsDependentOn("Build")
-               .IsDependentOn("GitLink")
                .IsDependentOn("ZipRelease")
                .IsDependentOn("NuGetPack");
 Task("dev").IsDependentOn("CleanOutput")
            .IsDependentOn("UpdateAssemblyInfo")
            .IsDependentOn("BuildAll")
-           .IsDependentOn("GitLink_dev").IsDependentOn("GitLink")
            .IsDependentOn("ZipDebug").IsDependentOn("ZipRelease")
            .IsDependentOn("NuGetPack");
 
