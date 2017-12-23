@@ -21,7 +21,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconMaterial Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterial Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentBaseColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -30,7 +30,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconMaterialLight Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterialLight Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentBaseColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -39,7 +39,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconFontAwesome Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconFontAwesome Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentBaseColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -48,7 +48,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconOcticons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconOcticons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentBaseColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -57,7 +57,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconModern Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconModern Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentBaseColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -66,7 +66,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconEntypo Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconEntypo Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentBaseColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -75,7 +75,7 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconSimpleIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconSimpleIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentBaseColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -86,7 +86,7 @@
     <DataTemplate x:Key="CustomTabItemItemTemplate"
                   x:Shared="False"
                   DataType="{x:Type viewModels:IconPackViewModel}">
-        <Grid>
+        <Grid FocusManager.FocusedElement="{Binding ElementName=FilterTextBox}">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MinHeight="125" />
