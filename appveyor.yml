@@ -21,7 +21,7 @@
 
   build_script:
     - ps: cd src\build
-    - ps: build.cmd
+    - ps: .\build.cmd
     - ps: cd..
     - ps: cd..
 
