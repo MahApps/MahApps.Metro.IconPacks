@@ -5,9 +5,6 @@
 //------------------------------------------------------------------------------
 using System.Reflection;
 
-[assembly: AssemblyProduct("MahApps.Metro.IconPacks")]
 [assembly: AssemblyVersion("1.9.1.0")]
 [assembly: AssemblyFileVersion("1.9.1.0")]
 [assembly: AssemblyInformationalVersion("1.9.1.0")]
-[assembly: AssemblyCopyright("Copyright © MahApps.Metro 2017")]
-
