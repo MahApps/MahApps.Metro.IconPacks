@@ -57,8 +57,8 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
                     if ((this.VerticalOffset >= _extent.Height - sizeInfo.PreviousSize.Height))
                     {
                         //offset = _extent.Height - sizeInfo.NewSize.Height;
-                        offset = _extent.Height - sizeInfo.PreviousSize.Height;
-                        _offset.Y = Math.Max(0, offset);
+                        offset = Math.Max(0, _extent.Height - sizeInfo.PreviousSize.Height);
+                        _offset.Y = offset;
                         _owner.InvalidateScrollInfo();
                         _trans.Y = -offset;
                         if (sizeInfo.WidthChanged)
