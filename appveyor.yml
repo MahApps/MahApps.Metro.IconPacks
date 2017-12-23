@@ -33,4 +33,4 @@
 
   artifacts:
     - path: \src\build\MahApps.Metro.IconPacks.*.nupkg
-    - path: \src\bin\MahApps.Metro.IconPacks.Browser\Release\IconPacks.Browser*.zip
+    - path: \src\build\IconPacks.Browser*.zip
