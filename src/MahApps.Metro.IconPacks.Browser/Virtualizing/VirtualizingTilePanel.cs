@@ -34,6 +34,51 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
             set { SetValue(ChildSizeProperty, value); }
         }
 
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            if (IsInitialized && IsVisible && IsLoaded && (sizeInfo.HeightChanged || sizeInfo.WidthChanged))
+            {
+                var offset = this.VerticalOffset + (sizeInfo.NewSize.Height - sizeInfo.PreviousSize.Height);
+                if (sizeInfo.NewSize.Height > sizeInfo.PreviousSize.Height)
+                {
+                    offset = this.VerticalOffset - (sizeInfo.NewSize.Height - sizeInfo.PreviousSize.Height);
+                }
+                if (offset < 0)
+                {
+                    offset = 0;
+                    _offset.Y = offset;
+                    _owner.InvalidateScrollInfo();
+                    _trans.Y = -offset;
+                    if (sizeInfo.WidthChanged)
+                        InvalidateMeasure();
+                }
+                else
+                {
+                    if ((this.VerticalOffset >= _extent.Height - sizeInfo.PreviousSize.Height))
+                    {
+                        //offset = _extent.Height - sizeInfo.NewSize.Height;
+                        offset = Math.Max(0, _extent.Height - sizeInfo.PreviousSize.Height);
+                        _offset.Y = offset;
+                        _owner.InvalidateScrollInfo();
+                        _trans.Y = -offset;
+                        if (sizeInfo.WidthChanged)
+                            InvalidateMeasure();
+                    }
+                    else if ((offset + sizeInfo.NewSize.Height >= _extent.Height))
+                    {
+                        //offset = _extent.Height - sizeInfo.NewSize.Height;
+                        offset = sizeInfo.NewSize.Height;
+                        _offset.Y = Math.Max(0, offset);
+                        _owner.InvalidateScrollInfo();
+                        _trans.Y = -offset;
+                        if (sizeInfo.WidthChanged)
+                            InvalidateMeasure();
+                    }
+                }
+            }
+            base.OnRenderSizeChanged(sizeInfo);
+        }
+
         /// <summary>
         /// Measure the children
         /// </summary>
@@ -83,11 +128,12 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
                     else
                     {
                         // The child has already been created, let's be sure it's in the right spot
-                        Debug.Assert(child == children[childIndex], "Wrong child was generated");
+                        //if (childIndex >=0 )
+                          //Debug.Assert(child == children[childIndex], "Wrong child was generated");
                     }
 
                     // Measurements will depend on layout algorithm
-                    child.Measure(GetChildSize());
+                    child?.Measure(GetChildSize());
                 }
             }
 

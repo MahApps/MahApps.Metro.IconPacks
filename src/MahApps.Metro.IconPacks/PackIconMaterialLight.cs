@@ -8,7 +8,7 @@ namespace MahApps.Metro.IconPacks
     /// <summary>
     /// Icons from the Material Design Icons project, <see><cref>https://materialdesignicons.com/</cref></see>.
     /// </summary>
-    public class PackIconMaterialLight : PackIcon<PackIconMaterialLightKind>
+    public class PackIconMaterialLight : PackIconControl<PackIconMaterialLightKind>
     {
 #if !NETFX_CORE
         static PackIconMaterialLight()

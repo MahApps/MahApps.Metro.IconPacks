@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\gitlink\build\GitLink.props" Condition="Exists('..\packages\gitlink\build\GitLink.props')" Label="Paket" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -130,7 +131,7 @@
     <Compile Include="Converter\FlipToScaleValueConverter.cs" />
     <Compile Include="Converter\MarkupConverter.cs" />
     <Compile Include="Converter\NullToUnsetValueConverter.cs" />
-    <Compile Include="PackIcon.cs" />
+    <Compile Include="PackIconControl.cs" />
     <Compile Include="PackIconEntypo.cs" />
     <Compile Include="PackIconEntypoDataFactory.cs" />
     <Compile Include="PackIconEntypoExtension.cs" />
@@ -192,4 +193,5 @@
   </Target>
   -->
   <Import Project="..\.paket\paket.targets" />
+  <Import Project="..\packages\gitlink\build\GitLink.targets" Condition="Exists('..\packages\gitlink\build\GitLink.targets')" Label="Paket" />
 </Project>

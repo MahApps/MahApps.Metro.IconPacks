@@ -5,8 +5,45 @@ using ControlzEx;
 
 namespace MahApps.Metro.IconPacks
 {
+    public interface IPackIconExtension
+    {
+        double? Width { get; set; }
+        double? Height { get; set; }
+        PackIconFlipOrientation? Flip { get; set; }
+        double? Rotation { get; set; }
+        bool? Spin { get; set; }
+        bool? SpinAutoReverse { get; set; }
+        IEasingFunction SpinEasingFunction { get; set; }
+        double? SpinDuration { get; set; }
+    }
+
+    public static class PackIconExtensionHelper
+    {
+        public static PackIconControl<TKind> GetPackIcon<TPack, TKind>(this IPackIconExtension packIconExtension, TKind kind) where TPack : PackIconControl<TKind>, new()
+        {
+            var packIcon = new TPack {Kind = kind};
+            if (packIconExtension.Width != null)
+                packIcon.Width = packIconExtension.Width.Value;
+            if (packIconExtension.Height != null)
+                packIcon.Height = packIconExtension.Height.Value;
+            if (packIconExtension.Flip != null)
+                packIcon.Flip = packIconExtension.Flip.Value;
+            if (packIconExtension.Rotation != null)
+                packIcon.Rotation = packIconExtension.Rotation.Value;
+            if (packIconExtension.Spin != null)
+                packIcon.Spin = packIconExtension.Spin.Value;
+            if (packIconExtension.SpinAutoReverse != null)
+                packIcon.SpinAutoReverse = packIconExtension.SpinAutoReverse.Value;
+            if (packIconExtension.SpinEasingFunction != null)
+                packIcon.SpinEasingFunction = packIconExtension.SpinEasingFunction;
+            if (packIconExtension.SpinDuration != null)
+                packIcon.SpinDuration = packIconExtension.SpinDuration.Value;
+            return packIcon;
+        }
+    }
+
     [MarkupExtensionReturnType(typeof(PackIconBase))]
-    public class PackIconExtension : MarkupExtension
+    public class PackIconExtension : MarkupExtension, IPackIconExtension
     {
         [ConstructorArgument("kind")]
         public Enum Kind { get; set; }
@@ -34,73 +71,51 @@ namespace MahApps.Metro.IconPacks
 #if ALL || ENTYPO
             if (this.Kind is PackIconEntypoKind)
             {
-                return this.GetPackIcon<PackIconEntypo, PackIconEntypoKind>((PackIconEntypoKind)this.Kind);
+                return this.GetPackIcon<PackIconEntypo, PackIconEntypoKind>((PackIconEntypoKind) this.Kind);
             }
 #endif
 #if ALL || FONTAWESOME
             if (this.Kind is PackIconFontAwesomeKind)
             {
-                return this.GetPackIcon<PackIconFontAwesome, PackIconFontAwesomeKind>((PackIconFontAwesomeKind)this.Kind);
+                return this.GetPackIcon<PackIconFontAwesome, PackIconFontAwesomeKind>((PackIconFontAwesomeKind) this.Kind);
             }
 #endif
 #if ALL || MATERIAL
             if (this.Kind is PackIconMaterialKind)
             {
-                return this.GetPackIcon<PackIconMaterial, PackIconMaterialKind>((PackIconMaterialKind)this.Kind);
+                return this.GetPackIcon<PackIconMaterial, PackIconMaterialKind>((PackIconMaterialKind) this.Kind);
             }
 #endif
 #if ALL || MATERIALLIGHT
             if (this.Kind is PackIconMaterialLightKind)
             {
-                return this.GetPackIcon<PackIconMaterialLight, PackIconMaterialLightKind>((PackIconMaterialLightKind)this.Kind);
+                return this.GetPackIcon<PackIconMaterialLight, PackIconMaterialLightKind>((PackIconMaterialLightKind) this.Kind);
             }
 #endif
 #if ALL || MODERN
             if (this.Kind is PackIconModernKind)
             {
-                return this.GetPackIcon<PackIconModern, PackIconModernKind>((PackIconModernKind)this.Kind);
+                return this.GetPackIcon<PackIconModern, PackIconModernKind>((PackIconModernKind) this.Kind);
             }
 #endif
 #if ALL || OCTICONS
             if (this.Kind is PackIconOcticonsKind)
             {
-                return this.GetPackIcon<PackIconOcticons, PackIconOcticonsKind>((PackIconOcticonsKind)this.Kind);
+                return this.GetPackIcon<PackIconOcticons, PackIconOcticonsKind>((PackIconOcticonsKind) this.Kind);
             }
 #endif
 #if ALL || SIMPLEICONS
             if (this.Kind is PackIconSimpleIconsKind)
             {
-                return this.GetPackIcon<PackIconSimpleIcons, PackIconSimpleIconsKind>((PackIconSimpleIconsKind)this.Kind);
+                return this.GetPackIcon<PackIconSimpleIcons, PackIconSimpleIconsKind>((PackIconSimpleIconsKind) this.Kind);
             }
 #endif
             return null;
         }
-
-        private PackIcon<TKind> GetPackIcon<TPack, TKind>(TKind kind) where TPack : PackIcon<TKind>, new()
-        {
-            var packIcon = new TPack {Kind = kind};
-            if (this.Width != null)
-                packIcon.Width = this.Width.Value;
-            if (this.Height != null)
-                packIcon.Height = this.Height.Value;
-            if (this.Flip != null)
-                packIcon.Flip = this.Flip.Value;
-            if (this.Rotation != null)
-                packIcon.Rotation = this.Rotation.Value;
-            if (this.Spin != null)
-                packIcon.Spin = this.Spin.Value;
-            if (this.SpinAutoReverse != null)
-                packIcon.SpinAutoReverse = this.SpinAutoReverse.Value;
-            if (this.SpinEasingFunction != null)
-                packIcon.SpinEasingFunction = this.SpinEasingFunction;
-            if (this.SpinDuration != null)
-                packIcon.SpinDuration = this.SpinDuration.Value;
-            return packIcon;
-        }
     }
 
     [MarkupExtensionReturnType(typeof(PackIconBase))]
-    public class PackIconExtension<TPack, TKind> : MarkupExtension where TPack : PackIcon<TKind>, new()
+    public class PackIconExtension<TPack, TKind> : MarkupExtension, IPackIconExtension where TPack : PackIconControl<TKind>, new()
     {
         [ConstructorArgument("kind")]
         public TKind Kind { get; set; }
@@ -125,25 +140,7 @@ namespace MahApps.Metro.IconPacks
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            var packIcon = new TPack {Kind = this.Kind};
-
-            if (this.Width != null)
-                packIcon.Width = this.Width.Value;
-            if (this.Height != null)
-                packIcon.Height = this.Height.Value;
-            if (this.Flip != null)
-                packIcon.Flip = this.Flip.Value;
-            if (this.Rotation != null)
-                packIcon.Rotation = this.Rotation.Value;
-            if (this.Spin != null)
-                packIcon.Spin = this.Spin.Value;
-            if (this.SpinAutoReverse != null)
-                packIcon.SpinAutoReverse = this.SpinAutoReverse.Value;
-            if (this.SpinEasingFunction != null)
-                packIcon.SpinEasingFunction = this.SpinEasingFunction;
-            if (this.SpinDuration != null)
-                packIcon.SpinDuration = this.SpinDuration.Value;
-            return packIcon;
+            return this.GetPackIcon<TPack, TKind>(this.Kind);
         }
     }
 }

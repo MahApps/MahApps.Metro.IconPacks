@@ -1,16 +1,60 @@
-# MahApps.Metro.IconPacks
+<div align="center">
 
-[![Join the chat at https://gitter.im/MahApps/MahApps.Metro.IconPacks](https://badges.gitter.im/MahApps/MahApps.Metro.IconPacks.svg)](https://gitter.im/MahApps/MahApps.Metro.IconPacks?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+  <h1>MahApps.Metro.IconPacks</h1>
+  <a href="https://gitter.im/MahApps/MahApps.Metro.IconPacks">
+	<img src="https://img.shields.io/badge/Gitter-Join%20Chat-green.svg?style=flat-square">
+  </a>
+  <a href="https://twitter.com/punker76">
+	<img src="https://img.shields.io/badge/twitter-%40punker76-55acee.svg?style=flat-square">
+  </a>
+  <a href="https://github.com/MahApps/MahApps.Metro.IconPacks/releases">
+	<img src="https://img.shields.io/github/release/MahApps/MahApps.Metro.IconPacks.svg?style=flat-square">
+  </a>
+  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/master">
+	<img alt="masterstatus" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/master.svg?style=flat-square&&label=master">
+  </a>
+  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">
+	<img alt="devstatus" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?style=flat-square&&label=dev">
+  </a>
+  <br />
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialLight.svg?style=flat-square&&label=MaterialLight">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons">
+  </a>
+  <br />
+  <br />
+
+</div>
 
 The `IconPacks` library contains controls to use awesome icons from
 
-- [Material Design](https://materialdesignicons.com/) (v1.8.36 with 1843 icons)
+- [Material Design](https://materialdesignicons.com/) (v2.1.19 with 2119 icons)
 - [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) (v0.2.63 with 257 icons)
-- [Font Awesome](http://fontawesome.io/icons/) (v4.7 with 675 icons)
-- [GitHub Octicons](https://octicons.github.com/) (v5.0.1 with 176 icons)
+- [Font Awesome](https://fontawesome.com/) (v5.0.2 with 904 icons)
+- [GitHub Octicons](https://octicons.github.com/) (v7.0.1 with 175 icons)
 - [Modern](http://modernuiicons.com/) (1224 icons)
 - [Entypo+](http://www.entypo.com/) (411 icons)
-- [Simple Icons](https://simpleicons.org/) (300 icons)
+- [Simple Icons](https://simpleicons.org/) (v1.2.16 355 icons)
 
 for `WPF` and `UWP` apps in a simple way.
 
@@ -151,18 +195,22 @@ You can download the latest version of the browser at the [release page](https:/
 
 ## MarkupExtension (only for WPF)
 
-A faster way to get a Button with an Icon is to use the MarkupExtension(s).
+A faster way to get a `Button` (or any other `ContentControl`) with an Icon is to use the MarkupExtension(s).
 
-If you want e.g. a Button with an Icon of the `PackIconFontAwesome` then you can use this one:
+If you want e.g. a Button with an Icon from the `PackIconFontAwesome` then you can do this one:
 
 ```xaml
-<Button Content="{iconPacks:PackIconFontAwesome StarOutline}" />
+<Button Content="{iconPacks:FontAwesome StarOutline}" />
+
+<!-- or -->
+
+<Button Content="{iconPacks:FontAwesome Kind=StarOutline}" />
 ```
 
 It's also possible to change some properties of the icon itself like this:
 
 ```xaml
-<Button Content="{iconPacks:PackIconFontAwesome Spinner, Width=32, Height=32, Spin=True}" />
+<Button Content="{iconPacks:FontAwesome Spinner, Width=32, Height=32, Spin=True}" />
 ```
 
 It's also possible to use a general (generic) MarkupExtension:
@@ -171,7 +219,21 @@ It's also possible to use a general (generic) MarkupExtension:
 <Button Content="{iconPacks:PackIcon {x:Static iconPacks:PackIconMaterialKind.Cookie}, Width=32, Height=32}" />
 ```
 
-You can use these MarkupExtensions for all controls with Content property which can accept other objects (Controls).
+### Breaking change 1.9.x -> 2.0
+
+The MarkupExtension class names had to be renamed, cause the old ones doesn't worked well with the Visual Studio Designer (#29, #30).
+
+**Before**
+
+```xaml
+<Button Content="{iconPacks:PackIconFontAwesome Kind=StarOutline}" />
+```
+
+**Now**
+
+```xaml
+<Button Content="{iconPacks:FontAwesome Kind=StarOutline}" />
+```
 
 ## Properties
 

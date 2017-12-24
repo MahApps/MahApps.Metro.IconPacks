@@ -1,0 +1,36 @@
+# configuration for develop/CI branch
+
+-
+  branches:
+    only:
+      - dev
+      - master
+
+  skip_tags: true
+  image: Visual Studio 2017
+  configuration: Release
+  platform: Any CPU
+
+  pull_requests:
+    do_not_increment_build_number: false
+
+  install:
+    - nuget restore src\MahApps.Metro.IconPacks.sln
+
+  before_build:
+    - ps: cd src
+    - ps: .paket\paket restore
+    - ps: cd..
+
+  build_script:
+    - ps: cd src\build
+    - ps: .\build.cmd
+    - ps: cd..
+    - ps: cd..
+
+  cache:
+    - src\packages -> **\packages.config
+
+  artifacts:
+    - path: \src\build\MahApps.Metro.IconPacks.*.nupkg
+    - path: \src\build\IconPacks.Browser*.zip

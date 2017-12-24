@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\gitlink\build\GitLink.props" Condition="Exists('..\packages\gitlink\build\GitLink.props')" Label="Paket" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -79,8 +80,8 @@
     <Compile Include="..\MahApps.Metro.IconPacks\Converter\NullToUnsetValueConverter.cs">
       <Link>Converter\NullToUnsetValueConverter.cs</Link>
     </Compile>
-    <Compile Include="..\MahApps.Metro.IconPacks\PackIcon.cs">
-      <Link>PackIcon.cs</Link>
+    <Compile Include="..\MahApps.Metro.IconPacks\PackIconControl.cs">
+      <Link>PackIconControl.cs</Link>
     </Compile>
     <Compile Include="..\MahApps.Metro.IconPacks\PackIconEntypoExtension.cs">
       <Link>PackIconEntypoExtension.cs</Link>
@@ -159,4 +160,5 @@
   </Target>
   -->
   <Import Project="..\.paket\paket.targets" />
+  <Import Project="..\packages\gitlink\build\GitLink.targets" Condition="Exists('..\packages\gitlink\build\GitLink.targets')" Label="Paket" />
 </Project>
