@@ -17,6 +17,31 @@
 	<img alt="devstatus" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?style=flat-square&&label=dev">
   </a>
   <br />
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialLight.svg?style=flat-square&&label=MaterialLight">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo">
+  </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons">
+  </a>
+  <br />
   <br />
 
 </div>
