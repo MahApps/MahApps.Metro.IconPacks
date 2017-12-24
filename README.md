@@ -1,16 +1,35 @@
-# MahApps.Metro.IconPacks
+<div align="center">
 
-[![Join the chat at https://gitter.im/MahApps/MahApps.Metro.IconPacks](https://badges.gitter.im/MahApps/MahApps.Metro.IconPacks.svg)](https://gitter.im/MahApps/MahApps.Metro.IconPacks?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+  <h1>MahApps.Metro.IconPacks</h1>
+  <a href="https://gitter.im/MahApps/MahApps.Metro.IconPacks">
+	<img src="https://img.shields.io/badge/Gitter-Join%20Chat-green.svg?style=flat-square">
+  </a>
+  <a href="https://twitter.com/punker76">
+	<img src="https://img.shields.io/badge/twitter-%40punker76-55acee.svg?style=flat-square">
+  </a>
+  <a href="https://github.com/MahApps/MahApps.Metro.IconPacks/releases">
+	<img src="https://img.shields.io/github/release/MahApps/MahApps.Metro.IconPacks.svg?style=flat-square">
+  </a>
+  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/master">
+	<img alt="masterstatus" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/master.svg?style=flat-square&&label=master">
+  </a>
+  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">
+	<img alt="devstatus" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?style=flat-square&&label=dev">
+  </a>
+  <br />
+  <br />
+
+</div>
 
 The `IconPacks` library contains controls to use awesome icons from
 
-- [Material Design](https://materialdesignicons.com/) (v1.8.36 with 1843 icons)
+- [Material Design](https://materialdesignicons.com/) (v2.1.19 with 2119 icons)
 - [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) (v0.2.63 with 257 icons)
-- [Font Awesome](http://fontawesome.io/icons/) (v4.7 with 675 icons)
-- [GitHub Octicons](https://octicons.github.com/) (v5.0.1 with 176 icons)
+- [Font Awesome](https://fontawesome.com/) (v5.0.2 with 904 icons)
+- [GitHub Octicons](https://octicons.github.com/) (v7.0.1 with 175 icons)
 - [Modern](http://modernuiicons.com/) (1224 icons)
 - [Entypo+](http://www.entypo.com/) (411 icons)
-- [Simple Icons](https://simpleicons.org/) (300 icons)
+- [Simple Icons](https://simpleicons.org/) (v1.2.16 355 icons)
 
 for `WPF` and `UWP` apps in a simple way.
 
