@@ -214,7 +214,7 @@
                                 <Button.ToolTip>
                                     <TextBlock Text="{Binding Value, StringFormat='{}Copy {0} to Clipboard'}" />
                                 </Button.ToolTip>
-                                <iconPacks:PackIconFontAwesome Kind="Clipboard" />
+                                <iconPacks:PackIconFontAwesome Kind="ClipboardRegular" />
                             </Button>
                             <TextBlock Grid.Row="1"
                                        Margin="2"
