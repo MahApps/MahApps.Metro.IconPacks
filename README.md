@@ -18,7 +18,7 @@
   </a>
   <br />
   <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks">
   </a>
   <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/">
     <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material">
