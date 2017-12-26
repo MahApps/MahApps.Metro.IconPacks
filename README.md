@@ -116,7 +116,7 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
 ```
 
 ```xaml
-<iconPacks:PackIconFontAwesome Kind="FontAwesome" />
+<iconPacks:PackIconFontAwesome Kind="FontAwesomeBrands" />
 ```
 
 ```xaml
@@ -187,7 +187,7 @@ You can download the latest version of the browser at the [release page](https:/
                                        Height="32"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Kind="AddressBook" />
+                                       Kind="AddressBookRegular" />
     </Grid>
 
 </Page>
@@ -200,17 +200,17 @@ A faster way to get a `Button` (or any other `ContentControl`) with an Icon is t
 If you want e.g. a Button with an Icon from the `PackIconFontAwesome` then you can do this one:
 
 ```xaml
-<Button Content="{iconPacks:FontAwesome StarOutline}" />
+<Button Content="{iconPacks:FontAwesome StarRegular}" />
 
 <!-- or -->
 
-<Button Content="{iconPacks:FontAwesome Kind=StarOutline}" />
+<Button Content="{iconPacks:FontAwesome Kind=StarRegular}" />
 ```
 
 It's also possible to change some properties of the icon itself like this:
 
 ```xaml
-<Button Content="{iconPacks:FontAwesome Spinner, Width=32, Height=32, Spin=True}" />
+<Button Content="{iconPacks:FontAwesome SpinnerSolid, Width=32, Height=32, Spin=True}" />
 ```
 
 It's also possible to use a general (generic) MarkupExtension:
@@ -226,13 +226,13 @@ The MarkupExtension class names had to be renamed, cause the old ones doesn't wo
 **Before**
 
 ```xaml
-<Button Content="{iconPacks:PackIconFontAwesome Kind=StarOutline}" />
+<Button Content="{iconPacks:PackIconFontAwesome Kind=StarRegular}" />
 ```
 
 **Now**
 
 ```xaml
-<Button Content="{iconPacks:FontAwesome Kind=StarOutline}" />
+<Button Content="{iconPacks:FontAwesome Kind=StarRegular}" />
 ```
 
 ## Properties

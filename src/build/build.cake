@@ -33,7 +33,7 @@ GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.BuildServer })
 var gitVersion = GitVersion(new GitVersionSettings { UpdateAssemblyInfo = true,  UpdateAssemblyInfoFilePath = "../GlobalAssemblyInfo.cs" });
 var majorMinorPatch = gitVersion.MajorMinorPatch;
 var informationalVersion = gitVersion.InformationalVersion;
-var nugetVersion = gitVersion.NuGetVersion;
+var nugetVersion = isReleaseBranch ? gitVersion.AssemblySemVer : gitVersion.NuGetVersion;
 var buildVersion = gitVersion.FullBuildMetaData;
 
 var browserVersion = "1.5.0";
