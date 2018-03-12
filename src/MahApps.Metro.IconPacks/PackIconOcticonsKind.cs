@@ -157,6 +157,7 @@
         [Description("RepoForked (Book, Journal, Copy)")] RepoForked,
         [Description("RepoPull (Book, Journal, Get)")] RepoPull,
         [Description("RepoPush (Book, Journal, Put)")] RepoPush,
+        [Description("Report (Report, Abuse, Flag)")] Report,
         [Description("Rocket (Staff, Stafftools, Blast, Off, Space)")] Rocket,
         [Description("Rss (Broadcast, Feed)")] Rss,
         [Description("Ruby (Code)")] Ruby,
