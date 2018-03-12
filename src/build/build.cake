@@ -3,7 +3,7 @@
 // TOOLS
 //////////////////////////////////////////////////////////////////////
 
-#tool "nuget:?package=GitVersion.CommandLine&version=3.6.5"
+#tool "nuget:?package=GitVersion.CommandLine&prerelease"
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -20,7 +20,7 @@ if (string.IsNullOrWhiteSpace(target))
 //////////////////////////////////////////////////////////////////////
 
 // Build configuration
-var msbuildtoolversion = MSBuildToolVersion.VS2017;
+var msbuildtoolversion = MSBuildToolVersion.VS2015;
 
 var local = BuildSystem.IsLocalBuild;
 var isPullRequest = AppVeyor.Environment.PullRequest.IsPullRequest;
@@ -33,7 +33,7 @@ GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.BuildServer })
 var gitVersion = GitVersion(new GitVersionSettings { UpdateAssemblyInfo = true,  UpdateAssemblyInfoFilePath = "../GlobalAssemblyInfo.cs" });
 var majorMinorPatch = gitVersion.MajorMinorPatch;
 var informationalVersion = gitVersion.InformationalVersion;
-var nugetVersion = isReleaseBranch ? gitVersion.AssemblySemVer : gitVersion.NuGetVersion;
+var nugetVersion = isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion;
 var buildVersion = gitVersion.FullBuildMetaData;
 
 var browserVersion = "1.5.0";

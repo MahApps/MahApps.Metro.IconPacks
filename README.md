@@ -48,13 +48,13 @@
 
 The `IconPacks` library contains controls to use awesome icons from
 
-- [Material Design](https://materialdesignicons.com/) (v2.1.19 with 2119 icons)
+- [Material Design](https://materialdesignicons.com/) (v2.1.99 with 2199 icons)
 - [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) (v0.2.63 with 257 icons)
-- [Font Awesome](https://fontawesome.com/) (v5.0.2 with 904 icons)
-- [GitHub Octicons](https://octicons.github.com/) (v7.0.1 with 175 icons)
+- [Font Awesome](https://fontawesome.com/) (v5.0.8 with 946 icons)
+- [GitHub Octicons](https://octicons.github.com/) (v7.1.0 with 176 icons)
 - [Modern](http://modernuiicons.com/) (1224 icons)
 - [Entypo+](http://www.entypo.com/) (411 icons)
-- [Simple Icons](https://simpleicons.org/) (v1.2.16 355 icons)
+- [Simple Icons](https://simpleicons.org/) (v1.3.7 411 icons)
 
 for `WPF` and `UWP` apps in a simple way.
 
@@ -153,7 +153,7 @@ xmlns:iconPacks="using:MahApps.Metro.IconPacks"
 
 If you have no idea which icon you're supposed to take, then you can use the IconPacks Browser. You can search in every IconPacks and copy a raw `Xaml` code snippet to the clipboard.
 
-You can download the latest version of the browser at the [release page](https://github.com/MahApps/MahApps.Metro.IconPacks/releases) or directly [here](https://github.com/MahApps/MahApps.Metro.IconPacks/releases/download/v1.9.0/IconPacks.Browser.NET45.v1.4.0.zip) (a zipped pre-compiled .NET 4.5 executable). 
+You can download the latest version of the browser at the [release page](https://github.com/MahApps/MahApps.Metro.IconPacks/releases/latest) (a zipped pre-compiled .NET executable is available). 
 
 ## WPF Sample
 
