@@ -1,9 +1,11 @@
 
 //////////////////////////////////////////////////////////////////////
-// TOOLS
+// TOOLS / ADDINS
 //////////////////////////////////////////////////////////////////////
 
 #tool "nuget:?package=GitVersion.CommandLine&prerelease"
+#tool "nuget:?package=vswhere"
+#addin "nuget:?package=Cake.Figlet"
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -19,9 +21,12 @@ if (string.IsNullOrWhiteSpace(target))
 // PREPARATION
 //////////////////////////////////////////////////////////////////////
 
-// Build configuration
-var msbuildtoolversion = MSBuildToolVersion.VS2015;
+var msBuildPath = VSWhereLatest().CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
 
+// Should MSBuild treat any errors as warnings?
+var treatWarningsAsErrors = false;
+
+// Build configuration
 var local = BuildSystem.IsLocalBuild;
 var isPullRequest = AppVeyor.Environment.PullRequest.IsPullRequest;
 var isDevelopBranch = StringComparer.OrdinalIgnoreCase.Equals("dev", AppVeyor.Environment.Repository.Branch);
@@ -38,6 +43,11 @@ var buildVersion = gitVersion.FullBuildMetaData;
 
 var browserVersion = "1.5.0";
 
+// Directories and Paths
+var buildDir = "../bin";
+var iconPacksSolution = "../MahApps.Metro.IconPacks.sln";
+var browserSolution = "../MahApps.Metro.IconPacks.Browser.sln";
+
 // Define global marcos.
 Action Abort = () => { throw new Exception("a non-recoverable fatal error occurred."); };
 
@@ -52,7 +62,14 @@ Setup(context =>
         throw new NotImplementedException("MahApps.Metro.IconPacks will only build on Windows because it's not possible to target WPF and Windows Forms from UNIX.");
     }
 
-    Information("Building version {0} of MahApps.Metro.IconPacks. (isTagged: {1})", informationalVersion, isTagged);
+    Information("Informational Version  : {0}", gitVersion.InformationalVersion);
+    Information("SemVer Version         : {0}", gitVersion.SemVer);
+    Information("AssemblySemVer Version : {0}", gitVersion.AssemblySemVer);
+    Information("MajorMinorPatch Version: {0}", gitVersion.MajorMinorPatch);
+    Information("NuGet Version          : {0}", gitVersion.NuGetVersion);
+    Information("IsLocalBuild           : {0}", local);
+
+    Information(Figlet("MahApps.Metro.IconPacks"));
 });
 
 Teardown(context =>
@@ -63,6 +80,15 @@ Teardown(context =>
 //////////////////////////////////////////////////////////////////////
 // TASKS
 //////////////////////////////////////////////////////////////////////
+
+Task("CleanOutput")
+  .ContinueOnError()
+  .Does(() =>
+{
+  CleanDirectory(Directory(buildDir));
+  DeleteFiles("./IconPacks.Browser*.zip");
+  DeleteFiles("./MahApps.Metro.IconPacks*.nupkg");
+});
 
 Task("UpdateAssemblyInfo")
   .Does(() =>
@@ -76,25 +102,44 @@ Task("UpdateAssemblyInfo")
   CreateAssemblyInfo("../MahApps.Metro.IconPacks.Browser/Properties/GlobalAssemblyInfo.cs", newAssemblyInfoSettings);
 });
 
+Task("Restore")
+  .Does(() =>
+{
+  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
+  MSBuild(iconPacksSolution, msBuildSettings.WithTarget("restore").SetVerbosity(Verbosity.Minimal));
+});
+
 Task("Build")
   .Does(() =>
 {
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release").UseToolVersion(msbuildtoolversion));
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET45").UseToolVersion(msbuildtoolversion));
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET46").UseToolVersion(msbuildtoolversion));
-  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Release").UseToolVersion(msbuildtoolversion));
+  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
+  Information("Build: Release");
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
+  Information("Build: Release_NET45");
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET45"));
+  Information("Build: Release_NET46");
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET46"));
+  Information("Build: Browser Release");
+  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
 });
 
 Task("BuildAll")
   .Does(() =>
 {
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Debug").UseToolVersion(msbuildtoolversion));
-  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Debug").UseToolVersion(msbuildtoolversion));
+  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
+  Information("Build: Debug");
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Debug"));
+  Information("Build: Browser Debug");
+  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Debug"));
 
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release").UseToolVersion(msbuildtoolversion));
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET45").UseToolVersion(msbuildtoolversion));
-  MSBuild("../MahApps.Metro.IconPacks.sln", settings => settings.SetConfiguration("Release_NET46").UseToolVersion(msbuildtoolversion));
-  MSBuild("../MahApps.Metro.IconPacks.Browser.sln", settings => settings.SetConfiguration("Release").UseToolVersion(msbuildtoolversion));
+  Information("Build: Release");
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
+  Information("Build: Release_NET45");
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET45"));
+  Information("Build: Release_NET46");
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET46"));
+  Information("Build: Browser Release");
+  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
 });
 
 Task("ZipDebug")
@@ -110,6 +155,7 @@ Task("ZipRelease")
 });
 
 Task("NuGetPack")
+  .WithCriteria(() => !isPullRequest)
   .Does(() =>
 {
   var iconPacksNuGet = "MahApps.Metro.IconPacks";
@@ -313,23 +359,16 @@ Task("NuGetPack")
   NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
 });
 
-Task("CleanOutput")
-  .ContinueOnError()
-  .Does(() =>
-{
-  CleanDirectories("../bin");
-  DeleteFiles("./IconPacks.Browser*.zip");
-  DeleteFiles("./MahApps.Metro.IconPacks*.nupkg");
-});
-
 // Task Targets
 Task("Default").IsDependentOn("CleanOutput")
                .IsDependentOn("UpdateAssemblyInfo")
+               .IsDependentOn("Restore")
                .IsDependentOn("Build")
                .IsDependentOn("ZipRelease")
                .IsDependentOn("NuGetPack");
 Task("dev").IsDependentOn("CleanOutput")
            .IsDependentOn("UpdateAssemblyInfo")
+           .IsDependentOn("Restore")
            .IsDependentOn("BuildAll")
            .IsDependentOn("ZipDebug").IsDependentOn("ZipRelease")
            .IsDependentOn("NuGetPack");
