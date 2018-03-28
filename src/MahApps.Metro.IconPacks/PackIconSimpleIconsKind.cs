@@ -209,6 +209,7 @@
         [Description("Launchpad, https://help.launchpad.net/logo/submissions")] Launchpad,
         [Description("Letterboxd, https://letterboxd.com/about/logos/")] Letterboxd,
         [Description("Line, http://line.me/en/logo")] Line,
+        [Description("LINE WEBTOON, http://webtoons.com/")] LineWebtoon,
         [Description("LinkedIn, https://brand.linkedin.com")] LinkedIn,
         [Description("Linux, http://www.linuxfoundation.org/about/about-linux")] Linux,
         [Description("Linux Foundation, http://www.linuxfoundation.org/about/about-linux")] LinuxFoundation,

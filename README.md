@@ -48,13 +48,13 @@
 
 The `IconPacks` library contains controls to use awesome icons from
 
-- [Material Design](https://materialdesignicons.com/) (v2.1.99 with 2199 icons)
-- [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) (v0.2.63 with 257 icons)
-- [Font Awesome](https://fontawesome.com/) (v5.0.8 with 946 icons)
-- [GitHub Octicons](https://octicons.github.com/) (v7.1.0 with 176 icons)
+- [Material Design](https://materialdesignicons.com/) (v2.2.43 2243 icons)
+- [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) (v0.2.63 257 icons)
+- [Font Awesome](https://fontawesome.com/) (v5.0.9 989 icons)
+- [GitHub Octicons](https://octicons.github.com/) (v7.2.0 176 icons)
 - [Modern](http://modernuiicons.com/) (1224 icons)
 - [Entypo+](http://www.entypo.com/) (411 icons)
-- [Simple Icons](https://simpleicons.org/) (v1.3.7 411 icons)
+- [Simple Icons](https://simpleicons.org/) (v1.3.8 412 icons)
 
 for `WPF` and `UWP` apps in a simple way.
 
