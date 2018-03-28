@@ -1,4 +1,4 @@
-framework: auto-detect
+framework: >= net40
 
 source https://nuget.org/api/v2
 

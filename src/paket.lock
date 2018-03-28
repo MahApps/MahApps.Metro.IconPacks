@@ -1,4 +1,4 @@
-RESTRICTION: || (== net40) (== net45)
+RESTRICTION: >= net40
 NUGET
   remote: https://www.nuget.org/api/v2
     ControlzEx (3.0.2.4)

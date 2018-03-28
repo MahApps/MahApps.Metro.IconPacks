@@ -15,7 +15,15 @@
         <releaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</releaseNotes>
         <tags>WPF UWP UAP Windows 10 Windows10 WinRT App Universal UI Metro ModernUI Material XAML Toolkit Library .NET Icon</tags>
         <dependencies>
-            <dependency id="ControlzEx" version="(3.0.2.4, 4.0)" />
+            <group targetFramework="net40">
+                <dependency id="ControlzEx" version="[3.0.2.4, 4.0)"/>
+            </group>
+            <group targetFramework="net45">
+                <dependency id="ControlzEx" version="[3.0.2.4, 4.0)"/>
+            </group>
+            <group targetFramework="net46">
+                <dependency id="ControlzEx" version="[3.0.2.4, 4.0)"/>
+            </group>
         </dependencies>
     </metadata>
 </package>
