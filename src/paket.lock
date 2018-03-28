@@ -1,12 +1,11 @@
 RESTRICTION: || (== net40) (== net45)
 NUGET
   remote: https://www.nuget.org/api/v2
+    ControlzEx (3.0.2.4)
     Costura.Fody (1.6.2)
       Fody (>= 2.0 < 3.0)
-    Fody (2.3.3)
+    Fody (2.4.6)
     gitlink (3.1)
     JetBrains.Annotations (11.1)
-    MahApps.Metro (1.5)
-GITHUB
-  remote: ControlzEx/ControlzEx
-    src/ControlzEx/PackIconBase.cs (c5aeed0d597336bed9451ac6b5f80846267ce0f0)
+    MahApps.Metro (1.6.1)
+      ControlzEx (>= 3.0.2.4 < 4.0)
