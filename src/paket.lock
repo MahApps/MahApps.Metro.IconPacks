@@ -9,3 +9,9 @@ NUGET
     JetBrains.Annotations (11.1)
     MahApps.Metro (1.6.1)
       ControlzEx (>= 3.0.2.4 < 4.0)
+
+GROUP UWP
+
+GITHUB
+  remote: ControlzEx/ControlzEx
+    src/ControlzEx/PackIconBase.cs (2a937e3e841cb0087cfdbb8f3b4caea7f781dd1b)

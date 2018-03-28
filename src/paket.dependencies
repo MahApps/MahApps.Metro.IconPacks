@@ -7,3 +7,6 @@ nuget ControlzEx
 nuget MahApps.Metro
 nuget Costura.Fody
 nuget gitlink
+
+group UWP
+	github ControlzEx/ControlzEx:2a937e3e841cb0087cfdbb8f3b4caea7f781dd1b src/ControlzEx/PackIconBase.cs
