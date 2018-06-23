@@ -48,7 +48,7 @@
 
 The `IconPacks` library contains controls to use awesome icons from
 
-- [Material Design](https://materialdesignicons.com/) (v2.4.85 with 2243 icons)
+- [Material Design](https://materialdesignicons.com/) (v2.4.85 with 2485 icons)
 - [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) (v0.2.63 with 257 icons)
 - [Font Awesome](https://fontawesome.com/) (v5.1.0 with 1264 icons)
 - [GitHub Octicons](https://octicons.github.com/) (v7.3.0 with 177 icons)
