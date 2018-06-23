@@ -21,6 +21,7 @@
     {
         [Description("Empty placeholder")] None,
         [Description("Alert (Warning, Triangle, Exclamation, Point)")] Alert,
+        [Description("Archive (Box, Catalog)")] Archive,
         [Description("ArrowDown (Point, Direction)")] ArrowDown,
         [Description("ArrowLeft (Point, Direction)")] ArrowLeft,
         [Description("ArrowRight (Point, Direction)")] ArrowRight,
