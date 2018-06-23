@@ -4,6 +4,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #tool "nuget:?package=GitVersion.CommandLine&prerelease"
+#tool "nuget:?package=gitreleasemanager"
 #tool "nuget:?package=vswhere"
 #addin "nuget:?package=Cake.Figlet"
 
@@ -31,7 +32,7 @@ var local = BuildSystem.IsLocalBuild;
 var isPullRequest = AppVeyor.Environment.PullRequest.IsPullRequest;
 var isDevelopBranch = StringComparer.OrdinalIgnoreCase.Equals("dev", AppVeyor.Environment.Repository.Branch);
 var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("master", AppVeyor.Environment.Repository.Branch);
-var isTagged = AppVeyor.Environment.Repository.Tag?.IsTag;
+var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
 
 // Version
 GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.BuildServer });
@@ -357,6 +358,31 @@ Task("NuGetPack")
     }
   };
   NuGetPack("MahApps.Metro.IconPacks.nuspec", nuGetPackSettings);
+});
+
+Task("CreateRelease")
+    .WithCriteria(() => !isTagged)
+    .Does(() =>
+{
+    var username = EnvironmentVariable("GITHUB_USERNAME");
+    if (string.IsNullOrEmpty(username))
+    {
+        throw new Exception("The GITHUB_USERNAME environment variable is not defined.");
+    }
+
+    var token = EnvironmentVariable("GITHUB_TOKEN");
+    if (string.IsNullOrEmpty(token))
+    {
+        throw new Exception("The GITHUB_TOKEN environment variable is not defined.");
+    }
+
+    GitReleaseManagerCreate(username, token, "MahApps", "MahApps.Metro.IconPacks", new GitReleaseManagerCreateSettings {
+        Milestone         = gitVersion.MajorMinorPatch,
+        Name              = gitVersion.MajorMinorPatch,
+        Prerelease        = false,
+        TargetCommitish   = "master",
+        WorkingDirectory  = "../../"
+    });
 });
 
 // Task Targets
