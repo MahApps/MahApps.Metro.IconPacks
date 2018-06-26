@@ -2,8 +2,9 @@ framework: >= net40
 
 source https://nuget.org/api/v2
 
+nuget MSBuild.Sdk.Extras 1.5.4
 nuget JetBrains.Annotations
-nuget ControlzEx
+nuget ControlzEx < 4.0
 nuget MahApps.Metro
 nuget Costura.Fody
 nuget gitlink

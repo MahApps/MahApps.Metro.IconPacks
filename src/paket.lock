@@ -9,6 +9,7 @@ NUGET
     JetBrains.Annotations (11.1)
     MahApps.Metro (1.6.1)
       ControlzEx (>= 3.0.2.4 < 4.0)
+    MSBuild.Sdk.Extras (1.5.4)
 
 GROUP UWP
 
