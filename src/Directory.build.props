@@ -7,7 +7,7 @@
     <Import Condition=" '$(MSBuildProjectExtension)' == '.tmp_proj'" Project="$(MSBuildProjectDirectory)\obj\*.props"/>
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net47;net46;net45;net40</TargetFrameworks>
+        <TargetFrameworks>uap10.0;net47;net46;net45;net40</TargetFrameworks>
         <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>

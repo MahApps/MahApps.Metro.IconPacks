@@ -1,12 +1,14 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
+#if !NETFX_CORE
 using System.Windows;
 using System.Windows.Markup;
 
-[assembly: ComVisible(false)]
 [assembly: ThemeInfo(ResourceDictionaryLocation.None, ResourceDictionaryLocation.SourceAssembly)]
-
 [assembly: XmlnsDefinition("http://metro.mahapps.com/winfx/xaml/iconpacks", "MahApps.Metro.IconPacks")]
+#endif
+
+[assembly: ComVisible(false)]
 [assembly: AssemblyDescription("IconPacks for stylish awesome WPF and UWP applications.")]
 [assembly: AssemblyCopyright("Copyright © MahApps.Metro 2018")]
 [assembly: AssemblyCompany("MahApps")]

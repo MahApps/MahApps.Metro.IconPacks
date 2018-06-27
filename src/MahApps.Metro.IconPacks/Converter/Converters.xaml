@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="using:MahApps.Metro.IconPacks.Converter">
+
+    <converter:FlipToScaleXValueConverter x:Key="FlipToScaleXValueConverter" />
+    <converter:FlipToScaleYValueConverter x:Key="FlipToScaleYValueConverter" />
+    <converter:NullToUnsetValueConverter x:Key="NullToUnsetValueConverter" />
+
+</ResourceDictionary>

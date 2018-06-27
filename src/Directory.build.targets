@@ -11,6 +11,12 @@
     <PropertyGroup Condition=" '$(TargetFramework)' == 'net47' ">
         <DefineConstants>$(DefineConstants)</DefineConstants>
     </PropertyGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
+        <DefineConstants>$(DefineConstants)</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'uap10.0.10240' ">
+        <DefineConstants>$(DefineConstants)</DefineConstants>
+    </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <NoWarn>1591</NoWarn>

@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uwp="using:MahApps.Metro.IconPacks">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/IconPacks.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="uwp:PackIconMaterial" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterial}" />
+    <Style TargetType="uwp:PackIconMaterialLight" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialLight}" />
+    <Style TargetType="uwp:PackIconFontAwesome" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}" />
+    <Style TargetType="uwp:PackIconOcticons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}" />
+    <Style TargetType="uwp:PackIconModern" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconModern}" />
+    <Style TargetType="uwp:PackIconEntypo" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}" />
+
+</ResourceDictionary>
