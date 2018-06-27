@@ -116,12 +116,9 @@ Task("Build")
   var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
   Information("Build: Release");
   MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
-  Information("Build: Release_NET45");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET45"));
-  Information("Build: Release_NET46");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET46"));
-  Information("Build: Browser Release");
-  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
+
+  //Information("Build: Browser Release");
+  //MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
 });
 
 Task("BuildAll")
@@ -135,10 +132,6 @@ Task("BuildAll")
 
   Information("Build: Release");
   MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
-  Information("Build: Release_NET45");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET45"));
-  Information("Build: Release_NET46");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET46"));
   Information("Build: Browser Release");
   MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
 });
@@ -389,15 +382,15 @@ Task("CreateRelease")
 Task("Default").IsDependentOn("CleanOutput")
                .IsDependentOn("UpdateAssemblyInfo")
                .IsDependentOn("Restore")
-               .IsDependentOn("Build")
-               .IsDependentOn("ZipRelease")
-               .IsDependentOn("NuGetPack");
+               .IsDependentOn("Build");
+               //.IsDependentOn("ZipRelease")
+               //.IsDependentOn("NuGetPack");
 Task("dev").IsDependentOn("CleanOutput")
            .IsDependentOn("UpdateAssemblyInfo")
            .IsDependentOn("Restore")
-           .IsDependentOn("BuildAll")
-           .IsDependentOn("ZipDebug").IsDependentOn("ZipRelease")
-           .IsDependentOn("NuGetPack");
+           .IsDependentOn("BuildAll");
+           //.IsDependentOn("ZipDebug").IsDependentOn("ZipRelease")
+           //.IsDependentOn("NuGetPack");
 
 // Execution
 RunTarget(target);
