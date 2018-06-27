@@ -22,7 +22,8 @@ if (string.IsNullOrWhiteSpace(target))
 // PREPARATION
 //////////////////////////////////////////////////////////////////////
 
-var msBuildPath = VSWhereLatest().CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
+var latestInstallationPath = VSWhereProducts("*", new VSWhereProductSettings { Version = "[\"15.0\",\"16.0\"]" }).FirstOrDefault();
+var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
 
 // Should MSBuild treat any errors as warnings?
 var treatWarningsAsErrors = false;
@@ -69,6 +70,7 @@ Setup(context =>
     Information("MajorMinorPatch Version: {0}", gitVersion.MajorMinorPatch);
     Information("NuGet Version          : {0}", gitVersion.NuGetVersion);
     Information("IsLocalBuild           : {0}", local);
+    Information("MSBuildPath            : {0}", msBuildPath);
 
     Information(Figlet("MahApps.Metro.IconPacks"));
 });
