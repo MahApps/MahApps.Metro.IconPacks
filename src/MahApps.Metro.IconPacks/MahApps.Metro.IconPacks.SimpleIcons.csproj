@@ -5,6 +5,7 @@
         <DefineConstants>SIMPLEICONS</DefineConstants>
         <TargetFrameworks>uap10.0;net47;net46;net45;net40</TargetFrameworks>
         <!--<TargetFrameworks>uap10.0</TargetFrameworks>-->
+        <DefaultWpfPageExcludes>$(DefaultWpfPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</DefaultWpfPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks.SimpleIcons</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
