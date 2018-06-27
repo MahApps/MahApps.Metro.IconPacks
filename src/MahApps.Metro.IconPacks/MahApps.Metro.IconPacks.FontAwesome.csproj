@@ -3,22 +3,37 @@
     <!-- Project properties -->
     <PropertyGroup>
         <DefineConstants>FONTAWESOME</DefineConstants>
-        <TargetFrameworks>net47;net46;net45;net40</TargetFrameworks>
+        <TargetFrameworks>uap10.0;net47;net46;net45;net40</TargetFrameworks>
+        <!--<TargetFrameworks>uap10.0</TargetFrameworks>-->
         <AssemblyName>MahApps.Metro.IconPacks.FontAwesome</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <DefaultWpfPageExcludes>$(DefaultWpfPageExcludes);$(MSBuildProjectDirectory)/Themes/**/*.xaml</DefaultWpfPageExcludes>
     </PropertyGroup>
     <!-- Items include -->
-    <ItemGroup>
-        <Page Include="$(MSBuildProjectDirectory)/Themes/FontAwesome/Generic.xaml" SubType="Designer" Generator="MSBuild:Compile">
-            <Link>Themes/Generic.xaml</Link>
-        </Page>
-        <Page Include="$(MSBuildProjectDirectory)/Themes/PackIconFontAwesome.xaml" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Compile Remove="$(MSBuildProjectDirectory)/*.cs"/>
-        <Compile Include="$(MSBuildProjectDirectory)/*FontAwesome*.cs"/>
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <Compile Remove="*.cs"/>
+        <Compile Remove="Attributes\DescriptionAttribute.cs"/>
+        <Compile Include="PackIconControl.cs;PackIconExtension.cs"/>
 
-        <Compile Include="$(MSBuildProjectDirectory)/PackIconControl.cs;$(MSBuildProjectDirectory)/PackIconExtension.cs"/>
+        <Compile Include="*FontAwesome*.cs"/>
+        <Page Include="Themes\WPF\FontAwesome\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Include="Themes\WPF\PackIconFontAwesome.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+    </ItemGroup>
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <Compile Remove="*.cs"/>
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
+        <Compile Remove="Converter\MarkupConverter.cs;*Extension*.cs"/>
+        <Compile Include="PackIconControl.cs"/>
+        <Compile Include="..\paket-files\uwp\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
+            <Link>ControlzEx\PackIconBase.cs</Link>
+        </Compile>
+        <Page Include="Converter\*.xaml" SubType="Designer" Generator="MSBuild:Compile"/>
+
+        <Compile Include="*FontAwesome*.cs" Exclude="Converter\MarkupConverter.cs;*Extension*.cs"/>
+        <Page Include="Themes\UAP\FontAwesome\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Include="Themes\UAP\PackIconFontAwesome.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+    </ItemGroup>
+    <ItemGroup>
         <Compile Include="..\GlobalAssemblyInfo.cs">
             <Link>Properties\GlobalAssemblyInfo.cs</Link>
         </Compile>
