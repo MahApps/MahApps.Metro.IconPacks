@@ -4,32 +4,34 @@
     <PropertyGroup>
         <DefineConstants>ALL</DefineConstants>
         <TargetFrameworks>uap10.0;net47;net46;net45;net40</TargetFrameworks>
-        <DefaultWpfPageExcludes>$(DefaultWpfPageExcludes);$(MSBuildProjectDirectory)/Themes/**/*.*;$(MSBuildProjectDirectory)/Converter/*.xaml</DefaultWpfPageExcludes>
+        <!--<TargetFrameworks>uap10.0</TargetFrameworks>-->
+        <DefaultWpfPageExcludes>$(DefaultWpfPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</DefaultWpfPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <!-- Items include -->
-    <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
-        <Compile Remove="$(MSBuildProjectDirectory)/Converter/MarkupConverter.cs;$(MSBuildProjectDirectory)/*Extension*.cs" />
-        <Compile Include="..\paket-files\uwp\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
-            <Link>ControlzEx/PackIconBase.cs</Link>
-        </Compile>
-        <Page Include="Converter\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
-        <Page Include="Themes\UAP\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile" />
-    </ItemGroup>
     <ItemGroup Condition="'$(TargetFramework)' != 'uap10.0'">
-        <Compile Remove="$(MSBuildProjectDirectory)/Attributes/DescriptionAttribute.cs" />
-        <Page Include="Themes\WPF\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile" />
+        <Compile Remove="$(MSBuildProjectDirectory)\Attributes\DescriptionAttribute.cs"/>
+        <Page Include="$(MSBuildProjectDirectory)\Themes\WPF\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+        <Compile Remove="$(MSBuildProjectDirectory)\Themes\**\*.*"/>
+        <Compile Remove="$(MSBuildProjectDirectory)\Converter\MarkupConverter.cs;$(MSBuildProjectDirectory)\*Extension*.cs"/>
+        <Compile Include="..\paket-files\uwp\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
+            <Link>ControlzEx\PackIconBase.cs</Link>
+        </Compile>
+        <Page Include="Converter\*.xaml" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Include="Themes\UAP\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="..\GlobalAssemblyInfo.cs">
             <Link>Properties\GlobalAssemblyInfo.cs</Link>
         </Compile>
-        <None Include="paket.references" />
+        <None Include="paket.references"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile DependentUpon="%(Filename)" SubType="Code" Update="$(MSBuildProjectDirectory)\obj\**\*.g$(_SdkLanguageExtension)" />
+        <Compile DependentUpon="%(Filename)" SubType="Code" Update="$(MSBuildProjectDirectory)\obj\**\*.g$(_SdkLanguageExtension)"/>
     </ItemGroup>
-    <Import Project="..\.paket\Paket.Restore.targets" />
+    <Import Project="..\.paket\Paket.Restore.targets"/>
 </Project>
