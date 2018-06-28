@@ -108,34 +108,34 @@ Task("UpdateAssemblyInfo")
 Task("Restore")
   .Does(() =>
 {
-  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
-  MSBuild(iconPacksSolution, msBuildSettings.WithTarget("restore").SetVerbosity(Verbosity.Minimal));
+  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
+  MSBuild(iconPacksSolution, msBuildSettings.WithRestore().SetVerbosity(Verbosity.Normal));
 });
 
 Task("Build")
   .Does(() =>
 {
-  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
+  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
   Information("Build: Release");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Release"));
 
   //Information("Build: Browser Release");
-  //MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
+  //MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Release"));
 });
 
 Task("BuildAll")
   .Does(() =>
 {
-  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
+  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
   Information("Build: Debug");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Debug"));
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Debug"));
   Information("Build: Browser Debug");
-  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Debug"));
+  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Debug"));
 
   Information("Build: Release");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Release"));
   Information("Build: Browser Release");
-  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
+  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Release"));
 });
 
 Task("ZipDebug")
