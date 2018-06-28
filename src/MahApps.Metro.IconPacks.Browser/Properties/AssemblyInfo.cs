@@ -8,5 +8,5 @@ using System.Windows;
 [assembly: AssemblyProduct("MahApps.Metro.IconPacks.Browser")]
 [assembly: AssemblyTitle("MahApps.Metro.IconPacks.Browser")]
 [assembly: AssemblyDescription("Browser Application for the awesome IconPacks.")]
-[assembly: AssemblyCopyright("Copyright © MahApps.Metro 2016")]
+[assembly: AssemblyCopyright("Copyright © MahApps.Metro 2018")]
 [assembly: AssemblyCompany("MahApps")]

@@ -3,7 +3,7 @@
     <!-- Project properties -->
     <PropertyGroup>
         <DefineConstants>ENTYPO</DefineConstants>
-        <TargetFrameworks>uap10.0;net47;net46;net45;net40</TargetFrameworks>
+        <TargetFrameworks>net47;net46;net45;net40;uap10.0</TargetFrameworks>
         <!--<TargetFrameworks>uap10.0</TargetFrameworks>-->
         <DefaultWpfPageExcludes>$(DefaultWpfPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</DefaultWpfPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks.Entypo</AssemblyName>

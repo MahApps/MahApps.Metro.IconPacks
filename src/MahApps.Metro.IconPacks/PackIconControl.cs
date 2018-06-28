@@ -81,7 +81,7 @@ namespace MahApps.Metro.IconPacks
             VisibilityProperty.OverrideMetadata(typeof(PackIconControl<TKind>), new UIPropertyMetadata(Visibility.Visible, (d, e) => { d.CoerceValue(SpinProperty); }));
         }
 
-        public PackIconControl(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
+        protected PackIconControl(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
         {
         }
 #endif

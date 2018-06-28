@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj", "{E55968FD-91B1-4ACE-B711-30724797A662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj", "{E55968FD-91B1-4ACE-B711-30724797A662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Entypo", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Entypo.csproj", "{F6D84D92-189D-4A16-9612-C345B26DB14F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Entypo", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Entypo.csproj", "{F6D84D92-189D-4A16-9612-C345B26DB14F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.FontAwesome", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.FontAwesome.csproj", "{C7F2A63D-0B08-41BA-BE0C-ECBB2CC6ADFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.FontAwesome", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.FontAwesome.csproj", "{C7F2A63D-0B08-41BA-BE0C-ECBB2CC6ADFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Material", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Material.csproj", "{478EDDA9-E8B2-4226-A74A-A23DAB083973}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Material", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Material.csproj", "{478EDDA9-E8B2-4226-A74A-A23DAB083973}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.MaterialLight", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.MaterialLight.csproj", "{03153214-95CF-4628-A334-A3CC02DB261D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.MaterialLight", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.MaterialLight.csproj", "{03153214-95CF-4628-A334-A3CC02DB261D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Modern", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Modern.csproj", "{D28FA06E-2255-42FC-AED6-063257178E0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Modern", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Modern.csproj", "{D28FA06E-2255-42FC-AED6-063257178E0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Octicons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Octicons.csproj", "{4F194731-4DD8-4955-81E6-9D20D8F62077}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Octicons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Octicons.csproj", "{4F194731-4DD8-4955-81E6-9D20D8F62077}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.SimpleIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.SimpleIcons.csproj", "{7EE30791-3F2A-4DD6-B0E4-2057E72C1FB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.SimpleIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.SimpleIcons.csproj", "{7EE30791-3F2A-4DD6-B0E4-2057E72C1FB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Browser", "MahApps.Metro.IconPacks.Browser\MahApps.Metro.IconPacks.Browser.csproj", "{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,10 +127,23 @@ Global
 		{7EE30791-3F2A-4DD6-B0E4-2057E72C1FB9}.Release|x64.Build.0 = Release|Any CPU
 		{7EE30791-3F2A-4DD6-B0E4-2057E72C1FB9}.Release|x86.ActiveCfg = Release|Any CPU
 		{7EE30791-3F2A-4DD6-B0E4-2057E72C1FB9}.Release|x86.Build.0 = Release|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Debug|x64.Build.0 = Debug|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Debug|x86.Build.0 = Debug|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Release|x64.ActiveCfg = Release|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Release|x64.Build.0 = Release|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Release|x86.ActiveCfg = Release|Any CPU
+		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {967EB791-B520-46FB-8AD7-4F5523C8B7A8}
 	EndGlobalSection
 EndGlobal

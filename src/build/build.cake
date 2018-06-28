@@ -46,9 +46,7 @@ var buildVersion = gitVersion.FullBuildMetaData;
 var browserVersion = "1.5.0";
 
 // Directories and Paths
-var buildDir = "../bin";
 var iconPacksSolution = "../MahApps.Metro.IconPacks.sln";
-var browserSolution = "../MahApps.Metro.IconPacks.Browser.sln";
 
 // Define global marcos.
 Action Abort = () => { throw new Exception("a non-recoverable fatal error occurred."); };
@@ -88,7 +86,6 @@ Task("CleanOutput")
   .ContinueOnError()
   .Does(() =>
 {
-  CleanDirectory(Directory(buildDir));
   DeleteFiles("./IconPacks.Browser*.zip");
   DeleteFiles("./MahApps.Metro.IconPacks*.nupkg");
 });
@@ -105,49 +102,40 @@ Task("UpdateAssemblyInfo")
   CreateAssemblyInfo("../MahApps.Metro.IconPacks.Browser/Properties/GlobalAssemblyInfo.cs", newAssemblyInfoSettings);
 });
 
-Task("Restore")
-  .Does(() =>
-{
-  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
-  MSBuild(iconPacksSolution, msBuildSettings.WithRestore().SetVerbosity(Verbosity.Normal));
-});
-
 Task("Build")
   .Does(() =>
 {
   var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
-  Information("Build: Release");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Release"));
 
-  //Information("Build: Browser Release");
-  //MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Release"));
+  Information("Build: Release");
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).WithRestore().SetConfiguration("Release"));
 });
 
 Task("BuildAll")
   .Does(() =>
 {
   var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
+
   Information("Build: Debug");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Debug"));
-  Information("Build: Browser Debug");
-  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Debug"));
-
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).WithRestore().SetConfiguration("Debug"));
   Information("Build: Release");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Release"));
-  Information("Build: Browser Release");
-  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).SetConfiguration("Release"));
+  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).WithRestore().SetConfiguration("Release"));
 });
 
-Task("ZipDebug")
+Task("ZipBrowser")
   .Does(() =>
 {
-  Zip("..\\bin\\MahApps.Metro.IconPacks.Browser\\Debug\\", "IconPacks.Browser.Debug.v" + nugetVersion + ".zip");
-});
+	var zipDir = "..\\MahApps.Metro.IconPacks.Browser\\bin\\Debug\\MahApps.Metro.IconPacks.Browser\\";
+	if (DirectoryExists(zipDir))
+	{
+		Zip(zipDir, "IconPacks.Browser.Debug.v" + nugetVersion + ".zip");
+	}
 
-Task("ZipRelease")
-  .Does(() =>
-{
-  Zip("..\\bin\\MahApps.Metro.IconPacks.Browser\\Release\\", "IconPacks.Browser.v" + nugetVersion + ".zip");
+	zipDir = "..\\MahApps.Metro.IconPacks.Browser\\bin\\Release\\MahApps.Metro.IconPacks.Browser\\";
+	if (DirectoryExists(zipDir))
+	{
+		Zip(zipDir, "IconPacks.Browser.v" + nugetVersion + ".zip");
+	}
 });
 
 Task("NuGetPack")
@@ -383,15 +371,13 @@ Task("CreateRelease")
 // Task Targets
 Task("Default").IsDependentOn("CleanOutput")
                .IsDependentOn("UpdateAssemblyInfo")
-               .IsDependentOn("Restore")
-               .IsDependentOn("Build");
-               //.IsDependentOn("ZipRelease")
+               .IsDependentOn("Build")
+               .IsDependentOn("ZipBrowser");
                //.IsDependentOn("NuGetPack");
 Task("dev").IsDependentOn("CleanOutput")
            .IsDependentOn("UpdateAssemblyInfo")
-           .IsDependentOn("Restore")
-           .IsDependentOn("BuildAll");
-           //.IsDependentOn("ZipDebug").IsDependentOn("ZipRelease")
+           .IsDependentOn("BuildAll")
+           .IsDependentOn("ZipBrowser");
            //.IsDependentOn("NuGetPack");
 
 // Execution

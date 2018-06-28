@@ -2,12 +2,12 @@ RESTRICTION: >= net40
 NUGET
   remote: https://www.nuget.org/api/v2
     ControlzEx (3.0.2.4)
-    Costura.Fody (1.6.2)
-      Fody (>= 2.0 < 3.0)
-    Fody (2.4.6)
+    Costura.Fody (3.1)
+      Fody (>= 3.1.3) - restriction: >= net46
+    Fody (3.1.3)
     gitlink (3.1)
     JetBrains.Annotations (11.1)
-    MahApps.Metro (1.6.1)
+    MahApps.Metro (1.6.5)
       ControlzEx (>= 3.0.2.4 < 4.0)
     MSBuild.Sdk.Extras (1.5.4)
 
