@@ -37,11 +37,9 @@ var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
 
 // Version
 GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.BuildServer });
-var gitVersion = GitVersion(new GitVersionSettings { UpdateAssemblyInfo = true,  UpdateAssemblyInfoFilePath = "../GlobalAssemblyInfo.cs" });
+var gitVersion = GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.Json });
 var majorMinorPatch = gitVersion.MajorMinorPatch;
-var informationalVersion = gitVersion.InformationalVersion;
 var nugetVersion = isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion;
-var buildVersion = gitVersion.FullBuildMetaData;
 
 var browserVersion = "1.5.0";
 
@@ -90,36 +88,67 @@ Task("CleanOutput")
   DeleteFiles("./MahApps.Metro.IconPacks*.nupkg");
 });
 
-Task("UpdateAssemblyInfo")
-  .Does(() =>
+Task("Restore")
+    .Does(() =>
 {
-  var assemblyInfo = ParseAssemblyInfo("../MahApps.Metro.IconPacks.Browser/Properties/GlobalAssemblyInfo.cs");
-  var newAssemblyInfoSettings = new AssemblyInfoSettings {
-    Version = browserVersion,
-    FileVersion = browserVersion,
-    InformationalVersion = browserVersion
-  };
-  CreateAssemblyInfo("../MahApps.Metro.IconPacks.Browser/Properties/GlobalAssemblyInfo.cs", newAssemblyInfoSettings);
+    //PaketRestore();
+
+    var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath };
+    MSBuild(iconPacksSolution, msBuildSettings
+            .SetConfiguration("Debug") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            .WithTarget("restore")
+            );
+    MSBuild(iconPacksSolution, msBuildSettings
+            .SetConfiguration("Release") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            .WithTarget("restore")
+            );
 });
 
 Task("Build")
   .Does(() =>
 {
-  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
+  var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
 
   Information("Build: Release");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).WithRestore().SetConfiguration("Release"));
+  MSBuild(iconPacksSolution, msBuildSettings
+            .SetMaxCpuCount(0)
+            .SetConfiguration("Release") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            //.WithRestore() only with cake 0.28.x            
+            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+            );
 });
 
 Task("BuildAll")
   .Does(() =>
 {
-  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
+  var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
 
   Information("Build: Debug");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).WithRestore().SetConfiguration("Debug"));
+  MSBuild(iconPacksSolution, msBuildSettings
+            .SetMaxCpuCount(0)
+            .SetConfiguration("Debug") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            //.WithRestore() only with cake 0.28.x            
+            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+            );
+
   Information("Build: Release");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Normal).WithRestore().SetConfiguration("Release"));
+  MSBuild(iconPacksSolution, msBuildSettings
+            .SetMaxCpuCount(0)
+            .SetConfiguration("Release") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            //.WithRestore() only with cake 0.28.x            
+            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+            );
 });
 
 Task("ZipBrowser")
@@ -370,12 +399,11 @@ Task("CreateRelease")
 
 // Task Targets
 Task("Default").IsDependentOn("CleanOutput")
-               .IsDependentOn("UpdateAssemblyInfo")
                .IsDependentOn("Build")
                .IsDependentOn("ZipBrowser");
                //.IsDependentOn("NuGetPack");
 Task("dev").IsDependentOn("CleanOutput")
-           .IsDependentOn("UpdateAssemblyInfo")
+           .IsDependentOn("Restore")
            .IsDependentOn("BuildAll")
            .IsDependentOn("ZipBrowser");
            //.IsDependentOn("NuGetPack");

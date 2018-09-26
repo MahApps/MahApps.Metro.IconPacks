@@ -1,5 +1,6 @@
-# configuration for develop/CI branch
+# http://www.appveyor.com/docs/appveyor-yml
 
+# configuration for develop/CI and master/Release branch
 -
   branches:
     only:
@@ -10,6 +11,7 @@
   image: Visual Studio 2017
   configuration: Release
   platform: Any CPU
+  test: off
 
   pull_requests:
     do_not_increment_build_number: false
@@ -34,3 +36,6 @@
   artifacts:
     - path: \src\build\MahApps.Metro.IconPacks.*.nupkg
     - path: \src\build\IconPacks.Browser*.zip
+
+  nuget:
+    disable_publish_on_pr: true

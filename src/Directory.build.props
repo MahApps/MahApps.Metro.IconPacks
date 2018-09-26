@@ -11,9 +11,19 @@
         <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
         <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    </PropertyGroup>
+    <!-- AssemblyInfo -->
+    <PropertyGroup>
+        <Company>MahApps</Company>
+        <Product>MahApps.Metro.IconPacks</Product>
+        <Copyright>Copyright © 2016 - $([System.DateTime]::Today.ToString(yyyy)) MahApps.Metro</Copyright>
+        <Description>IconPacks for stylish awesome WPF and UWP applications.</Description>
+        <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">2.4.0.0</AssemblyVersion>
+        <FileVersion Condition="'$(FileVersion)' == ''">2.4.0.0</FileVersion>
+        <InformationalVersion Condition="'$(InformationalVersion)' == ''">2.4.0.0</InformationalVersion>
     </PropertyGroup>
     <ItemGroup>
         <None Remove="**\*.png;**\*.jpg;**\*.ico"/>
