@@ -1,15 +1,9 @@
-<Project>
-    <!-- workaround for https://github.com/NuGet/Home/issues/5894 -->
-    <PropertyGroup>
-        <_SdkLanguageName>CSharp</_SdkLanguageName>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    </PropertyGroup>
-    <Import Condition=" '$(MSBuildProjectExtension)' == '.tmp_proj'" Project="$(MSBuildProjectDirectory)\obj\*.props"/>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <!-- Project properties -->
     <PropertyGroup>
         <TargetFrameworks>net47;net46;net45;net40;uap10.0</TargetFrameworks>
-        <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
-        <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
+        <ExtrasEnableWpfProjectSetup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">true</ExtrasEnableWpfProjectSetup>
+        <ExtrasDefaultResourceIncludes>$(ExtrasDefaultResourceIncludes);$(MSBuildProjectDirectory)\Resources\*.xaml</ExtrasDefaultResourceIncludes>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
@@ -29,6 +23,4 @@
         <None Remove="**\*.png;**\*.jpg;**\*.ico"/>
         <Resource Include="**\*.png;**\*.jpg;**\*.ico"/>
     </ItemGroup>
-    <!-- workaround for https://github.com/NuGet/Home/issues/5894 -->
-    <Import Condition=" '$(MSBuildProjectExtension)' == '.tmp_proj'" Project="$(MSBuildProjectDirectory)\obj\*.targets"/>
 </Project>

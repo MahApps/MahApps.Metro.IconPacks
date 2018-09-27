@@ -4,13 +4,12 @@
     <PropertyGroup>
         <DefineConstants>MATERIAL</DefineConstants>
         <TargetFrameworks>net47;net46;net45;net40;uap10.0</TargetFrameworks>
-        <!--<TargetFrameworks>uap10.0</TargetFrameworks>-->
-        <DefaultWpfPageExcludes>$(DefaultWpfPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</DefaultWpfPageExcludes>
+        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks.Material</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
-    <!-- Items include -->
+    <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
         <Compile Remove="*.cs"/>
         <Compile Remove="Attributes\DescriptionAttribute.cs"/>
@@ -20,6 +19,7 @@
         <Page Include="Themes\WPF\Material\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
         <Page Include="Themes\WPF\PackIconMaterial.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
     </ItemGroup>
+    <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs"/>
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
@@ -36,9 +36,6 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="paket.references"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Compile DependentUpon="%(Filename)" SubType="Code" Update="$(MSBuildProjectDirectory)\obj\**\*.g$(_SdkLanguageExtension)"/>
     </ItemGroup>
     <Import Project="..\.paket\Paket.Restore.targets"/>
 </Project>
