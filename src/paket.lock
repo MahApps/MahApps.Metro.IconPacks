@@ -1,14 +1,14 @@
 RESTRICTION: >= net40
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    ControlzEx (3.0.2.4)
+    ControlzEx (4.0.0-alpha0176)
     Costura.Fody (3.1.2)
       Fody (>= 3.2.4) - restriction: >= net46
     Fody (3.2.4)
     gitlink (3.1)
     JetBrains.Annotations (2018.2.1) - copy_local: false
-    MahApps.Metro (1.6.5)
-      ControlzEx (>= 3.0.2.4 < 4.0)
+    MahApps.Metro (2.0.0-alpha0083)
+      ControlzEx (>= 4.0.0-alpha0176 < 5.0.0-alpha)
 
 GROUP cake
 RESTRICTION: == net45

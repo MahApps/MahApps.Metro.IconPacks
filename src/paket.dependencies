@@ -10,8 +10,8 @@ nuget Costura.Fody
 nuget JetBrains.Annotations copy_local:false
 nuget gitlink
 
-nuget ControlzEx < 4.0
-nuget MahApps.Metro
+nuget ControlzEx prerelease
+nuget MahApps.Metro prerelease
 
 group UWP
 	github ControlzEx/ControlzEx:2a937e3e841cb0087cfdbb8f3b4caea7f781dd1b src/ControlzEx/PackIconBase.cs
