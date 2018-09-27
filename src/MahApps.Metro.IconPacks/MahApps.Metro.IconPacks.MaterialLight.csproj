@@ -3,7 +3,6 @@
     <!-- Project properties -->
     <PropertyGroup>
         <DefineConstants>MATERIALLIGHT</DefineConstants>
-        <TargetFrameworks>net47;net46;net45;net40;uap10.0</TargetFrameworks>
         <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks.MaterialLight</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
