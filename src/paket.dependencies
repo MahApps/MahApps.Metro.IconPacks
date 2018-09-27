@@ -1,14 +1,17 @@
 framework: >= net40
 
-source https://nuget.org/api/v2
+//source https://ci.appveyor.com/nuget/controlzex
+//source https://ci.appveyor.com/nuget/mahapps.metro
+source https://api.nuget.org/v3/index.json
 
-nuget MSBuild.Sdk.Extras 1.5.4
-nuget JetBrains.Annotations
-nuget ControlzEx < 4.0
-nuget MahApps.Metro
 nuget Fody
 nuget Costura.Fody
+
+nuget JetBrains.Annotations
 nuget gitlink
+
+nuget ControlzEx < 4.0
+nuget MahApps.Metro
 
 group UWP
 	github ControlzEx/ControlzEx:2a937e3e841cb0087cfdbb8f3b4caea7f781dd1b src/ControlzEx/PackIconBase.cs
