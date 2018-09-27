@@ -7,7 +7,7 @@ source https://api.nuget.org/v3/index.json
 nuget Fody
 nuget Costura.Fody
 
-nuget JetBrains.Annotations
+nuget JetBrains.Annotations copy_local:false
 nuget gitlink
 
 nuget ControlzEx < 4.0
@@ -15,3 +15,15 @@ nuget MahApps.Metro
 
 group UWP
 	github ControlzEx/ControlzEx:2a937e3e841cb0087cfdbb8f3b4caea7f781dd1b src/ControlzEx/PackIconBase.cs
+
+group cake
+	source https://api.nuget.org/v3/index.json
+	framework: net45
+	
+	nuget Cake
+	nuget Cake.Figlet
+	nuget Cake.Paket
+	nuget Cake.Paket.Module
+	nuget vswhere
+	nuget GitVersion.CommandLine prerelease
+	nuget gitreleasemanager
