@@ -1,14 +1,14 @@
 framework: >= net40
 
-//source https://ci.appveyor.com/nuget/controlzex
-//source https://ci.appveyor.com/nuget/mahapps.metro
+source https://ci.appveyor.com/nuget/controlzex
+source https://ci.appveyor.com/nuget/mahapps.metro
 source https://api.nuget.org/v3/index.json
 
 nuget Fody
 nuget Costura.Fody
 
-nuget JetBrains.Annotations copy_local:false
-nuget gitlink
+nuget JetBrains.Annotations copy_local: false
+//nuget gitlink prerelease copy_local: false
 
 nuget ControlzEx prerelease
 nuget MahApps.Metro prerelease

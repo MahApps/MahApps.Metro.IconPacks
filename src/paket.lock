@@ -1,13 +1,14 @@
 RESTRICTION: >= net40
 NUGET
+  remote: https://ci.appveyor.com/nuget/controlzex
+    ControlzEx (4.0.0-alpha0188)
   remote: https://api.nuget.org/v3/index.json
-    ControlzEx (4.0.0-alpha0176)
     Costura.Fody (3.1.2)
       Fody (>= 3.2.4) - restriction: >= net46
     Fody (3.2.4)
-    gitlink (3.1)
     JetBrains.Annotations (2018.2.1) - copy_local: false
-    MahApps.Metro (2.0.0-alpha0083)
+  remote: https://ci.appveyor.com/nuget/mahapps.metro
+    MahApps.Metro (2.0.0-alpha0092)
       ControlzEx (>= 4.0.0-alpha0176 < 5.0.0-alpha)
 
 GROUP cake
