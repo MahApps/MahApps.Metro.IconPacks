@@ -108,8 +108,6 @@ Task("CleanOutput")
 {
     var directoriesToDelete = GetDirectories("./**/obj").Concat(GetDirectories("./**/bin")).Concat(GetDirectories("./**/Publish"));
     DeleteDirectories(directoriesToDelete, new DeleteDirectorySettings { Recursive = true, Force = true });
-    //DeleteFiles("./IconPacks.Browser*.zip");
-    //DeleteFiles("./MahApps.Metro.IconPacks*.nupkg");
 });
 
 Task("Restore")
@@ -117,7 +115,8 @@ Task("Restore")
 {
     //PaketRestore();
 
-    var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath };
+    var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
+
     MSBuild(iconPacksSolution, msBuildSettings
             .SetConfiguration("Debug") //.SetConfiguration(configuration)
             .SetVerbosity(Verbosity.Normal)
@@ -152,7 +151,6 @@ Task("BuildAll")
 {
   var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
 
-  Information("Build: Debug");
   MSBuild(iconPacksSolution, msBuildSettings
             .SetMaxCpuCount(0)
             .SetConfiguration("Debug") //.SetConfiguration(configuration)
@@ -162,8 +160,6 @@ Task("BuildAll")
             .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
             .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
             );
-
-  Information("Build: Release");
   MSBuild(iconPacksSolution, msBuildSettings
             .SetMaxCpuCount(0)
             .SetConfiguration("Release") //.SetConfiguration(configuration)
@@ -190,6 +186,36 @@ Task("ZipAll")
   Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/MahApps.Metro.IconPacks.Browser/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
   configuration = "Release";
   Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/MahApps.Metro.IconPacks.Browser/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
+});
+
+Task("Pack")
+  .WithCriteria(() => !isPullRequest)
+    .Does(() =>
+{
+  EnsureDirectoryExists(Directory(publishDir));
+
+  var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath };
+ 
+  var projects = GetFiles("./MahApps.Metro.IconPacks/*.csproj");
+
+  foreach(var project in projects)
+  {
+    Information("Packing {0}", project);
+
+    DeleteFiles(GetFiles("./MahApps.Metro.IconPacks/obj/**/*.nuspec"));
+
+    MSBuild(project, msBuildSettings
+      .SetConfiguration(configuration)
+      .SetVerbosity(Verbosity.Normal)
+      .WithTarget("pack")
+      .WithProperty("PackageOutputPath", publishDir)
+      .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
+      .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+      .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+      .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+    );
+  }
+
 });
 
 Task("NuGetPack")
@@ -433,8 +459,8 @@ Task("appveyor")
     .IsDependentOn("CleanOutput")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
-    .IsDependentOn("ZipConfig");
-    //.IsDependentOn("NuGetPack");
+    .IsDependentOn("ZipConfig")
+    .IsDependentOn("Pack");
 
 // Execution
 RunTarget(target);

@@ -18,6 +18,7 @@
         <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">2.4.0.0</AssemblyVersion>
         <FileVersion Condition="'$(FileVersion)' == ''">2.4.0.0</FileVersion>
         <InformationalVersion Condition="'$(InformationalVersion)' == ''">2.4.0.0</InformationalVersion>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
     <ItemGroup>
         <None Remove="**\*.png;**\*.jpg;**\*.ico"/>
