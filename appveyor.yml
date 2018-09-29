@@ -25,8 +25,7 @@
 #    - src\packages -> **\packages.config
 
   artifacts:
-    - path: \src\build\MahApps.Metro.IconPacks.*.nupkg
-    - path: \src\build\IconPacks.Browser*.zip
+    - path: \src\Publish\*.*
 
   nuget:
     disable_publish_on_pr: true
