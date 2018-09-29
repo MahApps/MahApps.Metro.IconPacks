@@ -6,7 +6,8 @@ NUGET
     Costura.Fody (3.1.2)
       Fody (>= 3.2.4) - restriction: >= net46
     Fody (3.2.4)
-    JetBrains.Annotations (2018.2.1) - copy_local: false
+    gitlink (3.2.0-unstable0040) - copy_local: true
+    JetBrains.Annotations (2018.2.1) - copy_local: true
   remote: https://ci.appveyor.com/nuget/mahapps.metro
     MahApps.Metro (2.0.0-alpha0092)
       ControlzEx (>= 4.0.0-alpha0176 < 5.0.0-alpha)

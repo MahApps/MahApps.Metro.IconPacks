@@ -3,9 +3,6 @@
         <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
         <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
     </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="gitlink" Version="3.*" PrivateAssets="All" />
-    </ItemGroup>
     <!-- Sign assembly -->
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <SignAssembly>True</SignAssembly>
