@@ -1,14 +1,28 @@
 RESTRICTION: >= net40
 NUGET
-  remote: https://www.nuget.org/api/v2
-    ControlzEx (3.0.2.4)
-    Costura.Fody (1.6.2)
-      Fody (>= 2.0 < 3.0)
-    Fody (2.4.6)
-    gitlink (3.1)
-    JetBrains.Annotations (11.1)
-    MahApps.Metro (1.6.1)
-      ControlzEx (>= 3.0.2.4 < 4.0)
+  remote: https://ci.appveyor.com/nuget/controlzex
+    ControlzEx (4.0.0-alpha0188)
+  remote: https://api.nuget.org/v3/index.json
+    Costura.Fody (3.1.2)
+      Fody (>= 3.2.4) - restriction: >= net46
+    Fody (3.2.4)
+    gitlink (3.2.0-unstable0040) - copy_local: true
+    JetBrains.Annotations (2018.2.1) - copy_local: true
+  remote: https://ci.appveyor.com/nuget/mahapps.metro
+    MahApps.Metro (2.0.0-alpha0092)
+      ControlzEx (>= 4.0.0-alpha0176 < 5.0.0-alpha)
+
+GROUP cake
+RESTRICTION: == net45
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    Cake (0.30)
+    Cake.Figlet (1.2)
+    Cake.Paket (4.0)
+    Cake.Paket.Module (4.0)
+    gitreleasemanager (0.7.1)
+    GitVersion.CommandLine (4.0.0-beta0014)
+    vswhere (2.5.2)
 
 GROUP UWP
 

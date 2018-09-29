@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MahApps.Metro.IconPacks">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/IconPacks.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type local:PackIconMaterial}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterial}" />
+    <Style TargetType="{x:Type local:PackIconMaterialLight}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialLight}" />
+    <Style TargetType="{x:Type local:PackIconFontAwesome}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}" />
+    <Style TargetType="{x:Type local:PackIconOcticons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}" />
+    <Style TargetType="{x:Type local:PackIconModern}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconModern}" />
+    <Style TargetType="{x:Type local:PackIconEntypo}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}" />
+    <Style TargetType="{x:Type local:PackIconSimpleIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconSimpleIcons}" />
+
+</ResourceDictionary>

@@ -25,7 +25,7 @@
     <controls:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Browser;component/Resources/CustomTabControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Browser;component/Styles/CustomTabControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </controls:MetroWindow.Resources>

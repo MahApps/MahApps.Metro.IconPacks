@@ -22,7 +22,8 @@ if (string.IsNullOrWhiteSpace(target))
 // PREPARATION
 //////////////////////////////////////////////////////////////////////
 
-var msBuildPath = VSWhereLatest().CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
+var latestInstallationPath = VSWhereProducts("*", new VSWhereProductSettings { Version = "[\"15.0\",\"16.0\"]" }).FirstOrDefault();
+var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
 
 // Should MSBuild treat any errors as warnings?
 var treatWarningsAsErrors = false;
@@ -36,18 +37,14 @@ var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
 
 // Version
 GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.BuildServer });
-var gitVersion = GitVersion(new GitVersionSettings { UpdateAssemblyInfo = true,  UpdateAssemblyInfoFilePath = "../GlobalAssemblyInfo.cs" });
+var gitVersion = GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.Json });
 var majorMinorPatch = gitVersion.MajorMinorPatch;
-var informationalVersion = gitVersion.InformationalVersion;
 var nugetVersion = isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion;
-var buildVersion = gitVersion.FullBuildMetaData;
 
 var browserVersion = "1.5.0";
 
 // Directories and Paths
-var buildDir = "../bin";
 var iconPacksSolution = "../MahApps.Metro.IconPacks.sln";
-var browserSolution = "../MahApps.Metro.IconPacks.Browser.sln";
 
 // Define global marcos.
 Action Abort = () => { throw new Exception("a non-recoverable fatal error occurred."); };
@@ -69,6 +66,7 @@ Setup(context =>
     Information("MajorMinorPatch Version: {0}", gitVersion.MajorMinorPatch);
     Information("NuGet Version          : {0}", gitVersion.NuGetVersion);
     Information("IsLocalBuild           : {0}", local);
+    Information("MSBuildPath            : {0}", msBuildPath);
 
     Information(Figlet("MahApps.Metro.IconPacks"));
 });
@@ -86,73 +84,87 @@ Task("CleanOutput")
   .ContinueOnError()
   .Does(() =>
 {
-  CleanDirectory(Directory(buildDir));
   DeleteFiles("./IconPacks.Browser*.zip");
   DeleteFiles("./MahApps.Metro.IconPacks*.nupkg");
 });
 
-Task("UpdateAssemblyInfo")
-  .Does(() =>
-{
-  var assemblyInfo = ParseAssemblyInfo("../MahApps.Metro.IconPacks.Browser/Properties/GlobalAssemblyInfo.cs");
-  var newAssemblyInfoSettings = new AssemblyInfoSettings {
-    Version = browserVersion,
-    FileVersion = browserVersion,
-    InformationalVersion = browserVersion
-  };
-  CreateAssemblyInfo("../MahApps.Metro.IconPacks.Browser/Properties/GlobalAssemblyInfo.cs", newAssemblyInfoSettings);
-});
-
 Task("Restore")
-  .Does(() =>
+    .Does(() =>
 {
-  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
-  MSBuild(iconPacksSolution, msBuildSettings.WithTarget("restore").SetVerbosity(Verbosity.Minimal));
+    //PaketRestore();
+
+    var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath };
+    MSBuild(iconPacksSolution, msBuildSettings
+            .SetConfiguration("Debug") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            .WithTarget("restore")
+            );
+    MSBuild(iconPacksSolution, msBuildSettings
+            .SetConfiguration("Release") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            .WithTarget("restore")
+            );
 });
 
 Task("Build")
   .Does(() =>
 {
-  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
+  var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
+
   Information("Build: Release");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
-  Information("Build: Release_NET45");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET45"));
-  Information("Build: Release_NET46");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET46"));
-  Information("Build: Browser Release");
-  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
+  MSBuild(iconPacksSolution, msBuildSettings
+            .SetMaxCpuCount(0)
+            .SetConfiguration("Release") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            //.WithRestore() only with cake 0.28.x            
+            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+            );
 });
 
 Task("BuildAll")
   .Does(() =>
 {
-  var msBuildSettings = new MSBuildSettings() { ToolPath = msBuildPath };
+  var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
+
   Information("Build: Debug");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Debug"));
-  Information("Build: Browser Debug");
-  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Debug"));
+  MSBuild(iconPacksSolution, msBuildSettings
+            .SetMaxCpuCount(0)
+            .SetConfiguration("Debug") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            //.WithRestore() only with cake 0.28.x            
+            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+            );
 
   Information("Build: Release");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
-  Information("Build: Release_NET45");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET45"));
-  Information("Build: Release_NET46");
-  MSBuild(iconPacksSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release_NET46"));
-  Information("Build: Browser Release");
-  MSBuild(browserSolution, msBuildSettings.SetMaxCpuCount(0).SetVerbosity(Verbosity.Minimal).SetConfiguration("Release"));
+  MSBuild(iconPacksSolution, msBuildSettings
+            .SetMaxCpuCount(0)
+            .SetConfiguration("Release") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Normal)
+            //.WithRestore() only with cake 0.28.x            
+            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+            );
 });
 
-Task("ZipDebug")
+Task("ZipBrowser")
   .Does(() =>
 {
-  Zip("..\\bin\\MahApps.Metro.IconPacks.Browser\\Debug\\", "IconPacks.Browser.Debug.v" + nugetVersion + ".zip");
-});
+	var zipDir = "..\\MahApps.Metro.IconPacks.Browser\\bin\\Debug\\MahApps.Metro.IconPacks.Browser\\";
+	if (DirectoryExists(zipDir))
+	{
+		Zip(zipDir, "IconPacks.Browser.Debug.v" + nugetVersion + ".zip");
+	}
 
-Task("ZipRelease")
-  .Does(() =>
-{
-  Zip("..\\bin\\MahApps.Metro.IconPacks.Browser\\Release\\", "IconPacks.Browser.v" + nugetVersion + ".zip");
+	zipDir = "..\\MahApps.Metro.IconPacks.Browser\\bin\\Release\\MahApps.Metro.IconPacks.Browser\\";
+	if (DirectoryExists(zipDir))
+	{
+		Zip(zipDir, "IconPacks.Browser.v" + nugetVersion + ".zip");
+	}
 });
 
 Task("NuGetPack")
@@ -387,17 +399,14 @@ Task("CreateRelease")
 
 // Task Targets
 Task("Default").IsDependentOn("CleanOutput")
-               .IsDependentOn("UpdateAssemblyInfo")
-               .IsDependentOn("Restore")
                .IsDependentOn("Build")
-               .IsDependentOn("ZipRelease")
-               .IsDependentOn("NuGetPack");
+               .IsDependentOn("ZipBrowser");
+               //.IsDependentOn("NuGetPack");
 Task("dev").IsDependentOn("CleanOutput")
-           .IsDependentOn("UpdateAssemblyInfo")
            .IsDependentOn("Restore")
            .IsDependentOn("BuildAll")
-           .IsDependentOn("ZipDebug").IsDependentOn("ZipRelease")
-           .IsDependentOn("NuGetPack");
+           .IsDependentOn("ZipBrowser");
+           //.IsDependentOn("NuGetPack");
 
 // Execution
 RunTarget(target);

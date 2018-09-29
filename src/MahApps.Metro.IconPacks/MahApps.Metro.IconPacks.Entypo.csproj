@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <DefineConstants>ENTYPO</DefineConstants>
+        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
+        <AssemblyName>MahApps.Metro.IconPacks.Entypo</AssemblyName>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+    <!-- WPF Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <Compile Remove="*.cs"/>
+        <Compile Remove="Attributes\DescriptionAttribute.cs"/>
+        <Compile Include="PackIconControl.cs;PackIconExtension.cs"/>
+
+        <Compile Include="*Entypo*.cs"/>
+        <Page Include="Themes\WPF\Entypo\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Include="Themes\WPF\PackIconEntypo.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+    </ItemGroup>
+    <!-- UWP Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <Compile Remove="*.cs"/>
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
+        <Compile Remove="Converter\MarkupConverter.cs;*Extension*.cs"/>
+        <Compile Include="PackIconControl.cs"/>
+        <Compile Include="..\paket-files\uwp\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
+            <Link>ControlzEx\PackIconBase.cs</Link>
+        </Compile>
+        <Page Include="Converter\*.xaml" SubType="Designer" Generator="MSBuild:Compile"/>
+
+        <Compile Include="*Entypo*.cs" Exclude="Converter\MarkupConverter.cs;*Extension*.cs"/>
+        <Page Include="Themes\UAP\Entypo\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Include="Themes\UAP\PackIconEntypo.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="paket.references"/>
+    </ItemGroup>
+    <Import Project="..\.paket\Paket.Restore.targets"/>
+</Project>
