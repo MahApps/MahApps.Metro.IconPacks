@@ -175,7 +175,7 @@ Task("ZipConfig")
   .Does(() =>
 {
   EnsureDirectoryExists(Directory(publishDir));
-  Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/MahApps.Metro.IconPacks.Browser/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
+  Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
 });
 
 Task("ZipAll")
@@ -183,9 +183,9 @@ Task("ZipAll")
 {
   EnsureDirectoryExists(Directory(publishDir));
   configuration = "Debug";
-  Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/MahApps.Metro.IconPacks.Browser/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
+  Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
   configuration = "Release";
-  Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/MahApps.Metro.IconPacks.Browser/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
+  Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
 });
 
 Task("Pack")
