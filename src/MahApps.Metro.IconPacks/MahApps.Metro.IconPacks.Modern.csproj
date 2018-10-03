@@ -5,6 +5,7 @@
         <DefineConstants>MODERN</DefineConstants>
         <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks.Modern</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.Modern</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>

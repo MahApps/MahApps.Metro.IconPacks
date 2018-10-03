@@ -5,6 +5,7 @@
         <DefineConstants>OCTICONS</DefineConstants>
         <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks.Octicons</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.Octicons</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>

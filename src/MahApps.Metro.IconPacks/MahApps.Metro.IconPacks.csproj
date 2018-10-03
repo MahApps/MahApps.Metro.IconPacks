@@ -5,6 +5,7 @@
         <DefineConstants>ALL</DefineConstants>
         <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks</AssemblyName>
+        <Title>MahApps.Metro.IconPacks</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>

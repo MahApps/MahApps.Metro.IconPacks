@@ -5,6 +5,7 @@
         <DefineConstants>FONTAWESOME</DefineConstants>
         <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks.FontAwesome</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.FontAwesome</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>

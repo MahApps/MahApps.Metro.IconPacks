@@ -5,6 +5,7 @@
         <DefineConstants>SIMPLEICONS</DefineConstants>
         <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks.SimpleIcons</AssemblyName>
+        <Titel>MahApps.Metro.IconPacks.SimpleIcons</Titel>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
