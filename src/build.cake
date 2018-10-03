@@ -118,13 +118,8 @@ Task("Restore")
     var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
 
     MSBuild(iconPacksSolution, msBuildSettings
-            .SetConfiguration("Debug") //.SetConfiguration(configuration)
-            .SetVerbosity(Verbosity.Normal)
-            .WithTarget("restore")
-            );
-    MSBuild(iconPacksSolution, msBuildSettings
-            .SetConfiguration("Release") //.SetConfiguration(configuration)
-            .SetVerbosity(Verbosity.Normal)
+            //.SetConfiguration("Debug") //.SetConfiguration(configuration)
+            .SetVerbosity(Verbosity.Minimal)
             .WithTarget("restore")
             );
 });

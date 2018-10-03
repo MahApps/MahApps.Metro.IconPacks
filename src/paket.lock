@@ -1,16 +1,15 @@
 RESTRICTION: >= net40
 NUGET
-  remote: https://ci.appveyor.com/nuget/controlzex
-    ControlzEx (4.0.0-alpha0188)
   remote: https://api.nuget.org/v3/index.json
-    Costura.Fody (3.1.2)
-      Fody (>= 3.2.4) - restriction: >= net46
-    Fody (3.2.4)
+    ControlzEx (4.0.0-alpha0189)
+    Costura.Fody (3.1.4)
+      Fody (>= 3.2.6) - restriction: >= net46
+    Fody (3.2.7)
     gitlink (3.2.0-unstable0040) - copy_local: true
     JetBrains.Annotations (2018.2.1) - copy_local: true
   remote: https://ci.appveyor.com/nuget/mahapps.metro
-    MahApps.Metro (2.0.0-alpha0092)
-      ControlzEx (>= 4.0.0-alpha0176 < 5.0.0-alpha)
+    MahApps.Metro (2.0.0-alpha0093)
+      ControlzEx (>= 4.0.0-alpha0188 < 5.0.0-alpha)
 
 GROUP cake
 RESTRICTION: == net45
@@ -28,4 +27,4 @@ GROUP UWP
 
 GITHUB
   remote: ControlzEx/ControlzEx
-    src/ControlzEx/PackIconBase.cs (2a937e3e841cb0087cfdbb8f3b4caea7f781dd1b)
+    src/ControlzEx/PackIconBase.cs (e641c9e9346d7ae8c21ca1bf7fa5fb1b86496baa)

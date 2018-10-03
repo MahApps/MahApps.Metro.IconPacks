@@ -1,6 +1,6 @@
 framework: >= net40
 
-source https://ci.appveyor.com/nuget/controlzex
+//source https://ci.appveyor.com/nuget/controlzex
 source https://ci.appveyor.com/nuget/mahapps.metro
 source https://api.nuget.org/v3/index.json
 
@@ -14,7 +14,7 @@ nuget ControlzEx prerelease
 nuget MahApps.Metro prerelease
 
 group UWP
-	github ControlzEx/ControlzEx:2a937e3e841cb0087cfdbb8f3b4caea7f781dd1b src/ControlzEx/PackIconBase.cs
+	github ControlzEx/ControlzEx:e641c9e9346d7ae8c21ca1bf7fa5fb1b86496baa src/ControlzEx/PackIconBase.cs
 
 group cake
 	source https://api.nuget.org/v3/index.json
