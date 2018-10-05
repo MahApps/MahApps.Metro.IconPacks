@@ -8,6 +8,8 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconOcticons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconModern.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconEntypo.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconSimpleIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconWeatherIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

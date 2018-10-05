@@ -28,9 +28,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     new IconPackViewModel(this, "Modern", typeof(PackIconModernKind), typeof(PackIconModern)),
                     new IconPackViewModel(this, "Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo)),
                     new IconPackViewModel(this, "SimpleIcons", typeof(PackIconSimpleIconsKind), typeof(PackIconSimpleIcons)),
+                    new IconPackViewModel(this, "WeatherIcons", typeof(PackIconWeatherIconsKind), typeof(PackIconWeatherIcons)),
                     new IconPackViewModel(this, "All", 
-                                          new Type[] { typeof(PackIconMaterialKind), typeof(PackIconMaterialLightKind), typeof(PackIconFontAwesomeKind), typeof(PackIconOcticonsKind), typeof(PackIconModernKind), typeof(PackIconEntypoKind), typeof(PackIconSimpleIconsKind) },
-                                          new Type[] { typeof(PackIconMaterial), typeof(PackIconMaterialLight), typeof(PackIconFontAwesome), typeof(PackIconOcticons), typeof(PackIconModern), typeof(PackIconEntypo), typeof(PackIconSimpleIcons) })
+                                          new Type[] { typeof(PackIconMaterialKind), typeof(PackIconMaterialLightKind), typeof(PackIconFontAwesomeKind), typeof(PackIconOcticonsKind), typeof(PackIconModernKind), typeof(PackIconEntypoKind), typeof(PackIconSimpleIconsKind), typeof(PackIconWeatherIconsKind) },
+                                          new Type[] { typeof(PackIconMaterial), typeof(PackIconMaterialLight), typeof(PackIconFontAwesome), typeof(PackIconOcticons), typeof(PackIconModern), typeof(PackIconEntypo), typeof(PackIconSimpleIcons), typeof(PackIconWeatherIcons) })
                     });
             this.IconPacksVersion = Assembly.GetAssembly(typeof(PackIconMaterial)).GetName().Version.ToString();
             this.GoToGitHubCommand =
