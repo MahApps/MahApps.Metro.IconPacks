@@ -14,7 +14,7 @@
         <PackageReleaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/MahApps/MahApps.Metro.IconPacks.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
     </PropertyGroup>
     <!-- Sign assembly -->
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -23,18 +23,5 @@
         <DelaySign>false</DelaySign>
         <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     </PropertyGroup>
-    <Target Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' " Name="CustomContentTarget">
-        <ItemGroup>
-            <!--<TfmSpecificPackageFile Include="Platforms\$(TargetFramework)\Themes\Generic.xaml">
-                <PackagePath>lib\$(TargetFramework)\$(PackageId)\Themes\Generic.xaml</PackagePath>
-            </TfmSpecificPackageFile>-->
-            <TfmSpecificPackageFile Include="$(OutDir)**\*.xbf">
-                <PackagePath>lib\$(TargetFramework)\$(PackageId)\Themes</PackagePath>
-            </TfmSpecificPackageFile>
-            <TfmSpecificPackageFile Include="$(OutDir)*.xr.xml">
-                <PackagePath>lib\$(TargetFramework)\$(PackageId)</PackagePath>
-            </TfmSpecificPackageFile>
-        </ItemGroup>
-    </Target>
     <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))"/>
 </Project>

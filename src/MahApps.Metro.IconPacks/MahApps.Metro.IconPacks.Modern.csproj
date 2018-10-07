@@ -7,7 +7,6 @@
         <AssemblyName>MahApps.Metro.IconPacks.Modern</AssemblyName>
         <Title>MahApps.Metro.IconPacks.Modern</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
@@ -28,6 +27,7 @@
         <Compile Include="..\paket-files\uwp\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
             <Link>ControlzEx\PackIconBase.cs</Link>
         </Compile>
+        <EmbeddedResource Include="**\*.rd.xml" />
         <Page Include="Converter\*.xaml" SubType="Designer" Generator="MSBuild:Compile"/>
 
         <Compile Include="*Modern*.cs" Exclude="Converter\MarkupConverter.cs;*Extension*.cs"/>
