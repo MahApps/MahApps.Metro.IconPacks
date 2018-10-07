@@ -41,6 +41,9 @@
   <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/">
     <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons">
   </a>
+  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/">
+    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons">
+  </a>
   <br />
   <br />
 
@@ -55,6 +58,7 @@ The `IconPacks` library contains controls to use awesome icons from
 - [Modern](http://modernuiicons.com/) (1224 icons)
 - [Entypo+](http://www.entypo.com/) (411 icons)
 - [Simple Icons](https://simpleicons.org/) (v1.3.8 with 412 icons)
+- [Weather Icons](http://weathericons.io) (v2.0.10 with 219 icons)
 
 for `WPF` and `UWP` apps in a simple way.
 
@@ -102,37 +106,26 @@ To install the IconPacks, run the following commands in the NuGet Package Manage
     ```bash
     PM> Install-Package MahApps.Metro.IconPacks.SimpleIcons
     ```
+- `MahApps.Metro.IconPacks.WeatherIcons` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/)
+    ```bash
+    PM> Install-Package MahApps.Metro.IconPacks.WeatherIcons
+    ```
 
 ## Usage
 
 If you want all icons together then just install the `MahApps.Metro.IconPacks` NuGet package. You can also only install one of the icon packs if you don't need them all.
 
 ```xaml
-<iconPacks:PackIconMaterial Kind="EmoticonCool" />
-```
-
-```xaml
-<iconPacks:PackIconMaterialLight Kind="Heart" />
-```
-
-```xaml
-<iconPacks:PackIconFontAwesome Kind="FontAwesomeBrands" />
-```
-
-```xaml
-<iconPacks:PackIconOcticons Kind="MarkGithub" />
-```
-
-```xaml
-<iconPacks:PackIconModern Kind="ThumbsUp" />
-```
-
-```xaml
-<iconPacks:PackIconEntypo Kind="EmojiHappy" />
-```
-
-```xaml
-<iconPacks:PackIconSimpleIcons Kind="StackOverflow" />
+<StackPanel>
+  <iconPacks:PackIconMaterial Kind="EmoticonCool" />
+  <iconPacks:PackIconMaterialLight Kind="Heart" />
+  <iconPacks:PackIconFontAwesome Kind="FontAwesomeBrands" />
+  <iconPacks:PackIconOcticons Kind="MarkGithub" />
+  <iconPacks:PackIconModern Kind="ThumbsUp" />
+  <iconPacks:PackIconEntypo Kind="EmojiHappy" />
+  <iconPacks:PackIconSimpleIcons Kind="StackOverflow" />
+  <iconPacks:PackIconWeatherIcons Kind="DaySunny" />
+</StackPanel>
 ```
 
 ### Namespace
@@ -289,6 +282,7 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconSimpleIcons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconWeatherIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!-- now make some global changes for the icon pack controls without using new keys -->
@@ -327,6 +321,11 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
 
+    <Style TargetType="{x:Type iconPacks:PackIconWeatherIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconWeatherIcons}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
 </ResourceDictionary>
 ``` 
 If you use the IconPack with all included icons you can also use this resource dictionary:
@@ -335,7 +334,21 @@ If you use the IconPack with all included icons you can also use this resource d
 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/IconPacks.xaml" />
 ```
 
-## Strong naming
+## Strong naming: Now
+
+All packages of MahApps.Metro.IconPacks are now strong-named again.
+
+Why?
+
+The author of the (in)famous "Still strong naming your assemblies?" blog article has now done an about-face and now advocates strong-naming your assemblies again in an update to that same [blog post](https://www.pedrolamas.com/2016/03/01/still-strong-naming-your-assemblies-you-do-know-its-2016-right/):
+
+> Though the information and concerns in this blog post are still very true, I’ve actually had a change of heart and **I’m now advocating to Start Strong-Naming your Assemblies!!**
+
+[**Start Strong-Naming your Assemblies!**](https://www.pedrolamas.com/2018/09/11/start-strong-naming-your-assemblies/)
+
+Microsoft's corefx team also now strong-names and while they say not every assembly needs it, it's still useful: https://github.com/dotnet/corefx/blob/master/Documentation/project-docs/strong-name-signing.md  
+
+## Strong naming: Old
 
 MahApps.Metro.IconPacks will not be strong-named.
 
