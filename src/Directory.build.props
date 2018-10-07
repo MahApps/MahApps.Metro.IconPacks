@@ -6,7 +6,7 @@
         <ExtrasDefaultResourceIncludes>$(ExtrasDefaultResourceIncludes);$(MSBuildProjectDirectory)\Resources\*.xaml</ExtrasDefaultResourceIncludes>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
     </PropertyGroup>

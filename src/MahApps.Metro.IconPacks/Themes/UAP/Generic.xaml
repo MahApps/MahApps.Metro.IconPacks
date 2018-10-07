@@ -12,5 +12,7 @@
     <Style TargetType="uwp:PackIconOcticons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}" />
     <Style TargetType="uwp:PackIconModern" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconModern}" />
     <Style TargetType="uwp:PackIconEntypo" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}" />
+    <Style TargetType="uwp:PackIconSimpleIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconSimpleIcons}" />
+    <Style TargetType="uwp:PackIconWeatherIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconWeatherIcons}" />
 
 </ResourceDictionary>

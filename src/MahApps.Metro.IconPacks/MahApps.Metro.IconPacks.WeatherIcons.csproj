@@ -2,10 +2,10 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <DefineConstants>FONTAWESOME</DefineConstants>
+        <DefineConstants>WEATHERICONS</DefineConstants>
         <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
-        <AssemblyName>MahApps.Metro.IconPacks.FontAwesome</AssemblyName>
-        <Title>MahApps.Metro.IconPacks.FontAwesome</Title>
+        <AssemblyName>MahApps.Metro.IconPacks.WeatherIcons</AssemblyName>
+        <Titel>MahApps.Metro.IconPacks.WeatherIcons</Titel>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
     </PropertyGroup>
     <!-- WPF Items include -->
@@ -14,9 +14,9 @@
         <Compile Remove="Attributes\DescriptionAttribute.cs"/>
         <Compile Include="PackIconControl.cs;PackIconExtension.cs"/>
 
-        <Compile Include="*FontAwesome*.cs"/>
-        <Page Include="Themes\WPF\FontAwesome\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\WPF\PackIconFontAwesome.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Compile Include="*WeatherIcons*.cs"/>
+        <Page Include="Themes\WPF\WeatherIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Include="Themes\WPF\PackIconWeatherIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
@@ -30,9 +30,9 @@
         <EmbeddedResource Include="**\*.rd.xml" />
         <Page Include="Converter\*.xaml" SubType="Designer" Generator="MSBuild:Compile"/>
 
-        <Compile Include="*FontAwesome*.cs" Exclude="Converter\MarkupConverter.cs;*Extension*.cs"/>
-        <Page Include="Themes\UAP\FontAwesome\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\UAP\PackIconFontAwesome.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Compile Include="*WeatherIcons*.cs" Exclude="Converter\MarkupConverter.cs;*Extension*.cs"/>
+        <Page Include="Themes\UAP\WeatherIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Include="Themes\UAP\PackIconWeatherIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
     </ItemGroup>
     <ItemGroup>
         <None Include="paket.references"/>

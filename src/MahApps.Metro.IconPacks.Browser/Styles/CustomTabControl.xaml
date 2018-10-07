@@ -80,6 +80,15 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconWeatherIconsKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconWeatherIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" Background="{StaticResource TabControlBackgroundBrush}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{DynamicResource GrayBrush5}" Foreground="{DynamicResource AccentBaseColorBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
         </DataTemplate.Triggers>
     </DataTemplate>
 
@@ -285,6 +294,15 @@
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                                             <iconPacks:PackIconSimpleIcons Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding Value, Mode=OneWay}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconWeatherIconsKind}">
+                                <Setter TargetName="IconContent" Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                            <iconPacks:PackIconWeatherIcons Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding Value, Mode=OneWay}" />
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>

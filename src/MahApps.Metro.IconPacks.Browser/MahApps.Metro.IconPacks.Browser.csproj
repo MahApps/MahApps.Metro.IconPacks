@@ -6,7 +6,7 @@
         <AssemblyName>MahApps.Metro.IconPacks.Browser</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks.Browser</RootNamespace>
         <DisableFody Condition="'$(Configuration)' == 'Debug'">true</DisableFody>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
     </PropertyGroup>
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
