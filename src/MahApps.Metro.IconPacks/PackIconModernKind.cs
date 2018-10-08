@@ -1,7 +1,7 @@
 ﻿namespace MahApps.Metro.IconPacks
 {
 #if NETFX_CORE
-    using MahApps.Metro.IconPacks.Core;
+    //using MahApps.Metro.IconPacks.Core;
 #else
     using System.ComponentModel;
 #endif

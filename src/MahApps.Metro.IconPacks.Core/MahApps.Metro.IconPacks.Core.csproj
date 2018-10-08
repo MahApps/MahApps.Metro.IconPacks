@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <AssemblyName>MahApps.Metro.IconPacks.Core</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.Core</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+        <ExtrasDefaultPageExcludes Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
+    </PropertyGroup>
+    <!-- WPF Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <Compile Remove="Attributes\DescriptionAttribute.cs" />
+    </ItemGroup>
+    <!-- UWP Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <Compile Remove="Converter\MarkupConverter.cs" />
+        <Compile Include="..\paket-files\uwp\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
+            <Link>ControlzEx\PackIconBase.cs</Link>
+        </Compile>
+        <EmbeddedResource Include="**\*.rd.xml" />
+        <Page Include="**\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
+        <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="paket.references" />
+    </ItemGroup>
+    <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

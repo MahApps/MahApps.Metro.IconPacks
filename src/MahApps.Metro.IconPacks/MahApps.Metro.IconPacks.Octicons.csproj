@@ -3,16 +3,18 @@
     <!-- Project properties -->
     <PropertyGroup>
         <DefineConstants>OCTICONS</DefineConstants>
-        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*;$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
+        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</ExtrasDefaultPageExcludes>
         <AssemblyName>MahApps.Metro.IconPacks.Octicons</AssemblyName>
         <Title>MahApps.Metro.IconPacks.Octicons</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
     </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" />
+    </ItemGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
         <Compile Remove="*.cs"/>
-        <Compile Remove="Attributes\DescriptionAttribute.cs"/>
-        <Compile Include="PackIconControl.cs;PackIconExtension.cs"/>
+        <Compile Include="PackIconExtension.cs"/>
 
         <Compile Include="*Octicons*.cs"/>
         <Page Include="Themes\WPF\Octicons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
@@ -22,17 +24,13 @@
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs"/>
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
-        <Compile Remove="Converter\MarkupConverter.cs;*Extension*.cs"/>
-        <Compile Include="PackIconControl.cs"/>
-        <Compile Include="..\paket-files\uwp\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
-            <Link>ControlzEx\PackIconBase.cs</Link>
-        </Compile>
+        <Compile Remove="*Extension*.cs"/>
         <EmbeddedResource Include="**\*.rd.xml" />
-        <Page Include="Converter\*.xaml" SubType="Designer" Generator="MSBuild:Compile"/>
 
-        <Compile Include="*Octicons*.cs" Exclude="Converter\MarkupConverter.cs;*Extension*.cs"/>
-        <Page Include="Themes\UAP\Octicons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Compile Include="*Octicons*.cs" Exclude="*Extension*.cs"/>
+        <Page Include="Themes\UAP\Octicons\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
         <Page Include="Themes\UAP\PackIconOcticons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
     </ItemGroup>
     <ItemGroup>
         <None Include="paket.references"/>
