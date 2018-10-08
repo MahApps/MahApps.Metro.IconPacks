@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Oct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.SimpleIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.SimpleIcons.csproj", "{7EE30791-3F2A-4DD6-B0E4-2057E72C1FB9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.WeatherIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.WeatherIcons.csproj", "{DE2B828F-B40E-405A-A12B-A06A1C10FC73}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Browser", "MahApps.Metro.IconPacks.Browser\MahApps.Metro.IconPacks.Browser.csproj", "{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}"
 EndProject
 Global
@@ -139,6 +141,18 @@ Global
 		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Release|x64.Build.0 = Release|Any CPU
 		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Release|x86.ActiveCfg = Release|Any CPU
 		{4F438058-55FD-4CE3-BBD4-DB7E0A71F36B}.Release|x86.Build.0 = Release|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Debug|x64.Build.0 = Debug|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Debug|x86.Build.0 = Debug|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Release|x64.ActiveCfg = Release|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Release|x64.Build.0 = Release|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Release|x86.ActiveCfg = Release|Any CPU
+		{DE2B828F-B40E-405A-A12B-A06A1C10FC73}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
