@@ -15,6 +15,7 @@
         <ApplicationManifest>app.manifest</ApplicationManifest>
     </PropertyGroup>
     <ItemGroup>
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj" />
     </ItemGroup>
     <ItemGroup>
