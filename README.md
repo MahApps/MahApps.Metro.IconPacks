@@ -17,50 +17,24 @@
 	<img alt="devstatus" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?style=flat-square&&label=dev">
   </a>
   <br />
-  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks">
-  </a>
-  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material">
-  </a>
-  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialLight.svg?style=flat-square&&label=MaterialLight">
-  </a>
-  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome">
-  </a>
-  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons">
-  </a>
-  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern">
-  </a>
-  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo">
-  </a>
-  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons">
-  </a>
-  <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/">
-    <img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons">
-  </a>
-  <br />
   <br />
 
 </div>
 
-The `IconPacks` library contains controls to use awesome icons from
+This `IconPacks` library contains controls to use these awesome icons for `WPF` and `UWP` apps in a simple way.
 
-- [Material Design](https://materialdesignicons.com/) (v2.4.85 with 2485 icons)
-- [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) (v0.2.63 with 257 icons)
-- [Font Awesome](https://fontawesome.com/) (v5.1.0 with 1264 icons)
-- [GitHub Octicons](https://octicons.github.com/) (v7.3.0 with 177 icons)
-- [Modern](http://modernuiicons.com/) (1224 icons)
-- [Entypo+](http://www.entypo.com/) (411 icons)
-- [Simple Icons](https://simpleicons.org/) (v1.3.8 with 412 icons)
-- [Weather Icons](http://weathericons.io) (v2.0.10 with 219 icons)
-
-for `WPF` and `UWP` apps in a simple way.
+| | |
+|--:|---|
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks"></a> | Complete IconPacks collection which includes all Icons in one package |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material"></a> | [Material Design](https://materialdesignicons.com/) icon collection (v2.4.85, 2485 icons) |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialLight.svg?style=flat-square&&label=MaterialLight"></a> | [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) icon collection (v0.2.63, 257 icons) |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome"></a> | [Font Awesome](https://fontawesome.com/) icon collection (v5.1.0, 1264 icons) |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons"></a> | [GitHub Octicons](https://octicons.github.com/) icon collection (v7.3.0, 177 icons) |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern"></a> | [Modern](http://modernuiicons.com/) icon collection (1224 icons) |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo"></a> | [Entypo+](http://www.entypo.com/) icon collection (411 icons) |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> | [Simple Icons](https://simpleicons.org/) icon collection (v1.3.8, 412 icons) |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> | [Weather Icons](http://weathericons.io) icon collection (v2.0.10, 219 icons) |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> | [Typicons](https://www.s-ings.com/typicons/) icon collection (v2.0.9, 336 icons) |
 
 It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) (for WPF), but it makes your application nicer.
 
@@ -74,42 +48,46 @@ This framework is free and can be used for free, open source and commercial appl
 
 To install the IconPacks, run the following commands in the NuGet Package Manager Console or install it with the NuGet Package Manager extension.
 
-- `MahApps.Metro.IconPacks` includes all Icons in one package [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks/)
-    ```bash
-    PM> Install-Package MahApps.Metro.IconPacks
-    ```
-- `MahApps.Metro.IconPacks.Material` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
-    ```bash
-    PM> Install-Package MahApps.Metro.IconPacks.Material
-    ```
-- `MahApps.Metro.IconPacks.MaterialLight` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/)
-    ```bash
-    PM> Install-Package MahApps.Metro.IconPacks.MaterialLight
-    ```
-- `MahApps.Metro.IconPacks.FontAwesome` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
-    ```bash
-    PM> Install-Package MahApps.Metro.IconPacks.FontAwesome
-    ```
-- `MahApps.Metro.IconPacks.Octicons` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/)
-    ```bash
-    PM> Install-Package MahApps.Metro.IconPacks.Octicons
-    ```
-- `MahApps.Metro.IconPacks.Modern` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
-    ```bash
-    PM> Install-Package MahApps.Metro.IconPacks.Modern
-    ```
-- `MahApps.Metro.IconPacks.Entypo` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/)
-    ```bash
-    PM> Install-Package MahApps.Metro.IconPacks.Entypo
-    ```
-- `MahApps.Metro.IconPacks.SimpleIcons` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/)
-    ```bash
-    PM> Install-Package MahApps.Metro.IconPacks.SimpleIcons
-    ```
-- `MahApps.Metro.IconPacks.WeatherIcons` with this [NuGet package](https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/)
-    ```bash
-    PM> Install-Package MahApps.Metro.IconPacks.WeatherIcons
-    ```
+- `MahApps.Metro.IconPacks` includes all Icons in one package [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks
+  ```
+- `MahApps.Metro.IconPacks.Material` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.Material
+  ```
+- `MahApps.Metro.IconPacks.MaterialLight` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.MaterialLight
+  ```
+- `MahApps.Metro.IconPacks.FontAwesome` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.FontAwesome
+  ```
+- `MahApps.Metro.IconPacks.Octicons` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.Octicons
+  ```
+- `MahApps.Metro.IconPacks.Modern` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.Modern
+  ```
+- `MahApps.Metro.IconPacks.Entypo` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.Entypo
+  ```
+- `MahApps.Metro.IconPacks.SimpleIcons` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.SimpleIcons
+  ```
+- `MahApps.Metro.IconPacks.WeatherIcons` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.WeatherIcons
+  ```
+- `MahApps.Metro.IconPacks.Typicons` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.Typicons
+  ```
 
 ## Usage
 
@@ -125,6 +103,7 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
   <iconPacks:PackIconEntypo Kind="EmojiHappy" />
   <iconPacks:PackIconSimpleIcons Kind="StackOverflow" />
   <iconPacks:PackIconWeatherIcons Kind="DaySunny" />
+  <iconPacks:PackIconTypicons Kind="Lightbulb" />
 </StackPanel>
 ```
 
@@ -283,6 +262,7 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconEntypo.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconSimpleIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconWeatherIcons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconTypicons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!-- now make some global changes for the icon pack controls without using new keys -->
@@ -322,6 +302,11 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
     </Style>
 
     <Style TargetType="{x:Type iconPacks:PackIconWeatherIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconWeatherIcons}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style TargetType="{x:Type iconPacks:PackIconTypicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconTypicons}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
