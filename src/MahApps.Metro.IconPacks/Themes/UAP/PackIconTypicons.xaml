@@ -39,6 +39,7 @@
                                 <Path Fill="{TemplateBinding Foreground}"
                                       Stretch="Uniform"
                                       Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Converter={StaticResource NullToUnsetValueConverter}}"
+                                      RenderTransformOrigin="0.5 0.5"
                                       UseLayoutRounding="False">
                                     <Path.RenderTransform>
                                         <ScaleTransform ScaleY="-1" />
