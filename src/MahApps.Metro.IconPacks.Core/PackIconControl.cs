@@ -200,8 +200,7 @@ namespace MahApps.Metro.IconPacks
             }
         }
 
-        private static readonly string SpinnerStoryBoardName = $"{typeof(PackIconControl<TKind>).Name}SpinnerStoryBoard";
-
+        private Storyboard spinningStoryboard;
         private FrameworkElement _innerGrid;
         private FrameworkElement InnerGrid => this._innerGrid ?? (this._innerGrid = this.GetTemplateChild("PART_InnerGrid") as FrameworkElement);
 
@@ -225,7 +224,6 @@ namespace MahApps.Metro.IconPacks
                 element.RenderTransform = transformGroup;
             }
 
-            var storyboard = new Storyboard();
             var animation = new DoubleAnimation
             {
                 From = 0,
@@ -235,32 +233,26 @@ namespace MahApps.Metro.IconPacks
                 RepeatBehavior = RepeatBehavior.Forever,
                 Duration = new Duration(TimeSpan.FromSeconds(this.SpinDuration))
             };
-            storyboard.Children.Add(animation);
 
+            var storyboard = new Storyboard();
+            storyboard.Children.Add(animation);
             Storyboard.SetTarget(animation, element);
+
 #if NETFX_CORE
             Storyboard.SetTargetProperty(animation, "(RenderTransform).(TransformGroup.Children)[2].(Angle)");
 #else
             Storyboard.SetTargetProperty(animation, new PropertyPath("(0).(1)[2].(2)", RenderTransformProperty, TransformGroup.ChildrenProperty, RotateTransform.AngleProperty));
 #endif
 
-            element.Resources.Add(SpinnerStoryBoardName, storyboard);
+            spinningStoryboard = storyboard;
             storyboard.Begin();
         }
 
         private void StopSpinAnimation()
         {
-            var element = this.InnerGrid;
-            if (null == element)
-            {
-                return;
-            }
-            var storyboard = element.Resources[SpinnerStoryBoardName] as Storyboard;
-            if (storyboard != null)
-            {
-                storyboard.Stop();
-                element.Resources.Remove(SpinnerStoryBoardName);
-            }
+            var storyboard = spinningStoryboard;
+            storyboard?.Stop();
+            spinningStoryboard = null;
         }
 
         /// <summary>
