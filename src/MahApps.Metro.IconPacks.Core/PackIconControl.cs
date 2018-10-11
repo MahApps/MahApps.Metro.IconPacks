@@ -200,7 +200,8 @@ namespace MahApps.Metro.IconPacks
             }
         }
 
-        private static readonly string SpinnerStoryBoardName = $"{typeof(PackIconControl<TKind>).Name}SpinnerStoryBoard";
+        //private static readonly string SpinnerStoryBoardName = $"{typeof(PackIconControl<TKind>).Name}SpinnerStoryBoard";
+        private Storyboard spinningStoryboard;
 
         private FrameworkElement _innerGrid;
         private FrameworkElement InnerGrid => this._innerGrid ?? (this._innerGrid = this.GetTemplateChild("PART_InnerGrid") as FrameworkElement);
@@ -244,7 +245,8 @@ namespace MahApps.Metro.IconPacks
             Storyboard.SetTargetProperty(animation, new PropertyPath("(0).(1)[2].(2)", RenderTransformProperty, TransformGroup.ChildrenProperty, RotateTransform.AngleProperty));
 #endif
 
-            element.Resources.Add(SpinnerStoryBoardName, storyboard);
+            //element.Resources.Add(SpinnerStoryBoardName, storyboard);
+            spinningStoryboard = storyboard;
             storyboard.Begin();
         }
 
@@ -255,11 +257,13 @@ namespace MahApps.Metro.IconPacks
             {
                 return;
             }
-            var storyboard = element.Resources[SpinnerStoryBoardName] as Storyboard;
+
+            var storyboard = spinningStoryboard;//element.Resources[SpinnerStoryBoardName] as Storyboard;
             if (storyboard != null)
             {
                 storyboard.Stop();
-                element.Resources.Remove(SpinnerStoryBoardName);
+                spinningStoryboard = null;
+                //element.Resources.Remove(SpinnerStoryBoardName);
             }
         }
 
