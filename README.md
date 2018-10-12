@@ -23,18 +23,18 @@
 
 This `IconPacks` library contains controls to use these awesome icons for `WPF` and `UWP` apps in a simple way.
 
-| | |
-|--:|---|
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks"></a> | Complete IconPacks collection which includes all Icons in one package |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material"></a> | [Material Design](https://materialdesignicons.com/) icon collection (v2.4.85, 2485 icons) |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialLight.svg?style=flat-square&&label=MaterialLight"></a> | [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) icon collection (v0.2.63, 257 icons) |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome"></a> | [Font Awesome](https://fontawesome.com/) icon collection (v5.1.0, 1264 icons) |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons"></a> | [GitHub Octicons](https://octicons.github.com/) icon collection (v7.3.0, 177 icons) |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern"></a> | [Modern](http://modernuiicons.com/) icon collection (1224 icons) |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo"></a> | [Entypo+](http://www.entypo.com/) icon collection (411 icons) |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> | [Simple Icons](https://simpleicons.org/) icon collection (v1.3.8, 412 icons) |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> | [Weather Icons](http://weathericons.io) icon collection (v2.0.10, 219 icons) |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> | [Typicons](https://www.s-ings.com/typicons/) icon collection (v2.0.9, 336 icons) |
+| | | Version | &#8721; |
+|--:|---|--:|--:|
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks"></a> | Complete IconPacks collection which includes all Icons in one package | | |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material"></a> | [Material Design](https://materialdesignicons.com/) icon collection | 2.4.85 | 2485 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialLight.svg?style=flat-square&&label=MaterialLight"></a> | [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) icon collection | 0.2.63 | 257 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome"></a> | [Font Awesome](https://fontawesome.com/) icon collection | 5.1.0 | 1264 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons"></a> | [GitHub Octicons](https://octicons.github.com/) icon collection | 7.3.0 | 177 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern"></a> | [Modern](http://modernuiicons.com/) icon collection | | 1224 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo"></a> | [Entypo+](http://www.entypo.com/) icon collection | | 411 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> | [Simple Icons](https://simpleicons.org/) icon collection | 1.3.8 | 412 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> | [Weather Icons](http://weathericons.io) icon collection | 2.0.10 | 219 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> | [Typicons](https://www.s-ings.com/typicons/) icon collection | 2.0.9 | 336 |
 
 It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) (for WPF), but it makes your application nicer.
 
