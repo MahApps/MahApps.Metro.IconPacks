@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
-using ControlzEx;
 
 namespace MahApps.Metro.IconPacks
 {

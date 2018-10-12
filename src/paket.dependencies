@@ -1,6 +1,5 @@
-framework: >= net40
+framework: >= net45
 
-//source https://ci.appveyor.com/nuget/controlzex
 source https://ci.appveyor.com/nuget/mahapps.metro
 source https://api.nuget.org/v3/index.json
 
@@ -10,11 +9,7 @@ nuget Costura.Fody
 nuget JetBrains.Annotations copy_local: true // => PrivateAssets=All, mean all these type of assets are private of the project (so no need to add the deps in the nupkg dep list)
 nuget gitlink prerelease copy_local: true // => PrivateAssets=All, mean all these type of assets are private of the project (so no need to add the deps in the nupkg dep list)
 
-nuget ControlzEx prerelease
 nuget MahApps.Metro prerelease
-
-group UWP
-	github ControlzEx/ControlzEx:e641c9e9346d7ae8c21ca1bf7fa5fb1b86496baa src/ControlzEx/PackIconBase.cs
 
 group cake
 	source https://api.nuget.org/v3/index.json
