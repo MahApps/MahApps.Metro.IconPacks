@@ -10,7 +10,6 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 #endif
-using ControlzEx;
 
 namespace MahApps.Metro.IconPacks
 {
@@ -44,7 +43,7 @@ namespace MahApps.Metro.IconPacks
     /// Class PackIconControl which is the custom base class for any PackIcon control.
     /// </summary>
     /// <typeparam name="TKind">The type of the enum kind.</typeparam>
-    /// <seealso cref="ControlzEx.PackIconBase{TKind}" />
+    /// <seealso cref="PackIconBase{TKind}" />
     public abstract class PackIconControl<TKind> : PackIconBase<TKind>
     {
 

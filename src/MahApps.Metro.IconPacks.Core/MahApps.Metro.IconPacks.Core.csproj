@@ -14,9 +14,6 @@
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="Converter\MarkupConverter.cs" />
-        <Compile Include="..\paket-files\uwp\ControlzEx\ControlzEx\src\ControlzEx\PackIconBase.cs">
-            <Link>ControlzEx\PackIconBase.cs</Link>
-        </Compile>
         <EmbeddedResource Include="**\*.rd.xml" />
         <Page Include="**\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
         <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
