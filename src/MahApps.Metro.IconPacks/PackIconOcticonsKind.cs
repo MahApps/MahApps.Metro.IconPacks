@@ -1,8 +1,6 @@
 ﻿namespace MahApps.Metro.IconPacks
 {
-#if NETFX_CORE
-    //using MahApps.Metro.IconPacks.Core;
-#else
+#if !NETFX_CORE
     using System.ComponentModel;
 #endif
 
@@ -22,6 +20,7 @@
         [Description("Empty placeholder")] None,
         [Description("Alert (Warning, Triangle, Exclamation, Point)")] Alert,
         [Description("Archive (Box, Catalog)")] Archive,
+        [Description("ArrowBoth (Point, Direction, Left, Right)")] ArrowBoth,
         [Description("ArrowDown (Point, Direction)")] ArrowDown,
         [Description("ArrowLeft (Point, Direction)")] ArrowLeft,
         [Description("ArrowRight (Point, Direction)")] ArrowRight,
