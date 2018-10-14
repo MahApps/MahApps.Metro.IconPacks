@@ -13,10 +13,11 @@
     </ItemGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <Compile Remove="PathIcon*.cs" />
         <Compile Remove="*.cs"/>
         <Compile Include="PackIconExtension.cs"/>
 
-        <Compile Include="*Entypo*.cs"/>
+        <Compile Include="PackIconEntypo*.cs"/>
         <Page Include="Themes\WPF\Entypo\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
         <Page Include="Themes\WPF\PackIconEntypo.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
     </ItemGroup>

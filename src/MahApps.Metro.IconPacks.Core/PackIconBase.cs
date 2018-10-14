@@ -3,6 +3,7 @@ using System.Collections.Generic;
 #if NETFX_CORE
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 #else
 using System.ComponentModel;
 using System.Windows;
@@ -27,7 +28,7 @@ namespace MahApps.Metro.IconPacks
 
         /// <param name="dataIndexFactory">
         /// Inheritors should provide a factory for setting up the path data index (per icon kind).
-        /// The factory will only be utilised once, across all closed instances (first instantiation wins).
+        /// The factory will only be utilized once, across all closed instances (first instantiation wins).
         /// </param>
         protected PackIconBase(Func<IDictionary<TKind, string>> dataIndexFactory)
         {
@@ -98,9 +99,8 @@ namespace MahApps.Metro.IconPacks
         internal override void UpdateData()
         {
             string data = null;
-            if (_dataIndex.Value != null)
-                _dataIndex.Value.TryGetValue(Kind, out data);
-            Data = data;
+            _dataIndex.Value?.TryGetValue(Kind, out data);
+            this.Data = data;
         }
     }
 }
