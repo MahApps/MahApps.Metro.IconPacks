@@ -212,9 +212,9 @@ namespace MahApps.Metro.IconPacks
             Storyboard.SetTarget(animation, element);
 
 #if NETFX_CORE
-            Storyboard.SetTargetProperty(animation, "(RenderTransform).(TransformGroup.Children)[2].(Angle)");
+            Storyboard.SetTargetProperty(animation, $"(RenderTransform).(TransformGroup.Children)[{transformGroup.Children.Count - 1}].(Angle)");
 #else
-            Storyboard.SetTargetProperty(animation, new PropertyPath("(0).(1)[2].(2)", RenderTransformProperty, TransformGroup.ChildrenProperty, RotateTransform.AngleProperty));
+            Storyboard.SetTargetProperty(animation, new PropertyPath($"(0).(1)[{transformGroup.Children.Count - 1}].(2)", RenderTransformProperty, TransformGroup.ChildrenProperty, RotateTransform.AngleProperty));
 #endif
 
             spinningStoryboard = storyboard;

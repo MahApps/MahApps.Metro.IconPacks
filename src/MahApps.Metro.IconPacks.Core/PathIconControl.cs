@@ -183,7 +183,7 @@ namespace MahApps.Metro.IconPacks
             storyboard.Children.Add(animation);
             Storyboard.SetTarget(animation, element);
 
-            Storyboard.SetTargetProperty(animation, "(RenderTransform).(TransformGroup.Children)[2].(Angle)");
+            Storyboard.SetTargetProperty(animation, $"(RenderTransform).(TransformGroup.Children)[{transformGroup.Children.Count - 1}].(Angle)");
 
             spinningStoryboard = storyboard;
             storyboard.Begin();
