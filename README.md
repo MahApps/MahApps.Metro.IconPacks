@@ -91,7 +91,7 @@ To install the IconPacks, run the following commands in the NuGet Package Manage
 
 ## Usage
 
-If you want all icons together then just install the `MahApps.Metro.IconPacks` NuGet package. You can also only install one of the icon packs if you don't need them all.
+If you want all icons together then just install the `MahApps.Metro.IconPacks` NuGet package, or install one of the separate NuGet packages.
 
 ```xaml
 <StackPanel>
@@ -165,7 +165,24 @@ You can download the latest version of the browser at the [release page](https:/
 </Page>
 ```
 
-## MarkupExtension (only for WPF)
+## PathIcon (UWP only)
+
+The `PathIcon` controls can be used for controls which needs an `IconElement` derived element for their `Icon` property like the `NavigationViewItem`.
+
+```xaml
+<NavigationViewItem>
+    <NavigationViewItem.Icon>
+        <iconPacks:PathIconTypicons Kind="ThumbsUp" />
+    </NavigationViewItem.Icon>
+</NavigationViewItem>
+<NavigationViewItem>
+    <NavigationViewItem.Icon>
+        <iconPacks:PathIconFontAwesome Kind="FlagSolid" />
+    </NavigationViewItem.Icon>
+</NavigationViewItem>
+```
+
+## MarkupExtension (WPF only)
 
 A faster way to get a `Button` (or any other `ContentControl`) with an Icon is to use the MarkupExtension(s).
 
@@ -207,7 +224,7 @@ The MarkupExtension class names had to be renamed, cause the old ones doesn't wo
 <Button Content="{iconPacks:FontAwesome Kind=StarRegular}" />
 ```
 
-## Properties
+## Extra Properties for PackIcon and PathIcon controls
 
 | Property | Description |
 | --- | --- |
@@ -218,9 +235,8 @@ The MarkupExtension class names had to be renamed, cause the old ones doesn't wo
 | `SpinDuration` | Gets or sets the duration of the spinning animation (in seconds). This will also restart the spin animation and works only if `Spin` property is set to `true`. |
 | `SpinEasingFunction` | Gets or sets the EasingFunction (`IEasingFunction`) of the spinning animation. This will also restart the spin animation and works only if `Spin` property is set to `true`. |
 | `SpinAutoReverse` | Gets or sets the AutoReverse of the spinning animation. This will also restart the spin animation and works only if `Spin` property is set to `true`. |
-| `Control.Properties` | All public properties of `Control`, e.g. `Width` and `Height` |
 
-## Custom Styles
+## Custom Styles for PackIcon controls
 
 Sometimes it's necessary to change some properties for all used icon pack controls. All controls have styles which can be use for global changes or anything else.
 

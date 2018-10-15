@@ -13,10 +13,11 @@
     </ItemGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <Compile Remove="PathIcon*.cs" />
         <Compile Remove="*.cs"/>
         <Compile Include="PackIconExtension.cs"/>
 
-        <Compile Include="*SimpleIcons*.cs"/>
+        <Compile Include="PackIconSimpleIcons*.cs"/>
         <Page Include="Themes\WPF\SimpleIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
         <Page Include="Themes\WPF\PackIconSimpleIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
     </ItemGroup>
