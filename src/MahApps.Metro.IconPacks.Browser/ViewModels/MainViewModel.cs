@@ -8,9 +8,6 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private string _appVersion;
-        private string _iconPacksVersion;
-        private ICommand _goToGitHubCommand;
         private Dispatcher _dispatcher;
         private string _filterText;
 
@@ -30,10 +27,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     new IconPackViewModel(this, "SimpleIcons", typeof(PackIconSimpleIconsKind), typeof(PackIconSimpleIcons)),
                     new IconPackViewModel(this, "WeatherIcons", typeof(PackIconWeatherIconsKind), typeof(PackIconWeatherIcons)),
                     new IconPackViewModel(this, "Typicons", typeof(PackIconTypiconsKind), typeof(PackIconTypicons)),
-                    new IconPackViewModel(this, "All", 
-                                          new Type[] { typeof(PackIconMaterialKind), typeof(PackIconMaterialLightKind), typeof(PackIconFontAwesomeKind), typeof(PackIconOcticonsKind), typeof(PackIconModernKind), typeof(PackIconEntypoKind), typeof(PackIconSimpleIconsKind), typeof(PackIconWeatherIconsKind), typeof(PackIconTypiconsKind) },
-                                          new Type[] { typeof(PackIconMaterial), typeof(PackIconMaterialLight), typeof(PackIconFontAwesome), typeof(PackIconOcticons), typeof(PackIconModern), typeof(PackIconEntypo), typeof(PackIconSimpleIcons), typeof(PackIconWeatherIcons), typeof(PackIconTypicons) })
-                    });
+                    new IconPackViewModel(this, "All",
+                        new[] {typeof(PackIconMaterialKind), typeof(PackIconMaterialLightKind), typeof(PackIconFontAwesomeKind), typeof(PackIconOcticonsKind), typeof(PackIconModernKind), typeof(PackIconEntypoKind), typeof(PackIconSimpleIconsKind), typeof(PackIconWeatherIconsKind), typeof(PackIconTypiconsKind)},
+                        new[] {typeof(PackIconMaterial), typeof(PackIconMaterialLight), typeof(PackIconFontAwesome), typeof(PackIconOcticons), typeof(PackIconModern), typeof(PackIconEntypo), typeof(PackIconSimpleIcons), typeof(PackIconWeatherIcons), typeof(PackIconTypicons)})
+                });
             this.IconPacksVersion = Assembly.GetAssembly(typeof(PackIconMaterial)).GetName().Version.ToString();
             this.GoToGitHubCommand =
                 new SimpleCommand
@@ -45,50 +42,23 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         public ObservableCollection<IconPackViewModel> IconPacks { get; set; }
 
-        public string AppVersion
-        {
-            get { return this._appVersion; }
-            set
-            {
-                if (value == this._appVersion) return;
-                this._appVersion = value;
-                this.OnPropertyChanged();
-            }
-        }
+        public string AppVersion { get; }
 
-        public string IconPacksVersion
-        {
-            get { return this._iconPacksVersion; }
-            set
-            {
-                if (value == this._iconPacksVersion) return;
-                this._iconPacksVersion = value;
-                this.OnPropertyChanged();
-            }
-        }
+        public string IconPacksVersion { get; }
 
-        public ICommand GoToGitHubCommand
-        {
-            get { return this._goToGitHubCommand; }
-            set
-            {
-                if (Equals(value, this._goToGitHubCommand)) return;
-                this._goToGitHubCommand = value;
-                this.OnPropertyChanged();
-            }
-        }
+        public ICommand GoToGitHubCommand { get; }
 
         public string FilterText
         {
             get { return _filterText; }
             set
             {
-                if (value == _filterText) return;
-                _filterText = value;
-                OnPropertyChanged();
-                foreach (var iconPack in this.IconPacks)
+                if (Set(ref _filterText, value))
                 {
-                    this._dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() => iconPack.FilterText = value));
+                    foreach (var iconPack in this.IconPacks)
+                    {
+                        this._dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() => iconPack.FilterText = value));
+                    }
                 }
             }
         }
