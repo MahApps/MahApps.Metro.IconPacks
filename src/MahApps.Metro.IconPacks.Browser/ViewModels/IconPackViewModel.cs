@@ -134,9 +134,38 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                         Clipboard.SetDataObject(text);
                     }))
                 };
+
+            this.CopyToClipboardAsContent =
+                new SimpleCommand
+                {
+                    CanExecuteDelegate = x => (x != null),
+                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        var icon = (IIconViewModel) x;
+                        var text = $"{{iconPacks:{icon.IconPackType.Name} Kind={icon.Name}}}";
+                        Clipboard.SetDataObject(text);
+                    }))
+                };
+
+            this.CopyToClipboardAsPathIcon =
+                new SimpleCommand
+                {
+                    CanExecuteDelegate = x => (x != null),
+                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        var icon = (IIconViewModel) x;
+                        // The UWP type is in WPF app not available
+                        var text = $"<iconPacks:{icon.IconPackType.Name.Replace("PackIcon", "PathIcon")} Kind=\"{icon.Name}\" />";
+                        Clipboard.SetDataObject(text);
+                    }))
+                };
         }
 
         public ICommand CopyToClipboard { get; }
+
+        public ICommand CopyToClipboardAsContent { get; }
+
+        public ICommand CopyToClipboardAsPathIcon { get; }
 
         public string Name { get; set; }
 
