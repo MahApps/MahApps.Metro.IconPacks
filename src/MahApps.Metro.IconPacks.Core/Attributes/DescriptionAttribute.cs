@@ -4,9 +4,10 @@ namespace MahApps.Metro.IconPacks
 {
     /// <summary>
     /// Specifies a description for a property or event.
+    /// CA1813: Avoid unsealed attributes
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public class DescriptionAttribute
+    public sealed class DescriptionAttribute
         : Attribute
     {
         /// <summary>
