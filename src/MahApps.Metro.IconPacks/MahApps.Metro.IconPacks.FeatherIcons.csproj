@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="15.0">
+  <!-- Project properties -->
+  <PropertyGroup>
+    <DefineConstants>FEATHERICONS</DefineConstants>
+    <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</ExtrasDefaultPageExcludes>
+    <AssemblyName>MahApps.Metro.IconPacks.FeatherIcons</AssemblyName>
+    <Title>MahApps.Metro.IconPacks.FeatherIcons</Title>
+    <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" PrivateAssets="All" />
+  </ItemGroup>
+  <!-- WPF Items include -->
+  <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+    <Compile Remove="PathIcon*.cs" />
+    <Compile Remove="*.cs" />
+    <Compile Include="PackIconExtension.cs" />
+    <Compile Include="PackIconFeatherIcons*.cs" />
+    <Page Include="Themes\WPF\FeatherIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile" />
+    <Page Include="Themes\WPF\PackIconFeatherIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile" />
+  </ItemGroup>
+  <!-- UWP Items include -->
+  <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+    <Compile Remove="*.cs" />
+    <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
+    <Compile Remove="*Extension*.cs" />
+    <EmbeddedResource Include="**\*.rd.xml" />
+    <Compile Include="*FeatherIcons*.cs" Exclude="*Extension*.cs" />
+    <Page Include="Themes\UAP\FeatherIcons\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile" />
+    <Page Include="Themes\UAP\PackIconFeatherIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile" />
+    <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="paket.references" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

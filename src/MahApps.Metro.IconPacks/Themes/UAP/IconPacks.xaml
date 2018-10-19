@@ -11,6 +11,7 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconSimpleIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconWeatherIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconTypicons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/PackIconFeatherIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
