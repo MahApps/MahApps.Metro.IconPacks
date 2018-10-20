@@ -224,7 +224,7 @@
                             <ContentControl Grid.Row="0" x:Name="IconContent" Content="{Binding}" Focusable="False" IsTabStop="False" />
                             <Grid Grid.Row="0"
                                   x:Name="Copy2ClipboardActions"
-                                  Visibility="Hidden"
+                                  Visibility="Collapsed"
                                   VerticalAlignment="Top" 
                                   HorizontalAlignment="Center"
                                   Focusable="False">
