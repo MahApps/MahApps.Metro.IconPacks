@@ -32,12 +32,12 @@ This `IconPacks` library contains controls to use these awesome icons for `WPF` 
 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons"></a> | [GitHub Octicons](https://octicons.github.com/) collection | 8.1.0 | 178 |
 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern"></a> | [Modern](http://modernuiicons.com/) collection | | 1224 |
 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo"></a> | [Entypo+](http://www.entypo.com/) collection | | 411 |
-| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> | [Simple Icons](https://simpleicons.org/) collection | 1.3.8 | 412 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> | [Simple Icons](https://simpleicons.org/) collection | 1.9.8 | 482 |
 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> | [Weather Icons](http://weathericons.io) collection | 2.0.10 | 219 |
 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> | [Typicons](https://www.s-ings.com/typicons/) collection | 2.0.9 | 336 |
 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> | [Feather Icons](https://github.com/feathericons/feather) collection | 4.7.3 | 266 |
 
-It's not necessary to install [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) (for WPF), but it makes your application nicer.
+It's not necessary to install and use [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your `WPF` application nicer.
 
 ![iconbrowserfinal](./resources/iconpacks_latest.gif)
 
