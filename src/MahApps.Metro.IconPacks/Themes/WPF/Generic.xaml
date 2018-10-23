@@ -7,6 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type local:PackIconMaterial}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterial}" />
+    <Style TargetType="{x:Type local:PackIconMaterialDesign}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialDesign}" />
     <Style TargetType="{x:Type local:PackIconMaterialLight}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialLight}" />
     <Style TargetType="{x:Type local:PackIconFontAwesome}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}" />
     <Style TargetType="{x:Type local:PackIconOcticons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}" />

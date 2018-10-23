@@ -19,6 +19,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                 new[]
                 {
                     new IconPackViewModel(this, "Material", typeof(PackIconMaterialKind), typeof(PackIconMaterial)),
+                    new IconPackViewModel(this, "MaterialDesign", typeof(PackIconMaterialDesignKind), typeof(PackIconMaterialDesign)),
                     new IconPackViewModel(this, "MaterialLight", typeof(PackIconMaterialLightKind), typeof(PackIconMaterialLight)),
                     new IconPackViewModel(this, "FontAwesome", typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome)),
                     new IconPackViewModel(this, "Octicons", typeof(PackIconOcticonsKind), typeof(PackIconOcticons)),
@@ -32,6 +33,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                         new[]
                         {
                             typeof(PackIconMaterialKind),
+                            typeof(PackIconMaterialDesignKind),
                             typeof(PackIconMaterialLightKind),
                             typeof(PackIconFontAwesomeKind),
                             typeof(PackIconOcticonsKind),
@@ -45,6 +47,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                         new[]
                         {
                             typeof(PackIconMaterial),
+                            typeof(PackIconMaterialDesign),
                             typeof(PackIconMaterialLight),
                             typeof(PackIconFontAwesome),
                             typeof(PackIconOcticons),
