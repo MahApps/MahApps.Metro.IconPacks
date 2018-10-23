@@ -17,7 +17,7 @@
         <Compile Remove="*.cs"/>
         <Compile Include="PackIconExtension.cs"/>
 
-        <Compile Include="PackIconMaterial*.cs" Exclude="PackIconMaterialLight*.cs"/>
+        <Compile Include="PackIconMaterial*.cs" Exclude="PackIconMaterialLight*.cs;PackIconMaterialDesign*.cs"/>
         <Page Include="Themes\WPF\Material\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
         <Page Include="Themes\WPF\PackIconMaterial.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
     </ItemGroup>
@@ -28,7 +28,7 @@
         <Compile Remove="*Extension*.cs"/>
         <EmbeddedResource Include="**\*.rd.xml" />
 
-        <Compile Include="*Material*.cs" Exclude="*MaterialLight*.cs;*Extension*.cs"/>
+        <Compile Include="*Material*.cs" Exclude="*MaterialLight*.cs;*MaterialDesign*.cs;*Extension*.cs"/>
         <Page Include="Themes\UAP\Material\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
         <Page Include="Themes\UAP\PackIconMaterial.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
         <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
