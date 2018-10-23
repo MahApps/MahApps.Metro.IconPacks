@@ -37,6 +37,7 @@ This `IconPacks` library contains controls to use these awesome icons for `WPF` 
 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> | [Weather Icons](http://weathericons.io) collection | 2.0.10 | 219 |
 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> | [Typicons](https://www.s-ings.com/typicons/) collection | 2.0.9 | 336 |
 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> | [Feather Icons](https://github.com/feathericons/feather) collection | 4.7.3 | 266 |
+| <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Ionicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Ionicons.svg?style=flat-square&&label=Ionicons"></a> | [Ionicons](https://ionicons.com/) collection | 4.4.6 | 696 |
 
 It's not necessary to install and use [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your `WPF` application nicer.
 
@@ -98,6 +99,10 @@ To install the IconPacks, run the following commands in the NuGet Package Manage
   ```powershell
   PM> Install-Package MahApps.Metro.IconPacks.FeatherIcons
   ```
+- `MahApps.Metro.IconPacks.Ionicons` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.Ionicons/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.Ionicons
+  ```
 
 ## Usage
 
@@ -116,6 +121,7 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
   <iconPacks:PackIconWeatherIcons Kind="DaySunny" />
   <iconPacks:PackIconTypicons Kind="Lightbulb" />
   <iconPacks:PackIconFeatherIcons Kind="Anchor" />
+  <iconPacks:PackIconIonicons Kind="BeerMD" />
 </StackPanel>
 ```
 
@@ -295,6 +301,7 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconWeatherIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconTypicons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFeatherIcons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconIonicons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!-- now make some global changes for the icon pack controls without using new keys -->
@@ -349,6 +356,11 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
     </Style>
 
     <Style TargetType="{x:Type iconPacks:PackIconFeatherIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFeatherIcons}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style TargetType="{x:Type iconPacks:PackIconIonicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconIonicons}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
