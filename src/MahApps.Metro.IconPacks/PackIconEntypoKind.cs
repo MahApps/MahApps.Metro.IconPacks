@@ -225,6 +225,7 @@
         [Description("info")] Info,
         [Description("info-with-circle")] InfoWithCircle,
         [Description("instagram (Social Extension)")] Instagram,
+        [Description("instagram-with-circle (Social Extension)")] InstagramWithCircle,
         [Description("install")] Install,
         [Description("key")] Key,
         [Description("keyboard")] Keyboard,
