@@ -132,54 +132,20 @@ Task("Build")
   Information("Build: Release");
   MSBuild(iconPacksSolution, msBuildSettings
             .SetMaxCpuCount(0)
-            .SetConfiguration("Release") //.SetConfiguration(configuration)
+            .SetConfiguration(configuration)
             .SetVerbosity(Verbosity.Normal)
             //.WithRestore() only with cake 0.28.x            
+            .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
             .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
             .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
             );
 });
 
-Task("BuildAll")
-  .Does(() =>
-{
-  var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
-
-  MSBuild(iconPacksSolution, msBuildSettings
-            .SetMaxCpuCount(0)
-            .SetConfiguration("Debug") //.SetConfiguration(configuration)
-            .SetVerbosity(Verbosity.Normal)
-            //.WithRestore() only with cake 0.28.x            
-            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
-            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
-            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
-            );
-  MSBuild(iconPacksSolution, msBuildSettings
-            .SetMaxCpuCount(0)
-            .SetConfiguration("Release") //.SetConfiguration(configuration)
-            .SetVerbosity(Verbosity.Normal)
-            //.WithRestore() only with cake 0.28.x            
-            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
-            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
-            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
-            );
-});
-
-Task("ZipConfig")
+Task("Zip")
   .Does(() =>
 {
   EnsureDirectoryExists(Directory(publishDir));
-  Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
-});
-
-Task("ZipAll")
-  .Does(() =>
-{
-  EnsureDirectoryExists(Directory(publishDir));
-  configuration = "Debug";
-  Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
-  configuration = "Release";
   Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
 });
 
@@ -200,16 +166,16 @@ Task("Pack")
     DeleteFiles(GetFiles("./MahApps.Metro.IconPacks/obj/**/*.nuspec"));
 
     MSBuild(project, msBuildSettings
-      .SetConfiguration(configuration)
-      .SetVerbosity(Verbosity.Normal)
-      .WithTarget("pack")
-      .WithProperty("PackageOutputPath", "../" + publishDir)
-      .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
-      .WithProperty("RepositoryBranch", branchName)
-      .WithProperty("RepositoryCommit", gitVersion.Sha)
-      .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
-      .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
-      .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+        .SetConfiguration(configuration)
+        .SetVerbosity(Verbosity.Normal)
+        .WithTarget("pack")
+        .WithProperty("PackageOutputPath", "../" + publishDir)
+        .WithProperty("RepositoryBranch", branchName)
+        .WithProperty("RepositoryCommit", gitVersion.Sha)
+        .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
+        .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+        .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+        .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
     );
   }
 
@@ -244,14 +210,14 @@ Task("CreateRelease")
 Task("Default")
     .IsDependentOn("CleanOutput")
     .IsDependentOn("Restore")
-    .IsDependentOn("BuildAll")
-    .IsDependentOn("ZipAll");
+    .IsDependentOn("Build")
+    .IsDependentOn("Zip");
 
 Task("appveyor")
     .IsDependentOn("CleanOutput")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
-    .IsDependentOn("ZipConfig")
+    .IsDependentOn("Zip")
     .IsDependentOn("Pack");
 
 // Execution
