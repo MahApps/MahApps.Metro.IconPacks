@@ -1,0 +1,22 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <!-- NuGet -->
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <Authors>Jan Karger</Authors>
+        <PackageLicenseUrl>https://github.com/MahApps/MahApps.Metro.IconPacks/blob/dev/LICENSE</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/MahApps/MahApps.Metro.IconPacks</PackageProjectUrl>
+        <PackageIconUrl>https://raw.githubusercontent.com/MahApps/MahApps.Metro/master/mahapps.metro.logo2.png</PackageIconUrl>
+        <PackageTags>WPF;UWP;UAP;Windows;Windows10;WinRT;App;Universal;UI;Metro;Modern;ModernUI;Material;XAML;Toolkit;Library;.NET;Icon</PackageTags>
+        <PackageReleaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/MahApps/MahApps.Metro.IconPacks.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
+    </PropertyGroup>
+    <!-- Sign assembly -->
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <SignAssembly>True</SignAssembly>
+        <AssemblyOriginatorKeyFile>$(MSBuildProjectDirectory)\..\SharedKey.snk</AssemblyOriginatorKeyFile>
+        <DelaySign>false</DelaySign>
+        <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    </PropertyGroup>
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))"/>
+</Project>

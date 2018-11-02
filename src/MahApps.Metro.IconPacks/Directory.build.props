@@ -5,25 +5,6 @@
         <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
         <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
     </PropertyGroup>
-    <!-- NuGet -->
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <Authors>Jan Karger</Authors>
-        <PackageLicenseUrl>https://github.com/MahApps/MahApps.Metro.IconPacks/blob/dev/LICENSE</PackageLicenseUrl>
-        <PackageProjectUrl>https://github.com/MahApps/MahApps.Metro.IconPacks</PackageProjectUrl>
-        <PackageIconUrl>https://raw.githubusercontent.com/MahApps/MahApps.Metro/master/mahapps.metro.logo2.png</PackageIconUrl>
-        <PackageTags>WPF;UWP;UAP;Windows;Windows10;WinRT;App;Universal;UI;Metro;Modern;ModernUI;Material;XAML;Toolkit;Library;.NET;Icon</PackageTags>
-        <PackageReleaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</PackageReleaseNotes>
-        <RepositoryUrl>https://github.com/MahApps/MahApps.Metro.IconPacks.git</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <GenerateLibraryLayout>true</GenerateLibraryLayout>
-    </PropertyGroup>
-    <!-- Sign assembly -->
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <SignAssembly>True</SignAssembly>
-        <AssemblyOriginatorKeyFile>$(MSBuildProjectDirectory)\..\SharedKey.snk</AssemblyOriginatorKeyFile>
-        <DelaySign>false</DelaySign>
-        <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
-    </PropertyGroup>
     <!-- known issue https://github.com/NuGet/Home/issues/3891
          Feature : Allow project reference DLLs to be added to the parent nupkg for pack target like IncludeReferencedProjects in nuget.exe
 
