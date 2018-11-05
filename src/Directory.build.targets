@@ -9,6 +9,7 @@
         <Product>MahApps.Metro.IconPacks</Product>
         <Copyright>Copyright © 2016 - $([System.DateTime]::Today.ToString(yyyy)) MahApps.Metro</Copyright>
         <Description>IconPacks for stylish awesome WPF and UWP applications.</Description>
+
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <Version>3.0.0.0</Version>
         <AssemblyVersion>3.0.0.0</AssemblyVersion>

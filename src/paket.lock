@@ -1,15 +1,14 @@
 RESTRICTION: >= net45
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    ControlzEx (4.0.0-alpha0189)
-    Costura.Fody (3.1.4)
-      Fody (>= 3.2.6) - restriction: >= net46
-    Fody (3.2.9)
+    ControlzEx (4.0.0-alpha0196)
+    Costura.Fody (3.1.6)
+      Fody (>= 3.2.12) - restriction: >= net46
+    Fody (3.2.16)
     gitlink (3.2.0-unstable0040) - copy_local: true
     JetBrains.Annotations (2018.2.1) - copy_local: true
-  remote: https://ci.appveyor.com/nuget/mahapps.metro
-    MahApps.Metro (2.0.0-alpha0102)
-      ControlzEx (>= 4.0.0-alpha0189)
+    MahApps.Metro (2.0.0-alpha0104)
+      ControlzEx (>= 4.0.0-alpha0196)
 
 GROUP cake
 RESTRICTION: == net45
@@ -20,5 +19,5 @@ NUGET
     Cake.Paket (4.0)
     Cake.Paket.Module (4.0)
     gitreleasemanager (0.7.1)
-    GitVersion.CommandLine (4.0.1-beta0001-0002)
+    GitVersion.CommandLine (4.0.1-beta1-26)
     vswhere (2.5.2)
