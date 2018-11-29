@@ -1,7 +1,5 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <GenerateLibraryLayout>true</GenerateLibraryLayout>
-    </PropertyGroup>
+
     <!-- Sign assembly -->
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <SignAssembly>True</SignAssembly>
@@ -9,5 +7,6 @@
         <DelaySign>false</DelaySign>
         <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     </PropertyGroup>
+
     <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))"/>
 </Project>

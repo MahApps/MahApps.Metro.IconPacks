@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="15.0">
+<Project Sdk="MSBuild.Sdk.Extras">
   <!-- Project properties -->
   <PropertyGroup>
     <DefineConstants>FEATHERICONS</DefineConstants>
@@ -7,15 +7,7 @@
     <AssemblyName>MahApps.Metro.IconPacks.FeatherIcons</AssemblyName>
     <Title>MahApps.Metro.IconPacks.FeatherIcons</Title>
     <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" PrivateAssets="All" />
-  </ItemGroup>
   <!-- WPF Items include -->
   <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
     <Compile Remove="PathIcon*.cs" />

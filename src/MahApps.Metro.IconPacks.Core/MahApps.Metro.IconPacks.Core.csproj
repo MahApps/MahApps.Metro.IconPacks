@@ -6,6 +6,7 @@
         <Title>MahApps.Metro.IconPacks.Core</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <ExtrasDefaultPageExcludes Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">

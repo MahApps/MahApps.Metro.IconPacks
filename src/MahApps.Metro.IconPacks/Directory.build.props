@@ -3,8 +3,16 @@
         <!--<NuspecOutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</NuspecOutputPath>-->
         <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
         <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
-        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
+
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage;GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
     </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" PrivateAssets="All" />
+    </ItemGroup>
+
     <!-- known issue https://github.com/NuGet/Home/issues/3891
          Feature : Allow project reference DLLs to be added to the parent nupkg for pack target like IncludeReferencedProjects in nuget.exe
 
@@ -16,5 +24,16 @@
             <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
         </ItemGroup>
     </Target>
+    <Target Name="GetMyPackageFiles">
+        <ItemGroup>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Core</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\Converter\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Core\Converter</TargetPath>
+            </BuildOutputInPackage>
+        </ItemGroup>
+    </Target>
+
     <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))"/>
 </Project>

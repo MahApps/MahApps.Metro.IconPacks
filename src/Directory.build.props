@@ -1,4 +1,5 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
     <!-- Project properties -->
     <PropertyGroup>
         <TargetFrameworks>net47;net46;net45;uap10.0</TargetFrameworks>
@@ -7,10 +8,11 @@
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
+
     <ItemGroup>
         <None Remove="**\*.png;**\*.jpg;**\*.ico"/>
         <Resource Include="**\*.png;**\*.jpg;**\*.ico"/>
     </ItemGroup>
+
 </Project>

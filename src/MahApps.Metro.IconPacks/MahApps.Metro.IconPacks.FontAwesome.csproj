@@ -8,9 +8,6 @@
         <Title>MahApps.Metro.IconPacks.FontAwesome</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
     </PropertyGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" PrivateAssets="All" />
-    </ItemGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
         <Compile Remove="PathIcon*.cs" />

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="15.0">
+<Project Sdk="MSBuild.Sdk.Extras">
   <!-- Project properties -->
   <PropertyGroup>
     <DefineConstants>MATERIALDESIGN</DefineConstants>
@@ -7,22 +7,7 @@
     <AssemblyName>MahApps.Metro.IconPacks.MaterialDesign</AssemblyName>
     <Title>MahApps.Metro.IconPacks.MaterialDesign</Title>
     <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
-    <ProjectGuid>{10879B17-6F75-4072-964B-D986CB273E70}</ProjectGuid>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" PrivateAssets="All" />
-  </ItemGroup>
   <!-- WPF Items include -->
   <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
     <Compile Remove="PathIcon*.cs" />
@@ -45,9 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="paket.references" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Themes\" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
