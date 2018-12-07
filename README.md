@@ -38,6 +38,7 @@ This `IconPacks` library contains controls to use these awesome icons for `WPF` 
 | [Typicons](https://www.s-ings.com/typicons/) | 2.0.9 | 336 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> |
 | [Feather Icons](https://github.com/feathericons/feather) | 4.9.0 | 268 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> |
 | [Ionicons](https://ionicons.com/) | 4.4.8 | 696 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Ionicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Ionicons.svg?style=flat-square&&label=Ionicons"></a> |
+| [Jam Icons](https://github.com/michaelampr/jam) | 2.0.0 | 896 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.JamIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.JamIcons.svg?style=flat-square&&label=JamIcons"></a> |
 
 It's not necessary to install and use [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your `WPF` application nicer.
 
@@ -103,6 +104,10 @@ To install the IconPacks, run the following commands in the NuGet Package Manage
   ```powershell
   PM> Install-Package MahApps.Metro.IconPacks.Ionicons
   ```
+- `MahApps.Metro.IconPacks.JamIcons` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.JamIcons/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.JamIcons
+  ```
 
 ## Usage
 
@@ -122,6 +127,7 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
   <iconPacks:PackIconTypicons Kind="Lightbulb" />
   <iconPacks:PackIconFeatherIcons Kind="Anchor" />
   <iconPacks:PackIconIonicons Kind="BeerMD" />
+  <iconPacks:PackIconJamIcons Kind="BirthdayCake" />
 </StackPanel>
 ```
 
@@ -302,6 +308,7 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconTypicons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFeatherIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconIonicons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconJamIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!-- now make some global changes for the icon pack controls without using new keys -->
@@ -361,6 +368,11 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
     </Style>
 
     <Style TargetType="{x:Type iconPacks:PackIconIonicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconIonicons}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style TargetType="{x:Type iconPacks:PackIconJamIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconJamIcons}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>

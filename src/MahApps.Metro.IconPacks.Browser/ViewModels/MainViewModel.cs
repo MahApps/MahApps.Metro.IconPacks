@@ -30,6 +30,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     new IconPackViewModel(this, "Typicons", typeof(PackIconTypiconsKind), typeof(PackIconTypicons)),
                     new IconPackViewModel(this, "FeatherIcons", typeof(PackIconFeatherIconsKind), typeof(PackIconFeatherIcons)),
                     new IconPackViewModel(this, "Ionicons", typeof(PackIconIoniconsKind), typeof(PackIconIonicons)),
+                    new IconPackViewModel(this, "JamIcons", typeof(PackIconJamIconsKind), typeof(PackIconJamIcons)),
                     new IconPackViewModel(this, "All",
                         new[]
                         {
@@ -44,7 +45,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                             typeof(PackIconWeatherIconsKind),
                             typeof(PackIconTypiconsKind),
                             typeof(PackIconFeatherIconsKind),
-                            typeof(PackIconIoniconsKind)
+                            typeof(PackIconIoniconsKind),
+                            typeof(PackIconJamIconsKind)
                         },
                         new[]
                         {
@@ -59,7 +61,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                             typeof(PackIconWeatherIcons),
                             typeof(PackIconTypicons),
                             typeof(PackIconFeatherIcons),
-                            typeof(PackIconIonicons)
+                            typeof(PackIconIonicons),
+                            typeof(PackIconJamIcons)
                         })
                 });
             this.IconPacksVersion = Assembly.GetAssembly(typeof(PackIconMaterial)).GetName().Version.ToString();

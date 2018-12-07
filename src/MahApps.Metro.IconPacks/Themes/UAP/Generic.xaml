@@ -18,5 +18,6 @@
     <Style TargetType="uwp:PackIconTypicons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconTypicons}" />
     <Style TargetType="uwp:PackIconFeatherIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFeatherIcons}" />
     <Style TargetType="uwp:PackIconIonicons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconIonicons}" />
+    <Style TargetType="uwp:PackIconJamIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconJamIcons}" />
 
 </ResourceDictionary>
