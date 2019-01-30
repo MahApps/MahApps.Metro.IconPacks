@@ -163,6 +163,7 @@
         [Description("RepoPull (Book, Journal, Get)")] RepoPull,
         [Description("RepoPush (Book, Journal, Repository, Put)")] RepoPush,
         [Description("Report (Report, Abuse, Flag)")] Report,
+        [Description("RequestChanges (Diff, Changes, Request)")] RequestChanges,
         [Description("Rocket (Staff, Stafftools, Blast, Off, Space, Launch, Ship)")] Rocket,
         [Description("Rss (Broadcast, Feed, Atom)")] Rss,
         [Description("Ruby (Code, Language)")] Ruby,
