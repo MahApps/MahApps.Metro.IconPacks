@@ -18,13 +18,14 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <NoWarn>1591</NoWarn>
-        <DebugType>full</DebugType>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <Optimize>false</Optimize>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <NoWarn>0067,1591,0168</NoWarn>
-        <DebugType>pdbonly</DebugType>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <Optimize>true</Optimize>
     </PropertyGroup>
+
+    <ItemGroup>
+        <Page Update="@(Page)" SubType="Designer" Generator="MSBuild:Compile" />
+    </ItemGroup>
+
 </Project>

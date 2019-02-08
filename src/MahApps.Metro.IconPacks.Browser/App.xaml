@@ -18,7 +18,7 @@
                 <Setter Property="Padding" Value="0" />
             </Style>
 
-            <Style x:Key="CustomMetroCircleButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MetroCircleButtonStyle}">
+            <Style x:Key="CustomMetroCircleButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MahApps.Metro.Styles.MetroCircleButtonStyle}">
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush3}" />
                 <Setter Property="BorderThickness" Value="2" />

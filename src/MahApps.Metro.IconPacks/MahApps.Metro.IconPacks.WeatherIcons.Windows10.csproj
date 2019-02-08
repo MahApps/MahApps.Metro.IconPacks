@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <TargetFrameworks>uap10.0</TargetFrameworks>
+        <DefineConstants>WEATHERICONS</DefineConstants>
+        <AssemblyName>MahApps.Metro.IconPacks.WeatherIcons</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.WeatherIcons</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+    </PropertyGroup>
+    <!-- UWP Items include -->
+    <ItemGroup>
+        <Compile Remove="*.cs"/>
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
+        <EmbeddedResource Include="**\*.rd.xml"/>
+        <Compile Exclude="*Extension*.cs" Include="*WeatherIcons*.cs"/>
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\WeatherIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconWeatherIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs"/>
+    </ItemGroup>
+    <!--
+    Workaround to fix IntelliSense file generation for XAML projects
+    ISSUE: https://github.com/dotnet/project-system/issues/2488
+  -->
+    <Target AfterTargets="_CheckCompileDesignTimePrerequisite" Name="_SdkDesignTimeBuildAndIntelliSenseWorkaround">
+        <PropertyGroup>
+            <BuildingProject>false</BuildingProject>
+            <DesignTimeBuild>true</DesignTimeBuild>
+        </PropertyGroup>
+    </Target>
+    <Import Project="..\.paket\Paket.Restore.targets"/>
+</Project>

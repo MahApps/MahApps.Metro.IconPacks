@@ -1,4 +1,4 @@
-framework: >= net45
+framework: net45, net452, net46, net47, netcoreapp3.0
 
 source https://ci.appveyor.com/nuget/mahapps.metro
 source https://api.nuget.org/v3/index.json
@@ -6,8 +6,9 @@ source https://api.nuget.org/v3/index.json
 nuget Fody
 nuget Costura.Fody
 
-nuget JetBrains.Annotations copy_local: true // => PrivateAssets=All, mean all these type of assets are private of the project (so no need to add the deps in the nupkg dep list)
-nuget gitlink prerelease copy_local: true // => PrivateAssets=All, mean all these type of assets are private of the project (so no need to add the deps in the nupkg dep list)
+// copy_local: true => PrivateAssets=All, mean all these type of assets are private of the project (so no need to add the deps in the nupkg dep list)
+nuget JetBrains.Annotations copy_local: true
+nuget Microsoft.SourceLink.GitHub prerelease copy_local: true
 
 nuget MahApps.Metro prerelease
 

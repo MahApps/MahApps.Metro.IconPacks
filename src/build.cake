@@ -1,4 +1,3 @@
-
 //////////////////////////////////////////////////////////////////////
 // TOOLS / ADDINS
 //////////////////////////////////////////////////////////////////////
@@ -45,9 +44,15 @@ if (local == false
 }
 GitVersion gitVersion = GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.Json });
 
-var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = false });
-var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
-//var msBuildPath = latestInstallationPath?.CombineWithFilePath("./MSBuild/Current/Bin/MSBuild.exe");
+var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = true });
+//var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
+var msBuildPath = latestInstallationPath.Combine("./MSBuild/Current/Bin");
+var msBuildPathExe = msBuildPath.CombineWithFilePath("./MSBuild.exe");
+
+if (FileExists(msBuildPathExe) == false)
+{
+    throw new NotImplementedException("You need at least Visual Studio 2019 to build this project.");
+}
 
 // Should MSBuild treat any errors as warnings?
 var treatWarningsAsErrors = false;
@@ -59,7 +64,7 @@ var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("master", branchNa
 var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
 
 // Directories and Paths
-var iconPacksSolution = "./MahApps.Metro.IconPacks.sln";
+var solution = "./MahApps.Metro.IconPacks.sln";
 var publishDir = "./Publish";
 
 // Define global marcos.
@@ -74,11 +79,6 @@ Setup(context =>
     if (!IsRunningOnWindows())
     {
         throw new NotImplementedException($"{repoName} will only build on Windows because it's not possible to target WPF and Windows Forms from UNIX.");
-    }
-
-    if (FileExists(msBuildPath) == false)
-    {
-        throw new NotImplementedException("You need at least Visual Studio 2019 to build this project.");
     }
 
     Information(Figlet(repoName));
@@ -115,28 +115,37 @@ Task("Restore")
     .Does(() =>
 {
     var msBuildSettings = new MSBuildSettings {
-        Verbosity = Verbosity.Minimal,
-        ToolPath = msBuildPath,
-        ToolVersion = MSBuildToolVersion.Default,
-        Configuration = configuration,
-        ArgumentCustomization = args => args.Append("/m")
+        Verbosity = Verbosity.Minimal
+        ,ToolPath = msBuildPathExe
+        ,ToolVersion = MSBuildToolVersion.VS2019
+        ,Configuration = configuration
+        // ,ArgumentCustomization = args => args.Append("/m")
     };
 
-    MSBuild(iconPacksSolution, msBuildSettings.WithTarget("restore"));
+    MSBuild(solution, msBuildSettings.WithTarget("restore"));
+
+//    StartProcess("nuget", new ProcessSettings {
+//        Arguments = new ProcessArgumentBuilder()
+//            .Append("restore")
+//            .Append(solution)
+//            .Append("-msbuildpath")
+//            .AppendQuoted(msBuildPath.ToString())
+//       }
+//    );
 });
 
 Task("Build")
     .Does(() =>
 {
     var msBuildSettings = new MSBuildSettings {
-        Verbosity = Verbosity.Normal,
-        ToolPath = msBuildPath,
-        ToolVersion = MSBuildToolVersion.Default,
-        Configuration = configuration,
-        ArgumentCustomization = args => args.Append("/m")
+        Verbosity = Verbosity.Normal
+        ,ToolPath = msBuildPathExe
+        ,ToolVersion = MSBuildToolVersion.VS2019
+        ,Configuration = configuration
+        // ,ArgumentCustomization = args => args.Append("/m")
     };
 
-    MSBuild(iconPacksSolution, msBuildSettings
+    MSBuild(solution, msBuildSettings
             .SetMaxCpuCount(0)
             .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
@@ -160,8 +169,8 @@ Task("Pack")
 
     var msBuildSettings = new MSBuildSettings {
         Verbosity = Verbosity.Normal,
-        ToolPath = msBuildPath,
-        ToolVersion = MSBuildToolVersion.Default,
+        ToolPath = msBuildPathExe,
+        ToolVersion = MSBuildToolVersion.VS2019,
         Configuration = configuration
     };
 

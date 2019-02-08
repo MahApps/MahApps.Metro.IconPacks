@@ -10,6 +10,8 @@
         <PackageReleaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/MahApps/MahApps.Metro.IconPacks.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
     <!-- Sign assembly -->
@@ -20,5 +22,5 @@
         <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     </PropertyGroup>
 
-    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))"/>
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.build.targets', '$(MSBuildThisFileDirectory)../'))"/>
 </Project>

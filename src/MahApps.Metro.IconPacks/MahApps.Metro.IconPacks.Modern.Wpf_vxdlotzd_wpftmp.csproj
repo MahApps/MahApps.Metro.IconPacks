@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <!-- Project properties -->
+  <PropertyGroup>
+    <TargetFrameworks>net45;net46;net47;netcoreapp3.0</TargetFrameworks>
+    <DefineConstants>MODERN</DefineConstants>
+    <AssemblyName>MahApps.Metro.IconPacks.Modern</AssemblyName>
+    <Title>MahApps.Metro.IconPacks.Modern</Title>
+    <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+  </PropertyGroup>
+  <!-- WPF Items include -->
+  <ItemGroup>
+    <Compile Remove="*.cs" />
+    <Compile Include="PackIconExtension.cs" />
+    <Compile Include="PackIconModern*.cs" />
+  </ItemGroup>
+  <!--
+    Workaround to fix IntelliSense file generation for XAML projects
+    ISSUE: https://github.com/dotnet/project-system/issues/2488
+  -->
+  <Target AfterTargets="_CheckCompileDesignTimePrerequisite" Name="_SdkDesignTimeBuildAndIntelliSenseWorkaround">
+    <PropertyGroup>
+      <BuildingProject>false</BuildingProject>
+      <DesignTimeBuild>true</DesignTimeBuild>
+    </PropertyGroup>
+  </Target>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+  <ItemGroup>
+    <ReferencePath Include="C:\Users\punker76\.nuget\packages\jetbrains.annotations\2018.3.0\lib\net20\JetBrains.Annotations.dll" />
+    <ReferencePath Include="c:\Users\punker76\Documents\Git\MahApps.Metro.IconPacks\src\MahApps.Metro.IconPacks.Core\bin\Debug\net46\MahApps.Metro.IconPacks.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\mscorlib.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.ComponentModel.DataAnnotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Configuration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Drawing.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.IO.Compression.FileSystem.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Numerics.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Runtime.Serialization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Windows.Controls.Ribbon.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\UIAutomationClient.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\UIAutomationClientsideProviders.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\UIAutomationProvider.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\UIAutomationTypes.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\WindowsBase.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\punker76\Documents\Git\MahApps.Metro.IconPacks\src\MahApps.Metro.IconPacks\obj\Debug\MahApps.Metro.IconPacks.Modern.Wpf\net46\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+</Project>

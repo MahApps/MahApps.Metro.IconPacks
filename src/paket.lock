@@ -1,23 +1,30 @@
-RESTRICTION: >= net45
+RESTRICTION: || (== net45) (== net452) (== net46) (== net47) (== netcoreapp3.0)
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    ControlzEx (4.0.0-alpha0196)
-    Costura.Fody (3.1.6)
-      Fody (>= 3.2.12) - restriction: >= net46
-    Fody (3.2.16)
-    gitlink (3.2.0-unstable0040) - copy_local: true
-    JetBrains.Annotations (2018.2.1) - copy_local: true
-    MahApps.Metro (2.0.0-alpha0104)
-      ControlzEx (>= 4.0.0-alpha0196)
+    ControlzEx (4.0.0-alpha0222)
+      Microsoft.Xaml.Behaviors.Wpf (>= 1.0.1)
+    Costura.Fody (3.3.2)
+      Fody (>= 3.3.5) - restriction: || (== net45) (== net452) (== net46) (== net47) (&& (== netcoreapp3.0) (>= net40))
+    Fody (3.3.5)
+    JetBrains.Annotations (2018.3) - copy_local: true
+    Microsoft.Build.Tasks.Git (1.0.0-beta2-18618-05) - copy_local: true
+    Microsoft.SourceLink.Common (1.0.0-beta2-18618-05) - copy_local: true
+    Microsoft.SourceLink.GitHub (1.0.0-beta2-18618-05) - copy_local: true
+      Microsoft.Build.Tasks.Git (>= 1.0.0-beta2-18618-05)
+      Microsoft.SourceLink.Common (>= 1.0.0-beta2-18618-05)
+    Microsoft.Xaml.Behaviors.Wpf (1.0.1)
+  remote: https://ci.appveyor.com/nuget/mahapps.metro
+    MahApps.Metro (2.0.0-alpha0246)
+      ControlzEx (>= 4.0.0-alpha0222)
 
 GROUP cake
 RESTRICTION: == net45
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Cake (0.30)
+    Cake (0.32.1)
     Cake.Figlet (1.2)
     Cake.Paket (4.0)
     Cake.Paket.Module (4.0)
-    gitreleasemanager (0.7.1)
-    GitVersion.CommandLine (4.0.1-beta1-26)
-    vswhere (2.5.2)
+    gitreleasemanager (0.8)
+    GitVersion.CommandLine (4.0.1-beta1-59)
+    vswhere (2.6.7)

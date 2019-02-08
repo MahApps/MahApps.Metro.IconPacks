@@ -1,0 +1,23 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <!--
+        This will cause project.assets.json to be written to $(ProjectDir)\obj\ProjectFileWithNoExtension\project.assets.json. 
+    -->
+    <PropertyGroup>
+        <MSBuildProjectExtensionsPath>obj\$(Configuration)\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
+        <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
+        <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
+    </PropertyGroup>
+
+    <!-- Project properties -->
+    <PropertyGroup>
+        <AssemblyName>MahApps.Metro.IconPacks.Core</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.Core</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    </PropertyGroup>
+
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.build.props', '$(MSBuildThisFileDirectory)../'))"/>
+</Project>

@@ -1,16 +1,31 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <!--<NuspecOutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</NuspecOutputPath>-->
-        <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
-        <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
-        <GenerateLibraryLayout>true</GenerateLibraryLayout>
 
+    <!--
+        This will cause project.assets.json to be written to $(ProjectDir)\obj\ProjectFileWithNoExtension\project.assets.json. 
+    -->
+    <PropertyGroup>
+        <MSBuildProjectExtensionsPath>obj\$(Configuration)\$(MSBuildProjectName)\</MSBuildProjectExtensionsPath>
+        <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
+        <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</DefaultItemExcludes>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
         <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage;GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
     </PropertyGroup>
 
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.Windows10.csproj" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.Wpf.csproj" />
+    </ItemGroup>
+
     <ItemGroup>
-        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" PrivateAssets="All" />
+        <None Include="paket.references" />
     </ItemGroup>
 
     <!-- known issue https://github.com/NuGet/Home/issues/3891
@@ -35,5 +50,5 @@
         </ItemGroup>
     </Target>
 
-    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))"/>
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.build.props', '$(MSBuildThisFileDirectory)../'))"/>
 </Project>

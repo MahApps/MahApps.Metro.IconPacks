@@ -2,12 +2,22 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net47;net46;net45;uap10.0</TargetFrameworks>
-        <ExtrasEnableWpfProjectSetup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">true</ExtrasEnableWpfProjectSetup>
-        <ExtrasDefaultResourceIncludes>$(ExtrasDefaultResourceIncludes);$(MSBuildProjectDirectory)\Resources\*.xaml</ExtrasDefaultResourceIncludes>
+        <!-- Output paths -->
+        <!-- <BaseIntermediateOutputPath>$(SolutionDir)\obj\$(Configuration)\$(MSBuildProjectName)\</BaseIntermediateOutputPath> -->
+        <!-- <IntermediateOutputPath>$(SolutionDir)\obj\$(Configuration)\$(MSBuildProjectName)\</IntermediateOutputPath> -->
+        <!-- <MSBuildProjectExtensionsPath>$(IntermediateOutputPath)\</MSBuildProjectExtensionsPath> -->
+    </PropertyGroup>
+
+    <PropertyGroup>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <LangVersion>latest</LangVersion>
+        <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' != 'netcoreapp3.0' and '$(_SdkShortFrameworkIdentifier)' == 'uap' ">true</DisableImplicitFrameworkReferences>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <NoWarn>1591</NoWarn>
+        <UseWPF Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">true</UseWPF>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,4 +25,28 @@
         <Resource Include="**\*.png;**\*.jpg;**\*.ico"/>
     </ItemGroup>
 
+    <!-- SourceLink -->
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <!-- Optional: Declare that the Repository URL can be published to NuSpec -->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <!-- Optional: Embed source files that are not tracked by the source control manager to the PDB -->
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <!-- Optional: Include PDB in the built .nupkg -->
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <!-- https://github.com/dotnet/sourcelink/blob/master/docs/README.md#embedallsources -->
+        <!-- <EmbedAllSources>true</EmbedAllSources>-->
+    </PropertyGroup>
+
+    <!-- Set the reference for the other targets -->
+    <ItemGroup Condition="'$(TargetFramework)' != 'netcoreapp3.0' and '$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <Reference Include="Microsoft.CSharp"/>
+        <Reference Include="PresentationCore"/>
+        <Reference Include="PresentationFramework"/>
+        <Reference Include="System"/>
+        <Reference Include="System.ComponentModel.DataAnnotations"/>
+        <Reference Include="System.Configuration"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Xaml"/>
+        <Reference Include="WindowsBase"/>
+    </ItemGroup>
 </Project>

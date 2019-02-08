@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <TargetFrameworks>uap10.0</TargetFrameworks>
+    </PropertyGroup>
+    <!-- UWP Items include -->
+    <ItemGroup>
+        <Compile Remove="Converter\MarkupConverter.cs"/>
+        <EmbeddedResource Include="**\*.rd.xml"/>
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="**\*.xaml" SubType="Designer"/>
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="Converter\Converters.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </None>
+    </ItemGroup>
+    <!--
+    Workaround to fix IntelliSense file generation for XAML projects
+    ISSUE: https://github.com/dotnet/project-system/issues/2488
+  -->
+    <Target AfterTargets="_CheckCompileDesignTimePrerequisite" Name="_SdkDesignTimeBuildAndIntelliSenseWorkaround">
+        <PropertyGroup>
+            <BuildingProject>false</BuildingProject>
+            <DesignTimeBuild>true</DesignTimeBuild>
+        </PropertyGroup>
+    </Target>
+    <Import Project="..\.paket\Paket.Restore.targets"/>
+</Project>
