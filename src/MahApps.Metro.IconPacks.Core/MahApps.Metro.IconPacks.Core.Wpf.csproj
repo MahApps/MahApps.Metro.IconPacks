@@ -4,6 +4,7 @@
     <PropertyGroup>
         <TargetFrameworks>net45;net46;net47;netcoreapp3.0</TargetFrameworks>
         <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)\Converter\*.xaml</DefaultItemExcludes>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup>

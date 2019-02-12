@@ -3,6 +3,9 @@
     <!-- Project properties -->
     <PropertyGroup>
         <TargetFrameworks>uap10.0</TargetFrameworks>
+        <AssemblyName>MahApps.Metro.IconPacks.Core</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.Core</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
     </PropertyGroup>
     <!-- UWP Items include -->
     <ItemGroup>
@@ -16,15 +19,5 @@
             <Generator>MSBuild:Compile</Generator>
         </None>
     </ItemGroup>
-    <!--
-    Workaround to fix IntelliSense file generation for XAML projects
-    ISSUE: https://github.com/dotnet/project-system/issues/2488
-  -->
-    <Target AfterTargets="_CheckCompileDesignTimePrerequisite" Name="_SdkDesignTimeBuildAndIntelliSenseWorkaround">
-        <PropertyGroup>
-            <BuildingProject>false</BuildingProject>
-            <DesignTimeBuild>true</DesignTimeBuild>
-        </PropertyGroup>
-    </Target>
     <Import Project="..\.paket\Paket.Restore.targets"/>
 </Project>

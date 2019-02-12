@@ -26,7 +26,7 @@ if (string.IsNullOrWhiteSpace(configuration))
 var verbosity = Argument("verbosity", Verbosity.Normal);
 if (string.IsNullOrWhiteSpace(configuration))
 {
-    verbosity = Verbosity.Normal;
+    verbosity = Verbosity.Minimal;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -44,10 +44,11 @@ if (local == false
 }
 GitVersion gitVersion = GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.Json });
 
-var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = true });
-//var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
-var msBuildPath = latestInstallationPath.Combine("./MSBuild/Current/Bin");
+var msBuildPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = true }).Combine("./MSBuild/Current/Bin");
 var msBuildPathExe = msBuildPath.CombineWithFilePath("./MSBuild.exe");
+
+var msBuild2017Path = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = false }).Combine("./MSBuild/15.0/Bin");
+var msBuild2017PathExe = msBuild2017Path.CombineWithFilePath("./MSBuild.exe");
 
 if (FileExists(msBuildPathExe) == false)
 {
@@ -65,6 +66,8 @@ var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
 
 // Directories and Paths
 var solution = "./MahApps.Metro.IconPacks.sln";
+var coreSolution = "./MahApps.Metro.IconPacks.Wpf.sln";
+var uwpSolution = "./MahApps.Metro.IconPacks.Windows10.sln";
 var publishDir = "./Publish";
 
 // Define global marcos.
@@ -115,43 +118,58 @@ Task("Restore")
     .Does(() =>
 {
     var msBuildSettings = new MSBuildSettings {
-        Verbosity = Verbosity.Minimal
-        ,ToolPath = msBuildPathExe
-        ,ToolVersion = MSBuildToolVersion.VS2019
-        ,Configuration = configuration
-        // ,ArgumentCustomization = args => args.Append("/m")
+        Verbosity = verbosity
+        , ToolPath = msBuild2017PathExe
+        , ToolVersion = MSBuildToolVersion.VS2017
+        , Configuration = configuration
+        , PlatformTarget = PlatformTarget.MSIL
+        , ArgumentCustomization = args => args.Append("/m")
     };
-
-    MSBuild(solution, msBuildSettings.WithTarget("restore"));
-
-//    StartProcess("nuget", new ProcessSettings {
-//        Arguments = new ProcessArgumentBuilder()
-//            .Append("restore")
-//            .Append(solution)
-//            .Append("-msbuildpath")
-//            .AppendQuoted(msBuildPath.ToString())
-//       }
-//    );
+    MSBuild(uwpSolution, msBuildSettings.WithTarget("restore"));
+    // DotNetCoreRestore(uwpSolution);
+    // NuGetRestore(uwpSolution, new NuGetRestoreSettings {
+    //     NoCache = true
+    //     });
 });
 
 Task("Build")
+    .IsDependentOn("Restore")
     .Does(() =>
 {
     var msBuildSettings = new MSBuildSettings {
-        Verbosity = Verbosity.Normal
-        ,ToolPath = msBuildPathExe
-        ,ToolVersion = MSBuildToolVersion.VS2019
-        ,Configuration = configuration
-        // ,ArgumentCustomization = args => args.Append("/m")
+        Verbosity = verbosity
+        , ToolPath = msBuild2017PathExe
+        , ToolVersion = MSBuildToolVersion.VS2017
+        , Configuration = configuration
+        , PlatformTarget = PlatformTarget.MSIL
+        , ArgumentCustomization = args => args.Append("/m")
     };
-
-    MSBuild(solution, msBuildSettings
+    MSBuild(uwpSolution, msBuildSettings
             .SetMaxCpuCount(0)
             .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
             .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
             .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
             );
+});
+
+Task("CoreBuild")
+    .Does(() =>
+{
+    var msBuildSettings = new DotNetCoreMSBuildSettings
+        {
+            MaxCpuCount = -1
+        };
+
+    DotNetCoreBuild(coreSolution, new DotNetCoreBuildSettings
+        {
+            Configuration = configuration,
+            MSBuildSettings = msBuildSettings
+                .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
+                .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+                .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+                .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+        });
 });
 
 Task("Zip")
@@ -168,7 +186,7 @@ Task("Pack")
     EnsureDirectoryExists(Directory(publishDir));
 
     var msBuildSettings = new MSBuildSettings {
-        Verbosity = Verbosity.Normal,
+        Verbosity = verbosity,
         ToolPath = msBuildPathExe,
         ToolVersion = MSBuildToolVersion.VS2019,
         Configuration = configuration
@@ -224,14 +242,14 @@ Task("CreateRelease")
 // Task Targets
 Task("Default")
     .IsDependentOn("Clean")
-    .IsDependentOn("Restore")
     .IsDependentOn("Build")
+    .IsDependentOn("CoreBuild")
     .IsDependentOn("Zip");
 
 Task("appveyor")
     .IsDependentOn("Clean")
-    .IsDependentOn("Restore")
     .IsDependentOn("Build")
+    .IsDependentOn("CoreBuild")
     .IsDependentOn("Zip")
     .IsDependentOn("Pack");
 

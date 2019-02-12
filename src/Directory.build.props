@@ -1,29 +1,29 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-    <!-- Project properties -->
-    <PropertyGroup>
-        <!-- Output paths -->
-        <!-- <BaseIntermediateOutputPath>$(SolutionDir)\obj\$(Configuration)\$(MSBuildProjectName)\</BaseIntermediateOutputPath> -->
-        <!-- <IntermediateOutputPath>$(SolutionDir)\obj\$(Configuration)\$(MSBuildProjectName)\</IntermediateOutputPath> -->
-        <!-- <MSBuildProjectExtensionsPath>$(IntermediateOutputPath)\</MSBuildProjectExtensionsPath> -->
-    </PropertyGroup>
-
     <PropertyGroup>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <LangVersion>latest</LangVersion>
-        <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' != 'netcoreapp3.0' and '$(_SdkShortFrameworkIdentifier)' == 'uap' ">true</DisableImplicitFrameworkReferences>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <NoWarn>1591</NoWarn>
-        <UseWPF Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">true</UseWPF>
+
+        <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' != 'netcoreapp3.0' and '$(_SdkShortFrameworkIdentifier)' == 'uap' ">true</DisableImplicitFrameworkReferences>
+        <!-- <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies> -->
+        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
     </PropertyGroup>
 
     <ItemGroup>
         <None Remove="**\*.png;**\*.jpg;**\*.ico"/>
         <Resource Include="**\*.png;**\*.jpg;**\*.ico"/>
     </ItemGroup>
+
+    <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+        <ItemGroup>
+            <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+        </ItemGroup>
+    </Target>
 
     <!-- SourceLink -->
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">

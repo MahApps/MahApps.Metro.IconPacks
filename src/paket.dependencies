@@ -1,25 +1,14 @@
-framework: net45, net452, net46, net47, netcoreapp3.0
+framework: >= net45, netcoreapp3.0, >= uap10
+//framework: >= net45
 
 source https://ci.appveyor.com/nuget/mahapps.metro
 source https://api.nuget.org/v3/index.json
 
-nuget Fody
-nuget Costura.Fody
+//nuget Fody framework: net45, net46, net47
+//nuget Costura.Fody framework: net45, net46, net47
 
 // copy_local: true => PrivateAssets=All, mean all these type of assets are private of the project (so no need to add the deps in the nupkg dep list)
 nuget JetBrains.Annotations copy_local: true
 nuget Microsoft.SourceLink.GitHub prerelease copy_local: true
 
 nuget MahApps.Metro prerelease
-
-group cake
-	source https://api.nuget.org/v3/index.json
-	framework: net45
-	
-	nuget Cake
-	nuget Cake.Figlet
-	nuget Cake.Paket
-	nuget Cake.Paket.Module
-	nuget vswhere
-	nuget GitVersion.CommandLine prerelease
-	nuget gitreleasemanager

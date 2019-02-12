@@ -1,30 +1,19 @@
-RESTRICTION: || (== net45) (== net452) (== net46) (== net47) (== netcoreapp3.0)
+RESTRICTION: || (== net45) (== net46) (== net47) (== netcoreapp3.0) (>= uap10.0)
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    ControlzEx (4.0.0-alpha0222)
-      Microsoft.Xaml.Behaviors.Wpf (>= 1.0.1)
-    Costura.Fody (3.3.2)
-      Fody (>= 3.3.5) - restriction: || (== net45) (== net452) (== net46) (== net47) (&& (== netcoreapp3.0) (>= net40))
-    Fody (3.3.5)
+    ControlzEx (4.0.0-alpha0222) - restriction: || (== net45) (== net46) (== net47) (== netcoreapp3.0) (&& (>= net45) (>= uap10.0)) (&& (>= netcoreapp3.0) (>= uap10.0))
+      Microsoft.Xaml.Behaviors.Wpf (>= 1.0.1) - restriction: || (== net45) (== net46) (== net47) (== netcoreapp3.0) (&& (>= net45) (>= uap10.0)) (&& (>= netcoreapp3.0) (>= uap10.0))
     JetBrains.Annotations (2018.3) - copy_local: true
+      System.Runtime (>= 4.1) - restriction: || (&& (== net45) (< net10)) (&& (== net46) (< net10)) (&& (== net47) (< net10)) (&& (== netcoreapp3.0) (< netstandard2.0)) (&& (< netstandard2.0) (>= uap10.0))
     Microsoft.Build.Tasks.Git (1.0.0-beta2-18618-05) - copy_local: true
+    Microsoft.NETCore.Platforms (3.0.0-preview.19073.11) - restriction: || (&& (== net45) (>= netcoreapp3.0)) (&& (== net46) (>= netcoreapp3.0)) (&& (== net47) (>= netcoreapp3.0)) (== netcoreapp3.0) (&& (>= netcoreapp3.0) (>= uap10.0))
     Microsoft.SourceLink.Common (1.0.0-beta2-18618-05) - copy_local: true
     Microsoft.SourceLink.GitHub (1.0.0-beta2-18618-05) - copy_local: true
       Microsoft.Build.Tasks.Git (>= 1.0.0-beta2-18618-05)
       Microsoft.SourceLink.Common (>= 1.0.0-beta2-18618-05)
-    Microsoft.Xaml.Behaviors.Wpf (1.0.1)
+    Microsoft.Xaml.Behaviors.Wpf (1.0.1) - restriction: || (== net45) (== net46) (== net47) (== netcoreapp3.0) (&& (>= net45) (>= uap10.0)) (&& (>= netcoreapp3.0) (>= uap10.0))
+    System.Runtime (4.3) - copy_local: true, restriction: || (&& (== net45) (== netcoreapp3.0)) (&& (== net45) (< net10)) (&& (== net45) (>= uap10.0)) (&& (== net46) (== netcoreapp3.0)) (&& (== net46) (< net10)) (&& (== net46) (>= uap10.0)) (&& (== net47) (== netcoreapp3.0)) (&& (== net47) (< net10)) (&& (== net47) (>= uap10.0)) (&& (== netcoreapp3.0) (< netstandard2.0)) (&& (< netstandard2.0) (>= uap10.0))
   remote: https://ci.appveyor.com/nuget/mahapps.metro
-    MahApps.Metro (2.0.0-alpha0246)
-      ControlzEx (>= 4.0.0-alpha0222)
-
-GROUP cake
-RESTRICTION: == net45
-NUGET
-  remote: https://api.nuget.org/v3/index.json
-    Cake (0.32.1)
-    Cake.Figlet (1.2)
-    Cake.Paket (4.0)
-    Cake.Paket.Module (4.0)
-    gitreleasemanager (0.8)
-    GitVersion.CommandLine (4.0.1-beta1-59)
-    vswhere (2.6.7)
+    MahApps.Metro (2.0.0-alpha0251)
+      ControlzEx (>= 4.0.0-alpha0222) - restriction: || (== net45) (== net46) (== net47) (== netcoreapp3.0) (&& (>= net45) (>= uap10.0)) (&& (>= netcoreapp3.0) (>= uap10.0))
+      Microsoft.NETCore.Platforms (>= 3.0.0-preview.19073.11) - restriction: || (&& (== net45) (>= netcoreapp3.0)) (&& (== net46) (>= netcoreapp3.0)) (&& (== net47) (>= netcoreapp3.0)) (== netcoreapp3.0) (&& (>= netcoreapp3.0) (>= uap10.0))

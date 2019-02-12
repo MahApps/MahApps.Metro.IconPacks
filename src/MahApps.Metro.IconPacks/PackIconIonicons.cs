@@ -1,5 +1,5 @@
 ﻿
-#if !NETFX_CORE
+#if !NETFX_CORE && !WINDOWS_UWP
 using System.Windows;
 #endif
 
@@ -11,7 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PackIconIonicons : PackIconControl<PackIconIoniconsKind>
     {
-#if !NETFX_CORE
+#if !NETFX_CORE && !WINDOWS_UWP
         static PackIconIonicons()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(PackIconIonicons), new FrameworkPropertyMetadata(typeof(PackIconIonicons)));
@@ -20,7 +20,7 @@ namespace MahApps.Metro.IconPacks
 
         public PackIconIonicons() : base(PackIconIoniconsDataFactory.Create)
         {
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
             this.DefaultStyleKey = typeof(PackIconIonicons);
 #endif
         }

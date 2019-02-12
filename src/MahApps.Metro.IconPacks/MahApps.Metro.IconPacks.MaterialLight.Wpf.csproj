@@ -7,6 +7,7 @@
         <AssemblyName>MahApps.Metro.IconPacks.MaterialLight</AssemblyName>
         <Title>MahApps.Metro.IconPacks.MaterialLight</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup>

@@ -5,7 +5,8 @@
         <TargetFrameworks>net45;net46;net47;netcoreapp3.0</TargetFrameworks>
         <AssemblyName>MahApps.Metro.IconPacks.Browser</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks.Browser</RootNamespace>
-        <DisableFody Condition="'$(Configuration)' == 'Debug'">true</DisableFody>
+        <DisableFody Condition=" '$(Configuration)' == 'Debug' or $(TargetFramework.StartsWith('netcore')) ">true</DisableFody>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
     <PropertyGroup>
         <OutputType>WinExe</OutputType>

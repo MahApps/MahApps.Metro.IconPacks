@@ -7,6 +7,7 @@
         <AssemblyName>MahApps.Metro.IconPacks.Typicons</AssemblyName>
         <Title>MahApps.Metro.IconPacks.Typicons</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+        <UseWPF>true</UseWPF>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup>
