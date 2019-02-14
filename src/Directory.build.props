@@ -2,12 +2,59 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net47;net46;net45;uap10.0</TargetFrameworks>
-        <ExtrasEnableWpfProjectSetup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">true</ExtrasEnableWpfProjectSetup>
         <ExtrasDefaultResourceIncludes>$(ExtrasDefaultResourceIncludes);$(MSBuildProjectDirectory)\Resources\*.xaml</ExtrasDefaultResourceIncludes>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <Deterministic>False</Deterministic>
+        <NoWarn>1591</NoWarn>
+        <LangVersion>7.3</LangVersion>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <UseWpf>true</UseWpf>
+    </PropertyGroup>
+
+    <!-- UAP 10.0 -->
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
+        <EnableDefaultXamlItems>true</EnableDefaultXamlItems>
+    </PropertyGroup>
+
+    <!-- Workaround for binding redirects in non exe assemblies, see https://github.com/Microsoft/msbuild/issues/1310#issuecomment-309596435 -->
+    <Target Name="ForceGenerationOfBindingRedirects"
+            AfterTargets="ResolveAssemblyReferences"
+            BeforeTargets="GenerateBindingRedirects"
+            Condition="'$(AutoGenerateBindingRedirects)' == 'true'">
+        <PropertyGroup>
+            <!-- Needs to be set in a target because it has to be set after the initial evaluation in the common targets -->
+            <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+        </PropertyGroup>
+    </Target>
+
+    <!-- Enforce portable pdb format -->
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <DebugType>portable</DebugType>
+        <!-- Debug symbols are required for ApiApprover -->
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <!-- Explicit additional project properties that require stuff set before -->
+    <PropertyGroup>
+        <OverridableOutputPath>$(ProjectDir)..\output\$(Configuration)\$(MSBuildProjectName)\</OverridableOutputPath>
+        <OutputPath>$(OverridableOutputPath)</OutputPath>
+    </PropertyGroup>
+  
+    <!-- 
+    Fix for .NET Core 3.0, see https://github.com/dotnet/core-sdk/issues/192, it 
+    uses obj/release instead of [outputdirectory] 
+    -->
+    <PropertyGroup Condition=" '$(DotNetPackIntermediateOutputPath)' != '' ">
+        <IntermediateOutputPath>$(DotNetPackIntermediateOutputPath)</IntermediateOutputPath>
     </PropertyGroup>
 
     <ItemGroup>

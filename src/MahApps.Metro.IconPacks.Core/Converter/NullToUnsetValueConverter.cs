@@ -1,5 +1,5 @@
 ﻿using System;
-#if NETFX_CORE
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 #else
@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace MahApps.Metro.IconPacks.Converter
 {
-#if NETFX_CORE
+#if (NETFX_CORE || WINDOWS_UWP)
     public class NullToUnsetValueConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

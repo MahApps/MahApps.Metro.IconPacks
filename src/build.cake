@@ -14,22 +14,8 @@
 //////////////////////////////////////////////////////////////////////
 
 var target = Argument("target", "Default");
-if (string.IsNullOrWhiteSpace(target))
-{
-    target = "Default";
-}
-
 var configuration = Argument("configuration", "Release");
-if (string.IsNullOrWhiteSpace(configuration))
-{
-    configuration = "Release";
-}
-
 var verbosity = Argument("verbosity", Verbosity.Normal);
-if (string.IsNullOrWhiteSpace(configuration))
-{
-    verbosity = Verbosity.Normal;
-}
 
 //////////////////////////////////////////////////////////////////////
 // PREPARATION
@@ -46,21 +32,21 @@ if (local == false
 }
 GitVersion gitVersion = GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.Json });
 
-var latestInstallationPath = VSWhereLatest();
-var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
+// var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = true });
+// var msBuildPath = latestInstallationPath.Combine("./MSBuild/Current/Bin");
+// var msBuildPathExe = msBuildPath.CombineWithFilePath("./MSBuild.exe");
 
-// Should MSBuild treat any errors as warnings?
-var treatWarningsAsErrors = false;
+var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = true });
+var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/Current/Bin/MSBuild.exe");
+
+// var latestInstallationPath = VSWhereLatest();
+// var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
 
 var isPullRequest = AppVeyor.Environment.PullRequest.IsPullRequest;
 var branchName = gitVersion.BranchName;
 var isDevelopBranch = StringComparer.OrdinalIgnoreCase.Equals("dev", branchName);
 var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("master", branchName);
 var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
-
-// Version
-var nugetVersion = isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion;
-var browserVersion = "1.5.0";
 
 // Directories and Paths
 var iconPacksSolution = "./MahApps.Metro.IconPacks.sln";
@@ -102,23 +88,24 @@ Teardown(context =>
 // TASKS
 //////////////////////////////////////////////////////////////////////
 
-Task("CleanOutput")
+Task("Clean")
   .ContinueOnError()
   .Does(() =>
 {
-    var directoriesToDelete = GetDirectories("./**/obj").Concat(GetDirectories("./**/bin")).Concat(GetDirectories("./**/Publish"));
+    var directoriesToDelete = GetDirectories("./**/obj").Concat(GetDirectories("./**/bin")).Concat(GetDirectories("./**/Publish")).Concat(GetDirectories("./**/output"));
     DeleteDirectories(directoriesToDelete, new DeleteDirectorySettings { Recursive = true, Force = true });
 });
 
 Task("Restore")
     .Does(() =>
 {
-    //PaketRestore();
-
-    var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
-
+    var msBuildSettings = new MSBuildSettings {
+        ToolPath = msBuildPath
+        , ArgumentCustomization = args => args.Append("/m")
+        , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = true }
+        };
     MSBuild(iconPacksSolution, msBuildSettings
-            //.SetConfiguration("Debug") //.SetConfiguration(configuration)
+            .SetConfiguration(configuration)
             .SetVerbosity(Verbosity.Minimal)
             .WithTarget("restore")
             );
@@ -127,14 +114,15 @@ Task("Restore")
 Task("Build")
   .Does(() =>
 {
-  var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath, ArgumentCustomization = args => args.Append("/m") };
-
-  Information("Build: Release");
-  MSBuild(iconPacksSolution, msBuildSettings
+    var msBuildSettings = new MSBuildSettings {
+        ToolPath = msBuildPath
+        , ArgumentCustomization = args => args.Append("/m")
+        , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = true }
+        };
+    MSBuild(iconPacksSolution, msBuildSettings
             .SetMaxCpuCount(0)
             .SetConfiguration(configuration)
             .SetVerbosity(Verbosity.Normal)
-            //.WithRestore() only with cake 0.28.x            
             .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
             .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
@@ -162,8 +150,10 @@ Task("Pack")
   foreach(var project in projects)
   {
     Information("Packing {0}", project);
-
-    DeleteFiles(GetFiles("./MahApps.Metro.IconPacks/obj/**/*.nuspec"));
+    
+    var nuspecFiles = GetFiles("./MahApps.Metro.IconPacks/obj/**/*.nuspec");
+    CopyFiles(nuspecFiles, publishDir);
+    DeleteFiles(nuspecFiles);
 
     MSBuild(project, msBuildSettings
         .SetConfiguration(configuration)
@@ -208,13 +198,13 @@ Task("CreateRelease")
 
 // Task Targets
 Task("Default")
-    .IsDependentOn("CleanOutput")
+    .IsDependentOn("Clean")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
     .IsDependentOn("Zip");
 
 Task("appveyor")
-    .IsDependentOn("CleanOutput")
+    .IsDependentOn("Clean")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
     .IsDependentOn("Zip")

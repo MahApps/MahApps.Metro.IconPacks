@@ -2,33 +2,31 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <DefineConstants>OCTICONS</DefineConstants>
-        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</ExtrasDefaultPageExcludes>
+        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0</TargetFrameworks>
+        <DefineConstants>$(DefineConstants);OCTICONS</DefineConstants>
         <AssemblyName>MahApps.Metro.IconPacks.Octicons</AssemblyName>
         <Title>MahApps.Metro.IconPacks.Octicons</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="PathIcon*.cs" />
+        <Compile Remove="PathIcon*.cs"/>
         <Compile Remove="*.cs"/>
         <Compile Include="PackIconExtension.cs"/>
-
         <Compile Include="PackIconOcticons*.cs"/>
-        <Page Include="Themes\WPF\Octicons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\WPF\PackIconOcticons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\Octicons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconOcticons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs"/>
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
         <Compile Remove="*Extension*.cs"/>
-        <EmbeddedResource Include="**\*.rd.xml" />
-
-        <Compile Include="*Octicons*.cs" Exclude="*Extension*.cs"/>
-        <Page Include="Themes\UAP\Octicons\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\UAP\PackIconOcticons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+        <EmbeddedResource Include="**\*.rd.xml"/>
+        <Compile Exclude="*Extension*.cs" Include="*Octicons*.cs"/>
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Octicons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconOcticons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs"/>
     </ItemGroup>
     <ItemGroup>
         <None Include="paket.references"/>

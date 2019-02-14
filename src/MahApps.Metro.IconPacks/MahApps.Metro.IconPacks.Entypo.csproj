@@ -2,33 +2,31 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <DefineConstants>ENTYPO</DefineConstants>
-        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</ExtrasDefaultPageExcludes>
+        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0</TargetFrameworks>
+        <DefineConstants>$(DefineConstants);ENTYPO</DefineConstants>
         <AssemblyName>MahApps.Metro.IconPacks.Entypo</AssemblyName>
         <Title>MahApps.Metro.IconPacks.Entypo</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="PathIcon*.cs" />
+        <Compile Remove="PathIcon*.cs"/>
         <Compile Remove="*.cs"/>
         <Compile Include="PackIconExtension.cs"/>
-
         <Compile Include="PackIconEntypo*.cs"/>
-        <Page Include="Themes\WPF\Entypo\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\WPF\PackIconEntypo.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\Entypo\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconEntypo.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs"/>
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
         <Compile Remove="*Extension*.cs"/>
-        <EmbeddedResource Include="**\*.rd.xml" />
-
-        <Compile Include="*Entypo*.cs" Exclude="*Extension*.cs"/>
-        <Page Include="Themes\UAP\Entypo\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\UAP\PackIconEntypo.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+        <EmbeddedResource Include="**\*.rd.xml"/>
+        <Compile Exclude="*Extension*.cs" Include="*Entypo*.cs"/>
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Entypo\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconEntypo.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs"/>
     </ItemGroup>
     <ItemGroup>
         <None Include="paket.references"/>

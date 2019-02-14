@@ -1,5 +1,5 @@
 ﻿
-#if !NETFX_CORE
+#if !(NETFX_CORE || WINDOWS_UWP)
 using System.Windows;
 #endif
 
@@ -10,7 +10,7 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PackIconFontAwesome : PackIconControl<PackIconFontAwesomeKind>
     {
-#if !NETFX_CORE
+#if !(NETFX_CORE || WINDOWS_UWP)
         static PackIconFontAwesome()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(PackIconFontAwesome), new FrameworkPropertyMetadata(typeof(PackIconFontAwesome)));
@@ -19,7 +19,7 @@ namespace MahApps.Metro.IconPacks
 
         public PackIconFontAwesome() : base(PackIconFontAwesomeDataFactory.Create)
         {
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
             this.DefaultStyleKey = typeof(PackIconFontAwesome);
 #endif
         }

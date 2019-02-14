@@ -1,4 +1,4 @@
-framework: >= net45
+framework: >= net45, netcoreapp3.0
 
 source https://ci.appveyor.com/nuget/mahapps.metro
 source https://api.nuget.org/v3/index.json
