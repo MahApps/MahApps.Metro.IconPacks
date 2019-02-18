@@ -11,7 +11,7 @@
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+    <PropertyGroup Condition=" '$(TargetFramework)' != 'uap10.0' ">
         <UseWpf>true</UseWpf>
     </PropertyGroup>
 

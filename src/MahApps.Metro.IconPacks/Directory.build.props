@@ -5,6 +5,7 @@
         <!-- <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath> -->
         <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
         <GenerateLibraryLayout>true</GenerateLibraryLayout>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
         <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage;GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
@@ -16,7 +17,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj">
+            <PrivateAssets>all</PrivateAssets>
+        </ProjectReference>
     </ItemGroup>
 
     <!-- known issue https://github.com/NuGet/Home/issues/3891
