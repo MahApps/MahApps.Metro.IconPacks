@@ -26,8 +26,4 @@
         <Page Include="**\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
         <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
     </ItemGroup>
-    <ItemGroup>
-        <None Include="paket.references" />
-    </ItemGroup>
-    <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

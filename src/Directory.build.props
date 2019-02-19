@@ -9,6 +9,7 @@
         <NoWarn>1591</NoWarn>
         <LangVersion>7.3</LangVersion>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml;.xbf</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(TargetFramework)' != 'uap10.0' ">
@@ -20,16 +21,11 @@
         <EnableDefaultXamlItems>true</EnableDefaultXamlItems>
     </PropertyGroup>
 
-    <!-- Workaround for binding redirects in non exe assemblies, see https://github.com/Microsoft/msbuild/issues/1310#issuecomment-309596435 -->
-    <Target Name="ForceGenerationOfBindingRedirects"
-            AfterTargets="ResolveAssemblyReferences"
-            BeforeTargets="GenerateBindingRedirects"
-            Condition="'$(AutoGenerateBindingRedirects)' == 'true'">
-        <PropertyGroup>
-            <!-- Needs to be set in a target because it has to be set after the initial evaluation in the common targets -->
-            <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-        </PropertyGroup>
-    </Target>
+    <!-- Add the references for all projects and targets -->
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" Version="2018.*" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2*" PrivateAssets="All" />
+    </ItemGroup>
 
     <!-- Enforce portable pdb format -->
     <PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -43,12 +39,16 @@
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
 
-    <!-- Explicit additional project properties that require stuff set before -->
-    <PropertyGroup>
-        <OverridableOutputPath>$(ProjectDir)..\output\$(Configuration)\$(MSBuildProjectName)\</OverridableOutputPath>
-        <OutputPath>$(OverridableOutputPath)</OutputPath>
+    <!-- SourceLink -->
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <!-- Optional: Declare that the Repository URL can be published to NuSpec -->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <!-- Optional: Embed source files that are not tracked by the source control manager to the PDB -->
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <!-- https://github.com/dotnet/sourcelink/blob/master/docs/README.md#embedallsources -->
+        <!-- <EmbedAllSources>true</EmbedAllSources>-->
     </PropertyGroup>
-  
+
     <!-- 
     Fix for .NET Core 3.0, see https://github.com/dotnet/core-sdk/issues/192, it 
     uses obj/release instead of [outputdirectory] 

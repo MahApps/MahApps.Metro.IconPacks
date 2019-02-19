@@ -28,8 +28,4 @@
         <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconMaterialDesign.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs"/>
     </ItemGroup>
-    <ItemGroup>
-        <None Include="paket.references"/>
-    </ItemGroup>
-    <Import Project="..\.paket\Paket.Restore.targets"/>
 </Project>
