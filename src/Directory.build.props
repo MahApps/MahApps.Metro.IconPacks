@@ -2,14 +2,14 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <ExtrasDefaultResourceIncludes>$(ExtrasDefaultResourceIncludes);$(MSBuildProjectDirectory)\Resources\*.xaml</ExtrasDefaultResourceIncludes>
-        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <Deterministic>False</Deterministic>
-        <NoWarn>1591</NoWarn>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <NoError>$(NoError);CS1591</NoError>
+
         <LangVersion>7.3</LangVersion>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml;.xbf</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(TargetFramework)' != 'uap10.0' ">
@@ -27,14 +27,12 @@
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2*" PrivateAssets="All" />
     </ItemGroup>
 
-    <!-- Enforce portable pdb format -->
-    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <DebugType>portable</DebugType>
-        <!-- Debug symbols are required for ApiApprover -->
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <DebugType>full</DebugType>
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>

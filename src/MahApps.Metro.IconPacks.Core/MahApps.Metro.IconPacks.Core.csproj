@@ -9,7 +9,6 @@
         <DefaultItemExcludes Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">$(DefaultItemExcludes);$(MSBuildProjectDirectory)\Converter\*.xaml</DefaultItemExcludes>
         <ExtrasDefaultPageExcludes Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
         <GenerateLibraryLayout>true</GenerateLibraryLayout>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
