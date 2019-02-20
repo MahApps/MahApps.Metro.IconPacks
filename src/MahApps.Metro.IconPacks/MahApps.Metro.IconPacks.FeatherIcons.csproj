@@ -2,7 +2,6 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0</TargetFrameworks>
         <DefineConstants>$(DefineConstants);FEATHERICONS</DefineConstants>
         <AssemblyName>MahApps.Metro.IconPacks.FeatherIcons</AssemblyName>
         <Title>MahApps.Metro.IconPacks.FeatherIcons</Title>

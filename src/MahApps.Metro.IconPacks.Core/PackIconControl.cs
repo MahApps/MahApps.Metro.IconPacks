@@ -102,6 +102,7 @@ namespace MahApps.Metro.IconPacks
             set { this.SetValue(FlipProperty, value); }
         }
 
+#if !(UAP1809)
         /// <summary>
         /// Identifies the Rotation dependency property.
         /// </summary>
@@ -131,6 +132,7 @@ namespace MahApps.Metro.IconPacks
             get { return (double)this.GetValue(RotationProperty); }
             set { this.SetValue(RotationProperty, value); }
         }
+#endif
 
         /// <summary>
         /// Identifies the Spin dependency property.

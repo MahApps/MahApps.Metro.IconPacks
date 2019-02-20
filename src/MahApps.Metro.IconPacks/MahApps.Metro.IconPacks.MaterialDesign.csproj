@@ -2,7 +2,6 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0</TargetFrameworks>
         <DefineConstants>$(DefineConstants);MATERIALDESIGN</DefineConstants>
         <AssemblyName>MahApps.Metro.IconPacks.MaterialDesign</AssemblyName>
         <Title>MahApps.Metro.IconPacks.MaterialDesign</Title>
