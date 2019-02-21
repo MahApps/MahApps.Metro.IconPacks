@@ -3,11 +3,10 @@
 // TOOLS / ADDINS
 //////////////////////////////////////////////////////////////////////
 
-#tool paket:?package=GitVersion.CommandLine
-#tool paket:?package=gitreleasemanager
-#tool paket:?package=vswhere
-#addin paket:?package=Cake.Figlet
-#addin paket:?package=Cake.Paket
+#tool nuget:?package=GitVersion.CommandLine&prerelease
+#tool nuget:?package=gitreleasemanager&version=0.8
+#tool nuget:?package=vswhere&version=2.6.7
+#addin nuget:?package=Cake.Figlet&version=1.2
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -22,11 +21,10 @@ var verbosity = Argument("verbosity", Verbosity.Normal);
 //////////////////////////////////////////////////////////////////////
 
 var repoName = "MahApps.Metro.IconPacks";
-var local = BuildSystem.IsLocalBuild;
+var isLocal = BuildSystem.IsLocalBuild;
 
 // Set build version
-if (local == false
-    || verbosity == Verbosity.Verbose)
+if (isLocal == false || verbosity == Verbosity.Verbose)
 {
     GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.BuildServer });
 }
@@ -49,7 +47,7 @@ var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("master", branchNa
 var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
 
 // Directories and Paths
-var iconPacksSolution = "./MahApps.Metro.IconPacks.sln";
+var solution = "./MahApps.Metro.IconPacks.sln";
 var publishDir = "./Publish";
 
 // Define global marcos.
@@ -73,10 +71,10 @@ Setup(context =>
     Information("AssemblySemVer Version : {0}", gitVersion.AssemblySemVer);
     Information("MajorMinorPatch Version: {0}", gitVersion.MajorMinorPatch);
     Information("NuGet Version          : {0}", gitVersion.NuGetVersion);
-    Information("IsLocalBuild           : {0}", local);
+    Information("IsLocalBuild           : {0}", isLocal);
     Information("Branch                 : {0}", branchName);
     Information("Configuration          : {0}", configuration);
-    Information("MSBuildPath            : {0}", msBuildPath);
+    Information("MSBuild                : {0}", msBuildPath);
 });
 
 Teardown(context =>
@@ -92,7 +90,10 @@ Task("Clean")
   .ContinueOnError()
   .Does(() =>
 {
-    var directoriesToDelete = GetDirectories("./**/obj").Concat(GetDirectories("./**/bin")).Concat(GetDirectories("./**/Publish")).Concat(GetDirectories("./**/output"));
+    var directoriesToDelete = GetDirectories("./**/obj")
+        .Concat(GetDirectories("./**/bin"))
+        .Concat(GetDirectories("./**/Publish"))
+        .Concat(GetDirectories("./**/output"));
     DeleteDirectories(directoriesToDelete, new DeleteDirectorySettings { Recursive = true, Force = true });
 });
 
@@ -102,11 +103,11 @@ Task("Restore")
     var msBuildSettings = new MSBuildSettings {
         ToolPath = msBuildPath
         , ArgumentCustomization = args => args.Append("/m")
-        , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = true }
+        , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = isLocal }
         };
-    MSBuild(iconPacksSolution, msBuildSettings
+    MSBuild(solution, msBuildSettings
             .SetConfiguration(configuration)
-            .SetVerbosity(Verbosity.Minimal)
+            .SetVerbosity(verbosity)
             .WithTarget("restore")
             );
 });
@@ -117,12 +118,12 @@ Task("Build")
     var msBuildSettings = new MSBuildSettings {
         ToolPath = msBuildPath
         , ArgumentCustomization = args => args.Append("/m")
-        , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = true }
+        , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = isLocal }
         };
-    MSBuild(iconPacksSolution, msBuildSettings
+    MSBuild(solution, msBuildSettings
             .SetMaxCpuCount(0)
             .SetConfiguration(configuration)
-            .SetVerbosity(Verbosity.Normal)
+            .SetVerbosity(verbosity)
             .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
             .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
@@ -149,12 +150,8 @@ Task("Pack")
 
   foreach(var project in projects)
   {
-    Information("Packing {0}", project);
+    Information("Packing {0}...", project);
     
-    var nuspecFiles = GetFiles("./MahApps.Metro.IconPacks/obj/**/*.nuspec");
-    CopyFiles(nuspecFiles, publishDir);
-    DeleteFiles(nuspecFiles);
-
     MSBuild(project, msBuildSettings
         .SetConfiguration(configuration)
         .SetVerbosity(Verbosity.Normal)
@@ -167,6 +164,13 @@ Task("Pack")
         .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
         .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
     );
+
+    var nuspecFiles = GetFiles("./MahApps.Metro.IconPacks/obj/**/*.nuspec");
+    if (isLocal)
+    {
+        CopyFiles(nuspecFiles, publishDir);
+    }
+    DeleteFiles(nuspecFiles);
   }
 
 });
@@ -204,10 +208,7 @@ Task("Default")
     .IsDependentOn("Zip");
 
 Task("appveyor")
-    .IsDependentOn("Clean")
-    .IsDependentOn("Restore")
-    .IsDependentOn("Build")
-    .IsDependentOn("Zip")
+    .IsDependentOn("Default")
     .IsDependentOn("Pack");
 
 // Execution

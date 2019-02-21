@@ -14,20 +14,7 @@ NUGET
       Microsoft.Build.Tasks.Git (>= 1.0.0-beta2-18618-05)
       Microsoft.SourceLink.Common (>= 1.0.0-beta2-18618-05)
     Microsoft.Xaml.Behaviors.Wpf (1.0.1)
-    SourceLink.Copy.PdbFiles (2.8.3) - copy_local: true
   remote: https://ci.appveyor.com/nuget/mahapps.metro
     MahApps.Metro (2.0.0-alpha0251)
       ControlzEx (>= 4.0.0-alpha0222)
       Microsoft.NETCore.Platforms (>= 3.0.0-preview.19073.11) - restriction: || (== netcoreapp3.0) (&& (>= net45) (>= netcoreapp3.0))
-
-GROUP cake
-RESTRICTION: == net45
-NUGET
-  remote: https://api.nuget.org/v3/index.json
-    Cake (0.32.1)
-    Cake.Figlet (1.2)
-    Cake.Paket (4.0)
-    Cake.Paket.Module (4.0)
-    gitreleasemanager (0.8)
-    GitVersion.CommandLine (4.0.1-beta1-65)
-    vswhere (2.6.7)
