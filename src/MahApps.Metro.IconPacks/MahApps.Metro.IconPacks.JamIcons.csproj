@@ -2,36 +2,29 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <DefineConstants>JAMICONS</DefineConstants>
-        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</ExtrasDefaultPageExcludes>
+        <DefineConstants>$(DefineConstants);JAMICONS</DefineConstants>
         <AssemblyName>MahApps.Metro.IconPacks.JamIcons</AssemblyName>
         <Title>MahApps.Metro.IconPacks.JamIcons</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="PathIcon*.cs" />
+        <Compile Remove="PathIcon*.cs"/>
         <Compile Remove="*.cs"/>
         <Compile Include="PackIconExtension.cs"/>
-
         <Compile Include="PackIconJamIcons*.cs"/>
-        <Page Include="Themes\WPF\JamIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\WPF\PackIconJamIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\JamIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconJamIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs"/>
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
         <Compile Remove="*Extension*.cs"/>
-        <EmbeddedResource Include="**\*.rd.xml" />
-
-        <Compile Include="*JamIcons*.cs" Exclude="*Extension*.cs"/>
-        <Page Include="Themes\UAP\JamIcons\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\UAP\PackIconJamIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+        <EmbeddedResource Include="**\*.rd.xml"/>
+        <Compile Exclude="*Extension*.cs" Include="*JamIcons*.cs"/>
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\JamIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconJamIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs"/>
     </ItemGroup>
-    <ItemGroup>
-        <None Include="paket.references"/>
-    </ItemGroup>
-    <Import Project="..\.paket\Paket.Restore.targets"/>
 </Project>

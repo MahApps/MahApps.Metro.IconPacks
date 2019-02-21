@@ -1,5 +1,5 @@
 ﻿
-#if !NETFX_CORE
+#if !(NETFX_CORE || WINDOWS_UWP)
 using System.Windows;
 #endif
 
@@ -11,7 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PackIconJamIcons : PackIconControl<PackIconJamIconsKind>
     {
-#if !NETFX_CORE
+#if !(NETFX_CORE || WINDOWS_UWP)
         static PackIconJamIcons()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(PackIconJamIcons), new FrameworkPropertyMetadata(typeof(PackIconJamIcons)));
@@ -20,7 +20,7 @@ namespace MahApps.Metro.IconPacks
 
         public PackIconJamIcons() : base(PackIconJamIconsDataFactory.Create)
         {
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
             this.DefaultStyleKey = typeof(PackIconJamIcons);
 #endif
         }

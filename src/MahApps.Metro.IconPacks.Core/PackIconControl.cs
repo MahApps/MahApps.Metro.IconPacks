@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
@@ -21,7 +21,7 @@ namespace MahApps.Metro.IconPacks
     public abstract class PackIconControl<TKind> : PackIconBase<TKind>
     {
 
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
         private long _opacityRegisterToken;
         private long _visibilityRegisterToken;
 
@@ -59,7 +59,7 @@ namespace MahApps.Metro.IconPacks
         }
 #endif
 
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -102,6 +102,7 @@ namespace MahApps.Metro.IconPacks
             set { this.SetValue(FlipProperty, value); }
         }
 
+#if !(UAP1809)
         /// <summary>
         /// Identifies the Rotation dependency property.
         /// </summary>
@@ -110,7 +111,7 @@ namespace MahApps.Metro.IconPacks
                 nameof(Rotation),
                 typeof(double),
                 typeof(PackIconControl<TKind>),
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
                 new PropertyMetadata(0d));
 #else
                 new PropertyMetadata(0d, null, RotationPropertyCoerceValueCallback));
@@ -131,6 +132,7 @@ namespace MahApps.Metro.IconPacks
             get { return (double)this.GetValue(RotationProperty); }
             set { this.SetValue(RotationProperty, value); }
         }
+#endif
 
         /// <summary>
         /// Identifies the Spin dependency property.
@@ -140,7 +142,7 @@ namespace MahApps.Metro.IconPacks
                 nameof(Spin),
                 typeof(bool),
                 typeof(PackIconControl<TKind>),
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
                 new PropertyMetadata(default(bool), SpinPropertyChangedCallback));
 #else
                 new PropertyMetadata(default(bool), SpinPropertyChangedCallback, SpinPropertyCoerceValueCallback));
@@ -211,7 +213,7 @@ namespace MahApps.Metro.IconPacks
             storyboard.Children.Add(animation);
             Storyboard.SetTarget(animation, element);
 
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
             Storyboard.SetTargetProperty(animation, $"(RenderTransform).(TransformGroup.Children)[{transformGroup.Children.Count - 1}].(Angle)");
 #else
             Storyboard.SetTargetProperty(animation, new PropertyPath($"(0).(1)[{transformGroup.Children.Count - 1}].(2)", RenderTransformProperty, TransformGroup.ChildrenProperty, RotateTransform.AngleProperty));
@@ -246,7 +248,7 @@ namespace MahApps.Metro.IconPacks
                 nameof(SpinDuration),
                 typeof(double),
                 typeof(PackIconControl<TKind>),
-#if !NETFX_CORE
+#if !(NETFX_CORE || WINDOWS_UWP)
                 new PropertyMetadata(1d, SpinDurationPropertyChangedCallback, SpinDurationCoerceValueCallback));
 #else
                 new PropertyMetadata(1d, SpinDurationPropertyChangedCallback));
@@ -262,7 +264,7 @@ namespace MahApps.Metro.IconPacks
             }
         }
 
-#if !NETFX_CORE
+#if !(NETFX_CORE || WINDOWS_UWP)
         private static object SpinDurationCoerceValueCallback(DependencyObject dependencyObject, object value)
         {
             var val = (double)value;
@@ -286,7 +288,7 @@ namespace MahApps.Metro.IconPacks
         public static readonly DependencyProperty SpinEasingFunctionProperty
             = DependencyProperty.Register(
                 nameof(SpinEasingFunction),
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
                 typeof(EasingFunctionBase),
 #else
                 typeof(IEasingFunction),
@@ -308,7 +310,7 @@ namespace MahApps.Metro.IconPacks
         /// Gets or sets the EasingFunction of the spinning animation. This will also restart the spin animation.
         /// </summary>
         /// <value>The spin easing function.</value>
-#if NETFX_CORE
+#if NETFX_CORE || WINDOWS_UWP
         public EasingFunctionBase SpinEasingFunction
         {
             get { return (EasingFunctionBase)this.GetValue(SpinEasingFunctionProperty); }

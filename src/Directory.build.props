@@ -2,12 +2,60 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net47;net46;net45;uap10.0</TargetFrameworks>
-        <ExtrasEnableWpfProjectSetup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">true</ExtrasEnableWpfProjectSetup>
-        <ExtrasDefaultResourceIncludes>$(ExtrasDefaultResourceIncludes);$(MSBuildProjectDirectory)\Resources\*.xaml</ExtrasDefaultResourceIncludes>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <NoError>$(NoError);CS1591</NoError>
+
+        <LangVersion>7.3</LangVersion>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" !$(TargetFramework.StartsWith('uap')) ">
+        <UseWpf>true</UseWpf>
+    </PropertyGroup>
+
+    <!-- UAP 10.0 -->
+    <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
+        <EnableDefaultXamlItems>true</EnableDefaultXamlItems>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'uap10.0.17763' ">
+        <DefineConstants>$(DefineConstants);UAP1809</DefineConstants>
+    </PropertyGroup>
+
+    <!-- Add the references for all projects and targets -->
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" Version="2018.*" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2*" PrivateAssets="All" />
+    </ItemGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DebugType>portable</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <!-- SourceLink -->
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <!-- Optional: Declare that the Repository URL can be published to NuSpec -->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <!-- Optional: Embed source files that are not tracked by the source control manager to the PDB -->
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <!-- https://github.com/dotnet/sourcelink/blob/master/docs/README.md#embedallsources -->
+        <!-- <EmbedAllSources>true</EmbedAllSources>-->
+    </PropertyGroup>
+
+    <!-- 
+    Fix for .NET Core 3.0, see https://github.com/dotnet/core-sdk/issues/192, it 
+    uses obj/release instead of [outputdirectory] 
+    -->
+    <PropertyGroup Condition=" '$(DotNetPackIntermediateOutputPath)' != '' ">
+        <IntermediateOutputPath>$(DotNetPackIntermediateOutputPath)</IntermediateOutputPath>
     </PropertyGroup>
 
     <ItemGroup>

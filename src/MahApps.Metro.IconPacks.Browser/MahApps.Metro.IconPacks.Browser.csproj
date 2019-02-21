@@ -2,38 +2,48 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net47;net46;net45</TargetFrameworks>
+        <TargetFrameworks>net45;net46;net47;netcoreapp3.0</TargetFrameworks>
         <AssemblyName>MahApps.Metro.IconPacks.Browser</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks.Browser</RootNamespace>
-        <DisableFody Condition="'$(Configuration)' == 'Debug'">true</DisableFody>
+        <DisableFody Condition="'$(Configuration)' == 'Debug' or '$(TargetFramework)' == 'netcoreapp3.0'">true</DisableFody>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <!--<DisableImplicitFrameworkReferences Condition="'$(TargetFramework)' != 'netcoreapp3.0'">true</DisableImplicitFrameworkReferences>-->
     </PropertyGroup>
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <StartupObject />
         <NoWarn>SA1652</NoWarn>
         <ApplicationManifest>app.manifest</ApplicationManifest>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" />
-        <ProjectReference Include="..\MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj" />
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj"/>
+        <ProjectReference Include="..\MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj"/>
     </ItemGroup>
+    <!--<ItemGroup Condition=" '$(TargetFramework)' != 'netcoreapp3.0' ">
+        <Reference Include="Microsoft.CSharp"/>
+        <Reference Include="PresentationCore"/>
+        <Reference Include="PresentationFramework"/>
+        <Reference Include="System"/>
+        <Reference Include="System.ComponentModel.DataAnnotations"/>
+        <Reference Include="System.Configuration"/>
+        <Reference Include="System.Core"/>
+        <Reference Include="System.Data"/>
+        <Reference Include="System.Data.DataSetExtensions"/>
+        <Reference Include="System.Xaml"/>
+        <Reference Include="WindowsBase"/>
+    </ItemGroup>-->
     <ItemGroup>
-        <Reference Include="System.Data.DataSetExtensions" />
-        <Reference Include="System.Data" />
+        <None Include="app.manifest"/>
+        <None Include="paket.references"/>
+        <None Remove="App.config"/>
     </ItemGroup>
-    <ItemGroup>
-        <Resource Include="Styles\CustomTabControl.xaml" />
-        <None Include="app.manifest" />
-        <None Include="paket.references" />
-        <None Remove="App.config" />
-        <!--<Resource Remove="Resources\CustomTabControl.xaml" />-->
+    <ItemGroup Condition=" !$(TargetFramework.StartsWith('netcore')) ">
         <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
             <TargetPath>$(AssemblyName).config</TargetPath>
         </AppConfigWithTargetPath>
     </ItemGroup>
     <ItemGroup>
-        <Compile DependentUpon="%(Filename)" SubType="Code" Update="$(MSBuildProjectDirectory)\obj\**\*.g$(_SdkLanguageExtension)" />
+        <Compile DependentUpon="%(Filename)" SubType="Code" Update="**\obj\**\*.g$(DefaultLanguageSourceExtension)"/>
+        <Compile DependentUpon="%(Filename)" SubType="Designer" Update="**\*.xaml$(DefaultLanguageSourceExtension)"/>
     </ItemGroup>
-    <Import Project="..\.paket\Paket.Restore.targets" />
+    <Import Project="..\.paket\Paket.Restore.targets"/>
 </Project>

@@ -2,27 +2,22 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <DefineConstants>ALL</DefineConstants>
-        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</ExtrasDefaultPageExcludes>
+        <DefineConstants>$(DefineConstants);ALL</DefineConstants>
         <AssemblyName>MahApps.Metro.IconPacks</AssemblyName>
         <Title>MahApps.Metro.IconPacks</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="PathIcon*.cs" />
-        <Page Include="Themes\WPF\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile" />
+        <Compile Remove="PathIcon*.cs"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
-        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
-        <Compile Remove="*Extension*.cs" />
-        <EmbeddedResource Include="**\*.rd.xml" />
-        <Page Include="Themes\UAP\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile" />
-        <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
+        <Compile Remove="*Extension*.cs"/>
+        <EmbeddedResource Include="**\*.rd.xml"/>
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs"/>
     </ItemGroup>
-    <ItemGroup>
-        <None Include="paket.references" />
-    </ItemGroup>
-    <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

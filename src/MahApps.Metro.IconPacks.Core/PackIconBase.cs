@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-#if NETFX_CORE
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -55,7 +55,7 @@ namespace MahApps.Metro.IconPacks
             set { SetValue(KindProperty, value); }
         }
 
-#if NETFX_CORE
+#if (NETFX_CORE || WINDOWS_UWP)
         private static readonly DependencyProperty DataProperty
             = DependencyProperty.Register(nameof(Data), typeof(string), typeof(PackIconBase<TKind>), new PropertyMetadata(""));
 
@@ -85,7 +85,7 @@ namespace MahApps.Metro.IconPacks
         }
 #endif
 
-#if NETFX_CORE
+#if (NETFX_CORE || WINDOWS_UWP)
         protected override void OnApplyTemplate()
 #else
         public override void OnApplyTemplate()

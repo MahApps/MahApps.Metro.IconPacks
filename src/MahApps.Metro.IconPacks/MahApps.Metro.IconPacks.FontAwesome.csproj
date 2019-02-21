@@ -2,36 +2,29 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <DefineConstants>FONTAWESOME</DefineConstants>
-        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</ExtrasDefaultPageExcludes>
+        <DefineConstants>$(DefineConstants);FONTAWESOME</DefineConstants>
         <AssemblyName>MahApps.Metro.IconPacks.FontAwesome</AssemblyName>
         <Title>MahApps.Metro.IconPacks.FontAwesome</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="PathIcon*.cs" />
+        <Compile Remove="PathIcon*.cs"/>
         <Compile Remove="*.cs"/>
         <Compile Include="PackIconExtension.cs"/>
-
         <Compile Include="PackIconFontAwesome*.cs"/>
-        <Page Include="Themes\WPF\FontAwesome\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\WPF\PackIconFontAwesome.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\FontAwesome\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconFontAwesome.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs"/>
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
         <Compile Remove="*Extension*.cs"/>
-        <EmbeddedResource Include="**\*.rd.xml" />
-
-        <Compile Include="*FontAwesome*.cs" Exclude="*Extension*.cs"/>
-        <Page Include="Themes\UAP\FontAwesome\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Page Include="Themes\UAP\PackIconFontAwesome.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Generator="MSBuild:Compile"/>
-        <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+        <EmbeddedResource Include="**\*.rd.xml"/>
+        <Compile Exclude="*Extension*.cs" Include="*FontAwesome*.cs"/>
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\FontAwesome\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconFontAwesome.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs"/>
     </ItemGroup>
-    <ItemGroup>
-        <None Include="paket.references"/>
-    </ItemGroup>
-    <Import Project="..\.paket\Paket.Restore.targets"/>
 </Project>

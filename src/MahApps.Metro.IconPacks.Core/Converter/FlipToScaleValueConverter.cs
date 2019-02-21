@@ -1,5 +1,5 @@
 ﻿using System;
-#if NETFX_CORE
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 #else
@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace MahApps.Metro.IconPacks.Converter
 {
-#if NETFX_CORE
+#if (NETFX_CORE || WINDOWS_UWP)
     /// <summary>
     /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleX value of a ScaleTransformation.
     /// </summary>
@@ -79,10 +79,10 @@ namespace MahApps.Metro.IconPacks.Converter
     }
 #endif
 
-#if NETFX_CORE
-/// <summary>
-/// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleY value of a ScaleTransformation.
-/// </summary>
+#if (NETFX_CORE || WINDOWS_UWP)
+    /// <summary>
+    /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleY value of a ScaleTransformation.
+    /// </summary>
     public class FlipToScaleYValueConverter : IValueConverter
     {
         private static IValueConverter _instance;
