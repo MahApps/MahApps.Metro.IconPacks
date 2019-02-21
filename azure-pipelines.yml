@@ -24,7 +24,7 @@ pr:
 name: $(Build.BuildId)
 
 pool:
-  vmImage: 'VS2019-Win2016'
+  vmImage: 'windows-2019'
 
 variables:
   solution: '**/*.sln'
@@ -38,15 +38,19 @@ steps:
     version: '3.0.100-preview4-010332'
 
 - task: NuGetToolInstaller@0
-  displayName: Use NuGet 4.9.3
+  displayName: Use NuGet 4.9.2
   inputs:
-    versionSpec: 4.9.3
+    versionSpec: 4.9.2
+
+- powershell: iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/onovotny/UpdateVsOnAgent/master/Fix-VisualStudioPreviewNuGetSdk.ps1'))
+  displayName: VS Preview workaround
 
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
     restoreSolution: '$(solution)'
     noCache: true
+    verbosityRestore: Detailed
 
 - task: VSBuild@1
   inputs:
