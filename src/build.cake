@@ -14,7 +14,7 @@
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
-var verbosity = Argument("verbosity", Verbosity.Normal);
+var verbosity = Argument("verbosity", Verbosity.Minimal);
 
 //////////////////////////////////////////////////////////////////////
 // PREPARATION
