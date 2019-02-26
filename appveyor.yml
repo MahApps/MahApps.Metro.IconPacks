@@ -13,6 +13,7 @@ test: off
 
 install:
   # Install Microsoft Windows SDK for Windows 10 and .NET Framework 4.7 10.1.17763.1
+  - cinst windows-sdk-10-version-1809-all --version 10.0.17763.1
   - cinst windows-sdk-10-version-1809-all
   # Install dotnet core 3.0 latest (alpha!!), as this is not provided on AppVeyor yet
   #- ps: Start-FileDownload 'https://dotnetcli.blob.core.windows.net/dotnet/Sdk/master/dotnet-sdk-latest-win-x64.exe'
