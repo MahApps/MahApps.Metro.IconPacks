@@ -45,15 +45,27 @@ steps:
 - powershell: iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/onovotny/UpdateVsOnAgent/master/Fix-VisualStudioPreviewNuGetSdk.ps1'))
   displayName: VS Preview workaround
 
-- task: NuGetCommand@2
-  displayName: 'NuGet restore'
-  inputs:
-    restoreSolution: '$(solution)'
-    noCache: true
-    verbosityRestore: Detailed
+#- task: NuGetCommand@2
+#  displayName: 'NuGet restore'
+#  inputs:
+#    restoreSolution: '$(solution)'
+#    noCache: true
+#    verbosityRestore: Detailed
 
-- task: VSBuild@1
+#- task: VSBuild@1
+#  inputs:
+#    solution: '$(solution)'
+#    platform: '$(buildPlatform)'
+#    configuration: '$(buildConfiguration)'
+
+- powershell: .\src\build.ps1 -Script .\src\build.cake -target appveyor
+  displayName: 'Build with cake'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
   inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    SourceFolder: '$(Build.SourcesDirectory)\src\Publish'
+    Contents: |
+     **
+    TargetFolder: '$(build.artifactstagingdirectory)'
+    flattenFolders: false
