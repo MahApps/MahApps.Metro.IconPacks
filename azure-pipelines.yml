@@ -33,9 +33,9 @@ variables:
 
 steps:
 - task: DotNetCoreInstaller@0
-  displayName: Use NetCore 3.0.100-preview4-010332
+  displayName: Use NetCore 3.0.100-preview4-010538
   inputs:
-    version: '3.0.100-preview4-010332'
+    version: '3.0.100-preview4-010538'
 
 - task: NuGetToolInstaller@0
   displayName: Use NuGet 4.9.2
