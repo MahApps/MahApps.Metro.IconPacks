@@ -16,7 +16,8 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="MahApps.Metro" Version="2.0.0-alpha*" />
-        <PackageReference Include="Costura.Fody" Version="3.3.2" Condition="'$(Configuration)' != 'Debug' and '$(TargetFramework)' != 'netcoreapp3.0'" />
+        <PackageReference Include="Fody" Version="4.*" Condition="'$(Configuration)' != 'Debug' and '$(TargetFramework)' != 'netcoreapp3.0'" />
+        <PackageReference Include="Costura.Fody" Version="3.*" Condition="'$(Configuration)' != 'Debug' and '$(TargetFramework)' != 'netcoreapp3.0'" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj"/>

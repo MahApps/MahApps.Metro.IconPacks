@@ -11,6 +11,7 @@ trigger:
   paths:
     exclude:
      - README.md
+     - appveyor.yml
 
 pr:
   branches:
@@ -20,6 +21,7 @@ pr:
   paths:
     exclude:
      - README.md
+     - appveyor.yml
 
 name: $(Build.BuildId)
 
@@ -35,7 +37,8 @@ steps:
 - task: DotNetCoreInstaller@0
   displayName: Use NetCore 3.0.100-preview4-010538
   inputs:
-    version: '3.0.100-preview4-010538'
+    #version: '3.0.100-preview4-010538'
+    version: '3.0.100-preview3-010431'
 
 - task: NuGetToolInstaller@0
   displayName: Use NuGet 4.9.2
@@ -73,3 +76,11 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: $(Build.ArtifactStagingDirectory)
+    ArtifactName: Package
+
+- task: NuGetCommand@2
+  displayName: Publish to internal nuget feed
+  inputs:
+    command: push
+    nuGetFeedType: internal
+    publishVstsFeed: MahApps.Metro.IconPacks

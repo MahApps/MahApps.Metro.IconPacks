@@ -30,15 +30,14 @@ if (isLocal == false || verbosity == Verbosity.Verbose)
 }
 GitVersion gitVersion = GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.Json });
 
-// var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = true });
-// var msBuildPath = latestInstallationPath.Combine("./MSBuild/Current/Bin");
-// var msBuildPathExe = msBuildPath.CombineWithFilePath("./MSBuild.exe");
-
 var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = true });
-var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/Current/Bin/MSBuild.exe");
+var msBuildPath = latestInstallationPath.Combine("./MSBuild/Current/Bin");
+var msBuildPathExe = msBuildPath.CombineWithFilePath("./MSBuild.exe");
 
-// var latestInstallationPath = VSWhereLatest();
-// var msBuildPath = latestInstallationPath.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
+if (FileExists(msBuildPathExe) == false)
+{
+    throw new NotImplementedException("You need at least Visual Studio 2019 to build this project.");
+}
 
 var isPullRequest = AppVeyor.Environment.PullRequest.IsPullRequest;
 var branchName = gitVersion.BranchName;
@@ -59,6 +58,8 @@ Action Abort = () => { throw new Exception("a non-recoverable fatal error occurr
 
 Setup(context =>
 {
+    // Executed BEFORE the first task.
+
     if (!IsRunningOnWindows())
     {
         throw new NotImplementedException($"{repoName} will only build on Windows because it's not possible to target WPF and Windows Forms from UNIX.");
@@ -101,29 +102,26 @@ Task("Restore")
     .Does(() =>
 {
     var msBuildSettings = new MSBuildSettings {
-        ToolPath = msBuildPath
+        Verbosity = verbosity
+        , ToolPath = msBuildPathExe
+        , Configuration = configuration
         , ArgumentCustomization = args => args.Append("/m")
-        , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = isLocal }
         };
-    MSBuild(solution, msBuildSettings
-            .SetConfiguration(configuration)
-            .SetVerbosity(verbosity)
-            .WithTarget("restore")
-            );
+    MSBuild(solution, msBuildSettings.WithTarget("restore"));
 });
 
 Task("Build")
   .Does(() =>
 {
     var msBuildSettings = new MSBuildSettings {
-        ToolPath = msBuildPath
+        Verbosity = verbosity
+        , ToolPath = msBuildPathExe
+        , Configuration = configuration
         , ArgumentCustomization = args => args.Append("/m")
         , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = isLocal }
         };
     MSBuild(solution, msBuildSettings
             .SetMaxCpuCount(0)
-            .SetConfiguration(configuration)
-            .SetVerbosity(verbosity)
             .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
             .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
@@ -132,47 +130,47 @@ Task("Build")
 });
 
 Task("Zip")
-  .Does(() =>
+    .Does(() =>
 {
-  EnsureDirectoryExists(Directory(publishDir));
-  Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
+    EnsureDirectoryExists(Directory(publishDir));
+    Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
 });
 
 Task("Pack")
   .WithCriteria(() => !isPullRequest)
     .Does(() =>
 {
-  EnsureDirectoryExists(Directory(publishDir));
+    EnsureDirectoryExists(Directory(publishDir));
 
-  var msBuildSettings = new MSBuildSettings { ToolPath = msBuildPath };
- 
-  var projects = GetFiles("./MahApps.Metro.IconPacks/*.csproj");
+    var msBuildSettings = new MSBuildSettings {
+        Verbosity = verbosity
+        , ToolPath = msBuildPathExe
+        , Configuration = configuration
+    };
+    var projects = GetFiles("./MahApps.Metro.IconPacks/*.csproj");
 
-  foreach(var project in projects)
-  {
-    Information("Packing {0}...", project);
-    
-    MSBuild(project, msBuildSettings
-        .SetConfiguration(configuration)
-        .SetVerbosity(Verbosity.Normal)
-        .WithTarget("pack")
-        .WithProperty("PackageOutputPath", "../" + publishDir)
-        .WithProperty("RepositoryBranch", branchName)
-        .WithProperty("RepositoryCommit", gitVersion.Sha)
-        .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
-        .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
-        .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
-        .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
-    );
-
-    var nuspecFiles = GetFiles("./MahApps.Metro.IconPacks/obj/**/*.nuspec");
-    if (isLocal)
+    foreach(var project in projects)
     {
-        CopyFiles(nuspecFiles, publishDir);
-    }
-    DeleteFiles(nuspecFiles);
-  }
+        Information("Packing {0}...", project);
+        
+        MSBuild(project, msBuildSettings
+            .WithTarget("pack")
+            .WithProperty("PackageOutputPath", "../" + publishDir)
+            .WithProperty("RepositoryBranch", branchName)
+            .WithProperty("RepositoryCommit", gitVersion.Sha)
+            .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
+            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
+            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
+            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
+        );
 
+        var nuspecFiles = GetFiles("./MahApps.Metro.IconPacks/obj/**/*.nuspec");
+        if (isLocal)
+        {
+            CopyFiles(nuspecFiles, publishDir);
+        }
+        DeleteFiles(nuspecFiles);
+    }
 });
 
 Task("CreateRelease")

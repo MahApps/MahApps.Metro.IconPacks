@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="Current">
+  <!-- Project properties -->
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);UNICONS</DefineConstants>
+    <AssemblyName>MahApps.Metro.IconPacks.Unicons</AssemblyName>
+    <Title>MahApps.Metro.IconPacks.Unicons</Title>
+    <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <!-- WPF Items include -->
+  <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+    <Compile Remove="PathIcon*.cs" />
+    <Compile Remove="*.cs" />
+    <Compile Include="PackIconExtension.cs" />
+    <Compile Include="PackIconUnicons*.cs" />
+    <Page Generator="MSBuild:Compile" Include="Themes\WPF\Unicons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+    <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconUnicons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+  </ItemGroup>
+  <!-- UWP Items include -->
+  <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+    <Compile Remove="*.cs" />
+    <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
+    <Compile Remove="*Extension*.cs" />
+    <EmbeddedResource Include="**\*.rd.xml" />
+    <Compile Exclude="*Extension*.cs" Include="*Unicons*.cs" />
+    <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Unicons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+    <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconUnicons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+    <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
+  </ItemGroup>
+</Project>
