@@ -26,17 +26,17 @@ This `IconPacks` library contains controls to use these awesome icons for `WPF` 
 | Icon collection | Version | &#8721; | NuGet |
 |---|--:|--:|:--|
 | Complete IconPacks collection with all Icons in one package | | | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks"></a> |
-| [Material Design Icons](https://materialdesignicons.com/) | 3.4.93 | 3493 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material"></a> |
-| [Material design icons (Google)](https://github.com/google/material-design-icons) | 3.0.1 | 932 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialDesign/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialDesign.svg?style=flat-square&&label=MaterialDesign"></a> |
+| [Material Design Icons](https://materialdesignicons.com/) | 3.5.95 | 3595 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material"></a> |
 | [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) | 0.2.63 | 257 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialLight.svg?style=flat-square&&label=MaterialLight"></a> |
-| [Font Awesome Free](https://fontawesome.com/) | 5.7.0 | 1503 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome"></a> |
-| [GitHub Octicons](https://octicons.github.com/) | 8.3.0 | 184 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons"></a> |
+| [Material design icons (Google)](https://github.com/google/material-design-icons) | 3.0.1 | 932 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialDesign/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialDesign.svg?style=flat-square&&label=MaterialDesign"></a> |
+| [Font Awesome Free](https://fontawesome.com/) | 5.7.2 | 1503 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome"></a> |
+| [GitHub Octicons](https://octicons.github.com/) | 8.5.0 | 184 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons"></a> |
 | [Modern](http://modernuiicons.com/) | | 1260 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern"></a> |
 | [Entypo+](http://www.entypo.com/) | | 411 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo"></a> |
-| [Simple Icons](https://simpleicons.org/) | 1.9.18 | 526 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> |
+| [Simple Icons](https://simpleicons.org/) | 1.9.23 | 566 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> |
 | [Weather Icons](http://weathericons.io) | 2.0.10 | 219 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> |
 | [Typicons](https://www.s-ings.com/typicons/) | 2.0.9 | 336 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> |
-| [Feather Icons](https://github.com/feathericons/feather) | 4.15.0 | 274 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> |
+| [Feather Icons](https://github.com/feathericons/feather) | 4.19.0 | 276 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> |
 | [Ionicons](https://ionicons.com/) | 4.5.5 | 696 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Ionicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Ionicons.svg?style=flat-square&&label=Ionicons"></a> |
 | [Jam Icons](https://github.com/michaelampr/jam) | 2.0.0 | 896 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.JamIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.JamIcons.svg?style=flat-square&&label=JamIcons"></a> |
 | [Unicons](https://github.com/Iconscout/unicons) | 0.0.3 | 1047 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Unicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Unicons.svg?style=flat-square&&label=Unicons"></a> |
@@ -61,13 +61,13 @@ To install the IconPacks, run the following commands in the NuGet Package Manage
   ```powershell
   PM> Install-Package MahApps.Metro.IconPacks.Material
   ```
-- `MahApps.Metro.IconPacks.MaterialDesign` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialDesign/)
-  ```powershell
-  PM> Install-Package MahApps.Metro.IconPacks.MaterialDesign
-  ```
 - `MahApps.Metro.IconPacks.MaterialLight` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/)
   ```powershell
   PM> Install-Package MahApps.Metro.IconPacks.MaterialLight
+  ```
+- `MahApps.Metro.IconPacks.MaterialDesign` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialDesign/)
+  ```powershell
+  PM> Install-Package MahApps.Metro.IconPacks.MaterialDesign
   ```
 - `MahApps.Metro.IconPacks.FontAwesome` [on NuGet](https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/)
   ```powershell
@@ -121,8 +121,8 @@ If you want all icons together then just install the `MahApps.Metro.IconPacks` N
 ```xaml
 <StackPanel>
   <iconPacks:PackIconMaterial Kind="EmoticonCool" />
-  <iconPacks:PackIconMaterialDesign Kind="DirectionsBike" />
   <iconPacks:PackIconMaterialLight Kind="Heart" />
+  <iconPacks:PackIconMaterialDesign Kind="DirectionsBike" />
   <iconPacks:PackIconFontAwesome Kind="FontAwesomeBrands" />
   <iconPacks:PackIconOcticons Kind="MarkGithub" />
   <iconPacks:PackIconModern Kind="ThumbsUp" />
@@ -303,8 +303,8 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
     <ResourceDictionary.MergedDictionaries>
         <!-- reference all necessary original resource dictionaries -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterial.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterialDesign.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterialLight.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconMaterialDesign.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconOcticons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconModern.xaml" />
@@ -325,14 +325,14 @@ Here is the resource dictionary content for all IconPacks in this sample (for `C
         <Setter Property="Height" Value="32" />
     </Style>
 
-    <Style TargetType="{x:Type iconPacks:PackIconMaterialDesign}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialDesign}">
-        <Setter Property="Width" Value="32" />
-        <Setter Property="Height" Value="32" />
-    </Style>
-
     <Style TargetType="{x:Type iconPacks:PackIconMaterialLight}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialLight}">
         <Setter Property="Width" Value="28" />
         <Setter Property="Height" Value="28" />
+    </Style>
+
+    <Style TargetType="{x:Type iconPacks:PackIconMaterialDesign}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialDesign}">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
     </Style>
 
     <Style TargetType="{x:Type iconPacks:PackIconFontAwesome}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}">
