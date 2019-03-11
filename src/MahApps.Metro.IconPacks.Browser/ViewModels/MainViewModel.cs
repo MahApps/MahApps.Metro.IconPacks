@@ -19,8 +19,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                 new[]
                 {
                     new IconPackViewModel(this, "Material", typeof(PackIconMaterialKind), typeof(PackIconMaterial)),
-                    new IconPackViewModel(this, "MaterialDesign", typeof(PackIconMaterialDesignKind), typeof(PackIconMaterialDesign)),
                     new IconPackViewModel(this, "MaterialLight", typeof(PackIconMaterialLightKind), typeof(PackIconMaterialLight)),
+                    new IconPackViewModel(this, "MaterialDesign (Google)", typeof(PackIconMaterialDesignKind), typeof(PackIconMaterialDesign)),
                     new IconPackViewModel(this, "FontAwesome", typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome)),
                     new IconPackViewModel(this, "Octicons", typeof(PackIconOcticonsKind), typeof(PackIconOcticons)),
                     new IconPackViewModel(this, "Modern", typeof(PackIconModernKind), typeof(PackIconModern)),
@@ -36,8 +36,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                         new[]
                         {
                             typeof(PackIconMaterialKind),
-                            typeof(PackIconMaterialDesignKind),
                             typeof(PackIconMaterialLightKind),
+                            typeof(PackIconMaterialDesignKind),
                             typeof(PackIconFontAwesomeKind),
                             typeof(PackIconOcticonsKind),
                             typeof(PackIconModernKind),
@@ -53,8 +53,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                         new[]
                         {
                             typeof(PackIconMaterial),
-                            typeof(PackIconMaterialDesign),
                             typeof(PackIconMaterialLight),
+                            typeof(PackIconMaterialDesign),
                             typeof(PackIconFontAwesome),
                             typeof(PackIconOcticons),
                             typeof(PackIconModern),
