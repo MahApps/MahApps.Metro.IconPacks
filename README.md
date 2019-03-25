@@ -10,11 +10,15 @@
   <a href="https://github.com/MahApps/MahApps.Metro.IconPacks/releases">
 	<img src="https://img.shields.io/github/release/MahApps/MahApps.Metro.IconPacks.svg?style=flat-square">
   </a>
+  <br />
   <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/master">
-	<img alt="masterstatus" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/master.svg?style=flat-square&&label=master">
+	<img alt="appveyor-master" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/master.svg?logo=appveyor&style=flat-square&label=master">
   </a>
+ <!-- <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">-->
+	<!--<img alt="appveyor-dev" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?style=flat-square&&label=dev">-->
+ <!-- </a>-->
   <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">
-	<img alt="devstatus" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?style=flat-square&&label=dev">
+  <img alt="azure-devops" src="https://img.shields.io/azure-devops/build/mahapps/6896073b-203e-45a5-892e-45600b9fe5ae/3.svg?logo=azure-devops&style=flat-square&label=dev">
   </a>
   <br />
   <br />
@@ -29,11 +33,11 @@ This `IconPacks` library contains controls to use these awesome icons for `WPF` 
 | [Material Design Icons](https://materialdesignicons.com/) | 3.5.95 | 3595 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Material/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Material.svg?style=flat-square&&label=Material"></a> |
 | [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) | 0.2.63 | 257 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialLight.svg?style=flat-square&&label=MaterialLight"></a> |
 | [Material design icons (Google)](https://github.com/google/material-design-icons) | 3.0.1 | 932 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialDesign/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialDesign.svg?style=flat-square&&label=MaterialDesign"></a> |
-| [Font Awesome Free](https://fontawesome.com/) | 5.7.2 | 1503 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome"></a> |
+| [Font Awesome Free](https://fontawesome.com/) | 5.8.1 | 1516 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome"></a> |
 | [GitHub Octicons](https://octicons.github.com/) | 8.5.0 | 184 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons"></a> |
 | [Modern](http://modernuiicons.com/) | | 1260 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern"></a> |
 | [Entypo+](http://www.entypo.com/) | | 411 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo"></a> |
-| [Simple Icons](https://simpleicons.org/) | 1.9.23 | 566 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> |
+| [Simple Icons](https://simpleicons.org/) | 1.9.24 | 576 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> |
 | [Weather Icons](http://weathericons.io) | 2.0.10 | 219 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> |
 | [Typicons](https://www.s-ings.com/typicons/) | 2.0.9 | 336 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> |
 | [Feather Icons](https://github.com/feathericons/feather) | 4.19.0 | 276 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> |
