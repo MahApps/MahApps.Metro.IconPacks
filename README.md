@@ -11,13 +11,13 @@
 	<img src="https://img.shields.io/github/release/MahApps/MahApps.Metro.IconPacks.svg?style=flat-square">
   </a>
   <br />
-  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/master">
+<!-- <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/master">
 	<img alt="appveyor-master" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/master.svg?logo=appveyor&style=flat-square&label=master">
   </a>
- <!-- <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">-->
+  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">-->
 	<!--<img alt="appveyor-dev" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?style=flat-square&&label=dev">-->
  <!-- </a>-->
-  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">
+  <a href="https://dev.azure.com/mahapps/MahApps.Metro.IconPacks/_build?definitionId=3">
   <img alt="azure-devops" src="https://img.shields.io/azure-devops/build/mahapps/6896073b-203e-45a5-892e-45600b9fe5ae/3.svg?logo=azure-devops&style=flat-square&label=dev">
   </a>
   <br />
