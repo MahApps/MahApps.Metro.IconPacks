@@ -35,7 +35,7 @@ variables:
 
 steps:
 - task: DotNetCoreInstaller@0
-  displayName: Use NetCore 3.0.100-preview4-010538
+  displayName: Use NetCore 3.0.100-preview3-010431
   inputs:
     #version: '3.0.100-preview4-010538'
     version: '3.0.100-preview3-010431'
@@ -44,22 +44,6 @@ steps:
   displayName: Use NuGet 4.9.2
   inputs:
     versionSpec: 4.9.2
-
-- powershell: iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/onovotny/UpdateVsOnAgent/master/Fix-VisualStudioPreviewNuGetSdk.ps1'))
-  displayName: VS Preview workaround
-
-#- task: NuGetCommand@2
-#  displayName: 'NuGet restore'
-#  inputs:
-#    restoreSolution: '$(solution)'
-#    noCache: true
-#    verbosityRestore: Detailed
-
-#- task: VSBuild@1
-#  inputs:
-#    solution: '$(solution)'
-#    platform: '$(buildPlatform)'
-#    configuration: '$(buildConfiguration)'
 
 - powershell: .\src\build.ps1 -Script .\src\build.cake -target appveyor
   displayName: 'Build with cake'
