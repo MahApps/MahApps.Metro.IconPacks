@@ -43,7 +43,7 @@ This `IconPacks` library contains controls to use these awesome icons for `WPF` 
 | [Feather Icons](https://github.com/feathericons/feather) | 4.21.0 | 279 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> |
 | [Ionicons](https://ionicons.com/) | 4.5.5 | 696 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Ionicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Ionicons.svg?style=flat-square&&label=Ionicons"></a> |
 | [Jam Icons](https://github.com/michaelampr/jam) | 2.0.0 | 896 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.JamIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.JamIcons.svg?style=flat-square&&label=JamIcons"></a> |
-| [Unicons](https://github.com/Iconscout/unicons) | 0.0.3 | 1047 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Unicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Unicons.svg?style=flat-square&&label=Unicons"></a> |
+| [Unicons](https://github.com/Iconscout/unicons) | 0.0.4 | 1067 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Unicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Unicons.svg?style=flat-square&&label=Unicons"></a> |
 
 It's not necessary to install and use [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your `WPF` application nicer.
 
