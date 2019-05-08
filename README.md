@@ -60,7 +60,7 @@ It's not necessary to install and use [MahApps.Metro](https://github.com/MahApps
 - [Extra Properties for PackIcon and PathIcon controls](../../wiki/Extra-Properties-for-PackIcon-and-PathIcon-controls)
 - [Custom Styles for PackIcon controls](../../wiki/Custom-Styles-for-PackIcon-controls)
 - [Strong naming](../../wiki/Strong-naming)
-- [Breaking change 1.9.x -> 2.0|Breaking-change-1.9.x----2.0](../../wiki/Breaking-change-1.9.x----2.0)
+- [Breaking change 1.9.x -> 2.0](../../wiki/Breaking-change-1.9.x----2.0)
 
 ## Want to say thanks?
 
