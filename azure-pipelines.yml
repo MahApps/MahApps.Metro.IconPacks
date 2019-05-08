@@ -35,14 +35,17 @@ variables:
 
 steps:
 - task: DotNetCoreInstaller@0
-  displayName: Install NetCore 3.0.100-preview4-011223
+  displayName: Install NetCore 3.0.100-preview5-011568
   inputs:
-    version: '3.0.100-preview4-011223'
+    version: '3.0.100-preview5-011568'
 
 - task: NuGetToolInstaller@0
   displayName: Use NuGet 4.9.4
   inputs:
     versionSpec: 4.9.4
+
+- powershell: .\src\build.ps1 -Script .\src\build.cake --bootstrap
+  displayName: 'Build with cake (bootstrap)'
 
 - powershell: .\src\build.ps1 -Script .\src\build.cake -target appveyor
   displayName: 'Build with cake'

@@ -1,12 +1,11 @@
-
 //////////////////////////////////////////////////////////////////////
 // TOOLS / ADDINS
 //////////////////////////////////////////////////////////////////////
 
 #tool nuget:?package=GitVersion.CommandLine&prerelease
-#tool nuget:?package=gitreleasemanager&version=0.8
-#tool nuget:?package=vswhere&version=2.6.7
-#addin nuget:?package=Cake.Figlet&version=1.2
+#tool nuget:?package=gitreleasemanager
+#tool nuget:?package=vswhere
+#addin nuget:?package=Cake.Figlet
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -155,6 +154,8 @@ Task("Pack")
         
         MSBuild(project, msBuildSettings
             .WithTarget("pack")
+            .WithProperty("NoBuild", "true")
+            .WithProperty("IncludeBuildOutput", "true")
             .WithProperty("PackageOutputPath", "../" + publishDir)
             .WithProperty("RepositoryBranch", branchName)
             .WithProperty("RepositoryCommit", gitVersion.Sha)
