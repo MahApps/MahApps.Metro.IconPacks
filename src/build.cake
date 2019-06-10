@@ -112,6 +112,7 @@ Task("Restore")
 Task("Build")
   .Does(() =>
 {
+    EnsureDirectoryExists(Directory(publishDir));
     var msBuildSettings = new MSBuildSettings {
         Verbosity = verbosity
         , ToolPath = msBuildPathExe
@@ -121,6 +122,10 @@ Task("Build")
         };
     MSBuild(solution, msBuildSettings
             .SetMaxCpuCount(0)
+            .WithProperty("GeneratePackageOnBuild", target == "appveyor" ? "true" : "false")
+            .WithProperty("PackageOutputPath", "../" + publishDir)
+            .WithProperty("RepositoryBranch", branchName)
+            .WithProperty("RepositoryCommit", gitVersion.Sha)
             .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
             .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
@@ -133,45 +138,6 @@ Task("Zip")
 {
     EnsureDirectoryExists(Directory(publishDir));
     Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
-});
-
-Task("Pack")
-  .WithCriteria(() => !isPullRequest)
-    .Does(() =>
-{
-    EnsureDirectoryExists(Directory(publishDir));
-
-    var msBuildSettings = new MSBuildSettings {
-        Verbosity = verbosity
-        , ToolPath = msBuildPathExe
-        , Configuration = configuration
-    };
-    var projects = GetFiles("./MahApps.Metro.IconPacks/*.csproj");
-
-    foreach(var project in projects)
-    {
-        Information("Packing {0}...", project);
-        
-        MSBuild(project, msBuildSettings
-            .WithTarget("pack")
-            .WithProperty("NoBuild", "true")
-            .WithProperty("IncludeBuildOutput", "true")
-            .WithProperty("PackageOutputPath", "../" + publishDir)
-            .WithProperty("RepositoryBranch", branchName)
-            .WithProperty("RepositoryCommit", gitVersion.Sha)
-            .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
-            .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
-            .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
-            .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
-        );
-
-        var nuspecFiles = GetFiles("./MahApps.Metro.IconPacks/obj/**/*.nuspec");
-        if (isLocal)
-        {
-            CopyFiles(nuspecFiles, publishDir);
-        }
-        DeleteFiles(nuspecFiles);
-    }
 });
 
 Task("CreateRelease")
@@ -207,8 +173,7 @@ Task("Default")
     .IsDependentOn("Zip");
 
 Task("appveyor")
-    .IsDependentOn("Default")
-    .IsDependentOn("Pack");
+    .IsDependentOn("Default");
 
 // Execution
 RunTarget(target);

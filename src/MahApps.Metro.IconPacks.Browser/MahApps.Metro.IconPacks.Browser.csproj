@@ -7,6 +7,7 @@
         <RootNamespace>MahApps.Metro.IconPacks.Browser</RootNamespace>
         <DisableFody Condition="'$(Configuration)' == 'Debug' or '$(TargetFramework)' == 'netcoreapp3.0'">true</DisableFody>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <IsPackable>false</IsPackable>
         <!--<DisableImplicitFrameworkReferences Condition="'$(TargetFramework)' != 'netcoreapp3.0'">true</DisableImplicitFrameworkReferences>-->
     </PropertyGroup>
     <PropertyGroup>

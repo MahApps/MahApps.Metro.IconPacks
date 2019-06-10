@@ -257,3 +257,6 @@ paket-files/
 
 # cake
 src/tools/
+
+# MSBuild
+*.binlog
