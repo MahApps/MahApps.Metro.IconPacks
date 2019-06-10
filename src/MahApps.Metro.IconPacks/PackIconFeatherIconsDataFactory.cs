@@ -124,6 +124,7 @@ namespace MahApps.Metro.IconPacks
                        {PackIconFeatherIconsKind.Folder, "M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"},
                        {PackIconFeatherIconsKind.FolderMinus, "M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"},
                        {PackIconFeatherIconsKind.FolderPlus, "M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"},
+                       {PackIconFeatherIconsKind.Framer, "M5 16V9h14V2H5l14 14h-7m-7 0l7 7v-7m-7 0h7"},
                        {PackIconFeatherIconsKind.Frown, "M16 16s-1.5-2-4-2-4 2-4 2"},
                        {PackIconFeatherIconsKind.Gift, "m 12,7 h 4.5 a 2.5,2.5 0 0 0 0,-5 C 13,2 12,7 12,7 Z m 0,0 H 7.5 a 2.5,2.5 0 0 1 0,-5 C 11,2 12,7 12,7 Z m 0,15 V 7 M 2,7 h 20 v 5 H 2 Z m 18,5 V 22 H 4 V 12"},
                        {PackIconFeatherIconsKind.GitBranch, "M18 9a9 9 0 0 1-9 9"},

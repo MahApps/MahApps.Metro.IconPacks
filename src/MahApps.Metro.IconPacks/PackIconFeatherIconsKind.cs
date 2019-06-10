@@ -129,6 +129,7 @@
         [Description("folder (Directory)")] Folder,
         [Description("folder-minus (Directory)")] FolderMinus,
         [Description("folder-plus (Directory)")] FolderPlus,
+        [Description("framer (Logo, Design, Tool)")] Framer,
         [Description("frown (Emoji, Face, Bad, Sad, Emotion)")] Frown,
         [Description("gift (Present, Box, Birthday, Party)")] Gift,
         [Description("git-branch (Code, VersionControl)")] GitBranch,
