@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
@@ -9,22 +10,22 @@
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="PathIcon*.cs"/>
-        <Compile Remove="*.cs"/>
-        <Compile Include="PackIconExtension.cs"/>
-        <Compile Exclude="PackIconMaterialLight*.cs" Include="PackIconMaterialDesign*.cs"/>
-        <Page Generator="MSBuild:Compile" Include="Themes\WPF\MaterialDesign\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
-        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconMaterialDesign.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
+        <Compile Remove="PathIcon*.cs" />
+        <Compile Remove="*.cs" />
+        <Compile Include="PackIconExtension.cs" />
+        <Compile Exclude="PackIconMaterialLight*.cs" Include="PackIconMaterialDesign*.cs" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\MaterialDesign\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconMaterialDesign.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
-        <Compile Remove="*.cs"/>
-        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*"/>
-        <Compile Remove="*Extension*.cs"/>
-        <EmbeddedResource Include="**\*.rd.xml"/>
-        <Compile Exclude="*MaterialLight*.cs;*Extension*.cs" Include="*MaterialDesign*.cs"/>
-        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\MaterialDesign\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
-        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconMaterialDesign.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer"/>
-        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs"/>
+        <Compile Remove="*.cs" />
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
+        <Compile Remove="*Extension*.cs" />
+        <EmbeddedResource Include="**\*.rd.xml" />
+        <Compile Exclude="*MaterialLight*.cs;*Extension*.cs" Include="*MaterialDesign*.cs" />
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\MaterialDesign\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconMaterialDesign.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>
 </Project>

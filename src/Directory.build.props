@@ -4,12 +4,13 @@
     <PropertyGroup>
         <NoWarn>$(NoWarn);CS1591</NoWarn>
         <NoError>$(NoError);CS1591</NoError>
-
         <LangVersion>7.3</LangVersion>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
 
     <PropertyGroup Condition=" !$(TargetFramework.StartsWith('uap')) ">
@@ -26,22 +27,12 @@
 
     <!-- Add the references for all projects and targets -->
     <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2018.*" PrivateAssets="All" />
+        <PackageReference Include="JetBrains.Annotations" Version="2019.*" PrivateAssets="All" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2*" PrivateAssets="All" />
     </ItemGroup>
 
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <DebugType>portable</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <DebugType>full</DebugType>
-        <DebugSymbols>true</DebugSymbols>
-    </PropertyGroup>
-
     <!-- SourceLink -->
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <PropertyGroup>
         <!-- Optional: Declare that the Repository URL can be published to NuSpec -->
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <!-- Optional: Embed source files that are not tracked by the source control manager to the PDB -->
@@ -59,8 +50,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="**\*.png;**\*.jpg;**\*.ico"/>
-        <Resource Include="**\*.png;**\*.jpg;**\*.ico"/>
+        <None Remove="**\*.png;**\*.jpg;**\*.ico" />
+        <Resource Include="**\*.png;**\*.jpg;**\*.ico" />
     </ItemGroup>
 
 </Project>

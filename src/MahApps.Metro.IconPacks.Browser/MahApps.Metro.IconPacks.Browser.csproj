@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
@@ -8,7 +9,6 @@
         <DisableFody Condition="'$(Configuration)' == 'Debug' or '$(TargetFramework)' == 'netcoreapp3.0'">true</DisableFody>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <IsPackable>false</IsPackable>
-        <!--<DisableImplicitFrameworkReferences Condition="'$(TargetFramework)' != 'netcoreapp3.0'">true</DisableImplicitFrameworkReferences>-->
     </PropertyGroup>
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -17,29 +17,21 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="MahApps.Metro" Version="2.0.0-alpha*" />
-        <PackageReference Include="Fody" Version="4.*" Condition="'$(Configuration)' != 'Debug' and '$(TargetFramework)' != 'netcoreapp3.0'" />
-        <PackageReference Include="Costura.Fody" Version="3.*" Condition="'$(Configuration)' != 'Debug' and '$(TargetFramework)' != 'netcoreapp3.0'" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)' != 'Debug' and '$(TargetFramework)' != 'netcoreapp3.0'">
+        <PackageReference Include="Fody" Version="5.*">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Costura.Fody" Version="4.*" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj"/>
-        <ProjectReference Include="..\MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj"/>
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" />
+        <ProjectReference Include="..\MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj" />
     </ItemGroup>
-    <!--<ItemGroup Condition=" '$(TargetFramework)' != 'netcoreapp3.0' ">
-        <Reference Include="Microsoft.CSharp"/>
-        <Reference Include="PresentationCore"/>
-        <Reference Include="PresentationFramework"/>
-        <Reference Include="System"/>
-        <Reference Include="System.ComponentModel.DataAnnotations"/>
-        <Reference Include="System.Configuration"/>
-        <Reference Include="System.Core"/>
-        <Reference Include="System.Data"/>
-        <Reference Include="System.Data.DataSetExtensions"/>
-        <Reference Include="System.Xaml"/>
-        <Reference Include="WindowsBase"/>
-    </ItemGroup>-->
     <ItemGroup>
-        <None Include="app.manifest"/>
-        <None Remove="App.config"/>
+        <None Include="app.manifest" />
+        <None Remove="App.config" />
     </ItemGroup>
     <ItemGroup Condition=" !$(TargetFramework.StartsWith('netcore')) ">
         <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
@@ -47,7 +39,7 @@
         </AppConfigWithTargetPath>
     </ItemGroup>
     <ItemGroup>
-        <Compile DependentUpon="%(Filename)" SubType="Code" Update="**\obj\**\*.g$(DefaultLanguageSourceExtension)"/>
-        <Compile DependentUpon="%(Filename)" SubType="Designer" Update="**\*.xaml$(DefaultLanguageSourceExtension)"/>
+        <Compile DependentUpon="%(Filename)" SubType="Code" Update="**\obj\**\*.g$(DefaultLanguageSourceExtension)" />
+        <Compile DependentUpon="%(Filename)" SubType="Designer" Update="**\*.xaml$(DefaultLanguageSourceExtension)" />
     </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
@@ -12,7 +13,7 @@
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-    	<Compile Remove="PathIcon*.cs" />
+        <Compile Remove="PathIcon*.cs" />
         <Compile Remove="Attributes\DescriptionAttribute.cs" />
     </ItemGroup>
     <!-- UWP Items include -->
