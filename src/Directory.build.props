@@ -21,9 +21,6 @@
     <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
         <EnableDefaultXamlItems>true</EnableDefaultXamlItems>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(TargetFramework)' == 'uap10.0.17763' ">
-        <DefineConstants>$(DefineConstants);UAP1809</DefineConstants>
-    </PropertyGroup>
 
     <!-- Add the references for all projects and targets -->
     <ItemGroup>
