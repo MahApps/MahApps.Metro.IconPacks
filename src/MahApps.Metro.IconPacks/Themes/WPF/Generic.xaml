@@ -20,5 +20,6 @@
     <Style TargetType="{x:Type local:PackIconIonicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconIonicons}" />
     <Style TargetType="{x:Type local:PackIconJamIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconJamIcons}" />
     <Style TargetType="{x:Type local:PackIconUnicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconUnicons}" />
+    <Style TargetType="{x:Type local:PackIconZondicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconZondicons}" />
 
 </ResourceDictionary>

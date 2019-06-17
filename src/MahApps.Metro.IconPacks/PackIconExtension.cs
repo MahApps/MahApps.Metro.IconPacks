@@ -151,6 +151,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconUnicons, PackIconUniconsKind>((PackIconUniconsKind) this.Kind);
             }
 #endif
+#if ALL || ZONDICONS
+            if (this.Kind is PackIconZondiconsKind)
+            {
+                return this.GetPackIcon<PackIconZondicons, PackIconZondiconsKind>((PackIconZondiconsKind) this.Kind);
+            }
+#endif
             return null;
         }
     }

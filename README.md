@@ -44,6 +44,7 @@ This `IconPacks` library contains controls to use these awesome icons for `WPF` 
 | [Ionicons](https://ionicons.com/) | 4.5.8 | 696 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Ionicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Ionicons.svg?style=flat-square&&label=Ionicons"></a> |
 | [Jam Icons](https://github.com/michaelampr/jam) | 2.0.0 | 896 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.JamIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.JamIcons.svg?style=flat-square&&label=JamIcons"></a> |
 | [Unicons](https://github.com/Iconscout/unicons) | 0.0.4 | 1067 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Unicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Unicons.svg?style=flat-square&&label=Unicons"></a> |
+| [Zondicons](https://www.zondicons.com) | | 297 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Zondicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Zondicons.svg?style=flat-square&&label=Zondicons"></a> |
 
 It's not necessary to install and use [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your `WPF` application nicer.
 
