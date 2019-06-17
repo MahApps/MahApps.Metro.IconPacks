@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="Current">
+<Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
         <DefineConstants>$(DefineConstants);UNICONS</DefineConstants>

@@ -99,7 +99,7 @@ namespace MahApps.Metro.IconPacks
             set { this.SetValue(FlipProperty, value); }
         }
 
-#if UAP10_0_15063
+#if UAP10_0_16299
         /// <summary>
         /// Identifies the Rotation dependency property.
         /// </summary>
