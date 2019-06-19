@@ -260,3 +260,6 @@ src/tools/
 
 # MSBuild
 *.binlog
+
+# Generated files
+*_wpftmp.csproj

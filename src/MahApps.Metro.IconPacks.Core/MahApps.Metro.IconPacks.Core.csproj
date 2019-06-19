@@ -7,8 +7,6 @@
         <AssemblyName>MahApps.Metro.IconPacks.Core</AssemblyName>
         <Title>MahApps.Metro.IconPacks.Core</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
-        <DefaultItemExcludes Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">$(DefaultItemExcludes);$(MSBuildProjectDirectory)\Converter\*.xaml</DefaultItemExcludes>
-        <ExtrasDefaultPageExcludes Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Converter\*.xaml</ExtrasDefaultPageExcludes>
         <GenerateLibraryLayout>true</GenerateLibraryLayout>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
@@ -19,9 +17,6 @@
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
-        <Page Update="Converter\Converters.xaml">
-            <Generator>MSBuild:Compile</Generator>
-        </Page>
         <Compile Remove="Converter\MarkupConverter.cs" />
         <EmbeddedResource Include="**\*.rd.xml" />
         <Page Include="**\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />

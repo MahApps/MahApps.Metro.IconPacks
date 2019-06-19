@@ -3,7 +3,7 @@
                     xmlns:iconPacks="using:MahApps.Metro.IconPacks">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Core/Converter/Converters.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/Converters.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="MahApps.Metro.Styles.PackIconZondicons" TargetType="iconPacks:PackIconZondicons">
