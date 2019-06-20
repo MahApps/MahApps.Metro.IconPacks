@@ -102,13 +102,12 @@ namespace MahApps.Metro.IconPacks
             set { this.SetValue(FlipProperty, value); }
         }
 
-#if UAP10_0_14393 || !(NETFX_CORE || WINDOWS_UWP)
         /// <summary>
-        /// Identifies the Rotation dependency property.
+        /// Identifies the RotationAngle dependency property.
         /// </summary>
-        public static readonly DependencyProperty RotationProperty
+        public static readonly DependencyProperty RotationAngleProperty
             = DependencyProperty.Register(
-                nameof(Rotation),
+                nameof(RotationAngle),
                 typeof(double),
                 typeof(PackIconControl<TKind>),
 #if NETFX_CORE || WINDOWS_UWP
@@ -127,12 +126,11 @@ namespace MahApps.Metro.IconPacks
         /// Gets or sets the rotation (angle).
         /// </summary>
         /// <value>The rotation.</value>
-        public double Rotation
+        public double RotationAngle
         {
-            get { return (double)this.GetValue(RotationProperty); }
-            set { this.SetValue(RotationProperty, value); }
+            get { return (double)this.GetValue(RotationAngleProperty); }
+            set { this.SetValue(RotationAngleProperty, value); }
         }
-#endif
 
         /// <summary>
         /// Identifies the Spin dependency property.
