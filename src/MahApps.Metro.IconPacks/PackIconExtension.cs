@@ -9,7 +9,7 @@ namespace MahApps.Metro.IconPacks
         double? Width { get; set; }
         double? Height { get; set; }
         PackIconFlipOrientation? Flip { get; set; }
-        double? Rotation { get; set; }
+        double? RotationAngle { get; set; }
         bool? Spin { get; set; }
         bool? SpinAutoReverse { get; set; }
         IEasingFunction SpinEasingFunction { get; set; }
@@ -27,8 +27,8 @@ namespace MahApps.Metro.IconPacks
                 packIcon.Height = packIconExtension.Height.Value;
             if (packIconExtension.Flip != null)
                 packIcon.Flip = packIconExtension.Flip.Value;
-            if (packIconExtension.Rotation != null)
-                packIcon.Rotation = packIconExtension.Rotation.Value;
+            if (packIconExtension.RotationAngle != null)
+                packIcon.RotationAngle = packIconExtension.RotationAngle.Value;
             if (packIconExtension.Spin != null)
                 packIcon.Spin = packIconExtension.Spin.Value;
             if (packIconExtension.SpinAutoReverse != null)
@@ -50,7 +50,7 @@ namespace MahApps.Metro.IconPacks
         public double? Width { get; set; }
         public double? Height { get; set; }
         public PackIconFlipOrientation? Flip { get; set; }
-        public double? Rotation { get; set; }
+        public double? RotationAngle { get; set; }
         public bool? Spin { get; set; }
         public bool? SpinAutoReverse { get; set; }
         public IEasingFunction SpinEasingFunction { get; set; }
@@ -170,7 +170,7 @@ namespace MahApps.Metro.IconPacks
         public double? Width { get; set; }
         public double? Height { get; set; }
         public PackIconFlipOrientation? Flip { get; set; }
-        public double? Rotation { get; set; }
+        public double? RotationAngle { get; set; }
         public bool? Spin { get; set; }
         public bool? SpinAutoReverse { get; set; }
         public IEasingFunction SpinEasingFunction { get; set; }

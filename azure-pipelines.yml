@@ -45,7 +45,7 @@ steps:
     versionSpec: 5.0.2
 
 - powershell: .\build\Install-WindowsSDK.ps1
-  displayName: Install Windows SDK 10.0.14393
+  displayName: Install Windows SDK 10.0.16299
 
 - powershell: .\src\build.ps1 -Script .\src\build.cake --bootstrap
   displayName: 'Build: cake (bootstrap)'

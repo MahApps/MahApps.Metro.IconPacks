@@ -54,7 +54,7 @@ namespace MahApps.Metro.IconPacks
             BindingOperations.SetBinding(
                 rotateTransform,
                 RotateTransform.AngleProperty,
-                new Binding() {Path = new PropertyPath(nameof(Rotation)), Source = this, Mode = BindingMode.OneWay});
+                new Binding() {Path = new PropertyPath(nameof(RotationAngle)), Source = this, Mode = BindingMode.OneWay});
             transformGroup.Children.Add(rotateTransform); // rotate
             transformGroup.Children.Add(new RotateTransform()); // spin
             this.RenderTransform = transformGroup;
@@ -99,13 +99,12 @@ namespace MahApps.Metro.IconPacks
             set { this.SetValue(FlipProperty, value); }
         }
 
-#if UAP10_0_14393
         /// <summary>
-        /// Identifies the Rotation dependency property.
+        /// Identifies the RotationAngle dependency property.
         /// </summary>
-        public static readonly DependencyProperty RotationProperty
+        public static readonly DependencyProperty RotationAngleProperty
             = DependencyProperty.Register(
-                nameof(Rotation),
+                nameof(RotationAngle),
                 typeof(double),
                 typeof(PathIconControl<TKind>),
                 new PropertyMetadata(0d));
@@ -114,12 +113,11 @@ namespace MahApps.Metro.IconPacks
         /// Gets or sets the rotation (angle).
         /// </summary>
         /// <value>The rotation.</value>
-        public double Rotation
+        public double RotationAngle
         {
-            get { return (double) this.GetValue(RotationProperty); }
-            set { this.SetValue(RotationProperty, value); }
+            get { return (double) this.GetValue(RotationAngleProperty); }
+            set { this.SetValue(RotationAngleProperty, value); }
         }
-#endif
 
         /// <summary>
         /// Identifies the Spin dependency property.
