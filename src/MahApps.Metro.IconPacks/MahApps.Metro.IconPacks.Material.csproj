@@ -23,7 +23,8 @@
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <Compile Remove="*Extension*.cs" />
         <EmbeddedResource Include="**\*.rd.xml" />
-        <Compile Exclude="*MaterialLight*.cs;*MaterialDesign*.cs;*Extension*.cs" Include="*Material*.cs" />
+        <Compile Exclude="*MaterialLight*.cs;*MaterialDesign*.cs;*Extension*.cs" Include="*Material*.cs" Condition=" '$(TargetFramework)' != 'uap10.0.16299' " />
+        <Compile Exclude="*MaterialLight*.cs;*MaterialDesign*.cs" Include="PackIconExtension.cs;*Material*.cs" Condition=" '$(TargetFramework)' == 'uap10.0.16299' " />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Material\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconMaterial.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />

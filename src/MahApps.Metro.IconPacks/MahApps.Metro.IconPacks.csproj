@@ -14,9 +14,11 @@
         <Page Generator="MSBuild:Compile" Include="Themes\WPF\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
     </ItemGroup>
     <!-- UWP Items include -->
-    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
-        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
+    <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' and '$(TargetFramework)' != 'uap10.0.16299' ">
         <Compile Remove="*Extension*.cs" />
+    </ItemGroup>
+    <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <EmbeddedResource Include="**\*.rd.xml" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
