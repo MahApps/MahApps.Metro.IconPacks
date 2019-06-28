@@ -24,8 +24,7 @@
         <EmbeddedResource Include="**\*.rd.xml" />
         <Compile Exclude="*Extension*.cs" Include="*Entypo*.cs" Condition=" '$(TargetFramework)' != 'uap10.0.16299' " />
         <Compile Include="PackIconExtension.cs;*Entypo*.cs" Condition=" '$(TargetFramework)' == 'uap10.0.16299' " />
-        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Entypo\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
-        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconEntypo.xaml;Themes\UAP\Converters.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Entypo\*.xaml;Themes\UAP\PackIconEntypo.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>
 </Project>
