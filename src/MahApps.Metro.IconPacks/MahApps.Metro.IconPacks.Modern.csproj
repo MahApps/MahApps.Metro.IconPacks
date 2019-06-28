@@ -21,12 +21,10 @@
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
-        <Compile Remove="*Extension*.cs" />
         <EmbeddedResource Include="**\*.rd.xml" />
         <Compile Exclude="*Extension*.cs" Include="*Modern*.cs" Condition=" '$(TargetFramework)' != 'uap10.0.16299' " />
         <Compile Include="PackIconExtension.cs;*Modern*.cs" Condition=" '$(TargetFramework)' == 'uap10.0.16299' " />
-        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Modern\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
-        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconModern.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Modern\*.xaml;Themes\UAP\PackIconModern.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>
 </Project>
