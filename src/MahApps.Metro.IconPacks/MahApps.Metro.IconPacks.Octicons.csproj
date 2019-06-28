@@ -21,12 +21,11 @@
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
-        <Compile Remove="*Extension*.cs" />
         <EmbeddedResource Include="**\*.rd.xml" />
         <Compile Exclude="*Extension*.cs" Include="*Octicons*.cs" Condition=" '$(TargetFramework)' != 'uap10.0.16299' " />
         <Compile Include="PackIconExtension.cs;*Octicons*.cs" Condition=" '$(TargetFramework)' == 'uap10.0.16299' " />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Octicons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
-        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconOcticons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Page Generator="MSBuild:Compile" Include="Themes\UAP\PackIconOcticons.xaml;Themes\UAP\Converters.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>
 </Project>
