@@ -31,4 +31,17 @@
             </ItemGroup>
         </When>
     </Choose>
+
+    <Target Name="GetUWPContracts" BeforeTargets="ResolveFrameworkReferences" Condition=" '$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.16299' "> 
+        <CreateProperty Value="true">
+            <Output PropertyName="ImplicitlyExpandTargetPlatform" TaskParameter="Value"/>
+        </CreateProperty>
+        <CreateProperty Value="">
+            <Output PropertyName="WindowsWinmdFile" TaskParameter="Value"/>
+        </CreateProperty>
+        <ItemGroup>
+            <Reference Remove="@(_SdkWindowsImplicitReference)"/>
+        </ItemGroup>
+    </Target>
+
 </Project>
