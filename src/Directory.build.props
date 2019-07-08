@@ -2,8 +2,8 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0;uap10.0.16299</TargetFrameworks>
-        <!-- <TargetFrameworks>uap10.0.16299</TargetFrameworks> -->
+        <!-- <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0.15063;uap10.0.16299</TargetFrameworks> -->
+        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0.16299</TargetFrameworks>
         <NoWarn>$(NoWarn);CS1591</NoWarn>
         <NoError>$(NoError);CS1591</NoError>
         <LangVersion>7.3</LangVersion>
@@ -21,16 +21,17 @@
 
     <!-- UAP 10.0 -->
     <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
-        <DefaultTargetPlatformVersion>17763</DefaultTargetPlatformVersion>
+        <DefaultTargetPlatformVersion>16299</DefaultTargetPlatformVersion>
         <DefaultTargetPlatformMinVersion>16299</DefaultTargetPlatformMinVersion>
         <UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
         <EnableDefaultXamlItems>true</EnableDefaultXamlItems>
         <!-- 8002 is a strong named -> non-strong-named reference -->
         <!-- This is valid for platforms other than .NET Framework (and is needed for the UWP targets -->
         <NoWarn>$(NoWarn);8002</NoWarn>
+    </PropertyGroup>
 
-        <DisableImplicitFrameworkReferences>false</DisableImplicitFrameworkReferences>
-        <ExtrasUwpMetaPackageVersion>6.2.8</ExtrasUwpMetaPackageVersion>
+    <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) and '$(Configuration)' == 'Release' ">
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <!-- Add the references for all projects and targets -->
@@ -88,18 +89,16 @@
                     string code = System.IO.File.ReadAllText(InputFilename);
                     if (code.StartsWith("#pragma warning disable 1591")) //Already modified 
                         return true; 
-                    Log.LogMessage(MessageImportance.Normal, "XamlTypeInfoBuildTask: File is not modified");
                     int idx = code.IndexOf("[global::System.CodeDom.Compiler.GeneratedCodeAttribute"); 
                     if (idx < 0) 
                     {
                         return true; 
                     }
-                    Log.LogMessage(MessageImportance.Normal, "XamlTypeInfoBuildTask: GeneratedCodeAttribute exists");
                     string insert = "[global::System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]\n    "; 
                     code = "#pragma warning disable 1591\n" + code.Substring(0, idx) + insert + code.Substring(idx) + 
                         "#pragma warning restore 1591\n"; 
                     System.IO.File.WriteAllText(InputFilename, code); 
-                    Log.LogMessage(MessageImportance.Normal, "XamlTypeInfoBuildTask: File is now modified");
+                    Log.LogMessage(MessageImportance.Normal, "XamlTypeInfoBuildTask: File now modified");
                     return true; 
                 }
                 catch (Exception ex) {
@@ -112,7 +111,7 @@
         </Task>
     </UsingTask>
     <Target Name="XamlTypeInfoBuildTask"
-            Condition="$(TargetFramework.StartsWith('uap')) and '$(DesignTimeBuild)' != 'true'"
+            Condition=" $(TargetFramework.StartsWith('uap')) and '$(DesignTimeBuild)' != 'true' "
             AfterTargets="MarkupCompilePass2"
             BeforeTargets="CoreCompile">
         <XamlTypeInfoBuildTask InputFilename="$(IntermediateOutputPath)\XamlTypeInfo.g.cs" />

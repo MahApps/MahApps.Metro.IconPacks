@@ -14,25 +14,24 @@
     </PropertyGroup>
 
     <Choose>
-        <When Condition=" '$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.16299' or '$(TargetFramework)' == 'native' ">
-            <!-- UAP versions for uap10.0 where TPMV isn't implied -->
+        <When Condition=" $(TargetFramework.StartsWith('uap')) ">
             <PropertyGroup>
                 <TargetPlatformVersion>10.0.$(DefaultTargetPlatformVersion).0</TargetPlatformVersion>
                 <TargetPlatformMinVersion>10.0.$(DefaultTargetPlatformMinVersion).0</TargetPlatformMinVersion>
                 <DebugType>Full</DebugType>
             </PropertyGroup>
-            <ItemGroup>
-                <SDKReference Condition="'$(UseWindowsDesktopSdk)' == 'true' " Include="WindowsDesktop, Version=$(TargetPlatformVersion)">
+            <!-- <ItemGroup>
+                <SDKReference Condition=" '$(UseWindowsDesktopSdk)' == 'true' and '$(TargetFramework)' == 'uap10.0.15063' " Include="WindowsDesktop, Version=10.0.15063.0">
                     <Name>Windows Desktop Extensions for the UWP</Name>
                 </SDKReference>
-                <SDKReference Condition="'$(UseWindowsMobileSdk)' == 'true' " Include="WindowsMobile, Version=$(TargetPlatformVersion)">
-                    <Name>Windows Mobile Extensions for the UWP</Name>
+                <SDKReference Condition=" '$(UseWindowsDesktopSdk)' == 'true' and '$(TargetFramework)' == 'uap10.0.16299' " Include="WindowsDesktop, Version=10.0.16299.0">
+                    <Name>Windows Desktop Extensions for the UWP</Name>
                 </SDKReference>
-            </ItemGroup>
+            </ItemGroup> -->
         </When>
     </Choose>
 
-    <Target Name="GetUWPContracts" BeforeTargets="ResolveFrameworkReferences" Condition=" '$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.16299' "> 
+    <Target Name="GetUWPContracts" BeforeTargets="ResolveFrameworkReferences" Condition=" $(TargetFramework.StartsWith('uap')) ">
         <CreateProperty Value="true">
             <Output PropertyName="ImplicitlyExpandTargetPlatform" TaskParameter="Value"/>
         </CreateProperty>
