@@ -13,7 +13,7 @@
     </PropertyGroup>
 
     <!-- Sign assembly -->
-    <PropertyGroup>
+    <PropertyGroup Condition=" !$(TargetFramework.StartsWith('uap')) ">
         <SignAssembly>True</SignAssembly>
         <AssemblyOriginatorKeyFile>$(MSBuildProjectDirectory)\..\iconpacks.public.snk</AssemblyOriginatorKeyFile>
         <DelaySign>false</DelaySign>
