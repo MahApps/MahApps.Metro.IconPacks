@@ -21,7 +21,7 @@
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
-        <EmbeddedResource Include="**\*.rd.xml" />
+        <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
         <Compile Exclude="*MaterialLight*.cs;*MaterialDesign*.cs;*Extension*.cs" Include="*Material*.cs" Condition=" '$(TargetFramework)' != 'uap10.0.16299' " />
         <Compile Exclude="*MaterialLight*.cs;*MaterialDesign*.cs" Include="PackIconExtension.cs;*Material*.cs" Condition=" '$(TargetFramework)' == 'uap10.0.16299' " />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Material\*.xaml;Themes\UAP\PackIconMaterial.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />

@@ -41,7 +41,7 @@
     </Target>
 
     <ItemGroup Label="Package" Condition=" $(TargetFramework.StartsWith('uap')) ">
-        <None Include="Properties\MahApps.Metro.IconPacks.rd.xml" PackagePath="lib\$(TargetFramework)\MahApps.Metro.IconPacks\Properties\MahApps.Metro.IconPacks.rd.xml" Pack="true" />
+        <None Include="Properties\$(AssemblyName).rd.xml" PackagePath="lib\$(TargetFramework)\MahApps.Metro.IconPacks\Properties\$(AssemblyName).rd.xml" Pack="true" />
     </ItemGroup>
 
     <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />

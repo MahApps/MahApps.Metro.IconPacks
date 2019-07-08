@@ -19,7 +19,7 @@
     </ItemGroup>
     <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
-        <EmbeddedResource Include="**\*.rd.xml" />
+        <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>

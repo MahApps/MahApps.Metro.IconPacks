@@ -21,7 +21,7 @@
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="*.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
-        <EmbeddedResource Include="**\*.rd.xml" />
+        <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
         <Compile Exclude="*Extension*.cs" Include="*JamIcons*.cs" Condition=" '$(TargetFramework)' != 'uap10.0.16299' " />
         <Compile Include="PackIconExtension.cs;*JamIcons*.cs" Condition=" '$(TargetFramework)' == 'uap10.0.16299' " />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\JamIcons\*.xaml;Themes\UAP\PackIconJamIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
