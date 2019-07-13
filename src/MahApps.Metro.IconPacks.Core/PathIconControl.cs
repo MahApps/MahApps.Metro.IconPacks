@@ -65,7 +65,8 @@ namespace MahApps.Metro.IconPacks
             var pathIcon = sender as PathIconControl<TKind>;
             if (pathIcon != null && (dp == OpacityProperty || dp == VisibilityProperty))
             {
-                this.Spin = pathIcon.Visibility == Visibility.Visible && pathIcon.SpinDuration > 0 && pathIcon.Opacity > 0;
+                var spin = this.Spin && pathIcon.Visibility == Visibility.Visible && pathIcon.SpinDuration > 0 && pathIcon.Opacity > 0;
+                pathIcon.ToggleSpinAnimation(spin);
             }
         }
 
@@ -134,15 +135,19 @@ namespace MahApps.Metro.IconPacks
             var pathIcon = dependencyObject as PathIconControl<TKind>;
             if (pathIcon != null && e.OldValue != e.NewValue && e.NewValue is bool)
             {
-                var spin = (bool) e.NewValue;
-                if (spin)
-                {
-                    pathIcon.BeginSpinAnimation();
-                }
-                else
-                {
-                    pathIcon.StopSpinAnimation();
-                }
+                pathIcon.ToggleSpinAnimation((bool)e.NewValue);
+            }
+        }
+
+        private void ToggleSpinAnimation(bool spin)
+        {
+            if (spin)
+            {
+                this.BeginSpinAnimation();
+            }
+            else
+            {
+                this.StopSpinAnimation();
             }
         }
 

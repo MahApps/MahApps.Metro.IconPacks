@@ -44,7 +44,8 @@ namespace MahApps.Metro.IconPacks
             var packIcon = sender as PackIconControl<TKind>;
             if (packIcon != null && (dp == OpacityProperty || dp == VisibilityProperty))
             {
-                this.Spin = packIcon.Visibility == Visibility.Visible && packIcon.SpinDuration > 0 && packIcon.Opacity > 0;
+                var spin = this.Spin && packIcon.Visibility == Visibility.Visible && packIcon.SpinDuration > 0 && packIcon.Opacity > 0;
+                packIcon.ToggleSpinAnimation(spin);
             }
         }
 #else
@@ -161,15 +162,19 @@ namespace MahApps.Metro.IconPacks
             var packIcon = dependencyObject as PackIconControl<TKind>;
             if (packIcon != null && e.OldValue != e.NewValue && e.NewValue is bool)
             {
-                var spin = (bool)e.NewValue;
-                if (spin)
-                {
-                    packIcon.BeginSpinAnimation();
-                }
-                else
-                {
-                    packIcon.StopSpinAnimation();
-                }
+                packIcon.ToggleSpinAnimation((bool)e.NewValue);
+            }
+        }
+
+        private void ToggleSpinAnimation(bool spin)
+        {
+            if (spin)
+            {
+                this.BeginSpinAnimation();
+            }
+            else
+            {
+                this.StopSpinAnimation();
             }
         }
 
