@@ -35,14 +35,14 @@ variables:
 
 steps:
 - task: DotNetCoreInstaller@0
-  displayName: Install NetCore 3.0.100-preview6-012264
+  displayName: Install NetCore 3.0.100-preview7-012821
   inputs:
-    version: '3.0.100-preview6-012264'
+    version: '3.0.100-preview7-012821'
 
 - task: NuGetToolInstaller@0
-  displayName: Use NuGet 5.0.2
+  displayName: Use NuGet 5.1.0
   inputs:
-    versionSpec: 5.0.2
+    versionSpec: 5.1.0
 
 - powershell: .\build\Install-WindowsSDK.ps1
   displayName: Install Windows SDK 10.0.16299
