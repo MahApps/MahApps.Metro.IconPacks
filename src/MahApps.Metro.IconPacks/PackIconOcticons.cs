@@ -6,7 +6,8 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Icons from GitHub Octicons - <see><cref>https://octicons.github.com</cref></see>
+    /// All icons sourced from GitHub Octicons - <see><cref>https://octicons.github.com</cref></see> - 
+    /// <see><cref>https://github.com/primer/octicons/blob/master/LICENSE</cref></see>.
     /// </summary>
     public class PackIconOcticons : PackIconControl<PackIconOcticonsKind>
     {

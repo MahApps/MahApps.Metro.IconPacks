@@ -3,7 +3,8 @@
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Icons from the FontAwesome Icons project, <see><cref>http://fontawesome.io</cref></see>.
+    /// All icons sourced from Font Awesome Free <see><cref>https://fontawesome.com/</cref></see> - License <see><cref>https://fontawesome.com/license/free</cref></see>
+    /// GitHub <see><cref>https://github.com/FortAwesome/Font-Awesome</cref></see>
     /// </summary>
     public class PathIconFontAwesome : PathIconControl<PackIconFontAwesomeKind>
     {

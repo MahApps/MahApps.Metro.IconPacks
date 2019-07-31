@@ -6,7 +6,8 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Icons from the Modern UI Icons project, <see><cref>http://modernuiicons.com</cref></see>.
+    /// All icons sourced from Modern UI Icons Font - <see><cref>http://modernuiicons.com</cref></see> - in accordance of
+    /// <see><cref>https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt</cref></see>.
     /// </summary>
     public class PackIconModern : PackIconControl<PackIconModernKind>
     {

@@ -6,7 +6,8 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Icons from the Material Design Icons project, <see><cref>https://materialdesignicons.com/</cref></see>.
+    /// All icons sourced from Material Design Light Icons - <see><cref>https://github.com/Templarian/MaterialDesignLight</cref></see> - in accordance of
+    /// <see><cref>https://github.com/Templarian/MaterialDesignLight/blob/master/LICENSE.md</cref></see>.
     /// </summary>
     public class PackIconMaterialLight : PackIconControl<PackIconMaterialLightKind>
     {

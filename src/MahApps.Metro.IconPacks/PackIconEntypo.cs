@@ -6,7 +6,8 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Icons from Entypo+ Icons Font - <see><cref>http://www.entypo.com</cref></see>.
+    /// All icons sourced from Entypo+ Icons Font <see><cref>http://www.entypo.com</cref></see>
+    /// Licensed under <see><cref>http://creativecommons.org/licenses/by-sa/4.0/</cref></see>.
     /// </summary>
     public class PackIconEntypo : PackIconControl<PackIconEntypoKind>
     {
