@@ -354,6 +354,7 @@
         [Description("Copyright (f1f9, brand, mark, register, trademark)")] CopyrightRegular,
         [Description("Copyright (f1f9, brand, mark, register, trademark)")] CopyrightSolid,
         [Description("Copy (f0c5, clone, duplicate, file, files-o, paper, paste)")] CopySolid,
+        [Description("Cotton Bureau (f89e, clothing, t-shirts, tshirts)")] CottonBureauBrands,
         [Description("Couch (f4b8, chair, cushion, furniture, relax, sofa)")] CouchSolid,
         [Description("cPanel (f388)")] CpanelBrands,
         [Description("Creative Commons (f25e)")] CreativeCommonsBrands,
