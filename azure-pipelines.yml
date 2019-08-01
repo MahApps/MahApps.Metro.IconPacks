@@ -26,7 +26,7 @@ pr:
 name: $(Build.BuildId)
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'windows-latest'
 
 variables:
   solution: '**/*.sln'
@@ -34,15 +34,15 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreInstaller@0
-  displayName: Install NetCore 3.0.100-preview7-012821
-  inputs:
-    version: '3.0.100-preview7-012821'
-
 - task: NuGetToolInstaller@0
-  displayName: Use NuGet 5.1.0
+  displayName: Install NuGet
+
+- task: UseDotNet@2
+  displayName: Ensure to use .NET Core 3.0.100-preview7
   inputs:
-    versionSpec: 5.1.0
+    packageType: 'sdk'
+    version: '3.0.100-preview7-012821'
+    includePreviewVersions: true
 
 - powershell: .\build\Install-WindowsSDK.ps1
   displayName: Install Windows SDK 10.0.16299
