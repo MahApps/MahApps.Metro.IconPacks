@@ -13,6 +13,14 @@
         <InformationalVersion>3.0.0.0</InformationalVersion>
     </PropertyGroup>
 
+    <!-- Sign assembly -->
+    <PropertyGroup Condition=" '$(IsSampleProject)' != 'true' ">
+        <SignAssembly>True</SignAssembly>
+        <AssemblyOriginatorKeyFile>$(MSBuildProjectDirectory)\..\iconpacks.public.snk</AssemblyOriginatorKeyFile>
+        <DelaySign>false</DelaySign>
+        <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    </PropertyGroup>
+
     <Choose>
         <When Condition=" $(TargetFramework.StartsWith('uap')) ">
             <PropertyGroup>
@@ -31,7 +39,7 @@
         </When>
     </Choose>
 
-    <Target Name="GetUWPContracts" BeforeTargets="ResolveFrameworkReferences" Condition=" $(TargetFramework.StartsWith('uap')) ">
+<!--     <Target Name="GetUWPContracts" BeforeTargets="ResolveFrameworkReferences" Condition=" $(TargetFramework.StartsWith('uap')) ">
         <CreateProperty Value="true">
             <Output PropertyName="ImplicitlyExpandTargetPlatform" TaskParameter="Value"/>
         </CreateProperty>
@@ -42,5 +50,5 @@
             <Reference Remove="@(_SdkWindowsImplicitReference)"/>
         </ItemGroup>
     </Target>
-
+ -->
 </Project>

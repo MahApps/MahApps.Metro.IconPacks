@@ -13,6 +13,8 @@
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
         <DebugType>full</DebugType>
         <DebugSymbols>true</DebugSymbols>
+
+        <IsSampleProject>$(MSBuildProjectName.Contains('Browser'))</IsSampleProject>
     </PropertyGroup>
 
     <PropertyGroup Condition=" !$(TargetFramework.StartsWith('uap')) ">

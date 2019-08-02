@@ -12,13 +12,5 @@
         <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
-    <!-- Sign assembly -->
-    <PropertyGroup Condition=" !$(TargetFramework.StartsWith('uap')) ">
-        <SignAssembly>True</SignAssembly>
-        <AssemblyOriginatorKeyFile>$(MSBuildProjectDirectory)\..\iconpacks.public.snk</AssemblyOriginatorKeyFile>
-        <DelaySign>false</DelaySign>
-        <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
-    </PropertyGroup>
-
     <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))" />
 </Project>
