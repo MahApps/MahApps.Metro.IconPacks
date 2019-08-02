@@ -38,6 +38,7 @@
     <ItemGroup>
         <PackageReference Include="JetBrains.Annotations" Version="2019.*" PrivateAssets="All" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2*" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.18362.2002-preview" PrivateAssets="All" Condition=" $(TargetFramework.StartsWith('uap')) " />
     </ItemGroup>
 
     <!-- SourceLink -->
