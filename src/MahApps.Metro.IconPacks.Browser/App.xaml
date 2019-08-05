@@ -12,15 +12,15 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Emerald.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource MetroListBoxItem}">
+            <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource MahApps.Styles.ListBoxItem}">
                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                 <Setter Property="VerticalContentAlignment" Value="Center" />
                 <Setter Property="Padding" Value="0" />
             </Style>
 
-            <Style x:Key="CustomMetroCircleButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MahApps.Metro.Styles.MetroCircleButtonStyle}">
+            <Style x:Key="CustomMetroCircleButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MahApps.Styles.Button.Circle}">
                 <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush3}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Gray3}" />
                 <Setter Property="BorderThickness" Value="2" />
                 <Setter Property="FocusVisualStyle" Value="{x:Null}" />
                 <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -32,7 +32,7 @@
                             <Grid>
                                 <Ellipse Fill="{TemplateBinding Background}" StrokeThickness="0" />
                                 <Ellipse x:Name="ellipsebg"
-                                         Fill="{DynamicResource BlackBrush}"
+                                         Fill="{DynamicResource MahApps.Brushes.Black}"
                                          StrokeThickness="0"
                                          Opacity="0" />
                                 <Ellipse x:Name="ellipse"
@@ -58,7 +58,7 @@
                                     <Setter TargetName="ellipsebg" Property="Opacity" Value="0.5" />
                                 </Trigger>
                                 <Trigger Property="IsEnabled" Value="False">
-                                    <Setter Property="Foreground" Value="{DynamicResource GrayBrush7}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource MahApps.Brushes.Gray7}" />
                                     <Setter TargetName="ellipse" Property="Opacity" Value="0.3" />
                                 </Trigger>
                             </ControlTemplate.Triggers>

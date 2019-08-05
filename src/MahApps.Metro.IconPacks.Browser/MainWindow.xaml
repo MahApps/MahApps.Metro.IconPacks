@@ -14,7 +14,7 @@
                       d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
                       d:DesignHeight="400"
                       d:DesignWidth="600"
-                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
                       BorderThickness="1"
                       ResizeMode="CanResizeWithGrip"
                       TitleCharacterCasing="Normal"
@@ -31,7 +31,7 @@
     </controls:MetroWindow.Resources>
 
     <controls:MetroWindow.WindowButtonCommands>
-        <controls:WindowButtonCommands Template="{DynamicResource MahApps.Metro.Templates.WindowButtonCommands.Win10}" />
+        <controls:WindowButtonCommands Template="{DynamicResource MahApps.Templates.WindowButtonCommands.Win10}" />
     </controls:MetroWindow.WindowButtonCommands>
 
     <controls:MetroWindow.IconTemplate>
@@ -40,7 +40,7 @@
                                         Height="{TemplateBinding Height}"
                                         Margin="2"
                                         Padding="4"
-                                        Foreground="{DynamicResource IdealForegroundColorBrush}"
+                                        Foreground="{DynamicResource MahApps.Brushes.IdealForeground}"
                                         Kind="FileFind" />
         </DataTemplate>
     </controls:MetroWindow.IconTemplate>
@@ -64,7 +64,7 @@
                     Style="{StaticResource CustomTabControlStyle}" />
         <StatusBar Grid.Row="1">
             <StatusBarItem Content="{Binding AppVersion, Mode=OneWay}" ContentStringFormat="{}Browser v{0}" />
-            <Separator Style="{DynamicResource MetroStatusBarSeparator}" />
+            <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" />
             <StatusBarItem Content="{Binding IconPacksVersion, Mode=OneWay}" ContentStringFormat="{}IconPacks v{0}" />
         </StatusBar>
     </Grid>
