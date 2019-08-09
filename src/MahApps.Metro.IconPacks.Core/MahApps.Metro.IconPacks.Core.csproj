@@ -14,7 +14,7 @@
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
         <Compile Remove="PathIcon*.cs" />
-        <Compile Remove="Attributes\DescriptionAttribute.cs" />
+        <Compile Remove="Attributes\*.*" />
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">

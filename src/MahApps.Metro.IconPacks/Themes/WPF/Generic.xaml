@@ -22,5 +22,6 @@
     <Style TargetType="{x:Type local:PackIconEvaIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEvaIcons}" />
     <Style TargetType="{x:Type local:PackIconUnicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconUnicons}" />
     <Style TargetType="{x:Type local:PackIconZondicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconZondicons}" />
+    <Style TargetType="{x:Type local:PackIconControl}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconControl}" />
 
 </ResourceDictionary>

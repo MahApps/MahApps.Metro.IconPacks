@@ -1,0 +1,99 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks"
+                    xmlns:converter="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core">
+
+    <ControlTemplate x:Key="MahApps.Templates.PackIconControl" TargetType="{x:Type iconPacks:PackIconControl}">
+        <Grid>
+            <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            <Grid x:Name="PART_InnerGrid"
+                  RenderTransformOrigin="0.5 0.5"
+                  Margin="{TemplateBinding BorderThickness}">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform x:Name="FlipTransform"
+                                        ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleXValueConverter}}"
+                                        ScaleY="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleYValueConverter}}" />
+                        <RotateTransform x:Name="RotationTransform"
+                                         Angle="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RotationAngle, Mode=OneWay}" />
+                        <RotateTransform x:Name="SpinTransform" />
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Viewbox Margin="{TemplateBinding Padding}">
+                    <Path Fill="{TemplateBinding Foreground}"
+                          Stretch="Uniform"
+                          Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                          SnapsToDevicePixels="False"
+                          UseLayoutRounding="False" />
+                </Viewbox>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+    <Style x:Key="MahApps.Metro.Styles.PackIconControl" TargetType="{x:Type iconPacks:PackIconControl}">
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="False" />
+        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconControl}" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconEntypoKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconEntypo}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconEvaIconsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconEvaIcons}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconFeatherIconsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconFeatherIcons}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconFontAwesome}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconIoniconsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconIonicons}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconJamIconsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconJamIcons}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconMaterialKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconMaterial}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconMaterialDesignKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconMaterialDesign}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconMaterialLightKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconMaterialLight}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconModernKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconModern}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconOcticonsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconOcticons}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconSimpleIconsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconSimpleIcons}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconTypiconsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconTypicons}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconUniconsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconUnicons}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconWeatherIconsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconWeatherIcons}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconZondiconsKind}">
+                <Setter Property="Template" Value="{DynamicResource MahApps.Templates.PackIconZondicons}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

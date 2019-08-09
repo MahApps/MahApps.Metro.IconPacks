@@ -3,6 +3,40 @@
                     xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks"
                     xmlns:converter="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core">
 
+    <ControlTemplate x:Key="MahApps.Templates.PackIconEvaIcons" TargetType="{x:Type iconPacks:PackIconEvaIcons}">
+        <Grid>
+            <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            <Grid x:Name="PART_InnerGrid"
+                  RenderTransformOrigin="0.5 0.5"
+                  Margin="{TemplateBinding BorderThickness}">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform x:Name="FlipTransform"
+                                        ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleXValueConverter}}"
+                                        ScaleY="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleYValueConverter}}" />
+                        <RotateTransform x:Name="RotationTransform"
+                                         Angle="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RotationAngle, Mode=OneWay}" />
+                        <RotateTransform x:Name="SpinTransform" />
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Viewbox Margin="{TemplateBinding Padding}">
+                    <Path Fill="{TemplateBinding Foreground}"
+                          Stretch="Uniform"
+                          Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                          SnapsToDevicePixels="False"
+                          UseLayoutRounding="False">
+                        <Path.LayoutTransform>
+                            <ScaleTransform ScaleY="-1" />
+                        </Path.LayoutTransform>
+                    </Path>
+                </Viewbox>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
     <Style x:Key="MahApps.Metro.Styles.PackIconEvaIcons" TargetType="{x:Type iconPacks:PackIconEvaIcons}">
         <Setter Property="Height" Value="16" />
         <Setter Property="Width" Value="16" />
@@ -13,43 +47,7 @@
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="SnapsToDevicePixels" Value="False" />
         <Setter Property="UseLayoutRounding" Value="False" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type iconPacks:PackIconEvaIcons}">
-                    <Grid>
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        <Grid x:Name="PART_InnerGrid"
-                              RenderTransformOrigin="0.5 0.5"
-                              Margin="{TemplateBinding BorderThickness}">
-                            <Grid.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform x:Name="FlipTransform"
-                                                    ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleXValueConverter}}"
-                                                    ScaleY="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleYValueConverter}}" />
-                                    <RotateTransform x:Name="RotationTransform"
-                                                     Angle="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RotationAngle, Mode=OneWay}" />
-                                    <RotateTransform x:Name="SpinTransform" />
-                                </TransformGroup>
-                            </Grid.RenderTransform>
-                            <Viewbox Margin="{TemplateBinding Padding}">
-                                <Path Fill="{TemplateBinding Foreground}"
-                                      Stretch="Uniform"
-                                      Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
-                                      SnapsToDevicePixels="False"
-                                      UseLayoutRounding="False">
-                                    <Path.LayoutTransform>
-                                        <ScaleTransform ScaleY="-1" />
-                                    </Path.LayoutTransform>
-                                </Path>
-                            </Viewbox>
-                        </Grid>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconEvaIcons}" />
     </Style>
 
 </ResourceDictionary>
