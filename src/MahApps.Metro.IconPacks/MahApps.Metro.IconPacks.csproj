@@ -18,6 +18,7 @@
         <Compile Remove="*Extension*.cs" />
     </ItemGroup>
     <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
+        <Compile Remove="PackIconControl*.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
