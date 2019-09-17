@@ -2,10 +2,10 @@
 // TOOLS / ADDINS
 //////////////////////////////////////////////////////////////////////
 
-#tool nuget:?package=GitVersion.CommandLine&prerelease
-#tool nuget:?package=gitreleasemanager
-#tool nuget:?package=vswhere
-#addin nuget:?package=Cake.Figlet
+#tool GitVersion.CommandLine&prerelease
+#tool gitreleasemanager
+#tool vswhere
+#addin Cake.Figlet
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -100,19 +100,14 @@ Task("Clean")
 Task("Restore")
     .Does(() =>
 {
-    var msBuildSettings = new MSBuildSettings {
-        Verbosity = verbosity
-        , ToolPath = msBuildPathExe
-        , Configuration = configuration
-        , ArgumentCustomization = args => args.Append("/m").Append("/nr:false") // The /nr switch tells msbuild to quite once it’s done
-        };
-    MSBuild(solution, msBuildSettings.WithTarget("restore"));
+    NuGetRestore(solution, new NuGetRestoreSettings { MSBuildPath = msBuildPath.ToString() });
 });
 
 Task("Build")
   .Does(() =>
 {
     EnsureDirectoryExists(Directory(publishDir));
+
     var msBuildSettings = new MSBuildSettings {
         Verbosity = verbosity
         , ToolPath = msBuildPathExe
@@ -120,6 +115,7 @@ Task("Build")
         , ArgumentCustomization = args => args.Append("/m").Append("/nr:false") // The /nr switch tells msbuild to quite once it’s done
         , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = isLocal }
         };
+
     MSBuild(solution, msBuildSettings
             .SetMaxCpuCount(0)
             .WithProperty("GeneratePackageOnBuild", target == "appveyor" ? "true" : "false")

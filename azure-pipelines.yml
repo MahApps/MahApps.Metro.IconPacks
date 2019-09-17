@@ -38,10 +38,10 @@ steps:
   displayName: Install NuGet
 
 - task: UseDotNet@2
-  displayName: Ensure to use .NET Core 3.0.100-preview7
+  displayName: Ensure to use .NET Core 3.0.100-preview9-014004
   inputs:
     packageType: 'sdk'
-    version: '3.0.100-preview7-012821'
+    version: '3.0.100-preview9-014004'
     includePreviewVersions: true
 
 - powershell: .\build\Install-WindowsSDK.ps1
