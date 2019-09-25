@@ -135,6 +135,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconEvaIcons, PackIconEvaIconsKind>((PackIconEvaIconsKind) this.Kind);
             }
 #endif
+#if ALL || BOXICONS
+            if (this.Kind is PackIconBoxIconsKind)
+            {
+                return this.GetPackIcon<PackIconBoxIcons, PackIconBoxIconsKind>((PackIconBoxIconsKind) this.Kind);
+            }
+#endif
 #if ALL || UNICONS
             if (this.Kind is PackIconUniconsKind)
             {
