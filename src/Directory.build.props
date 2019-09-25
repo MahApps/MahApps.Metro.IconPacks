@@ -2,7 +2,6 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <!-- <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0.15063;uap10.0.16299</TargetFrameworks> -->
         <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0.16299</TargetFrameworks>
         <NoWarn>$(NoWarn);CS1591</NoWarn>
         <NoError>$(NoError);CS1591</NoError>

@@ -5,20 +5,13 @@
 
 trigger:
   branches:
-    include:
-    - dev
-    - master
+    include: 
+      - '*'
+    exclude: 
+      - 'refs/tags/*'
   paths:
-    exclude:
-     - README.md
-     - appveyor.yml
-
-pr:
-  branches:
     include:
-    - dev
-    - master
-  paths:
+      - '*'
     exclude:
      - README.md
      - appveyor.yml
@@ -28,47 +21,40 @@ name: $(Build.BuildId)
 pool:
   vmImage: 'windows-latest'
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
 steps:
 - task: NuGetToolInstaller@0
-  displayName: Install NuGet
+  displayName: Install latest NuGet
+
+#- task: UseDotNet@2
+#  displayName: 'Use dotnet sdk 3.0.100-preview'
+#  inputs:
+#    packageType: 'sdk'
+#    version: '3.0.100-preview9-014004'
+#    includePreviewVersions: true
 
 - task: UseDotNet@2
-  displayName: Ensure to use .NET Core 3.0.100-preview9-014004
+  displayName: 'Use dotnet sdk 3.0.100'
   inputs:
-    packageType: 'sdk'
-    version: '3.0.100-preview9-014004'
-    includePreviewVersions: true
+    packageType: sdk
+    version: 3.0.100
 
 - powershell: .\build\Install-WindowsSDK.ps1
-  displayName: Install Windows SDK 10.0.16299
+  displayName: 'Install Windows SDK 10.0.16299'
 
 - powershell: .\src\build.ps1 -Script .\src\build.cake --bootstrap
   displayName: 'Build: cake (bootstrap)'
 
-- powershell: .\src\build.ps1 -Script .\src\build.cake -target appveyor
+- powershell: .\src\build.ps1 -Script .\src\build.cake -target appveyor -artifact-dir='$(Build.ArtifactStagingDirectory)'
   displayName: 'Build: cake'
 
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\Publish'
-    Contents: |
-     **
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    flattenFolders: false
-
 - task: PublishBuildArtifacts@1
+  displayName: 'Save package artifacts'
   inputs:
     pathtoPublish: $(Build.ArtifactStagingDirectory)
     ArtifactName: Package
 
 - task: NuGetCommand@2
-  displayName: Publish to internal nuget feed
+  displayName: 'Publish to internal nuget feed'
   inputs:
     command: push
     nuGetFeedType: internal

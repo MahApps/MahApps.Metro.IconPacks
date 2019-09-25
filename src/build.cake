@@ -15,6 +15,9 @@ var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
 var verbosity = Argument("verbosity", Verbosity.Minimal);
 
+var PROJECT_DIR = Context.Environment.WorkingDirectory.FullPath + "/";
+var PACKAGE_DIR = Directory(Argument("artifact-dir", PROJECT_DIR + "Publish") + "/");
+
 //////////////////////////////////////////////////////////////////////
 // PREPARATION
 //////////////////////////////////////////////////////////////////////
@@ -46,7 +49,6 @@ var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
 
 // Directories and Paths
 var solution = "./MahApps.Metro.IconPacks.sln";
-var publishDir = "./Publish";
 
 // Define global marcos.
 Action Abort = () => { throw new Exception("a non-recoverable fatal error occurred."); };
@@ -75,6 +77,7 @@ Setup(context =>
     Information("Branch                 : {0}", branchName);
     Information("Configuration          : {0}", configuration);
     Information("MSBuild                : {0}", msBuildPath);
+    Information("Publish to             : {0}", PACKAGE_DIR);
 });
 
 Teardown(context =>
@@ -106,7 +109,7 @@ Task("Restore")
 Task("Build")
   .Does(() =>
 {
-    EnsureDirectoryExists(Directory(publishDir));
+    EnsureDirectoryExists(PACKAGE_DIR);
 
     var msBuildSettings = new MSBuildSettings {
         Verbosity = verbosity
@@ -119,7 +122,7 @@ Task("Build")
     MSBuild(solution, msBuildSettings
             .SetMaxCpuCount(0)
             .WithProperty("GeneratePackageOnBuild", target == "appveyor" ? "true" : "false")
-            .WithProperty("PackageOutputPath", "../" + publishDir)
+            .WithProperty("PackageOutputPath", MakeAbsolute(PACKAGE_DIR).ToString())
             .WithProperty("RepositoryBranch", branchName)
             .WithProperty("RepositoryCommit", gitVersion.Sha)
             .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
@@ -132,8 +135,8 @@ Task("Build")
 Task("Zip")
     .Does(() =>
 {
-    EnsureDirectoryExists(Directory(publishDir));
-    Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{publishDir}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
+    EnsureDirectoryExists(PACKAGE_DIR);
+    Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{PACKAGE_DIR.ToString()}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
 });
 
 Task("CreateRelease")
