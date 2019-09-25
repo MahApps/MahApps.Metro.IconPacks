@@ -16,14 +16,25 @@ trigger:
      - README.md
      - appveyor.yml
 
+pr:
+- dev
+- master
+- release
+
 name: $(Build.BuildId)
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-2019'
+
+variables:
+  buildPlatform: 'Any CPU'
+  dotNetCoreVersion: '3.0.*'
 
 steps:
 - task: NuGetToolInstaller@0
-  displayName: Install latest NuGet
+  displayName: 'Use latest NuGet'
+  inputs:
+    checkLatest: true
 
 #- task: UseDotNet@2
 #  displayName: 'Use dotnet sdk 3.0.100-preview'
@@ -33,10 +44,10 @@ steps:
 #    includePreviewVersions: true
 
 - task: UseDotNet@2
-  displayName: 'Use dotnet sdk 3.0.100'
+  displayName: 'Use dotNet $(dotNetCoreVersion)'
   inputs:
-    packageType: sdk
-    version: 3.0.100
+    packageType: 'sdk'
+    version: '$(dotNetCoreVersion)'
 
 - powershell: .\build\Install-WindowsSDK.ps1
   displayName: 'Install Windows SDK 10.0.16299'
