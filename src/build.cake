@@ -2,6 +2,8 @@
 // TOOLS / ADDINS
 //////////////////////////////////////////////////////////////////////
 
+#load sign.cake
+
 #tool GitVersion.CommandLine&prerelease
 #tool gitreleasemanager
 #tool vswhere
@@ -139,6 +141,16 @@ Task("Zip")
     Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{PACKAGE_DIR.ToString()}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
 });
 
+Task("Sign")
+    .ContinueOnError()
+    .Does(() =>
+{
+    var files = GetFiles("./MahApps.Metro.IconPacks.Browser/**/bin/**/*.exe");
+    SignFiles(files, "IconPacks Browser.", "https://github.com/MahApps/MahApps.Metro.IconPacks");
+
+    SignNuGet(MakeAbsolute(PACKAGE_DIR).ToString());
+});
+
 Task("CreateRelease")
     .WithCriteria(() => !isTagged)
     .Does(() =>
@@ -172,7 +184,8 @@ Task("Default")
     .IsDependentOn("Zip");
 
 Task("appveyor")
-    .IsDependentOn("Default");
+    .IsDependentOn("Default")
+    .IsDependentOn("Sign");
 
 // Execution
 RunTarget(target);
