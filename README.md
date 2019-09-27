@@ -21,7 +21,7 @@
     <img alt="azure-devops" src="https://img.shields.io/azure-devops/build/mahapps/6896073b-203e-45a5-892e-45600b9fe5ae/3.svg?logo=azure-devops&style=flat-square&label=dev">
   </a>
   <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">
-    <img alt="appveyor-ci-dev" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?style=flat-square&&label=dev">
+    <img alt="appveyor-ci-dev" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?logo=appveyor&style=flat-square&&label=dev">
   </a>
   <br />
   <br />
