@@ -187,5 +187,8 @@ Task("appveyor")
     .IsDependentOn("Default")
     .IsDependentOn("Sign");
 
+Task("azure")
+    .IsDependentOn("Default");
+
 // Execution
 RunTarget(target);

@@ -55,7 +55,7 @@ steps:
 - powershell: .\src\build.ps1 -Script .\src\build.cake --bootstrap
   displayName: 'Build: cake (bootstrap)'
 
-- powershell: .\src\build.ps1 -Script .\src\build.cake -target appveyor -artifact-dir='$(Build.ArtifactStagingDirectory)'
+- powershell: .\src\build.ps1 -Script .\src\build.cake -target azure -artifact-dir='$(Build.ArtifactStagingDirectory)'
   displayName: 'Build: cake'
 
 - task: PublishBuildArtifacts@1
