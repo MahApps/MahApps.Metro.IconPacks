@@ -22,6 +22,9 @@ image: Visual Studio 2019
 test: off
 
 install:
+  # Install Windows SDK 10.0.16299
+  - ps: .\build\Install-WindowsSDK.ps1
+  # Use dotNet 3.0.100
   - cinst dotnetcore-sdk
 
 pull_requests:
