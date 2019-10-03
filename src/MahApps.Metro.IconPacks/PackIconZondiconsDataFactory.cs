@@ -6,9 +6,9 @@ namespace MahApps.Metro.IconPacks
     /// This code is auto generated. Do not amend.
     /// ******************************************
 
-    internal static class PackIconZondiconsDataFactory
+    public static class PackIconZondiconsDataFactory
     {
-        internal static IDictionary<PackIconZondiconsKind, string> Create()
+        public static IDictionary<PackIconZondiconsKind, string> Create()
         {
             return new Dictionary<PackIconZondiconsKind, string>
                    {

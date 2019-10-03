@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
@@ -10,7 +9,6 @@
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="PathIcon*.cs" />
         <Compile Remove="*.cs" />
         <Compile Include="PackIconExtension.cs" />
         <Compile Include="PackIconFeatherIcons*.cs" />
@@ -22,8 +20,8 @@
         <Compile Remove="*.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
-        <Compile Exclude="*Extension*.cs" Include="*FeatherIcons*.cs" Condition=" '$(TargetFramework)' != 'uap10.0.16299' " />
-        <Compile Include="PackIconExtension.cs;*FeatherIcons*.cs" Condition=" '$(TargetFramework)' == 'uap10.0.16299' " />
+        <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="*Extension*.cs" Include="*FeatherIcons*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Include="PackIconExtension.cs;*FeatherIcons*.cs" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\FeatherIcons\*.xaml;Themes\UAP\PackIconFeatherIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>

@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
@@ -7,21 +6,168 @@
         <AssemblyName>MahApps.Metro.IconPacks</AssemblyName>
         <Title>MahApps.Metro.IconPacks</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+        <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage;GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
     </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="MahApps.Metro.IconPacks.BoxIcons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Entypo.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.EvaIcons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.FeatherIcons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.FontAwesome.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Ionicons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.JamIcons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Material.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.MaterialDesign.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.MaterialLight.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Modern.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Octicons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.SimpleIcons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Typicons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Unicons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.WeatherIcons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Zondicons.csproj" />
+    </ItemGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="PathIcon*.cs" />
-        <Page Generator="MSBuild:Compile" Include="Themes\WPF\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Compile Remove="*.cs" />
+        <Compile Include="PackIconControl*.cs" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconControl.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' and '$(TargetFramework)' != 'uap10.0.16299' ">
         <Compile Remove="*Extension*.cs" />
     </ItemGroup>
     <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
-        <Compile Remove="PackIconControl*.cs" />
+        <Compile Remove="*.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
-        <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
-        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>
+
+    <ItemGroup Label="Package" Condition=" $(TargetFramework.StartsWith('uap')) ">
+        <None Include="$(OutDir)MahApps.Metro.IconPacks.BoxIcons\Themes\*.*" PackagePath="lib\$(TargetFramework)\MahApps.Metro.IconPacks.BoxIcons\Themes\" Pack="true" />
+    </ItemGroup>
+
+    <!-- known issue https://github.com/NuGet/Home/issues/3891
+         Feature : Allow project reference DLLs to be added to the parent nupkg for pack target like IncludeReferencedProjects in nuget.exe
+
+         Workaround: https://github.com/nuget/home/issues/3891#issuecomment-377319939
+
+         maybe use also BuildOnlySettings -->
+    <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+        <ItemGroup>
+            <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+        </ItemGroup>
+    </Target>
+    <Target Name="GetMyPackageFiles">
+        <ItemGroup>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Core</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\Converter\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Core\Converter</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.BoxIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.BoxIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.BoxIcons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.BoxIcons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Entypo\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Entypo</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Entypo\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Entypo\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.EvaIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.EvaIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.EvaIcons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.EvaIcons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FeatherIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.FeatherIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FeatherIcons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.FeatherIcons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.FontAwesome</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.FontAwesome\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Ionicons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Ionicons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Ionicons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Ionicons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.JamIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.JamIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.JamIcons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.JamIcons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Material\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Material</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Material\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Material\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.MaterialDesign</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.MaterialDesign\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialLight\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.MaterialLight</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialLight\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.MaterialLight\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Modern\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Modern</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Modern\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Modern\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Octicons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Octicons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Octicons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Octicons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.SimpleIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.SimpleIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.SimpleIcons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.SimpleIcons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Typicons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Typicons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Typicons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Typicons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Unicons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Unicons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Unicons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Unicons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.WeatherIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.WeatherIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.WeatherIcons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.WeatherIcons\Themes</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Zondicons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Zondicons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Zondicons\Themes\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Zondicons\Themes</TargetPath>
+            </BuildOutputInPackage>
+        </ItemGroup>
+    </Target>
 </Project>
