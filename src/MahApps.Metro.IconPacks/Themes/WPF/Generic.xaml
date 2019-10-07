@@ -4,9 +4,10 @@
                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/IconPacks.xaml" />
+        <!-- <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/IconPacks.xaml" /> -->
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconControl.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
+<!-- 
     <Style TargetType="{x:Type iconPacks:PackIconBoxIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconBoxIcons}" />
     <Style TargetType="{x:Type iconPacks:PackIconEntypo}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}" />
     <Style TargetType="{x:Type iconPacks:PackIconEvaIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEvaIcons}" />
@@ -24,7 +25,7 @@
     <Style TargetType="{x:Type iconPacks:PackIconUnicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconUnicons}" />
     <Style TargetType="{x:Type iconPacks:PackIconWeatherIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconWeatherIcons}" />
     <Style TargetType="{x:Type iconPacks:PackIconZondicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconZondicons}" />
-
+ -->
     <Style TargetType="{x:Type local:PackIconControl}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconControl}" />
 
 </ResourceDictionary>

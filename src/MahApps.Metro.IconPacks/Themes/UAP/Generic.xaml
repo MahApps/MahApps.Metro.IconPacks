@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:uwp="using:MahApps.Metro.IconPacks">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<!--                     xmlns:uwp="using:MahApps.Metro.IconPacks">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/IconPacks.xaml" />
@@ -23,5 +23,5 @@
     <Style TargetType="uwp:PackIconUnicons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconUnicons}" />
     <Style TargetType="uwp:PackIconWeatherIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconWeatherIcons}" />
     <Style TargetType="uwp:PackIconZondicons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconZondicons}" />
-
+ -->
 </ResourceDictionary>
