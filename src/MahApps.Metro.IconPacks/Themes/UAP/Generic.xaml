@@ -6,22 +6,22 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks/Themes/IconPacks.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style TargetType="uwp:PackIconBoxIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconBoxIcons}" />
+    <Style TargetType="uwp:PackIconEntypo" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}" />
+    <Style TargetType="uwp:PackIconEvaIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEvaIcons}" />
+    <Style TargetType="uwp:PackIconFeatherIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFeatherIcons}" />
+    <Style TargetType="uwp:PackIconFontAwesome" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}" />
+    <Style TargetType="uwp:PackIconIonicons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconIonicons}" />
+    <Style TargetType="uwp:PackIconJamIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconJamIcons}" />
     <Style TargetType="uwp:PackIconMaterial" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterial}" />
     <Style TargetType="uwp:PackIconMaterialDesign" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialDesign}" />
     <Style TargetType="uwp:PackIconMaterialLight" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterialLight}" />
-    <Style TargetType="uwp:PackIconFontAwesome" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}" />
-    <Style TargetType="uwp:PackIconOcticons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}" />
     <Style TargetType="uwp:PackIconModern" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconModern}" />
-    <Style TargetType="uwp:PackIconEntypo" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}" />
+    <Style TargetType="uwp:PackIconOcticons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}" />
     <Style TargetType="uwp:PackIconSimpleIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconSimpleIcons}" />
-    <Style TargetType="uwp:PackIconWeatherIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconWeatherIcons}" />
     <Style TargetType="uwp:PackIconTypicons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconTypicons}" />
-    <Style TargetType="uwp:PackIconFeatherIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFeatherIcons}" />
-    <Style TargetType="uwp:PackIconIonicons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconIonicons}" />
-    <Style TargetType="uwp:PackIconJamIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconJamIcons}" />
-    <Style TargetType="uwp:PackIconEvaIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEvaIcons}" />
-    <Style TargetType="uwp:PackIconBoxIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconBoxIcons}" />
     <Style TargetType="uwp:PackIconUnicons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconUnicons}" />
+    <Style TargetType="uwp:PackIconWeatherIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconWeatherIcons}" />
     <Style TargetType="uwp:PackIconZondicons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconZondicons}" />
 
 </ResourceDictionary>
