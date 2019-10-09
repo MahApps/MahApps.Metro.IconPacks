@@ -10,14 +10,27 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks.Converter
 {
 #if (NETFX_CORE || WINDOWS_UWP)
-    public class NullToUnsetValueConverter : IValueConverter
+    public class NullToUnsetValueConverter : MarkupConverter
     {
-        public object Convert(object value, Type targetType, object parameter, string language)
+        private static NullToUnsetValueConverter _instance;
+
+        // Explicit static constructor to tell C# compiler
+        // not to mark type as beforefieldinit
+        static NullToUnsetValueConverter()
+        {
+        }
+
+        protected override object ProvideValue()
+        {
+            return _instance ?? (_instance = new NullToUnsetValueConverter());
+        }
+
+        protected override object Convert(object value, Type targetType, object parameter, string language)
         {
             return value ?? DependencyProperty.UnsetValue;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        protected override object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             return DependencyProperty.UnsetValue;
         }
