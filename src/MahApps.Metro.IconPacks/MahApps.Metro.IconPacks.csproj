@@ -60,9 +60,6 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Core</TargetPath>
             </BuildOutputInPackage>
-            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\Converter\*.*">
-                <TargetPath>MahApps.Metro.IconPacks.Core\Converter</TargetPath>
-            </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.BoxIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.BoxIcons</TargetPath>
             </BuildOutputInPackage>
