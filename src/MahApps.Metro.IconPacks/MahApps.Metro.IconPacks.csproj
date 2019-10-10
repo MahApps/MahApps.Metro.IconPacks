@@ -21,6 +21,7 @@
         <ProjectReference Include="MahApps.Metro.IconPacks.MaterialLight.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Modern.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Octicons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.RPGAwesome.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.SimpleIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Typicons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Unicons.csproj" />
@@ -167,6 +168,15 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Octicons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Octicons\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RPGAwesome\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.RPGAwesome</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RPGAwesome\Themes\PackIconRPGAwesome.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.RPGAwesome\Themes\PackIconRPGAwesome.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RPGAwesome\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.RPGAwesome\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.SimpleIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.SimpleIcons</TargetPath>
