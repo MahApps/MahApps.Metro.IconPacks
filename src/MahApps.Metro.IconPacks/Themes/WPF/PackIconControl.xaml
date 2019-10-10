@@ -4,26 +4,6 @@
                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                     xmlns:converter="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.BoxIcons;component/Themes/PackIconBoxIcons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Entypo;component/Themes/PackIconEntypo.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.EvaIcons;component/Themes/PackIconEvaIcons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FeatherIcons;component/Themes/PackIconFeatherIcons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FontAwesome;component/Themes/PackIconFontAwesome.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Ionicons;component/Themes/PackIconIonicons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.JamIcons;component/Themes/PackIconJamIcons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Material;component/Themes/PackIconMaterial.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialDesign;component/Themes/PackIconMaterialDesign.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialLight;component/Themes/PackIconMaterialLight.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Modern;component/Themes/PackIconModern.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Octicons;component/Themes/PackIconOcticons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.SimpleIcons;component/Themes/PackIconSimpleIcons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Typicons;component/Themes/PackIconTypicons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Unicons;component/Themes/PackIconUnicons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.WeatherIcons;component/Themes/PackIconWeatherIcons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Zondicons;component/Themes/PackIconZondicons.xaml" />
-    </ResourceDictionary.MergedDictionaries>
-
     <ControlTemplate x:Key="MahApps.Templates.PackIconControl" TargetType="{x:Type local:PackIconControl}">
         <Grid>
             <Border Background="{TemplateBinding Background}"
@@ -44,7 +24,8 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
                 <Viewbox Margin="{TemplateBinding Padding}">
-                    <Path Fill="{TemplateBinding Foreground}"
+                    <Path x:Name="PART_IconPath"
+                          Fill="{TemplateBinding Foreground}"
                           Stretch="Uniform"
                           Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
                           SnapsToDevicePixels="False"
@@ -52,6 +33,53 @@
                 </Viewbox>
             </Grid>
         </Grid>
+        <ControlTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconBoxIconsKind}">
+                <Setter TargetName="PART_IconPath" Property="LayoutTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleY="-1" />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconEvaIconsKind}">
+                <Setter TargetName="PART_IconPath" Property="LayoutTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleY="-1" />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconFeatherIconsKind}">
+                <Setter TargetName="PART_IconPath" Property="Fill" Value="{x:Null}" />
+                <Setter TargetName="PART_IconPath" Property="Stroke" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground, Mode=OneWay}" />
+                <Setter TargetName="PART_IconPath" Property="StrokeThickness" Value="2" />
+                <Setter TargetName="PART_IconPath" Property="StrokeStartLineCap" Value="Round" />
+                <Setter TargetName="PART_IconPath" Property="StrokeEndLineCap" Value="Round" />
+                <Setter TargetName="PART_IconPath" Property="StrokeLineJoin" Value="Round" />
+                <Setter TargetName="PART_IconPath" Property="Width" Value="24" />
+                <Setter TargetName="PART_IconPath" Property="Height" Value="24" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconJamIconsKind}">
+                <Setter TargetName="PART_IconPath" Property="LayoutTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleY="-1" />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconMaterialDesignKind}">
+                <Setter TargetName="PART_IconPath" Property="LayoutTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleY="-1" />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconTypiconsKind}">
+                <Setter TargetName="PART_IconPath" Property="LayoutTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleY="-1" />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </ControlTemplate.Triggers>
     </ControlTemplate>
 
     <Style x:Key="MahApps.Metro.Styles.PackIconControl" TargetType="{x:Type local:PackIconControl}">
@@ -65,59 +93,6 @@
         <Setter Property="SnapsToDevicePixels" Value="False" />
         <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconControl}" />
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconBoxIconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconBoxIcons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconEntypoKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconEntypo}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconEvaIconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconEvaIcons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconFeatherIconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconFeatherIcons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconFontAwesome}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconIoniconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconIonicons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconJamIconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconJamIcons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconMaterialKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconMaterial}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconMaterialDesignKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconMaterialDesign}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconMaterialLightKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconMaterialLight}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconModernKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconModern}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconOcticonsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconOcticons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconSimpleIconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconSimpleIcons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconTypiconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconTypicons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconUniconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconUnicons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconWeatherIconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconWeatherIcons}" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind}" Value="{x:Type iconPacks:PackIconZondiconsKind}">
-                <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconZondicons}" />
-            </DataTrigger>
-        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
