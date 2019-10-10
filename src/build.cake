@@ -4,7 +4,7 @@
 
 #load sign.cake
 
-#tool GitVersion.CommandLine&prerelease
+#tool GitVersion.CommandLine&version=5.0.1
 #tool gitreleasemanager
 #tool vswhere
 #addin Cake.Figlet
