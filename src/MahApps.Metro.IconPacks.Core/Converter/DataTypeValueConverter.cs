@@ -10,24 +10,21 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks.Converter
 {
 #if (NETFX_CORE || WINDOWS_UWP)
-    public class NullToUnsetValueConverter : MarkupConverter
+    public class DataTypeValueConverter : MarkupConverter
     {
-        private static NullToUnsetValueConverter _instance;
+        private static DataTypeValueConverter _instance;
 
         // Explicit static constructor to tell C# compiler
         // not to mark type as beforefieldinit
-        static NullToUnsetValueConverter()
+        static DataTypeValueConverter()
         {
         }
 
-        protected override object ProvideValue()
-        {
-            return _instance ?? (_instance = new NullToUnsetValueConverter());
-        }
+        public static IValueConverter Instance { get; } = _instance ?? (_instance = new DataTypeValueConverter());
 
         protected override object Convert(object value, Type targetType, object parameter, string language)
         {
-            return value ?? DependencyProperty.UnsetValue;
+            return value?.GetType();
         }
 
         protected override object ConvertBack(object value, Type targetType, object parameter, string language)
@@ -36,24 +33,24 @@ namespace MahApps.Metro.IconPacks.Converter
         }
     }
 #else
-    public class NullToUnsetValueConverter : MarkupConverter
+    public class DataTypeValueConverter : MarkupConverter
     {
-        private static NullToUnsetValueConverter _instance;
+        private static DataTypeValueConverter _instance;
 
         // Explicit static constructor to tell C# compiler
         // not to mark type as beforefieldinit
-        static NullToUnsetValueConverter()
+        static DataTypeValueConverter()
         {
         }
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            return _instance ?? (_instance = new NullToUnsetValueConverter());
+            return _instance ?? (_instance = new DataTypeValueConverter());
         }
 
         protected override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value ?? DependencyProperty.UnsetValue;
+            return value?.GetType();
         }
 
         protected override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -9,13 +9,13 @@ using System.Windows;
 
 namespace MahApps.Metro.IconPacks.Converter
 {
-#if (NETFX_CORE || WINDOWS_UWP)
     /// <summary>
     /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleX value of a ScaleTransformation.
     /// </summary>
-    public class FlipToScaleXValueConverter : IValueConverter
+#if (NETFX_CORE || WINDOWS_UWP)
+    public class FlipToScaleXValueConverter : MarkupConverter
     {
-        private static IValueConverter _instance;
+        private static FlipToScaleXValueConverter _instance;
 
         // Explicit static constructor to tell C# compiler
         // not to mark type as beforefieldinit
@@ -25,7 +25,7 @@ namespace MahApps.Metro.IconPacks.Converter
 
         public static IValueConverter Instance { get; } = _instance ?? (_instance = new FlipToScaleXValueConverter());
 
-        public object Convert(object value, Type targetType, object parameter, string language)
+        protected override object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is PackIconFlipOrientation)
             {
@@ -33,18 +33,16 @@ namespace MahApps.Metro.IconPacks.Converter
                 var scaleX = flip == PackIconFlipOrientation.Horizontal || flip == PackIconFlipOrientation.Both ? -1 : 1;
                 return scaleX;
             }
+
             return DependencyProperty.UnsetValue;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        protected override object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             return DependencyProperty.UnsetValue;
         }
     }
 #else
-    /// <summary>
-    /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleX value of a ScaleTransformation.
-    /// </summary>
     public class FlipToScaleXValueConverter : MarkupConverter
     {
         private static FlipToScaleXValueConverter _instance;
@@ -79,13 +77,13 @@ namespace MahApps.Metro.IconPacks.Converter
     }
 #endif
 
-#if (NETFX_CORE || WINDOWS_UWP)
     /// <summary>
     /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleY value of a ScaleTransformation.
     /// </summary>
-    public class FlipToScaleYValueConverter : IValueConverter
+#if (NETFX_CORE || WINDOWS_UWP)
+    public class FlipToScaleYValueConverter : MarkupConverter
     {
-        private static IValueConverter _instance;
+        private static FlipToScaleYValueConverter _instance;
 
         // Explicit static constructor to tell C# compiler
         // not to mark type as beforefieldinit
@@ -95,7 +93,7 @@ namespace MahApps.Metro.IconPacks.Converter
 
         public static IValueConverter Instance { get; } = _instance ?? (_instance = new FlipToScaleYValueConverter());
 
-        public object Convert(object value, Type targetType, object parameter, string language)
+        protected override object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is PackIconFlipOrientation)
             {
@@ -103,18 +101,16 @@ namespace MahApps.Metro.IconPacks.Converter
                 var scaleY = flip == PackIconFlipOrientation.Vertical || flip == PackIconFlipOrientation.Both ? -1 : 1;
                 return scaleY;
             }
+
             return DependencyProperty.UnsetValue;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        protected override object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             return DependencyProperty.UnsetValue;
         }
     }
 #else
-    /// <summary>
-    /// ValueConverter which converts the PackIconFlipOrientation enumeration value to ScaleY value of a ScaleTransformation.
-    /// </summary>
     public class FlipToScaleYValueConverter : MarkupConverter
     {
         private static FlipToScaleYValueConverter _instance;

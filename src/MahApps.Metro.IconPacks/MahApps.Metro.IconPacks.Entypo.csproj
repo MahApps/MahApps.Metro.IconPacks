@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
@@ -10,7 +9,6 @@
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="PathIcon*.cs" />
         <Compile Remove="*.cs" />
         <Compile Include="PackIconExtension.cs" />
         <Compile Include="PackIconEntypo*.cs" />
@@ -22,8 +20,8 @@
         <Compile Remove="*.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
-        <Compile Exclude="*Extension*.cs" Include="*Entypo*.cs" Condition=" '$(TargetFramework)' != 'uap10.0.16299' " />
-        <Compile Include="PackIconExtension.cs;*Entypo*.cs" Condition=" '$(TargetFramework)' == 'uap10.0.16299' " />
+        <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="*Extension*.cs" Include="*Entypo*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Include="PackIconExtension.cs;*Entypo*.cs" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Entypo\*.xaml;Themes\UAP\PackIconEntypo.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>

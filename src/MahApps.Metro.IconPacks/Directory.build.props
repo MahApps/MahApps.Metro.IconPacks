@@ -1,7 +1,12 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
-        <OutputPath>$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
+        <IsBuildingWpfTempProj Condition="$(MSBuildProjectName.Contains('_wpftmp')) != 'true'">false</IsBuildingWpfTempProj>
+        <IsBuildingWpfTempProj Condition="$(MSBuildProjectName.Contains('_wpftmp')) == 'true'">true</IsBuildingWpfTempProj>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <OutputPath Condition="$(IsBuildingWpfTempProj) != 'true'">$(MSBuildProjectDirectory)\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
         <IntermediateOutputPath>$(MSBuildProjectDirectory)\obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
         <GenerateLibraryLayout>true</GenerateLibraryLayout>
         <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage;GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
@@ -18,6 +23,11 @@
         </ProjectReference>
     </ItemGroup>
 
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <Compile Remove="**\*.rd.xml" />
+        <Compile Remove="PathIcon*.cs" />
+    </ItemGroup>
+
     <!-- known issue https://github.com/NuGet/Home/issues/3891
          Feature : Allow project reference DLLs to be added to the parent nupkg for pack target like IncludeReferencedProjects in nuget.exe
 
@@ -29,13 +39,10 @@
             <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
         </ItemGroup>
     </Target>
-    <Target Name="GetMyPackageFiles">
+    <Target Name="GetMyPackageFiles" Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
         <ItemGroup>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Core</TargetPath>
-            </BuildOutputInPackage>
-            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\Converter\*.*">
-                <TargetPath>MahApps.Metro.IconPacks.Core\Converter</TargetPath>
             </BuildOutputInPackage>
         </ItemGroup>
     </Target>

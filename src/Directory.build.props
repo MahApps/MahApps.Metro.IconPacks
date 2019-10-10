@@ -6,7 +6,7 @@
         <NoWarn>$(NoWarn);CS1591</NoWarn>
         <NoError>$(NoError);CS1591</NoError>
         <LangVersion>7.3</LangVersion>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <AutoGenerateBindingRedirects Condition="'$(TargetFramework)' != 'netcoreapp3.0'">true</AutoGenerateBindingRedirects>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
