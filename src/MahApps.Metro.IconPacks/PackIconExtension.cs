@@ -123,6 +123,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconOcticons, PackIconOcticonsKind>((PackIconOcticonsKind) this.Kind);
             }
 #endif
+#if ALL || PICOLICONS
+            if (this.Kind is PackIconPicolIconsKind)
+            {
+                return this.GetPackIcon<PackIconPicolIcons, PackIconPicolIconsKind>((PackIconPicolIconsKind) this.Kind);
+            }
+#endif
 #if ALL || RPGAWESOME
             if (this.Kind is PackIconRPGAwesomeKind)
             {
