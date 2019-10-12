@@ -6,6 +6,6 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Material/Themes/PackIconMaterial.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="uwp:PackIconMaterial" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconMaterial}" />
+    <Style TargetType="uwp:PackIconMaterial" BasedOn="{StaticResource MahApps.Styles.PackIconMaterial}" />
 
 </ResourceDictionary>

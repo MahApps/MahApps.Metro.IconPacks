@@ -6,6 +6,6 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.EvaIcons;component/Themes/PackIconEvaIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type local:PackIconEvaIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEvaIcons}" />
+    <Style TargetType="{x:Type local:PackIconEvaIcons}" BasedOn="{StaticResource MahApps.Styles.PackIconEvaIcons}" />
 
 </ResourceDictionary>

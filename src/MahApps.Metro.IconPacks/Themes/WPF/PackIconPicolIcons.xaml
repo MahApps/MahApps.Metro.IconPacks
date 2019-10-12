@@ -32,7 +32,7 @@
             </Grid>
         </Grid>
     </ControlTemplate>
-    <Style x:Key="MahApps.Metro.Styles.PackIconPicolIcons" TargetType="{x:Type iconPacks:PackIconPicolIcons}">
+    <Style x:Key="MahApps.Styles.PackIconPicolIcons" TargetType="{x:Type iconPacks:PackIconPicolIcons}">
         <Setter Property="Height" Value="16" />
         <Setter Property="Width" Value="16" />
         <Setter Property="Padding" Value="0" />

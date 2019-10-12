@@ -6,6 +6,6 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.WeatherIcons;component/Themes/PackIconWeatherIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type local:PackIconWeatherIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconWeatherIcons}" />
+    <Style TargetType="{x:Type local:PackIconWeatherIcons}" BasedOn="{StaticResource MahApps.Styles.PackIconWeatherIcons}" />
 
 </ResourceDictionary>

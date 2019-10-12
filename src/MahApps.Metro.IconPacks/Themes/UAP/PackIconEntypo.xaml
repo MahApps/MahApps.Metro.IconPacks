@@ -31,7 +31,7 @@
         </Grid>
     </ControlTemplate>
 
-    <Style x:Key="MahApps.Metro.Styles.PackIconEntypo" TargetType="iconPacks:PackIconEntypo">
+    <Style x:Key="MahApps.Styles.PackIconEntypo" TargetType="iconPacks:PackIconEntypo">
         <Setter Property="Height" Value="16" />
         <Setter Property="Width" Value="16" />
         <Setter Property="Padding" Value="0" />

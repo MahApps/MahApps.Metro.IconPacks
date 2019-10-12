@@ -6,6 +6,6 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.EvaIcons/Themes/PackIconEvaIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="uwp:PackIconEvaIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEvaIcons}" />
+    <Style TargetType="uwp:PackIconEvaIcons" BasedOn="{StaticResource MahApps.Styles.PackIconEvaIcons}" />
 
 </ResourceDictionary>

@@ -89,7 +89,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style x:Key="MahApps.Metro.Styles.PackIconControl" TargetType="{x:Type local:PackIconControl}">
+    <Style x:Key="MahApps.Styles.PackIconControl" TargetType="{x:Type local:PackIconControl}">
         <Setter Property="Height" Value="16" />
         <Setter Property="Width" Value="16" />
         <Setter Property="Padding" Value="0" />

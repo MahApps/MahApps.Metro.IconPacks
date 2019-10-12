@@ -6,6 +6,6 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Ionicons;component/Themes/PackIconIonicons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type local:PackIconIonicons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconIonicons}" />
+    <Style TargetType="{x:Type local:PackIconIonicons}" BasedOn="{StaticResource MahApps.Styles.PackIconIonicons}" />
 
 </ResourceDictionary>

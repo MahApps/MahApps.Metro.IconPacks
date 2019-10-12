@@ -6,6 +6,6 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Octicons;component/Themes/PackIconOcticons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type local:PackIconOcticons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}" />
+    <Style TargetType="{x:Type local:PackIconOcticons}" BasedOn="{StaticResource MahApps.Styles.PackIconOcticons}" />
 
 </ResourceDictionary>

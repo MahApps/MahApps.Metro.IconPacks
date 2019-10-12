@@ -6,6 +6,6 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.WeatherIcons/Themes/PackIconWeatherIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="uwp:PackIconWeatherIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconWeatherIcons}" />
+    <Style TargetType="uwp:PackIconWeatherIcons" BasedOn="{StaticResource MahApps.Styles.PackIconWeatherIcons}" />
 
 </ResourceDictionary>

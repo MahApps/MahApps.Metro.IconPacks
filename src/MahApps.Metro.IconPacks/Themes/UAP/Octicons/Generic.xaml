@@ -6,6 +6,6 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Octicons/Themes/PackIconOcticons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="uwp:PackIconOcticons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconOcticons}" />
+    <Style TargetType="uwp:PackIconOcticons" BasedOn="{StaticResource MahApps.Styles.PackIconOcticons}" />
 
 </ResourceDictionary>

@@ -6,6 +6,6 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.PicolIcons/Themes/PackIconPicolIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="uwp:PackIconPicolIcons" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconPicolIcons}" />
+    <Style TargetType="uwp:PackIconPicolIcons" BasedOn="{StaticResource MahApps.Styles.PackIconPicolIcons}" />
 
 </ResourceDictionary>

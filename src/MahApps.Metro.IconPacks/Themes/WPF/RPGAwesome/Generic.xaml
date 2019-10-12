@@ -6,6 +6,6 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.RPGAwesome;component/Themes/PackIconRPGAwesome.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type local:PackIconRPGAwesome}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconRPGAwesome}" />
+    <Style TargetType="{x:Type local:PackIconRPGAwesome}" BasedOn="{StaticResource MahApps.Styles.PackIconRPGAwesome}" />
 
 </ResourceDictionary>

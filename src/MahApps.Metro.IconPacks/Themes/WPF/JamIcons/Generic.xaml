@@ -6,6 +6,6 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.JamIcons;component/Themes/PackIconJamIcons.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type local:PackIconJamIcons}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconJamIcons}" />
+    <Style TargetType="{x:Type local:PackIconJamIcons}" BasedOn="{StaticResource MahApps.Styles.PackIconJamIcons}" />
 
 </ResourceDictionary>

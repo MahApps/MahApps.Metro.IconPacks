@@ -6,6 +6,6 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.FontAwesome/Themes/PackIconFontAwesome.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="uwp:PackIconFontAwesome" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}" />
+    <Style TargetType="uwp:PackIconFontAwesome" BasedOn="{StaticResource MahApps.Styles.PackIconFontAwesome}" />
 
 </ResourceDictionary>

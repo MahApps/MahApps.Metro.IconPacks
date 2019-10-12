@@ -6,6 +6,6 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Entypo/Themes/PackIconEntypo.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="uwp:PackIconEntypo" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconEntypo}" />
+    <Style TargetType="uwp:PackIconEntypo" BasedOn="{StaticResource MahApps.Styles.PackIconEntypo}" />
 
 </ResourceDictionary>
