@@ -1,4 +1,5 @@
-﻿#if (NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
@@ -15,14 +16,29 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconModern))]
 #endif
-    public class ModernExtension : PackIconExtension<PackIconModern, PackIconModernKind>
+    public class ModernExtension : BasePackIconExtension
     {
         public ModernExtension()
         {
         }
 
-        public ModernExtension(PackIconModernKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public ModernExtension(PackIconModernKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconModernKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconModern, PackIconModernKind>(this.Kind);
         }
     }
 }

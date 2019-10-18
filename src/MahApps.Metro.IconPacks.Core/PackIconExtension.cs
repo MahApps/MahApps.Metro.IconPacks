@@ -58,13 +58,8 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconBase))]
 #endif
-    public abstract class PackIconExtension<TPack, TKind> : MarkupExtension, IPackIconExtension where TPack : PackIconControlBase, new()
+    public abstract class BasePackIconExtension : MarkupExtension, IPackIconExtension
     {
-#if !(NETFX_CORE || WINDOWS_UWP)
-        [ConstructorArgument("kind")]
-#endif
-        public TKind Kind { get; set; }
-
         public double? Width { get; set; }
         public double? Height { get; set; }
         public PackIconFlipOrientation? Flip { get; set; }
@@ -77,23 +72,5 @@ namespace MahApps.Metro.IconPacks
         public IEasingFunction SpinEasingFunction { get; set; }
 #endif
         public double? SpinDuration { get; set; }
-
-        protected PackIconExtension()
-        {
-        }
-
-        protected PackIconExtension(TKind kind)
-        {
-            this.Kind = kind;
-        }
-
-#if (NETFX_CORE || WINDOWS_UWP)
-        protected override object ProvideValue()
-#else
-        public override object ProvideValue(IServiceProvider serviceProvider)
-#endif
-        {
-            return this.GetPackIcon<TPack, TKind>(this.Kind);
-        }
     }
 }

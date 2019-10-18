@@ -1,4 +1,5 @@
-﻿#if (NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
@@ -15,14 +16,29 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconJamIcons))]
 #endif
-    public class JamIconsExtension : PackIconExtension<PackIconJamIcons, PackIconJamIconsKind>
+    public class JamIconsExtension : BasePackIconExtension
     {
         public JamIconsExtension()
         {
         }
 
-        public JamIconsExtension(PackIconJamIconsKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public JamIconsExtension(PackIconJamIconsKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconJamIconsKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconJamIcons, PackIconJamIconsKind>(this.Kind);
         }
     }
 }

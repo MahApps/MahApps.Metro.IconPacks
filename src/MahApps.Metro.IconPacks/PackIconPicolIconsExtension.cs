@@ -1,4 +1,5 @@
-﻿#if (NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
@@ -15,14 +16,29 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconPicolIcons))]
 #endif
-    public class PicolIconsExtension : PackIconExtension<PackIconPicolIcons, PackIconPicolIconsKind>
+    public class PicolIconsExtension : BasePackIconExtension
     {
         public PicolIconsExtension()
         {
         }
 
-        public PicolIconsExtension(PackIconPicolIconsKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public PicolIconsExtension(PackIconPicolIconsKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconPicolIconsKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconPicolIcons, PackIconPicolIconsKind>(this.Kind);
         }
     }
 }

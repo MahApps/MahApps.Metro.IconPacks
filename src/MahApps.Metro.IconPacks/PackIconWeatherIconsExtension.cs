@@ -1,4 +1,5 @@
-﻿#if (NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
@@ -15,14 +16,29 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconWeatherIcons))]
 #endif
-    public class WeatherIconsExtension : PackIconExtension<PackIconWeatherIcons, PackIconWeatherIconsKind>
+    public class WeatherIconsExtension : BasePackIconExtension
     {
         public WeatherIconsExtension()
         {
         }
 
-        public WeatherIconsExtension(PackIconWeatherIconsKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public WeatherIconsExtension(PackIconWeatherIconsKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconWeatherIconsKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconWeatherIcons, PackIconWeatherIconsKind>(this.Kind);
         }
     }
 }

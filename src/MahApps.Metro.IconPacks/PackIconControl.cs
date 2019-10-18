@@ -9,6 +9,8 @@ using System.Windows;
 
 namespace MahApps.Metro.IconPacks
 {
+    /// <summary>
+    /// </summary>
     public class PackIconControl : PackIconControlBase
     {
         private static Lazy<IDictionary<Enum, string>> _dataIndex;
