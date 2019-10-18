@@ -1,5 +1,9 @@
-﻿
-#if !(NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+using System.Collections.Generic;
+#if (NETFX_CORE || WINDOWS_UWP)
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Data;
+#else
 using System.Windows;
 #endif
 
@@ -9,8 +13,27 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from Modern UI Icons Font - <see><cref>http://modernuiicons.com</cref></see> - in accordance of
     /// <see><cref>https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt</cref></see>.
     /// </summary>
-    public class PackIconModern : PackIconControl<PackIconModernKind>
+    public class PackIconModern : PackIconControlBase
     {
+        private static Lazy<IDictionary<PackIconModernKind, string>> _dataIndex;
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconModernKind), typeof(PackIconModern), new PropertyMetadata(default(PackIconModernKind), KindPropertyChangedCallback));
+
+        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+        {
+            ((PackIconModern)dependencyObject).UpdateData();
+        }
+
+        /// <summary>
+        /// Gets or sets the icon to display.
+        /// </summary>
+        public PackIconModernKind Kind
+        {
+            get { return (PackIconModernKind)GetValue(KindProperty); }
+            set { SetValue(KindProperty, value); }
+        }
+
 #if !(NETFX_CORE || WINDOWS_UWP)
         static PackIconModern()
         {
@@ -18,11 +41,32 @@ namespace MahApps.Metro.IconPacks
         }
 #endif
 
-        public PackIconModern() : base(PackIconModernDataFactory.Create)
+        public PackIconModern()
         {
 #if NETFX_CORE || WINDOWS_UWP
             this.DefaultStyleKey = typeof(PackIconModern);
 #endif
+
+            if (_dataIndex == null)
+            {
+                _dataIndex = new Lazy<IDictionary<PackIconModernKind, string>>(PackIconModernDataFactory.Create);
+            }
+        }
+
+        protected override void SetKind<TKind>(TKind iconKind)
+        {
+#if NETFX_CORE || WINDOWS_UWP
+            BindingOperations.SetBinding(this, PackIconModern.KindProperty, new Binding() { Source = iconKind, Mode = BindingMode.OneTime });
+#else
+            this.SetCurrentValue(KindProperty, iconKind);
+#endif
+        }
+
+        protected override void UpdateData()
+        {
+            string data = null;
+            _dataIndex.Value?.TryGetValue(Kind, out data);
+            this.Data = data;
         }
     }
 }

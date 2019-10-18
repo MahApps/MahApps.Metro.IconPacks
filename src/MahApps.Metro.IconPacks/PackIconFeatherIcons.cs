@@ -1,5 +1,9 @@
-﻿
-#if !(NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+using System.Collections.Generic;
+#if (NETFX_CORE || WINDOWS_UWP)
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Data;
+#else
 using System.Windows;
 #endif
 
@@ -9,8 +13,27 @@ namespace MahApps.Metro.IconPacks
     /// Feather is licensed under the MIT License <see><cref>https://github.com/feathericons/feather/blob/master/LICENSE</cref></see>
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/feathericons/feather</cref></see>.
     /// </summary>
-    public class PackIconFeatherIcons : PackIconControl<PackIconFeatherIconsKind>
+    public class PackIconFeatherIcons : PackIconControlBase
     {
+        private static Lazy<IDictionary<PackIconFeatherIconsKind, string>> _dataIndex;
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconFeatherIconsKind), typeof(PackIconFeatherIcons), new PropertyMetadata(default(PackIconFeatherIconsKind), KindPropertyChangedCallback));
+
+        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+        {
+            ((PackIconFeatherIcons)dependencyObject).UpdateData();
+        }
+
+        /// <summary>
+        /// Gets or sets the icon to display.
+        /// </summary>
+        public PackIconFeatherIconsKind Kind
+        {
+            get { return (PackIconFeatherIconsKind)GetValue(KindProperty); }
+            set { SetValue(KindProperty, value); }
+        }
+
 #if !(NETFX_CORE || WINDOWS_UWP)
         static PackIconFeatherIcons()
         {
@@ -18,11 +41,32 @@ namespace MahApps.Metro.IconPacks
         }
 #endif
 
-        public PackIconFeatherIcons() : base(PackIconFeatherIconsDataFactory.Create)
+        public PackIconFeatherIcons()
         {
 #if NETFX_CORE || WINDOWS_UWP
             this.DefaultStyleKey = typeof(PackIconFeatherIcons);
 #endif
+
+            if (_dataIndex == null)
+            {
+                _dataIndex = new Lazy<IDictionary<PackIconFeatherIconsKind, string>>(PackIconFeatherIconsDataFactory.Create);
+            }
+        }
+
+        protected override void SetKind<TKind>(TKind iconKind)
+        {
+#if NETFX_CORE || WINDOWS_UWP
+            BindingOperations.SetBinding(this, PackIconFeatherIcons.KindProperty, new Binding() { Source = iconKind, Mode = BindingMode.OneTime });
+#else
+            this.SetCurrentValue(KindProperty, iconKind);
+#endif
+        }
+
+        protected override void UpdateData()
+        {
+            string data = null;
+            _dataIndex.Value?.TryGetValue(Kind, out data);
+            this.Data = data;
         }
     }
 }

@@ -29,9 +29,10 @@ namespace MahApps.Metro.IconPacks
 
     public static class PackIconExtensionHelper
     {
-        public static PackIconControl<TKind> GetPackIcon<TPack, TKind>(this IPackIconExtension packIconExtension, TKind kind) where TPack : PackIconControl<TKind>, new()
+        public static PackIconControlBase GetPackIcon<TPack, TKind>(this IPackIconExtension packIconExtension, TKind kind) where TPack : PackIconControlBase, new()
         {
-            var packIcon = new TPack {Kind = kind};
+            var packIcon = new TPack();
+            packIcon.SetKind(kind);
             if (packIconExtension.Width != null)
                 packIcon.Width = packIconExtension.Width.Value;
             if (packIconExtension.Height != null)
@@ -57,7 +58,7 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconBase))]
 #endif
-    public abstract class PackIconExtension<TPack, TKind> : MarkupExtension, IPackIconExtension where TPack : PackIconControl<TKind>, new()
+    public abstract class PackIconExtension<TPack, TKind> : MarkupExtension, IPackIconExtension where TPack : PackIconControlBase, new()
     {
 #if !(NETFX_CORE || WINDOWS_UWP)
         [ConstructorArgument("kind")]
