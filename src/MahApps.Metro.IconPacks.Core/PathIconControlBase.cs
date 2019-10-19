@@ -11,16 +11,14 @@ using MahApps.Metro.IconPacks.Converter;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Class PathIconControl which is the base class for any PathIcon control.
+    /// Class PathIconControlBase which is the base class for any PathIcon control.
     /// </summary>
-    /// <typeparam name="TKind">The type of the enum kind.</typeparam>
-    /// <seealso cref="PathIconControl{TKind}" />
-    public class PathIconControl<TKind> : PathIconBase<TKind>
+    public abstract class PathIconControlBase : PathIconBase
     {
         private long _opacityRegisterToken;
         private long _visibilityRegisterToken;
 
-        public PathIconControl(Func<IDictionary<TKind, string>> dataIndexFactory) : base(dataIndexFactory)
+        public PathIconControlBase()
         {
             this.SetValue(RenderTransformOriginProperty, new Point(0.5, 0.5));
             this.CreateRenderTransformGroup();
@@ -62,7 +60,7 @@ namespace MahApps.Metro.IconPacks
 
         private void CoerceSpinProperty(DependencyObject sender, DependencyProperty dp)
         {
-            var pathIcon = sender as PathIconControl<TKind>;
+            var pathIcon = sender as PathIconControlBase;
             if (pathIcon != null && (dp == OpacityProperty || dp == VisibilityProperty))
             {
                 var spin = this.Spin && pathIcon.Visibility == Visibility.Visible && pathIcon.SpinDuration > 0 && pathIcon.Opacity > 0;
@@ -73,7 +71,11 @@ namespace MahApps.Metro.IconPacks
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
+
+            UpdateData();
+
             this.CoerceSpinProperty(this, SpinProperty);
+
             if (this.Spin)
             {
                 this.StopSpinAnimation();
@@ -88,7 +90,7 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register(
                 nameof(Flip),
                 typeof(PackIconFlipOrientation),
-                typeof(PathIconControl<TKind>),
+                typeof(PathIconControlBase),
                 new PropertyMetadata(PackIconFlipOrientation.Normal));
 
         /// <summary>
@@ -107,7 +109,7 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register(
                 nameof(RotationAngle),
                 typeof(double),
-                typeof(PathIconControl<TKind>),
+                typeof(PathIconControlBase),
                 new PropertyMetadata(0d));
 
         /// <summary>
@@ -127,12 +129,12 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register(
                 nameof(Spin),
                 typeof(bool),
-                typeof(PathIconControl<TKind>),
+                typeof(PathIconControlBase),
                 new PropertyMetadata(default(bool), SpinPropertyChangedCallback));
 
         private static void SpinPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var pathIcon = dependencyObject as PathIconControl<TKind>;
+            var pathIcon = dependencyObject as PathIconControlBase;
             if (pathIcon != null && e.OldValue != e.NewValue && e.NewValue is bool)
             {
                 pathIcon.ToggleSpinAnimation((bool)e.NewValue);
@@ -218,12 +220,12 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register(
                 nameof(SpinDuration),
                 typeof(double),
-                typeof(PathIconControl<TKind>),
+                typeof(PathIconControlBase),
                 new PropertyMetadata(1d, SpinDurationPropertyChangedCallback));
 
         private static void SpinDurationPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var pathIcon = dependencyObject as PathIconControl<TKind>;
+            var pathIcon = dependencyObject as PathIconControlBase;
             if (pathIcon != null && e.OldValue != e.NewValue && pathIcon.Spin && e.NewValue is double)
             {
                 pathIcon.StopSpinAnimation();
@@ -248,12 +250,12 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register(
                 nameof(SpinEasingFunction),
                 typeof(EasingFunctionBase),
-                typeof(PathIconControl<TKind>),
+                typeof(PathIconControlBase),
                 new PropertyMetadata(null, SpinEasingFunctionPropertyChangedCallback));
 
         private static void SpinEasingFunctionPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var pathIcon = dependencyObject as PathIconControl<TKind>;
+            var pathIcon = dependencyObject as PathIconControlBase;
             if (pathIcon != null && e.OldValue != e.NewValue && pathIcon.Spin)
             {
                 pathIcon.StopSpinAnimation();
@@ -278,12 +280,12 @@ namespace MahApps.Metro.IconPacks
             = DependencyProperty.Register(
                 nameof(SpinAutoReverse),
                 typeof(bool),
-                typeof(PathIconControl<TKind>),
+                typeof(PathIconControlBase),
                 new PropertyMetadata(default(bool), SpinAutoReversePropertyChangedCallback));
 
         private static void SpinAutoReversePropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var pathIcon = dependencyObject as PathIconControl<TKind>;
+            var pathIcon = dependencyObject as PathIconControlBase;
             if (pathIcon != null && e.OldValue != e.NewValue && pathIcon.Spin && e.NewValue is bool)
             {
                 pathIcon.StopSpinAnimation();
