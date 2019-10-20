@@ -1,12 +1,8 @@
 ﻿using System;
 #if (NETFX_CORE || WINDOWS_UWP)
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 #else
 using System.Windows.Markup;
-using System.Windows.Media.Animation;
 #endif
 
 namespace MahApps.Metro.IconPacks
@@ -16,34 +12,21 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconBase))]
 #endif
-    public class PackIconExtension : MarkupExtension, IPackIconExtension
+    public class PackIconExtension : BasePackIconExtension
     {
-#if !(NETFX_CORE || WINDOWS_UWP)
-        [ConstructorArgument("kind")]
-#endif
-        public Enum Kind { get; set; }
-
-        public double? Width { get; set; }
-        public double? Height { get; set; }
-        public PackIconFlipOrientation? Flip { get; set; }
-        public double? RotationAngle { get; set; }
-        public bool? Spin { get; set; }
-        public bool? SpinAutoReverse { get; set; }
-#if (NETFX_CORE || WINDOWS_UWP)
-        public EasingFunctionBase SpinEasingFunction { get; set; }
-#else
-        public IEasingFunction SpinEasingFunction { get; set; }
-#endif
-        public double? SpinDuration { get; set; }
-
         public PackIconExtension()
         {
         }
 
+#if !(NETFX_CORE || WINDOWS_UWP)
         public PackIconExtension(Enum kind)
         {
             this.Kind = kind;
         }
+
+        [ConstructorArgument("kind")]
+#endif
+        public Enum Kind { get; set; }
 
 #if (NETFX_CORE || WINDOWS_UWP)
         protected override object ProvideValue()

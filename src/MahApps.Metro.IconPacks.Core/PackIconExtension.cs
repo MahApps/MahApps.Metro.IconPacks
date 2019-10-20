@@ -13,18 +13,18 @@ namespace MahApps.Metro.IconPacks
 {
     public interface IPackIconExtension
     {
-        double? Width { get; set; }
-        double? Height { get; set; }
-        PackIconFlipOrientation? Flip { get; set; }
-        double? RotationAngle { get; set; }
-        bool? Spin { get; set; }
-        bool? SpinAutoReverse { get; set; }
+        double Width { get; set; }
+        double Height { get; set; }
+        PackIconFlipOrientation Flip { get; set; }
+        double RotationAngle { get; set; }
+        bool Spin { get; set; }
+        bool SpinAutoReverse { get; set; }
 #if (NETFX_CORE || WINDOWS_UWP)
         EasingFunctionBase SpinEasingFunction { get; set; }
 #else
         IEasingFunction SpinEasingFunction { get; set; }
 #endif
-        double? SpinDuration { get; set; }
+        double SpinDuration { get; set; }
     }
 
     public static class PackIconExtensionHelper
@@ -33,22 +33,17 @@ namespace MahApps.Metro.IconPacks
         {
             var packIcon = new TPack();
             packIcon.SetKind(kind);
-            if (packIconExtension.Width != null)
-                packIcon.Width = packIconExtension.Width.Value;
-            if (packIconExtension.Height != null)
-                packIcon.Height = packIconExtension.Height.Value;
-            if (packIconExtension.Flip != null)
-                packIcon.Flip = packIconExtension.Flip.Value;
-            if (packIconExtension.RotationAngle != null)
-                packIcon.RotationAngle = packIconExtension.RotationAngle.Value;
-            if (packIconExtension.Spin != null)
-                packIcon.Spin = packIconExtension.Spin.Value;
-            if (packIconExtension.SpinAutoReverse != null)
-                packIcon.SpinAutoReverse = packIconExtension.SpinAutoReverse.Value;
+            packIcon.Width = packIconExtension.Width;
+            packIcon.Height = packIconExtension.Height;
+            packIcon.Flip = packIconExtension.Flip;
+            packIcon.RotationAngle = packIconExtension.RotationAngle;
+            packIcon.Spin = packIconExtension.Spin;
+            packIcon.SpinAutoReverse = packIconExtension.SpinAutoReverse;
             if (packIconExtension.SpinEasingFunction != null)
+            {
                 packIcon.SpinEasingFunction = packIconExtension.SpinEasingFunction;
-            if (packIconExtension.SpinDuration != null)
-                packIcon.SpinDuration = packIconExtension.SpinDuration.Value;
+            }
+            packIcon.SpinDuration = packIconExtension.SpinDuration;
             return packIcon;
         }
     }
@@ -60,17 +55,17 @@ namespace MahApps.Metro.IconPacks
 #endif
     public abstract class BasePackIconExtension : MarkupExtension, IPackIconExtension
     {
-        public double? Width { get; set; }
-        public double? Height { get; set; }
-        public PackIconFlipOrientation? Flip { get; set; }
-        public double? RotationAngle { get; set; }
-        public bool? Spin { get; set; }
-        public bool? SpinAutoReverse { get; set; }
+        public double Width { get; set; } = 16;
+        public double Height { get; set; } = 16;
+        public PackIconFlipOrientation Flip { get; set; } = PackIconFlipOrientation.Normal;
+        public double RotationAngle { get; set; } = 0d;
+        public bool Spin { get; set; } = false;
+        public bool SpinAutoReverse { get; set; } = false;
 #if (NETFX_CORE || WINDOWS_UWP)
-        public EasingFunctionBase SpinEasingFunction { get; set; }
+        public EasingFunctionBase SpinEasingFunction { get; set; } = null;
 #else
-        public IEasingFunction SpinEasingFunction { get; set; }
+        public IEasingFunction SpinEasingFunction { get; set; } = null;
 #endif
-        public double? SpinDuration { get; set; }
+        public double SpinDuration { get; set; } = 1d;
     }
 }

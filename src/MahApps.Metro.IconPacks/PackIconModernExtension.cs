@@ -1,12 +1,8 @@
-﻿using System;
-#if (NETFX_CORE || WINDOWS_UWP)
-using Windows.UI.Xaml;
+﻿#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 #else
+using System;
 using System.Windows.Markup;
-using System.Windows.Media.Animation;
 #endif
 
 namespace MahApps.Metro.IconPacks
