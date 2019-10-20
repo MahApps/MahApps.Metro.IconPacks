@@ -1,4 +1,5 @@
-﻿#if (NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
@@ -15,14 +16,29 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconEvaIcons))]
 #endif
-    public class EvaIconsExtension : PackIconExtension<PackIconEvaIcons, PackIconEvaIconsKind>
+    public class EvaIconsExtension : BasePackIconExtension
     {
         public EvaIconsExtension()
         {
         }
 
-        public EvaIconsExtension(PackIconEvaIconsKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public EvaIconsExtension(PackIconEvaIconsKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconEvaIconsKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconEvaIcons, PackIconEvaIconsKind>(this.Kind);
         }
     }
 }

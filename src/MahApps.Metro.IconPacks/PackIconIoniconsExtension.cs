@@ -1,4 +1,5 @@
-﻿#if (NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
@@ -15,14 +16,29 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconIonicons))]
 #endif
-    public class IoniconsExtension : PackIconExtension<PackIconIonicons, PackIconIoniconsKind>
+    public class IoniconsExtension : BasePackIconExtension
     {
         public IoniconsExtension()
         {
         }
 
-        public IoniconsExtension(PackIconIoniconsKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public IoniconsExtension(PackIconIoniconsKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconIoniconsKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconIonicons, PackIconIoniconsKind>(this.Kind);
         }
     }
 }

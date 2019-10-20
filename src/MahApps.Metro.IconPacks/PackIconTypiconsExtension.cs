@@ -1,4 +1,5 @@
-﻿#if (NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
@@ -15,14 +16,29 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconTypicons))]
 #endif
-    public class TypiconsExtension : PackIconExtension<PackIconTypicons, PackIconTypiconsKind>
+    public class TypiconsExtension : BasePackIconExtension
     {
         public TypiconsExtension()
         {
         }
 
-        public TypiconsExtension(PackIconTypiconsKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public TypiconsExtension(PackIconTypiconsKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconTypiconsKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconTypicons, PackIconTypiconsKind>(this.Kind);
         }
     }
 }

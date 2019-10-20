@@ -1,4 +1,5 @@
-﻿#if (NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
@@ -15,14 +16,29 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconMaterialLight))]
 #endif
-    public class MaterialLightExtension : PackIconExtension<PackIconMaterialLight, PackIconMaterialLightKind>
+    public class MaterialLightExtension : BasePackIconExtension
     {
         public MaterialLightExtension()
         {
         }
 
-        public MaterialLightExtension(PackIconMaterialLightKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public MaterialLightExtension(PackIconMaterialLightKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconMaterialLightKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconMaterialLight, PackIconMaterialLightKind>(this.Kind);
         }
     }
 }

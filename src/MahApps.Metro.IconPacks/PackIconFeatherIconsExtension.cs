@@ -1,4 +1,5 @@
-﻿#if (NETFX_CORE || WINDOWS_UWP)
+﻿using System;
+#if (NETFX_CORE || WINDOWS_UWP)
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
@@ -15,14 +16,29 @@ namespace MahApps.Metro.IconPacks
 #else
     [MarkupExtensionReturnType(typeof(PackIconFeatherIcons))]
 #endif
-    public class FeatherIconsExtension : PackIconExtension<PackIconFeatherIcons, PackIconFeatherIconsKind>
+    public class FeatherIconsExtension : BasePackIconExtension
     {
         public FeatherIconsExtension()
         {
         }
 
-        public FeatherIconsExtension(PackIconFeatherIconsKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public FeatherIconsExtension(PackIconFeatherIconsKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconFeatherIconsKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconFeatherIcons, PackIconFeatherIconsKind>(this.Kind);
         }
     }
 }
