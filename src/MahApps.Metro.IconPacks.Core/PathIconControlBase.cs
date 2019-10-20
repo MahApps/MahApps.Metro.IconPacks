@@ -21,6 +21,9 @@ namespace MahApps.Metro.IconPacks
         public PathIconControlBase()
         {
             this.SetValue(RenderTransformOriginProperty, new Point(0.5, 0.5));
+            this.SetValue(FlowDirectionProperty, FlowDirection.LeftToRight);
+            this.SetValue(HorizontalAlignmentProperty, HorizontalAlignment.Left);
+            this.SetValue(VerticalAlignmentProperty, VerticalAlignment.Top);
             this.CreateRenderTransformGroup();
 
             this.Loaded += (sender, args) =>
