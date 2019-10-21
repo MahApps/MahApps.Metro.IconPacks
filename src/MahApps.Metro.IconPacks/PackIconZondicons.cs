@@ -20,9 +20,12 @@ namespace MahApps.Metro.IconPacks
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconZondiconsKind), typeof(PackIconZondicons), new PropertyMetadata(default(PackIconZondiconsKind), KindPropertyChangedCallback));
 
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            ((PackIconZondicons)dependencyObject).UpdateData();
+            if (e.NewValue != e.OldValue)
+            {
+                ((PackIconZondicons)dependencyObject).UpdateData();
+            }
         }
 
         /// <summary>
@@ -64,9 +67,16 @@ namespace MahApps.Metro.IconPacks
 
         protected override void UpdateData()
         {
-            string data = null;
-            _dataIndex.Value?.TryGetValue(Kind, out data);
-            this.Data = data;
+            if (Kind != default(PackIconZondiconsKind))
+            {
+                string data = null;
+                _dataIndex.Value?.TryGetValue(Kind, out data);
+                this.Data = data;
+            }
+            else
+            {
+                this.Data = null;
+            }
         }
     }
 }

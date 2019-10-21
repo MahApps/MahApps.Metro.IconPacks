@@ -18,9 +18,12 @@ namespace MahApps.Metro.IconPacks
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconRPGAwesomeKind), typeof(PathIconRPGAwesome), new PropertyMetadata(default(PackIconRPGAwesomeKind), KindPropertyChangedCallback));
 
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            ((PathIconRPGAwesome)dependencyObject).UpdateData();
+            if (e.NewValue != e.OldValue)
+            {
+                ((PathIconRPGAwesome)dependencyObject).UpdateData();
+            }
         }
 
         /// <summary>

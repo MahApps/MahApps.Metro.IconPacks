@@ -18,9 +18,12 @@ namespace MahApps.Metro.IconPacks
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconTypiconsKind), typeof(PathIconTypicons), new PropertyMetadata(default(PackIconTypiconsKind), KindPropertyChangedCallback));
 
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            ((PathIconTypicons)dependencyObject).UpdateData();
+            if (e.NewValue != e.OldValue)
+            {
+                ((PathIconTypicons)dependencyObject).UpdateData();
+            }
         }
 
         /// <summary>
