@@ -16,7 +16,7 @@ namespace MahApps.Metro.IconPacks
         private static Lazy<IDictionary<Enum, string>> _dataIndex;
 
         public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(Enum), typeof(PackIconBoxIcons), new PropertyMetadata(default(Enum), KindPropertyChangedCallback));
+            = DependencyProperty.Register(nameof(Kind), typeof(Enum), typeof(PackIconControl), new PropertyMetadata(default(Enum), KindPropertyChangedCallback));
 
         private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
