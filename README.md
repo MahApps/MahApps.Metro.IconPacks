@@ -33,7 +33,7 @@ This `IconPacks` library contains controls to use these awesome icons for `WPF` 
 | Icon collection | Version | &#8721; | NuGet |
 |---|--:|--:|:--|
 | Complete IconPacks collection with all Icons in one package | | | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks"></a> |
-| [BoxIcons](https://boxicons.com/) | 2.0.3 | 1140 | <a href="https://github.com/atisawd/boxicons"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BoxIcons.svg?style=flat-square&&label=BoxIcons"></a> |
+| [BoxIcons](https://boxicons.com/) | 2.0.4 | 1253 | <a href="https://github.com/atisawd/boxicons"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BoxIcons.svg?style=flat-square&&label=BoxIcons"></a> |
 | [Entypo+](http://www.entypo.com/) | | 411 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo"></a> |
 | [Eva Icons](https://github.com/akveo/eva-icons) | 1.1.1 | 488 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.EvaIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.EvaIcons.svg?style=flat-square&&label=EvaIcons"></a> |
 | [Feather Icons](https://github.com/feathericons/feather) | 4.24.1 | 282 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> |
