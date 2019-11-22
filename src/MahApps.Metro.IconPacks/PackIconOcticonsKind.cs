@@ -210,6 +210,8 @@
         [Description("Verified (Trusted, Secure, Trustworthy, Signed)")] Verified,
         [Description("Versions (History, Commits)")] Versions,
         [Description("Watch (Wait, Hourglass, Time, Date)")] Watch,
+        [Description("Workflow (Workflow, Actions)")] Workflow,
+        [Description("WorkflowAll (Workflow, Actions)")] WorkflowAll,
         [Description("X (Remove, Close, Delete)")] X,
         [Description("Zap (Electricity, Lightning, Props, Like, Star, Save)")] Zap,
     }
