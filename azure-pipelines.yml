@@ -28,20 +28,13 @@ pool:
 
 variables:
   buildPlatform: 'Any CPU'
-  dotNetCoreVersion: '3.0.*'
+  dotNetCoreVersion: '3.0.x'
 
 steps:
 - task: NuGetToolInstaller@0
   displayName: 'Use latest NuGet'
   inputs:
     checkLatest: true
-
-#- task: UseDotNet@2
-#  displayName: 'Use dotnet sdk 3.0.100-preview'
-#  inputs:
-#    packageType: 'sdk'
-#    version: '3.0.100-preview9-014004'
-#    includePreviewVersions: true
 
 - task: UseDotNet@2
   displayName: 'Use dotNet $(dotNetCoreVersion)'
