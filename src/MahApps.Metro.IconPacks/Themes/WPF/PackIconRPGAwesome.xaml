@@ -10,6 +10,8 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
             <Grid x:Name="PART_InnerGrid"
+                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                   RenderTransformOrigin="0.5 0.5"
                   Margin="{TemplateBinding BorderThickness}">
                 <Grid.RenderTransform>
@@ -47,6 +49,8 @@
         <Setter Property="SnapsToDevicePixels" Value="False" />
         <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconRPGAwesome}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
     </Style>
 
 </ResourceDictionary>

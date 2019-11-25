@@ -9,6 +9,8 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}" />
             <Grid x:Name="PART_InnerGrid"
+                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                   RenderTransformOrigin="0.5 0.5"
                   Margin="{TemplateBinding BorderThickness}">
                 <Grid.RenderTransform>
@@ -46,6 +48,8 @@
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconRPGAwesome}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
     </Style>
 
 </ResourceDictionary>
