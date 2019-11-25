@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
+using AsyncAwaitBestPractices;
 
 namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
@@ -20,7 +22,15 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         {
             this.MainViewModel = mainViewModel;
             this.Caption = caption;
-            this.Icons = new ObservableCollection<IIconViewModel>(GetIcons(enumType, packType).OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase));
+
+            this.LoadEnumsAsync(enumType, packType).SafeFireAndForget();
+        }
+
+        private async Task LoadEnumsAsync(Type enumType, Type packType)
+        {
+            var collection = await Task.Run(() => GetIcons(enumType, packType).OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase).ToList());
+
+            this.Icons = new ObservableCollection<IIconViewModel>(collection);
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -28,15 +38,25 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public IconPackViewModel(MainViewModel mainViewModel, string caption, Type[] enumTypes, Type[] packTypes)
         {
             this.MainViewModel = mainViewModel;
-
-            var allIcons = Enumerable.Empty<IIconViewModel>();
-            for (var counter = 0; counter < enumTypes.Length; counter++)
-            {
-                allIcons = allIcons.Concat(GetIcons(enumTypes[counter], packTypes[counter]));
-            }
-
             this.Caption = caption;
-            this.Icons = new ObservableCollection<IIconViewModel>(allIcons.OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase));
+
+            this.LoadAllEnumsAsync(enumTypes, packTypes).SafeFireAndForget();
+        }
+
+        private async Task LoadAllEnumsAsync(Type[] enumTypes, Type[] packTypes)
+        {
+            var collection = await Task.Run(() =>
+            {
+                var allIcons = Enumerable.Empty<IIconViewModel>();
+                for (var counter = 0; counter < enumTypes.Length; counter++)
+                {
+                    allIcons = allIcons.Concat(GetIcons(enumTypes[counter], packTypes[counter]));
+                }
+
+                return allIcons.OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase).ToList();
+            });
+
+            this.Icons = new ObservableCollection<IIconViewModel>(collection);
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }

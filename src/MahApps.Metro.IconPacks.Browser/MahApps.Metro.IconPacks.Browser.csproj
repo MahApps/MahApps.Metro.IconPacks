@@ -22,6 +22,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="MahApps.Metro" Version="2.0.0-alpha*" />
+        <PackageReference Include="AsyncAwaitBestPractices" Version="4.0.0-pre2" />
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Debug' and '$(TargetFramework)' != 'netcoreapp3.0'">
         <PackageReference Include="Fody" Version="5.*">
