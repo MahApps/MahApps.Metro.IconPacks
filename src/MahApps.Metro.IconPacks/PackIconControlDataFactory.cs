@@ -6,8 +6,18 @@ namespace MahApps.Metro.IconPacks
     /// ******************************************
     /// This code is auto generated. Do not amend.
     /// ******************************************
-    internal static class PackIconControlDataFactory
+    public static class PackIconControlDataFactory
     {
+        public static Lazy<IDictionary<Enum, string>> DataIndex { get; }
+
+        static PackIconControlDataFactory()
+        {
+            if (DataIndex == null)
+            {
+                DataIndex = new Lazy<IDictionary<Enum, string>>(PackIconControlDataFactory.Create);
+            }
+        }
+
         internal static IDictionary<Enum, string> Create()
         {
             var dictionary = new Dictionary<Enum, string>();

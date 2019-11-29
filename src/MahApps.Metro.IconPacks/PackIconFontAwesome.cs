@@ -15,8 +15,6 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PackIconFontAwesome : PackIconControlBase
     {
-        private static Lazy<IDictionary<PackIconFontAwesomeKind, string>> _dataIndex;
-
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome), new PropertyMetadata(default(PackIconFontAwesomeKind), KindPropertyChangedCallback));
 
@@ -49,11 +47,6 @@ namespace MahApps.Metro.IconPacks
 #if NETFX_CORE || WINDOWS_UWP
             this.DefaultStyleKey = typeof(PackIconFontAwesome);
 #endif
-
-            if (_dataIndex == null)
-            {
-                _dataIndex = new Lazy<IDictionary<PackIconFontAwesomeKind, string>>(PackIconFontAwesomeDataFactory.Create);
-            }
         }
 
         protected override void SetKind<TKind>(TKind iconKind)
@@ -70,7 +63,7 @@ namespace MahApps.Metro.IconPacks
             if (Kind != default(PackIconFontAwesomeKind))
             {
                 string data = null;
-                _dataIndex.Value?.TryGetValue(Kind, out data);
+                PackIconFontAwesomeDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
                 this.Data = data;
             }
             else

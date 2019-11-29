@@ -13,8 +13,6 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PathIconEntypo : PathIconControlBase
     {
-        private static Lazy<IDictionary<PackIconEntypoKind, string>> _dataIndex;
-
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconEntypoKind), typeof(PathIconEntypo), new PropertyMetadata(default(PackIconEntypoKind), KindPropertyChangedCallback));
 
@@ -37,16 +35,12 @@ namespace MahApps.Metro.IconPacks
 
         public PathIconEntypo()
         {
-            if (_dataIndex == null)
-            {
-                _dataIndex = new Lazy<IDictionary<PackIconEntypoKind, string>>(PackIconEntypoDataFactory.Create);
-            }
         }
 
         protected override void UpdateData()
         {
             string data = null;
-            _dataIndex.Value?.TryGetValue(Kind, out data);
+            PackIconEntypoDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
             if (string.IsNullOrEmpty(data))
             {
                 this.Data = default(Geometry);

@@ -23,11 +23,6 @@
         </ProjectReference>
     </ItemGroup>
 
-    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="**\*.rd.xml" />
-        <Compile Remove="PathIcon*.cs" />
-    </ItemGroup>
-
     <!-- known issue https://github.com/NuGet/Home/issues/3891
          Feature : Allow project reference DLLs to be added to the parent nupkg for pack target like IncludeReferencedProjects in nuget.exe
 

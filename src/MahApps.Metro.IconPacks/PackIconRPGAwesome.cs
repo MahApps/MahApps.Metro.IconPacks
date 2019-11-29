@@ -15,8 +15,6 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PackIconRPGAwesome : PackIconControlBase
     {
-        private static Lazy<IDictionary<PackIconRPGAwesomeKind, string>> _dataIndex;
-
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconRPGAwesomeKind), typeof(PackIconRPGAwesome), new PropertyMetadata(default(PackIconRPGAwesomeKind), KindPropertyChangedCallback));
 
@@ -49,11 +47,6 @@ namespace MahApps.Metro.IconPacks
 #if NETFX_CORE || WINDOWS_UWP
             this.DefaultStyleKey = typeof(PackIconRPGAwesome);
 #endif
-
-            if (_dataIndex == null)
-            {
-                _dataIndex = new Lazy<IDictionary<PackIconRPGAwesomeKind, string>>(PackIconRPGAwesomeDataFactory.Create);
-            }
         }
 
         protected override void SetKind<TKind>(TKind iconKind)
@@ -70,7 +63,7 @@ namespace MahApps.Metro.IconPacks
             if (Kind != default(PackIconRPGAwesomeKind))
             {
                 string data = null;
-                _dataIndex.Value?.TryGetValue(Kind, out data);
+                PackIconRPGAwesomeDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
                 this.Data = data;
             }
             else

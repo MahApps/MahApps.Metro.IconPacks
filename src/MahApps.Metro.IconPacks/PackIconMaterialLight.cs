@@ -15,8 +15,6 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PackIconMaterialLight : PackIconControlBase
     {
-        private static Lazy<IDictionary<PackIconMaterialLightKind, string>> _dataIndex;
-
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconMaterialLightKind), typeof(PackIconMaterialLight), new PropertyMetadata(default(PackIconMaterialLightKind), KindPropertyChangedCallback));
 
@@ -49,11 +47,6 @@ namespace MahApps.Metro.IconPacks
 #if NETFX_CORE || WINDOWS_UWP
             this.DefaultStyleKey = typeof(PackIconMaterialLight);
 #endif
-
-            if (_dataIndex == null)
-            {
-                _dataIndex = new Lazy<IDictionary<PackIconMaterialLightKind, string>>(PackIconMaterialLightDataFactory.Create);
-            }
         }
 
         protected override void SetKind<TKind>(TKind iconKind)
@@ -70,7 +63,7 @@ namespace MahApps.Metro.IconPacks
             if (Kind != default(PackIconMaterialLightKind))
             {
                 string data = null;
-                _dataIndex.Value?.TryGetValue(Kind, out data);
+                PackIconMaterialLightDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
                 this.Data = data;
             }
             else

@@ -13,8 +13,6 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PathIconPicolIcons : PathIconControlBase
     {
-        private static Lazy<IDictionary<PackIconPicolIconsKind, string>> _dataIndex;
-
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconPicolIconsKind), typeof(PathIconPicolIcons), new PropertyMetadata(default(PackIconPicolIconsKind), KindPropertyChangedCallback));
 
@@ -37,16 +35,12 @@ namespace MahApps.Metro.IconPacks
 
         public PathIconPicolIcons()
         {
-            if (_dataIndex == null)
-            {
-                _dataIndex = new Lazy<IDictionary<PackIconPicolIconsKind, string>>(PackIconPicolIconsDataFactory.Create);
-            }
         }
 
         protected override void UpdateData()
         {
             string data = null;
-            _dataIndex.Value?.TryGetValue(Kind, out data);
+            PackIconPicolIconsDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
             if (string.IsNullOrEmpty(data))
             {
                 this.Data = default(Geometry);

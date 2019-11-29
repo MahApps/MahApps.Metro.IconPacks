@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 #if !(NETFX_CORE || WINDOWS_UWP)
 using System.Windows;
 using System.Windows.Markup;

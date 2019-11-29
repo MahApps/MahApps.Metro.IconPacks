@@ -13,8 +13,6 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PathIconMaterialDesign : PathIconControlBase
     {
-        private static Lazy<IDictionary<PackIconMaterialDesignKind, string>> _dataIndex;
-
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconMaterialDesignKind), typeof(PathIconMaterialDesign), new PropertyMetadata(default(PackIconMaterialDesignKind), KindPropertyChangedCallback));
 
@@ -37,11 +35,6 @@ namespace MahApps.Metro.IconPacks
 
         public PathIconMaterialDesign()
         {
-            if (_dataIndex == null)
-            {
-                _dataIndex = new Lazy<IDictionary<PackIconMaterialDesignKind, string>>(PackIconMaterialDesignDataFactory.Create);
-            }
-
             var transformGroup = this.RenderTransform as TransformGroup ?? new TransformGroup();
             var scaleTransform = new ScaleTransform() {ScaleY = -1};
             transformGroup.Children.Insert(0, scaleTransform);
@@ -50,7 +43,7 @@ namespace MahApps.Metro.IconPacks
         protected override void UpdateData()
         {
             string data = null;
-            _dataIndex.Value?.TryGetValue(Kind, out data);
+            PackIconMaterialDesignDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
             if (string.IsNullOrEmpty(data))
             {
                 this.Data = default(Geometry);
