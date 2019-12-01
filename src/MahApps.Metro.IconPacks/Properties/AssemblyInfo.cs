@@ -5,6 +5,7 @@ using System.Windows.Markup;
 
 [assembly: ThemeInfo(ResourceDictionaryLocation.None, ResourceDictionaryLocation.SourceAssembly)]
 [assembly: XmlnsDefinition("http://metro.mahapps.com/winfx/xaml/iconpacks", "MahApps.Metro.IconPacks")]
+[assembly: XmlnsDefinition("http://metro.mahapps.com/winfx/xaml/iconpacks", "MahApps.Metro.IconPacks.Converter")]
 #endif
 
 [assembly: ComVisible(false)]

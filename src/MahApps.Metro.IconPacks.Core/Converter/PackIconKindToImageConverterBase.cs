@@ -18,6 +18,14 @@ namespace MahApps.Metro.IconPacks.Converter
         protected abstract string GetPathData(object iconKind);
 
         /// <summary>
+        /// Gets the ScaleTransform for the given kind.
+        /// </summary>
+        protected virtual ScaleTransform GetScaleTransform(object iconKind)
+        {
+            return new ScaleTransform(1, 1);
+        }
+
+        /// <summary>
         /// Gets the <see cref="T:System.Windows.Media.DrawingGroup" /> object that will be used for the <see cref="T:System.Windows.Media.DrawingImage" />.
         /// </summary>
         protected virtual DrawingGroup GetDrawingGroup(object iconKind, Brush foregroundBrush, string path)
@@ -28,12 +36,10 @@ namespace MahApps.Metro.IconPacks.Converter
                 Brush = foregroundBrush,
             };
 
-            var transform = new ScaleTransform(1, 1);
-
             var drawingGroup = new DrawingGroup
             {
-                Children = {geometryDrawing},
-                Transform = transform
+                Children = { geometryDrawing },
+                Transform = this.GetScaleTransform(iconKind)
             };
 
             return drawingGroup;

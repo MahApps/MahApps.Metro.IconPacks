@@ -11,7 +11,7 @@
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
         <None Remove="**\*.rd.xml" />
         <Compile Remove="*.cs;**\*Converter.cs" />
-        <Compile Include="PackIconSimpleIcons*.cs" />
+        <Compile Include="**\PackIconSimpleIcons*.cs" Exclude="**\bin\**\*.*;**\obj\**\*.*" />
         <Page Generator="MSBuild:Compile" Include="Themes\WPF\SimpleIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconSimpleIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
     </ItemGroup>
