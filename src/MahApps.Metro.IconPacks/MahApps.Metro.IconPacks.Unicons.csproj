@@ -21,7 +21,7 @@
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
         <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="*Extension*.cs" Include="*Unicons*.cs" />
-        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Include="*Unicons*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="*ImageExtension*.cs" Include="*Unicons*.cs" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Unicons\*.xaml;Themes\UAP\PackIconUnicons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>

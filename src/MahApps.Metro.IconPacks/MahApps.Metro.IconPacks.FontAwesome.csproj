@@ -21,7 +21,7 @@
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
         <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="*Extension*.cs" Include="*FontAwesome*.cs" />
-        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Include="*FontAwesome*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="*ImageExtension*.cs" Include="*FontAwesome*.cs" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\FontAwesome\*.xaml;Themes\UAP\PackIconFontAwesome.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>

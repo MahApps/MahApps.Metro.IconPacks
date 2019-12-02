@@ -18,7 +18,7 @@
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
-        <Compile Remove="Converter\PackIconKindToImageConverterBase.cs" />
+        <Compile Remove="Converter\PackIconKindToImageConverterBase.cs;PackIconImageExtension.cs" />
         <EmbeddedResource Include="**\*.rd.xml" />
         <Page Include="**\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
         <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
