@@ -54,7 +54,7 @@ namespace MahApps.Metro.IconPacks
             var drawingGroup = new DrawingGroup
             {
                 Children = { geometryDrawing },
-                Transform = this.GetScaleTransform(iconKind)
+                Transform = this.GetTransformGroup(iconKind)
             };
 
             return drawingGroup;
