@@ -13,8 +13,6 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PathIconEvaIcons : PathIconControlBase
     {
-        private static Lazy<IDictionary<PackIconEvaIconsKind, string>> _dataIndex;
-
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconEvaIconsKind), typeof(PathIconEvaIcons), new PropertyMetadata(default(PackIconEvaIconsKind), KindPropertyChangedCallback));
 
@@ -37,11 +35,6 @@ namespace MahApps.Metro.IconPacks
 
         public PathIconEvaIcons()
         {
-            if (_dataIndex == null)
-            {
-                _dataIndex = new Lazy<IDictionary<PackIconEvaIconsKind, string>>(PackIconEvaIconsDataFactory.Create);
-            }
-
             var transformGroup = this.RenderTransform as TransformGroup ?? new TransformGroup();
             var scaleTransform = new ScaleTransform() {ScaleY = -1};
             transformGroup.Children.Insert(0, scaleTransform);
@@ -50,7 +43,7 @@ namespace MahApps.Metro.IconPacks
         protected override void UpdateData()
         {
             string data = null;
-            _dataIndex.Value?.TryGetValue(Kind, out data);
+            PackIconEvaIconsDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
             if (string.IsNullOrEmpty(data))
             {
                 this.Data = default(Geometry);

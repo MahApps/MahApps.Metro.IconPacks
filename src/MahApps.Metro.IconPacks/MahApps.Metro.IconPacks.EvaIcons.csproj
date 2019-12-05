@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="Current">
+<Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
         <DefineConstants>$(DefineConstants);EVAICONS</DefineConstants>
@@ -9,18 +9,19 @@
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="*.cs" />
-        <Compile Include="PackIconEvaIcons*.cs" />
+        <None Remove="**\*.rd.xml" />
+        <Compile Remove="*.cs;**\*Converter.cs" />
+        <Compile Include="**\PackIconEvaIcons*.cs" Exclude="**\bin\**\*.*;**\obj\**\*.*" />
         <Page Generator="MSBuild:Compile" Include="Themes\WPF\EvaIcons\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconEvaIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
-        <Compile Remove="*.cs" />
+        <Compile Remove="*.cs;**\*Converter.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
         <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="*Extension*.cs" Include="*EvaIcons*.cs" />
-        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Include="*EvaIcons*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="*ImageExtension*.cs" Include="*EvaIcons*.cs" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\EvaIcons\*.xaml;Themes\UAP\PackIconEvaIcons.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>

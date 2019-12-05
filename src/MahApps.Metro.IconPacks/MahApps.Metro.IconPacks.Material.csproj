@@ -9,18 +9,19 @@
     </PropertyGroup>
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
-        <Compile Remove="*.cs" />
-        <Compile Exclude="PackIconMaterialLight*.cs;PackIconMaterialDesign*.cs" Include="PackIconMaterial*.cs" />
+        <None Remove="**\*.rd.xml" />
+        <Compile Remove="*.cs;**\*Converter.cs" />
+        <Compile Include="**\PackIconMaterial*.cs" Exclude="**\PackIconMaterialLight*.cs;**\PackIconMaterialDesign*.cs;**\bin\**\*.*;**\obj\**\*.*" />
         <Page Generator="MSBuild:Compile" Include="Themes\WPF\Material\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconMaterial.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
-        <Compile Remove="*.cs" />
+        <Compile Remove="*.cs;**\*Converter.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
         <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="*MaterialLight*.cs;*MaterialDesign*.cs;*Extension*.cs" Include="*Material*.cs" />
-        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="*MaterialLight*.cs;*MaterialDesign*.cs" Include="*Material*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="*MaterialLight*.cs;*MaterialDesign*.cs;*ImageExtension*.cs" Include="*Material*.cs" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\Material\*.xaml;Themes\UAP\PackIconMaterial.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MahApps.Metro.IconPacks
 {
@@ -8,6 +9,16 @@ namespace MahApps.Metro.IconPacks
 
     public static class PackIconEvaIconsDataFactory
     {
+        public static Lazy<IDictionary<PackIconEvaIconsKind, string>> DataIndex { get; }
+
+        static PackIconEvaIconsDataFactory()
+        {
+            if (DataIndex == null)
+            {
+                DataIndex = new Lazy<IDictionary<PackIconEvaIconsKind, string>>(PackIconEvaIconsDataFactory.Create);
+            }
+        }
+
         public static IDictionary<PackIconEvaIconsKind, string> Create()
         {
             return new Dictionary<PackIconEvaIconsKind, string>

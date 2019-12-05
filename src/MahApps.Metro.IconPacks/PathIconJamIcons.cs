@@ -13,8 +13,6 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PathIconJamIcons : PathIconControlBase
     {
-        private static Lazy<IDictionary<PackIconJamIconsKind, string>> _dataIndex;
-
         public static readonly DependencyProperty KindProperty
             = DependencyProperty.Register(nameof(Kind), typeof(PackIconJamIconsKind), typeof(PathIconJamIcons), new PropertyMetadata(default(PackIconJamIconsKind), KindPropertyChangedCallback));
 
@@ -37,11 +35,6 @@ namespace MahApps.Metro.IconPacks
 
         public PathIconJamIcons()
         {
-            if (_dataIndex == null)
-            {
-                _dataIndex = new Lazy<IDictionary<PackIconJamIconsKind, string>>(PackIconJamIconsDataFactory.Create);
-            }
-
             var transformGroup = this.RenderTransform as TransformGroup ?? new TransformGroup();
             var scaleTransform = new ScaleTransform() {ScaleY = -1};
             transformGroup.Children.Insert(0, scaleTransform);
@@ -50,7 +43,7 @@ namespace MahApps.Metro.IconPacks
         protected override void UpdateData()
         {
             string data = null;
-            _dataIndex.Value?.TryGetValue(Kind, out data);
+            PackIconJamIconsDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
             if (string.IsNullOrEmpty(data))
             {
                 this.Data = default(Geometry);
