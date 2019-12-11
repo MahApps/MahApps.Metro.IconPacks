@@ -21,6 +21,10 @@
         <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     </PropertyGroup>
 
+    <ItemGroup>
+        <Page Update="@(Page)" SubType="Designer" Generator="MSBuild:Compile" />
+    </ItemGroup>
+
     <Choose>
         <When Condition=" $(TargetFramework.StartsWith('uap')) ">
             <PropertyGroup>

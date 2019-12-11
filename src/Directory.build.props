@@ -2,25 +2,26 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0.16299</TargetFrameworks>
-        <NoWarn>$(NoWarn);CS1591</NoWarn>
-        <NoError>$(NoError);CS1591</NoError>
-        <LangVersion>7.3</LangVersion>
-        <AutoGenerateBindingRedirects Condition="'$(TargetFramework)' != 'netcoreapp3.0'">true</AutoGenerateBindingRedirects>
+        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;netcoreapp3.1;uap10.0.16299</TargetFrameworks>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AutoGenerateBindingRedirects Condition=" $(TargetFramework.StartsWith('net4')) or $(TargetFramework.StartsWith('uap')) ">true</AutoGenerateBindingRedirects>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
-        <DebugType>full</DebugType>
+        <LangVersion>7.3</LangVersion>
         <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <NoError>$(NoError);CS1591</NoError>
 
         <IsSampleProject>$(MSBuildProjectName.Contains('Browser'))</IsSampleProject>
     </PropertyGroup>
 
+    <!-- .NET Framework and Core -->
     <PropertyGroup Condition=" !$(TargetFramework.StartsWith('uap')) ">
         <UseWpf>true</UseWpf>
     </PropertyGroup>
 
-    <!-- UAP 10.0 -->
+    <!-- UAP -->
     <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
         <DefaultTargetPlatformVersion>16299</DefaultTargetPlatformVersion>
         <DefaultTargetPlatformMinVersion>16299</DefaultTargetPlatformMinVersion>
@@ -38,8 +39,16 @@
     <!-- Add the references for all projects and targets -->
     <ItemGroup>
         <PackageReference Include="JetBrains.Annotations" Version="2019.*" PrivateAssets="All" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2*" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.*">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
         <!-- <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.18362.2002-preview" PrivateAssets="All" Condition=" $(TargetFramework.StartsWith('uap')) " /> -->
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="**\*.png;**\*.jpg;**\*.ico;**\*.cur" />
+        <Resource Include="**\*.png;**\*.jpg;**\*.ico;**\*.cur" />
     </ItemGroup>
 
     <!-- SourceLink -->
@@ -59,11 +68,6 @@
     <PropertyGroup Condition=" '$(DotNetPackIntermediateOutputPath)' != '' ">
         <IntermediateOutputPath>$(DotNetPackIntermediateOutputPath)</IntermediateOutputPath>
     </PropertyGroup>
-
-    <ItemGroup>
-        <None Remove="**\*.png;**\*.jpg;**\*.ico" />
-        <Resource Include="**\*.png;**\*.jpg;**\*.ico" />
-    </ItemGroup>
 
     <!--
     // This task disable doc warnings in the auto-generated XamlTypeInfo.g.cs file,

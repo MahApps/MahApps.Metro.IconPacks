@@ -3,7 +3,6 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;uap10.0.16299</TargetFrameworks>
         <AssemblyName>MahApps.Metro.IconPacks.Core</AssemblyName>
         <Title>MahApps.Metro.IconPacks.Core</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>

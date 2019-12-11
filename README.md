@@ -1,6 +1,12 @@
 <div align="center">
 
   <h1>MahApps.Metro.IconPacks</h1>
+  <p>
+    Awesome icon packs for `WPF` and `UWP` in one library
+  </p>
+  <p>
+    Supporting .NET Framework (4.5+), .NET Core (3.0 and 3.1) and UWP
+  </p>
   <a href="https://gitter.im/MahApps/MahApps.Metro.IconPacks">
     <img src="https://img.shields.io/badge/Gitter-Join%20Chat-green.svg?style=flat-square">
   </a>
@@ -28,7 +34,7 @@
 
 </div>
 
-This `IconPacks` library contains controls to use these awesome icons for `WPF` (.Net 4.x and .NetCore 3.0) and `UWP` apps in a simple way.
+This `IconPacks` library contains controls, markup extensions and converters to use these awesome icons in a simple way.
 
 | Icon collection | Version | &#8721; | NuGet |
 |---|--:|--:|:--|

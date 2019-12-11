@@ -28,13 +28,14 @@ pool:
 
 variables:
   buildPlatform: 'Any CPU'
-  dotNetCoreVersion: '3.0.x'
+  dotNetCoreVersion: '3.1.x'
+  nugetVersionSpec: '5.x.x'
 
 steps:
 - task: NuGetToolInstaller@0
-  displayName: 'Use latest NuGet'
+  displayName: 'Use NuGet $(nugetVersionSpec)'
   inputs:
-    checkLatest: true
+    versionSpec: '$(nugetVersionSpec)'
 
 - task: UseDotNet@2
   displayName: 'Use dotNet $(dotNetCoreVersion)'
@@ -45,11 +46,8 @@ steps:
 - powershell: .\build\Install-WindowsSDK.ps1
   displayName: 'Install Windows SDK 10.0.16299'
 
-- powershell: .\src\build.ps1 -Script .\src\build.cake --bootstrap
-  displayName: 'Build: cake (bootstrap)'
-
 - powershell: .\src\build.ps1 -Script .\src\build.cake -target azure -artifact-dir='$(Build.ArtifactStagingDirectory)'
-  displayName: 'Build: cake'
+  displayName: 'Build with cake'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Save package artifacts'

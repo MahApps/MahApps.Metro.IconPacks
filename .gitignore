@@ -63,6 +63,7 @@ artifacts/
 *.tmp
 *.tmp_proj
 *.log
+*.binlog
 *.vspscc
 *.vssscc
 .builds
@@ -255,11 +256,8 @@ paket-files/
 .idea/
 *.sln.iml
 
-# cake
-src/tools/
-
-# MSBuild
-*.binlog
-
 # Generated files
 *_wpftmp.csproj
+
+# cake
+src/tools/

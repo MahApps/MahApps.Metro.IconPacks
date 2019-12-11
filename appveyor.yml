@@ -25,7 +25,7 @@ install:
   # Install Windows SDK 10.0.16299
   - ps: .\build\Install-WindowsSDK.ps1
   # Use dotNet 3.0.100
-  - cinst dotnetcore-sdk
+  - cinst dotnetcore-sdk --version=3.1.100
 
 pull_requests:
   do_not_increment_build_number: false

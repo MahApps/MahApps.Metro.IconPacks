@@ -3,11 +3,11 @@
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net45;net46;net47;netcoreapp3.0</TargetFrameworks>
+        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
         <AssemblyName>MahApps.Metro.IconPacks.Browser</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks.Browser</RootNamespace>
-        <!-- <DisableFody Condition="'$(Configuration)' == 'Debug' or '$(TargetFramework)' == 'netcoreapp3.0'">true</DisableFody> -->
-        <DisableFody>true</DisableFody>
+        <!-- <DisableFody Condition=" '$(Configuration)' == 'Debug' or $(TargetFramework.StartsWith('netcoreapp')) ">true</DisableFody> -->
+        <!-- <DisableFody>true</DisableFody> -->
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
@@ -22,20 +22,20 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="MahApps.Metro" Version="2.0.0-alpha*" />
-        <PackageReference Include="AsyncAwaitBestPractices" Version="4.0.0-pre2" />
+        <PackageReference Include="AsyncAwaitBestPractices" Version="3.*" />
     </ItemGroup>
-    <ItemGroup Condition="'$(Configuration)' != 'Debug' and '$(TargetFramework)' != 'netcoreapp3.0'">
-        <PackageReference Include="Fody" Version="5.*">
+    <!-- <ItemGroup Condition=" '$(Configuration)' != 'Debug' and !$(TargetFramework.StartsWith('netcoreapp')) ">
+        <PackageReference Include="Fody" Version="6.*">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Costura.Fody" Version="4.*" />
-    </ItemGroup>
+    </ItemGroup> -->
     <ItemGroup>
         <None Include="app.manifest" />
         <None Remove="App.config" />
     </ItemGroup>
-    <ItemGroup Condition=" !$(TargetFramework.StartsWith('netcore')) ">
+    <ItemGroup Condition=" !$(TargetFramework.StartsWith('netcoreapp')) ">
         <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
             <TargetPath>$(AssemblyName).config</TargetPath>
         </AppConfigWithTargetPath>
