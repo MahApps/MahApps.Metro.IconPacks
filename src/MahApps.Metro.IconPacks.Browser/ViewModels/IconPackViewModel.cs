@@ -85,6 +85,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         {
             return Enum.GetValues(enumType)
                 .OfType<Enum>()
+                .Where(k => k.ToString() != "None")
                 .Select(k => GetIconViewModel(enumType, packType, k));
         }
 
