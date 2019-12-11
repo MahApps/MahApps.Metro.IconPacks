@@ -50,7 +50,7 @@ if (FileExists(msBuildPathExe) == false)
 }
 
 // Directories and Paths
-var solution = "./MahApps.Metro.IconPacks.sln";
+var solution = "./src/MahApps.Metro.IconPacks.sln";
 
 // Define global marcos.
 Action Abort = () => { throw new Exception("a non-recoverable fatal error occurred."); };
@@ -114,7 +114,7 @@ Task("Build")
         Verbosity = verbosity
         , ToolPath = msBuildPathExe
         , Configuration = configuration
-        , ArgumentCustomization = args => args.Append("/m").Append("/nr:false") // The /nr switch tells msbuild to quite once it’s done
+        , ArgumentCustomization = args => args.Append("/m").Append("/nr:false") // The /nr switch tells msbuild to quite once itï¿½s done
         , BinaryLogger = new MSBuildBinaryLogSettings() { Enabled = isLocal }
     };
     MSBuild(solution, msBuildSettings
@@ -134,7 +134,7 @@ Task("Zip")
     .Does(() =>
 {
     EnsureDirectoryExists(PACKAGE_DIR);
-    Zip($"./MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{PACKAGE_DIR.ToString()}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
+    Zip($"./src/MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{PACKAGE_DIR.ToString()}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
 });
 
 Task("Sign")
@@ -142,7 +142,7 @@ Task("Sign")
     .ContinueOnError()
     .Does(() =>
 {
-    var files = GetFiles("./MahApps.Metro.IconPacks.Browser/**/bin/**/*.exe");
+    var files = GetFiles("./src/MahApps.Metro.IconPacks.Browser/**/bin/**/*.exe");
     SignFiles(files, "IconPacks Browser.", "https://github.com/MahApps/MahApps.Metro.IconPacks");
 
     SignNuGet(MakeAbsolute(PACKAGE_DIR).ToString());

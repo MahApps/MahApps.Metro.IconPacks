@@ -24,20 +24,16 @@ test: off
 install:
   # Install Windows SDK 10.0.16299
   - ps: .\build\Install-WindowsSDK.ps1
-  # Use dotNet 3.0.100
   - cinst dotnetcore-sdk --version=3.1.100
 
 pull_requests:
   do_not_increment_build_number: false
 
 build_script:
-  - ps: cd src
-  - ps: .\build.ps1 --bootstrap
   - ps: .\build.ps1 -target appveyor
-  - ps: cd..
 
 artifacts:
-  - path: \src\Publish\*.*
+  - path: \Publish\*.*
 
 nuget:
   disable_publish_on_pr: true

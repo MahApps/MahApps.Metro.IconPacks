@@ -46,7 +46,7 @@ steps:
 - powershell: .\build\Install-WindowsSDK.ps1
   displayName: 'Install Windows SDK 10.0.16299'
 
-- powershell: .\src\build.ps1 -Script .\src\build.cake -target azure -artifact-dir='$(Build.ArtifactStagingDirectory)'
+- powershell: .\build.ps1 -target azure -artifact-dir='$(Build.ArtifactStagingDirectory)'
   displayName: 'Build with cake'
 
 - task: PublishBuildArtifacts@1

@@ -260,4 +260,4 @@ paket-files/
 *_wpftmp.csproj
 
 # cake
-src/tools/
+tools/
