@@ -1,8 +1,8 @@
-<div align="center">
+﻿<div align="center">
 
   <h1>MahApps.Metro.IconPacks</h1>
   <p>
-    Awesome icon packs for `WPF` and `UWP` in one library
+    Awesome icon packs for <code>WPF</code> and <code>UWP</code> in one library
   </p>
   <p>
     Supporting .NET Framework (4.5+), .NET Core (3.0 and 3.1) and UWP
@@ -64,18 +64,8 @@ It's not necessary to install and use [MahApps.Metro](https://github.com/MahApps
 
 ## Let's get started
 
-- [Wiki](../../wiki)
 - [Install](../../wiki/Install)
-- [How to build the solution](../../wiki/How-to-build-the-solution)
-- [Usage](../../wiki/Usage)
-- [Sample (WPF, UWP)](../../wiki/Sample-(WPF,-UWP))
-- [IconPacks Browser](../../wiki/IconPacks-Browser)
-- [PathIcon (UWP only)](../../wiki/PathIcon-(UWP-only))
-- [MarkupExtension (WPF only)](../../wiki/MarkupExtension-(WPF-only))
-- [Extra Properties for PackIcon and PathIcon controls](../../wiki/Extra-Properties-for-PackIcon-and-PathIcon-controls)
-- [Custom Styles for PackIcon controls](../../wiki/Custom-Styles-for-PackIcon-controls)
-- [Strong naming](../../wiki/Strong-naming)
-- [Breaking change 1.9.x -> 2.0](../../wiki/Breaking-change-1.9.x----2.0)
+- [Wiki](../../wiki)
 
 ## Want to say thanks?
 
