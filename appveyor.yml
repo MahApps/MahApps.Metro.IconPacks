@@ -1,36 +1,43 @@
-# configuration for develop/CI branch
+# http://www.appveyor.com/docs/appveyor-yml
 
--
-  branches:
-    only:
-      - dev
-      - master
+# configuration for develop/CI and master/Release branch
 
-  skip_tags: true
-  image: Visual Studio 2017
-  configuration: Release
-  platform: Any CPU
+branches:
+  only:
+    - dev
+    - master
 
-  pull_requests:
-    do_not_increment_build_number: false
+environment:
+  azure-key-vault-url:
+    secure: 1mKS/HfCVq+iYNRVSrrN8NEowOkKt3knrpMzw+SOy3g=
+  azure-key-vault-client-id:
+    secure: JfSqzmsJdXB6uIxttCRoQw1NygwxqXHDj9uIqQnWOb9VCnQYlRPlAnxgW0yTSX4b
+  azure-key-vault-client-secret:
+    secure: CUpRJxMLeUZwNPMcqI0wECaWfy5AMnWn1UZhBd9WnQ3Z16lJP1Vzrkf24mccbhUD
+  azure-key-vault-certificate:
+    secure: BSPdW2TgnQtoQXXbeDECug==
 
-  install:
-    - nuget restore src\MahApps.Metro.IconPacks.sln
+skip_tags: true
+image: Visual Studio 2019
+test: off
 
-  before_build:
-    - ps: cd src
-    - ps: .paket\paket restore
-    - ps: cd..
+install:
+  # Install Windows SDK 10.0.16299
+  - ps: .\build\Install-WindowsSDK.ps1
+  - cinst dotnetcore-sdk --version=3.1.100
 
-  build_script:
-    - ps: cd src\build
-    - ps: .\build.cmd
-    - ps: cd..
-    - ps: cd..
+pull_requests:
+  do_not_increment_build_number: false
 
-  cache:
-    - src\packages -> **\packages.config
+build_script:
+  - ps: .\build.ps1 -target appveyor
 
-  artifacts:
-    - path: \src\build\MahApps.Metro.IconPacks.*.nupkg
-    - path: \src\build\IconPacks.Browser*.zip
+artifacts:
+  - path: \Publish\*.*
+
+nuget:
+  disable_publish_on_pr: true
+
+skip_commits:
+  files:
+    - '**/*.md'

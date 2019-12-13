@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <AssemblyName>MahApps.Metro.IconPacks.Core</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.Core</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+    <!-- WPF Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <None Remove="**\*.rd.xml" />
+        <Compile Remove="PathIcon*.cs" />
+        <Compile Remove="Attributes\*.*" />
+    </ItemGroup>
+    <!-- UWP Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <Compile Remove="Converter\PackIconKindToImageConverterBase.cs;PackIconImageExtension.cs" />
+        <EmbeddedResource Include="**\*.rd.xml" />
+        <Page Include="**\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />
+        <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+    </ItemGroup>
+</Project>

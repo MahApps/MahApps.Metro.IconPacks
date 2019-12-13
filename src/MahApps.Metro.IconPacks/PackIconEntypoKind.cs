@@ -1,8 +1,6 @@
 ﻿namespace MahApps.Metro.IconPacks
 {
-#if NETFX_CORE
-    using MahApps.Metro.IconPacks.Core;
-#else
+#if !(NETFX_CORE || WINDOWS_UWP)
     using System.ComponentModel;
 #endif
 
@@ -14,8 +12,8 @@
     /// List of available icons for use with <see cref="PackIconEntypo" />.
     /// </summary>
     /// <remarks>
-    /// All icons sourced from Entypo+ Icons Font - <see><cref>http://www.entypo.com</cref></see> - 
-    /// <see><cref>http://creativecommons.org/licenses/by-sa/4.0/</cref></see>.
+    /// All icons sourced from Entypo+ Icons Font <see><cref>http://www.entypo.com</cref></see>
+    /// Licensed under <see><cref>http://creativecommons.org/licenses/by-sa/4.0/</cref></see>.
     /// </remarks>
     public enum PackIconEntypoKind
     {
@@ -227,6 +225,7 @@
         [Description("info")] Info,
         [Description("info-with-circle")] InfoWithCircle,
         [Description("instagram (Social Extension)")] Instagram,
+        [Description("instagram-with-circle (Social Extension)")] InstagramWithCircle,
         [Description("install")] Install,
         [Description("key")] Key,
         [Description("keyboard")] Keyboard,

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <DefineConstants>$(DefineConstants);MATERIALLIGHT</DefineConstants>
+        <AssemblyName>MahApps.Metro.IconPacks.MaterialLight</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.MaterialLight</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+    </PropertyGroup>
+    <!-- WPF Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <None Remove="**\*.rd.xml" />
+        <Compile Remove="*.cs;**\*Converter.cs" />
+        <Compile Include="**\PackIconMaterialLight*.cs" Exclude="**\bin\**\*.*;**\obj\**\*.*" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\MaterialLight\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconMaterialLight.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+    </ItemGroup>
+    <!-- UWP Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <Compile Remove="*.cs;**\*Converter.cs" />
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
+        <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
+        <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="*Extension*.cs" Include="*MaterialLight*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="*ImageExtension*.cs" Include="*MaterialLight*.cs" />
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\MaterialLight\*.xaml;Themes\UAP\PackIconMaterialLight.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
+    </ItemGroup>
+</Project>

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
+using AsyncAwaitBestPractices;
 
 namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
@@ -20,28 +22,44 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         {
             this.MainViewModel = mainViewModel;
             this.Caption = caption;
-            this.Icons = GetIcons(enumType, packType);
+
+            this.LoadEnumsAsync(enumType, packType).SafeFireAndForget();
+        }
+
+        private async Task LoadEnumsAsync(Type enumType, Type packType)
+        {
+            var collection = await Task.Run(() => GetIcons(enumType, packType).OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase).ToList());
+
+            this.Icons = new ObservableCollection<IIconViewModel>(collection);
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
 
         public IconPackViewModel(MainViewModel mainViewModel, string caption, Type[] enumTypes, Type[] packTypes)
         {
-            IEnumerable<IIconViewModel> Icons = new List<IIconViewModel>();
-
-            for (int counter = 0; counter < enumTypes.Length; counter++)
-            {
-                Icons = Icons.Concat(GetIcons(enumTypes[counter], packTypes[counter]));
-            }
-
             this.MainViewModel = mainViewModel;
             this.Caption = caption;
-            this.Icons = Icons.OrderBy((x) => { return x.Name; });
+
+            this.LoadAllEnumsAsync(enumTypes, packTypes).SafeFireAndForget();
+        }
+
+        private async Task LoadAllEnumsAsync(Type[] enumTypes, Type[] packTypes)
+        {
+            var collection = await Task.Run(() =>
+            {
+                var allIcons = Enumerable.Empty<IIconViewModel>();
+                for (var counter = 0; counter < enumTypes.Length; counter++)
+                {
+                    allIcons = allIcons.Concat(GetIcons(enumTypes[counter], packTypes[counter]));
+                }
+
+                return allIcons.OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase).ToList();
+            });
+
+            this.Icons = new ObservableCollection<IIconViewModel>(collection);
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
-
-        public MainViewModel MainViewModel { get; private set; }
 
         private void PrepareFiltering()
         {
@@ -65,11 +83,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         private static IEnumerable<IIconViewModel> GetIcons(Type enumType, Type packType)
         {
-            return new ObservableCollection<IIconViewModel>(
-                Enum.GetValues(enumType)
-                    .OfType<Enum>()
-                    .Select(k => GetIconViewModel(enumType, packType, k))
-                    .OrderBy(m => m.Name, StringComparer.InvariantCultureIgnoreCase));
+            return Enum.GetValues(enumType)
+                .OfType<Enum>()
+                .Where(k => k.ToString() != "None")
+                .Select(k => GetIconViewModel(enumType, packType, k));
         }
 
         private static IIconViewModel GetIconViewModel(Type enumType, Type packType, Enum k)
@@ -85,17 +102,14 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             };
         }
 
-        public string Caption { get; private set; }
+        public MainViewModel MainViewModel { get; }
+
+        public string Caption { get; }
 
         public IEnumerable<IIconViewModel> Icons
         {
             get { return _icons; }
-            set
-            {
-                if (Equals(value, _icons)) return;
-                _icons = value;
-                OnPropertyChanged();
-            }
+            set { Set(ref _icons, value); }
         }
 
         public string FilterText
@@ -103,22 +117,17 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             get { return _filterText; }
             set
             {
-                if (value == _filterText) return;
-                _filterText = value;
-                OnPropertyChanged();
-                this._iconsCollectionView.Refresh();
+                if (Set(ref _filterText, value))
+                {
+                    this._iconsCollectionView.Refresh();
+                }
             }
         }
 
         public IIconViewModel SelectedIcon
         {
             get { return _selectedIcon; }
-            set
-            {
-                if (Equals(value, _selectedIcon)) return;
-                _selectedIcon = value;
-                OnPropertyChanged();
-            }
+            set { Set(ref _selectedIcon, value); }
         }
     }
 
@@ -146,20 +155,38 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                         Clipboard.SetDataObject(text);
                     }))
                 };
+
+            this.CopyToClipboardAsContent =
+                new SimpleCommand
+                {
+                    CanExecuteDelegate = x => (x != null),
+                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        var icon = (IIconViewModel) x;
+                        var text = $"{{iconPacks:{icon.IconPackType.Name} Kind={icon.Name}}}";
+                        Clipboard.SetDataObject(text);
+                    }))
+                };
+
+            this.CopyToClipboardAsPathIcon =
+                new SimpleCommand
+                {
+                    CanExecuteDelegate = x => (x != null),
+                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        var icon = (IIconViewModel) x;
+                        // The UWP type is in WPF app not available
+                        var text = $"<iconPacks:{icon.IconPackType.Name.Replace("PackIcon", "PathIcon")} Kind=\"{icon.Name}\" />";
+                        Clipboard.SetDataObject(text);
+                    }))
+                };
         }
 
-        private ICommand _copyToClipboard;
+        public ICommand CopyToClipboard { get; }
 
-        public ICommand CopyToClipboard
-        {
-            get { return _copyToClipboard; }
-            set
-            {
-                if (Equals(value, _copyToClipboard)) return;
-                _copyToClipboard = value;
-                OnPropertyChanged();
-            }
-        }
+        public ICommand CopyToClipboardAsContent { get; }
+
+        public ICommand CopyToClipboardAsPathIcon { get; }
 
         public string Name { get; set; }
 

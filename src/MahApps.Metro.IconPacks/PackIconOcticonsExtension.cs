@@ -1,16 +1,40 @@
-﻿using System.Windows.Markup;
+﻿#if (NETFX_CORE || WINDOWS_UWP)
+using Windows.UI.Xaml.Markup;
+#else
+using System;
+using System.Windows.Markup;
+#endif
 
 namespace MahApps.Metro.IconPacks
 {
+#if (NETFX_CORE || WINDOWS_UWP)
+    [MarkupExtensionReturnType(ReturnType = typeof(PackIconOcticons))]
+#else
     [MarkupExtensionReturnType(typeof(PackIconOcticons))]
-    public class OcticonsExtension : PackIconExtension<PackIconOcticons, PackIconOcticonsKind>
+#endif
+    public class OcticonsExtension : BasePackIconExtension
     {
         public OcticonsExtension()
         {
         }
 
-        public OcticonsExtension(PackIconOcticonsKind kind) : base(kind)
+#if !(NETFX_CORE || WINDOWS_UWP)
+        public OcticonsExtension(PackIconOcticonsKind kind)
         {
+            this.Kind = kind;
+        }
+
+        [ConstructorArgument("kind")]
+#endif
+        public PackIconOcticonsKind Kind { get; set; }
+
+#if (NETFX_CORE || WINDOWS_UWP)
+        protected override object ProvideValue()
+#else
+        public override object ProvideValue(IServiceProvider serviceProvider)
+#endif
+        {
+            return this.GetPackIcon<PackIconOcticons, PackIconOcticonsKind>(this.Kind);
         }
     }
 }

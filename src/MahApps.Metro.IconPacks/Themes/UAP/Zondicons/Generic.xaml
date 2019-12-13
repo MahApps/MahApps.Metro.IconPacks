@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uwp="using:MahApps.Metro.IconPacks">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Zondicons/Themes/PackIconZondicons.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="uwp:PackIconZondicons" BasedOn="{StaticResource MahApps.Styles.PackIconZondicons}" />
+
+</ResourceDictionary>

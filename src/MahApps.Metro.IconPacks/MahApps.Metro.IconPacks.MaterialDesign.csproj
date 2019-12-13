@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <DefineConstants>$(DefineConstants);MATERIALDESIGN</DefineConstants>
+        <AssemblyName>MahApps.Metro.IconPacks.MaterialDesign</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.MaterialDesign</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+    </PropertyGroup>
+    <!-- WPF Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <None Remove="**\*.rd.xml" />
+        <Compile Remove="*.cs;**\*Converter.cs" />
+        <Compile Include="**\PackIconMaterialDesign*.cs" Exclude="**\bin\**\*.*;**\obj\**\*.*" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\MaterialDesign\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconMaterialDesign.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+    </ItemGroup>
+    <!-- UWP Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <Compile Remove="*.cs;**\*Converter.cs" />
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
+        <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
+        <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="*Extension*.cs" Include="*MaterialDesign*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="*ImageExtension*.cs" Include="*MaterialDesign*.cs" />
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\MaterialDesign\*.xaml;Themes\UAP\PackIconMaterialDesign.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
+    </ItemGroup>
+</Project>

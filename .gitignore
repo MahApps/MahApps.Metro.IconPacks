@@ -17,7 +17,7 @@
 [Rr]eleases/
 x64/
 x86/
-build/
+#build/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -63,6 +63,7 @@ artifacts/
 *.tmp
 *.tmp_proj
 *.log
+*.binlog
 *.vspscc
 *.vssscc
 .builds
@@ -254,3 +255,9 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# Generated files
+*_wpftmp.csproj
+
+# cake
+tools/

@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.BoxIcons/Themes/PackIconBoxIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Entypo/Themes/PackIconEntypo.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.EvaIcons/Themes/PackIconEvaIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.FeatherIcons/Themes/PackIconFeatherIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.FontAwesome/Themes/PackIconFontAwesome.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Ionicons/Themes/PackIconIonicons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.JamIcons/Themes/PackIconJamIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Material/Themes/PackIconMaterial.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.MaterialDesign/Themes/PackIconMaterialDesign.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.MaterialLight/Themes/PackIconMaterialLight.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Microns/Themes/PackIconMicrons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Modern/Themes/PackIconModern.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Octicons/Themes/PackIconOcticons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.PicolIcons/Themes/PackIconPicolIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.RPGAwesome/Themes/PackIconRPGAwesome.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.SimpleIcons/Themes/PackIconSimpleIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Typicons/Themes/PackIconTypicons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Unicons/Themes/PackIconUnicons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.WeatherIcons/Themes/PackIconWeatherIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Zondicons/Themes/PackIconZondicons.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

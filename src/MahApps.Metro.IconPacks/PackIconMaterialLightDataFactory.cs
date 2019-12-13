@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace MahApps.Metro.IconPacks
 {
@@ -6,9 +7,19 @@ namespace MahApps.Metro.IconPacks
     /// This code is auto generated. Do not amend.
     /// ******************************************
 
-    internal static class PackIconMaterialLightDataFactory
+    public static class PackIconMaterialLightDataFactory
     {
-        internal static IDictionary<PackIconMaterialLightKind, string> Create()
+        public static Lazy<IDictionary<PackIconMaterialLightKind, string>> DataIndex { get; }
+
+        static PackIconMaterialLightDataFactory()
+        {
+            if (DataIndex == null)
+            {
+                DataIndex = new Lazy<IDictionary<PackIconMaterialLightKind, string>>(PackIconMaterialLightDataFactory.Create);
+            }
+        }
+
+        public static IDictionary<PackIconMaterialLightKind, string> Create()
         {
             return new Dictionary<PackIconMaterialLightKind, string>
                    {
