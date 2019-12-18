@@ -35,8 +35,7 @@
         <None Remove="**\*.rd.xml" />
         <Compile Remove="*.cs;**\*Converter.cs" />
         <Compile Include="Converter\PackIconKindToImageConverter.cs" />
-        <Compile Include="PackIconControl*.cs" />
-        <Compile Include="PackIconExtension.cs" />
+        <Compile Include="PackIconControl*.cs;PackIconExtension.cs;PackIconImageExtension.cs" />
         <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconControl.xaml;Themes\WPF\IconPacks.xaml;Themes\WPF\Generic.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
     </ItemGroup>
     <!-- UWP Items include -->
