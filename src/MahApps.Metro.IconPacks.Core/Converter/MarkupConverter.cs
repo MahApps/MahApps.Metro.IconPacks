@@ -19,6 +19,7 @@ namespace MahApps.Metro.IconPacks.Converter
     [MarkupExtensionReturnType(ReturnType = typeof(IValueConverter))]
     public abstract class MarkupConverter : MarkupExtension, IValueConverter
     {
+        /// <inheritdoc />
         protected override object ProvideValue()
         {
             return this;
@@ -44,6 +45,7 @@ namespace MahApps.Metro.IconPacks.Converter
         /// <returns>A converted value. If the method returns null, the valid null value is used.</returns>
         protected abstract object ConvertBack(object value, Type targetType, object parameter, string language);
 
+        /// <inheritdoc />
         object IValueConverter.Convert(object value, Type targetType, object parameter, string language)
         {
             try
@@ -56,6 +58,7 @@ namespace MahApps.Metro.IconPacks.Converter
             }
         }
 
+        /// <inheritdoc />
         object IValueConverter.ConvertBack(object value, Type targetType, object parameter, string language)
         {
             try
@@ -72,6 +75,7 @@ namespace MahApps.Metro.IconPacks.Converter
     [MarkupExtensionReturnType(typeof(IValueConverter))]
     public abstract class MarkupConverter : MarkupExtension, IValueConverter
     {
+        /// <inheritdoc />
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             return this;
@@ -97,6 +101,7 @@ namespace MahApps.Metro.IconPacks.Converter
         /// <returns>A converted value. If the method returns null, the valid null value is used.</returns>
         protected abstract object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture);
 
+        /// <inheritdoc />
         object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             try
@@ -109,6 +114,7 @@ namespace MahApps.Metro.IconPacks.Converter
             }
         }
 
+        /// <inheritdoc />
         object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             try

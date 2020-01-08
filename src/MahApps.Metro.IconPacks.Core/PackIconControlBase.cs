@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Linq;
 #if NETFX_CORE || WINDOWS_UWP
+using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 #else
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -56,31 +57,30 @@ namespace MahApps.Metro.IconPacks
 
 #if (NETFX_CORE || WINDOWS_UWP)
         protected static readonly DependencyProperty DataProperty
-            = DependencyProperty.Register(nameof(Data), typeof(string), typeof(PackIconBase), new PropertyMetadata(""));
-
-        /// <summary>
-        /// Gets the path data for the current icon kind.
-        /// </summary>
-        public string Data
-        {
-            get { return (string)GetValue(DataProperty); }
-            protected set { SetValue(DataProperty, value); }
-        }
+            = DependencyProperty.Register(nameof(Data), typeof(string), typeof(PackIconControlBase), new PropertyMetadata(""));
 #else
         private static readonly DependencyPropertyKey DataPropertyKey
-            = DependencyProperty.RegisterReadOnly(nameof(Data), typeof(string), typeof(PackIconBase), new PropertyMetadata(""));
+            = DependencyProperty.RegisterReadOnly(nameof(Data), typeof(string), typeof(PackIconControlBase), new PropertyMetadata(""));
 
         // ReSharper disable once StaticMemberInGenericType
         public static readonly DependencyProperty DataProperty = DataPropertyKey.DependencyProperty;
+#endif
 
         /// <summary>
         /// Gets the path data for the current icon kind.
         /// </summary>
+#if !(NETFX_CORE || WINDOWS_UWP)
         [TypeConverter(typeof(GeometryConverter))]
         public string Data
         {
             get { return (string)GetValue(DataProperty); }
             protected set { SetValue(DataPropertyKey, value); }
+        }
+#else
+        public string Data
+        {
+            get { return (string)GetValue(DataProperty); }
+            protected set { SetValue(DataProperty, value); }
         }
 #endif
 
@@ -138,21 +138,24 @@ namespace MahApps.Metro.IconPacks
         /// <summary>
         /// Identifies the RotationAngle dependency property.
         /// </summary>
+#if NETFX_CORE || WINDOWS_UWP
         public static readonly DependencyProperty RotationAngleProperty
             = DependencyProperty.Register(
                 nameof(RotationAngle),
                 typeof(double),
                 typeof(PackIconControlBase),
-#if NETFX_CORE || WINDOWS_UWP
                 new PropertyMetadata(0d));
 #else
-                new PropertyMetadata(0d, null, RotationPropertyCoerceValueCallback));
-
-        private static object RotationPropertyCoerceValueCallback(DependencyObject dependencyObject, object value)
-        {
-            var val = (double)value;
-            return val < 0 ? 0d : (val > 360 ? 360d : value);
-        }
+        public static readonly DependencyProperty RotationAngleProperty
+            = DependencyProperty.Register(
+                nameof(RotationAngle),
+                typeof(double),
+                typeof(PackIconControlBase),
+                new PropertyMetadata(0d, null, (dependencyObject, value) =>
+                {
+                    var val = (double)value;
+                    return val < 0 ? 0d : (val > 360 ? 360d : value);
+                }));
 #endif
 
         /// <summary>
@@ -168,34 +171,55 @@ namespace MahApps.Metro.IconPacks
         /// <summary>
         /// Identifies the Spin dependency property.
         /// </summary>
+#if NETFX_CORE || WINDOWS_UWP
         public static readonly DependencyProperty SpinProperty
             = DependencyProperty.Register(
                 nameof(Spin),
                 typeof(bool),
                 typeof(PackIconControlBase),
-#if NETFX_CORE || WINDOWS_UWP
                 new PropertyMetadata(default(bool), SpinPropertyChangedCallback));
+
+        private static void SpinPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        {
+            if (dependencyObject is PackIconControlBase packIcon && e.OldValue != e.NewValue && e.NewValue is bool)
+            {
+                packIcon.ToggleSpinAnimation((bool)e.NewValue);
+            }
+        }
 #else
+        public static readonly DependencyProperty SpinProperty
+            = DependencyProperty.Register(
+                nameof(Spin),
+                typeof(bool),
+                typeof(PackIconControlBase),
                 new PropertyMetadata(default(bool), SpinPropertyChangedCallback, SpinPropertyCoerceValueCallback));
 
         private static object SpinPropertyCoerceValueCallback(DependencyObject dependencyObject, object value)
         {
-            var packIcon = dependencyObject as PackIconControlBase;
-            if (packIcon != null && (!packIcon.IsVisible || packIcon.Opacity <= 0 || packIcon.SpinDuration <= 0.0))
+            if (dependencyObject is PackIconControlBase packIcon && (!packIcon.IsVisible || packIcon.Opacity <= 0 || packIcon.SpinDuration <= 0.0))
             {
                 return false;
             }
             return value;
         }
-#endif
 
         private static void SpinPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var packIcon = dependencyObject as PackIconControlBase;
-            if (packIcon != null && e.OldValue != e.NewValue && e.NewValue is bool)
+            if (dependencyObject is PackIconControlBase packIcon && e.OldValue != e.NewValue && e.NewValue is bool)
             {
                 packIcon.ToggleSpinAnimation((bool)e.NewValue);
             }
+        }
+#endif
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the inner icon is spinning.
+        /// </summary>
+        /// <value><c>true</c> if spin; otherwise, <c>false</c>.</value>
+        public bool Spin
+        {
+            get { return (bool)this.GetValue(SpinProperty); }
+            set { this.SetValue(SpinProperty, value); }
         }
 
         private void ToggleSpinAnimation(bool spin)
@@ -266,16 +290,6 @@ namespace MahApps.Metro.IconPacks
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the inner icon is spinning.
-        /// </summary>
-        /// <value><c>true</c> if spin; otherwise, <c>false</c>.</value>
-        public bool Spin
-        {
-            get { return (bool)this.GetValue(SpinProperty); }
-            set { this.SetValue(SpinProperty, value); }
-        }
-
-        /// <summary>
         /// Identifies the SpinDuration dependency property.
         /// </summary>
         public static readonly DependencyProperty SpinDurationProperty
@@ -291,8 +305,7 @@ namespace MahApps.Metro.IconPacks
 
         private static void SpinDurationPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var packIcon = dependencyObject as PackIconControlBase;
-            if (packIcon != null && e.OldValue != e.NewValue && packIcon.Spin && e.NewValue is double)
+            if (dependencyObject is PackIconControlBase packIcon && e.OldValue != e.NewValue && packIcon.Spin && e.NewValue is double)
             {
                 packIcon.StopSpinAnimation();
                 packIcon.BeginSpinAnimation();
@@ -333,8 +346,7 @@ namespace MahApps.Metro.IconPacks
 
         private static void SpinEasingFunctionPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var packIcon = dependencyObject as PackIconControlBase;
-            if (packIcon != null && e.OldValue != e.NewValue && packIcon.Spin)
+            if (dependencyObject is PackIconControlBase packIcon && e.OldValue != e.NewValue && packIcon.Spin)
             {
                 packIcon.StopSpinAnimation();
                 packIcon.BeginSpinAnimation();
@@ -371,8 +383,7 @@ namespace MahApps.Metro.IconPacks
 
         private static void SpinAutoReversePropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
-            var packIcon = dependencyObject as PackIconControlBase;
-            if (packIcon != null && e.OldValue != e.NewValue && packIcon.Spin && e.NewValue is bool)
+            if (dependencyObject is PackIconControlBase packIcon && e.OldValue != e.NewValue && packIcon.Spin && e.NewValue is bool)
             {
                 packIcon.StopSpinAnimation();
                 packIcon.BeginSpinAnimation();
