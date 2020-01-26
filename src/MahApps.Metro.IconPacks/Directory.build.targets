@@ -1,7 +1,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <ItemGroup>
-      <None Include="..\..\resources\mahapps.metro.logo.png">
+      <None Include="..\..\resources\logo_small.png">
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
@@ -12,7 +12,7 @@
         <Authors>Jan Karger</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/MahApps/MahApps.Metro.IconPacks</PackageProjectUrl>
-        <PackageIcon>mahapps.metro.logo.png</PackageIcon>
+        <PackageIcon>logo_small.png</PackageIcon>
         <PackageTags>WPF;UWP;UAP;Windows;Windows10;WinRT;App;Universal;UI;Metro;Modern;ModernUI;Material;XAML;Toolkit;Library;.NET;Icon</PackageTags>
         <PackageReleaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</PackageReleaseNotes>
         <RepositoryUrl>https://github.com/MahApps/MahApps.Metro.IconPacks.git</RepositoryUrl>

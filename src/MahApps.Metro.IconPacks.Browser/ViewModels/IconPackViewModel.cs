@@ -163,7 +163,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
                         var icon = (IIconViewModel) x;
-                        var text = $"{{iconPacks:{icon.IconPackType.Name} Kind={icon.Name}}}";
+                        var text = $"{{iconPacks:{icon.IconPackType.Name.Replace("PackIcon", "")} Kind={icon.Name}}}";
                         Clipboard.SetDataObject(text);
                     }))
                 };
