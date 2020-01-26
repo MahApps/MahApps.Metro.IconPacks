@@ -1,5 +1,8 @@
 ﻿<div align="center">
 
+  <a href="https://github.com/MahApps/MahApps.Metro.IconPacks">
+    <img alt="MahApps.Metro.IconPacks" src="./resources/logo_small.png">
+  </a>
   <h1>MahApps.Metro.IconPacks</h1>
   <p>
     Awesome icon packs for <code>WPF</code> and <code>UWP</code> in one library
