@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
     public class IconPackViewModel : ViewModelBase
     {
         private IEnumerable<IIconViewModel> _icons;
+        private int _iconCount;
         private ICollectionView _iconsCollectionView;
         private string _filterText;
         private IIconViewModel _selectedIcon;
@@ -31,6 +33,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             var collection = await Task.Run(() => GetIcons(enumType, packType).OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase).ToList());
 
             this.Icons = new ObservableCollection<IIconViewModel>(collection);
+            this.IconCount = ((ICollection) this.Icons).Count;
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -57,6 +60,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             });
 
             this.Icons = new ObservableCollection<IIconViewModel>(collection);
+            this.IconCount = ((ICollection) this.Icons).Count;
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -110,6 +114,12 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         {
             get { return _icons; }
             set { Set(ref _icons, value); }
+        }
+
+        public int IconCount
+        {
+            get { return _iconCount; }
+            set { Set(ref _iconCount, value); }
         }
 
         public string FilterText

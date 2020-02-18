@@ -58,14 +58,30 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TabControl Grid.Row="0"
+        <TabControl x:Name="IconPacksTabControl"
+                    Grid.Row="0"
                     DisplayMemberPath="Caption"
                     ItemsSource="{Binding IconPacks, Mode=OneWay}"
                     Style="{StaticResource CustomTabControlStyle}" />
         <StatusBar Grid.Row="1">
-            <StatusBarItem Content="{Binding AppVersion, Mode=OneWay}" ContentStringFormat="{}Browser v{0}" />
-            <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" />
+            <!-- <StatusBarItem Content="{Binding AppVersion, Mode=OneWay}" ContentStringFormat="{}Browser v{0}" /> -->
+            <!-- <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" /> -->
             <StatusBarItem Content="{Binding IconPacksVersion, Mode=OneWay}" ContentStringFormat="{}IconPacks v{0}" />
+            <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" />
+            <StatusBarItem Content="{Binding ElementName=IconPacksTabControl, Path=SelectedItem, Mode=OneWay}">
+                <StatusBarItem.ContentTemplate>
+                    <DataTemplate DataType="{x:Type viewModels:IconPackViewModel}">
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} with {1} icons">
+                                    <Binding Path="Caption" Mode="OneWay" />
+                                    <Binding Path="IconCount" Mode="OneWay" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </StatusBarItem.ContentTemplate>
+            </StatusBarItem>
         </StatusBar>
     </Grid>
 
