@@ -1,7 +1,7 @@
 ﻿<div align="center">
 
   <a href="https://github.com/MahApps/MahApps.Metro.IconPacks">
-    <img alt="MahApps.Metro.IconPacks" src="./resources/logo_small.png">
+    <img alt="MahApps.Metro.IconPacks" src="./resources/Icon.svg">
   </a>
   <h1>MahApps.Metro.IconPacks</h1>
   <p>
