@@ -374,6 +374,20 @@
                                         </Button.ToolTip>
                                         <iconPacks:PackIconFontAwesome Kind="DrawPolygonSolid" Width="14" Height="14" />
                                     </Button>
+                                    <Button Width="22"
+                                            Height="22"
+                                            Command="{Binding CopyToClipboardAsGeometry}"
+                                            CommandParameter="{Binding}"                                       
+                                            Style="{StaticResource CustomMetroCircleButtonStyle}"
+                                            Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
+                                            BorderThickness="0"
+                                            Focusable="False"
+                                            IsTabStop="False">
+                                        <Button.ToolTip>
+                                            <TextBlock Text="{Binding Value, StringFormat='{}Copy {0} to clipboard as Geometry'}" />
+                                        </Button.ToolTip>
+                                        <iconPacks:PackIconMaterial Kind="Draw" Width="14" Height="14" />
+                                    </Button>
                                 </StackPanel>
                             </Grid>
                             <TextBlock Grid.Row="1"

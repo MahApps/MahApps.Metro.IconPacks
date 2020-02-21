@@ -190,6 +190,25 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                         Clipboard.SetDataObject(text);
                     }))
                 };
+
+            this.CopyToClipboardAsGeometry =
+                new SimpleCommand
+                {
+                    CanExecuteDelegate = x => (x != null),
+                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        var icon = (IIconViewModel)x;
+                        var iconPack = Activator.CreateInstance(icon.IconPackType) as PackIconControlBase;
+                        if (iconPack == null) return;
+
+                        var kindProperty = icon.IconPackType.GetProperty("Kind");
+                        if (kindProperty == null) return;
+
+                        kindProperty.SetValue(iconPack, icon.Value);
+
+                        Clipboard.SetDataObject(iconPack.Data);
+                    }))
+                };
         }
 
         public ICommand CopyToClipboard { get; }
@@ -197,6 +216,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public ICommand CopyToClipboardAsContent { get; }
 
         public ICommand CopyToClipboardAsPathIcon { get; }
+
+        public ICommand CopyToClipboardAsGeometry { get; }
 
         public string Name { get; set; }
 
