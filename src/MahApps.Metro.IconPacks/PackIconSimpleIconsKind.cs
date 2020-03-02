@@ -648,7 +648,7 @@
         [Description("Mercedes, https://www.mercedes-benz.com/")] Mercedes,
         [Description("Messenger, https://en.facebookbrand.com/assets/messenger/")] Messenger,
         [Description("Meteor, http://logo.meteorapp.com/")] Meteor,
-        [Description("micro:bit, https://microbit.org/")] Micro:bit,
+        [Description("micro:bit, https://microbit.org/")] Microbit,
         [Description("Micro.blog, https://twitter.com/BradEllis/status/943956921886715904")] MicroBlog,
         [Description("Microgenetics, http://microgenetics.co.uk/")] Microgenetics,
         [Description("Microsoft, https://ratnacahayarina.files.wordpress.com/2014/03/microsoft.pdf")] Microsoft,
