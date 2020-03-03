@@ -15,6 +15,7 @@
         <OutputType>WinExe</OutputType>
         <NoWarn>SA1652</NoWarn>
         <ApplicationManifest>app.manifest</ApplicationManifest>
+        <ApplicationIcon>Icon\Icon.ico</ApplicationIcon>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" />
@@ -39,6 +40,10 @@
         <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
             <TargetPath>$(AssemblyName).config</TargetPath>
         </AppConfigWithTargetPath>
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Remove="Icon.ico" />
+      <Resource Remove="Icon\Icon.ico" />
     </ItemGroup>
     <ItemGroup>
         <Compile DependentUpon="%(Filename)" SubType="Code" Update="**\obj\**\*.g$(DefaultLanguageSourceExtension)" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
     public class IconPackViewModel : ViewModelBase
     {
         private IEnumerable<IIconViewModel> _icons;
+        private int _iconCount;
         private ICollectionView _iconsCollectionView;
         private string _filterText;
         private IIconViewModel _selectedIcon;
@@ -31,6 +33,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             var collection = await Task.Run(() => GetIcons(enumType, packType).OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase).ToList());
 
             this.Icons = new ObservableCollection<IIconViewModel>(collection);
+            this.IconCount = ((ICollection) this.Icons).Count;
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -57,6 +60,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             });
 
             this.Icons = new ObservableCollection<IIconViewModel>(collection);
+            this.IconCount = ((ICollection) this.Icons).Count;
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -110,6 +114,12 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         {
             get { return _icons; }
             set { Set(ref _icons, value); }
+        }
+
+        public int IconCount
+        {
+            get { return _iconCount; }
+            set { Set(ref _iconCount, value); }
         }
 
         public string FilterText
@@ -180,6 +190,25 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                         Clipboard.SetDataObject(text);
                     }))
                 };
+
+            this.CopyToClipboardAsGeometry =
+                new SimpleCommand
+                {
+                    CanExecuteDelegate = x => (x != null),
+                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        var icon = (IIconViewModel)x;
+                        var iconPack = Activator.CreateInstance(icon.IconPackType) as PackIconControlBase;
+                        if (iconPack == null) return;
+
+                        var kindProperty = icon.IconPackType.GetProperty("Kind");
+                        if (kindProperty == null) return;
+
+                        kindProperty.SetValue(iconPack, icon.Value);
+
+                        Clipboard.SetDataObject(iconPack.Data);
+                    }))
+                };
         }
 
         public ICommand CopyToClipboard { get; }
@@ -187,6 +216,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public ICommand CopyToClipboardAsContent { get; }
 
         public ICommand CopyToClipboardAsPathIcon { get; }
+
+        public ICommand CopyToClipboardAsGeometry { get; }
 
         public string Name { get; set; }
 

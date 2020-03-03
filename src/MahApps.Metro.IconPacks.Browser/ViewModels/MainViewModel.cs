@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -14,7 +15,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public MainViewModel(Dispatcher dispatcher)
         {
             this._dispatcher = dispatcher;
-            this.AppVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            this.AppVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
             this.IconPacks = new ObservableCollection<IconPackViewModel>(
                 new[]
                 {
@@ -86,13 +87,24 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                             typeof(PackIconZondicons)
                         })
                 });
-            this.IconPacksVersion = Assembly.GetAssembly(typeof(PackIconMaterial)).GetName().Version.ToString();
+            this.IconPacksVersion = FileVersionInfo.GetVersionInfo(Assembly.GetAssembly(typeof(PackIconMaterial)).Location).FileVersion;
             this.GoToGitHubCommand =
                 new SimpleCommand
                 {
                     CanExecuteDelegate = x => true,
-                    ExecuteDelegate = x => System.Diagnostics.Process.Start("https://github.com/MahApps/MahApps.Metro.IconPacks")
+                    ExecuteDelegate = x => OpenUrlLink("https://github.com/MahApps/MahApps.Metro.IconPacks")
                 };
+        }
+
+        private static void OpenUrlLink(string link)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = link ?? throw new System.ArgumentNullException(nameof(link)),
+                // UseShellExecute is default to false on .NET Core while true on .NET Framework.
+                // Only this value is set to true, the url link can be opened.
+                UseShellExecute = true,
+            });
         }
 
         public ObservableCollection<IconPackViewModel> IconPacks { get; set; }

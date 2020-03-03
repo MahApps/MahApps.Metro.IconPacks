@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Media.Animation;
 #else
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
+
 #endif
 
 namespace MahApps.Metro.IconPacks
@@ -33,17 +34,47 @@ namespace MahApps.Metro.IconPacks
         {
             var packIcon = new TPack();
             packIcon.SetKind(kind);
-            packIcon.Width = packIconExtension.Width;
-            packIcon.Height = packIconExtension.Height;
-            packIcon.Flip = packIconExtension.Flip;
-            packIcon.RotationAngle = packIconExtension.RotationAngle;
-            packIcon.Spin = packIconExtension.Spin;
-            packIcon.SpinAutoReverse = packIconExtension.SpinAutoReverse;
-            if (packIconExtension.SpinEasingFunction != null)
+
+            if (((BasePackIconExtension) packIconExtension).IsFieldChanged(BasePackIconExtension.ChangedFieldFlags.Width))
+            {
+                packIcon.Width = packIconExtension.Width;
+            }
+
+            if (((BasePackIconExtension) packIconExtension).IsFieldChanged(BasePackIconExtension.ChangedFieldFlags.Height))
+            {
+                packIcon.Height = packIconExtension.Height;
+            }
+
+            if (((BasePackIconExtension) packIconExtension).IsFieldChanged(BasePackIconExtension.ChangedFieldFlags.Flip))
+            {
+                packIcon.Flip = packIconExtension.Flip;
+            }
+
+            if (((BasePackIconExtension) packIconExtension).IsFieldChanged(BasePackIconExtension.ChangedFieldFlags.RotationAngle))
+            {
+                packIcon.RotationAngle = packIconExtension.RotationAngle;
+            }
+
+            if (((BasePackIconExtension) packIconExtension).IsFieldChanged(BasePackIconExtension.ChangedFieldFlags.Spin))
+            {
+                packIcon.Spin = packIconExtension.Spin;
+            }
+
+            if (((BasePackIconExtension) packIconExtension).IsFieldChanged(BasePackIconExtension.ChangedFieldFlags.SpinAutoReverse))
+            {
+                packIcon.SpinAutoReverse = packIconExtension.SpinAutoReverse;
+            }
+
+            if (((BasePackIconExtension) packIconExtension).IsFieldChanged(BasePackIconExtension.ChangedFieldFlags.SpinEasingFunction))
             {
                 packIcon.SpinEasingFunction = packIconExtension.SpinEasingFunction;
             }
-            packIcon.SpinDuration = packIconExtension.SpinDuration;
+
+            if (((BasePackIconExtension) packIconExtension).IsFieldChanged(BasePackIconExtension.ChangedFieldFlags.SpinDuration))
+            {
+                packIcon.SpinDuration = packIconExtension.SpinDuration;
+            }
+
             return packIcon;
         }
     }
@@ -55,17 +86,178 @@ namespace MahApps.Metro.IconPacks
 #endif
     public abstract class BasePackIconExtension : MarkupExtension, IPackIconExtension
     {
-        public double Width { get; set; } = 16;
-        public double Height { get; set; } = 16;
-        public PackIconFlipOrientation Flip { get; set; } = PackIconFlipOrientation.Normal;
-        public double RotationAngle { get; set; } = 0d;
-        public bool Spin { get; set; } = false;
-        public bool SpinAutoReverse { get; set; } = false;
+        private double _width = 16d;
+
+        public double Width
+        {
+            get => _width;
+            set
+            {
+                if (Equals(_width, value))
+                {
+                    return;
+                }
+
+                _width = value;
+                WriteFieldChangedFlag(ChangedFieldFlags.Width, true);
+            }
+        }
+
+        private double _height = 16d;
+
+        public double Height
+        {
+            get => _height;
+            set
+            {
+                if (Equals(_height, value))
+                {
+                    return;
+                }
+
+                _height = value;
+                WriteFieldChangedFlag(ChangedFieldFlags.Height, true);
+            }
+        }
+
+        private PackIconFlipOrientation _flip = PackIconFlipOrientation.Normal;
+
+        public PackIconFlipOrientation Flip
+        {
+            get => _flip;
+            set
+            {
+                if (Equals(_flip, value))
+                {
+                    return;
+                }
+
+                _flip = value;
+                WriteFieldChangedFlag(ChangedFieldFlags.Flip, true);
+            }
+        }
+
+        private double _rotationAngle = 0d;
+
+        public double RotationAngle
+        {
+            get => _rotationAngle;
+            set
+            {
+                if (Equals(_rotationAngle, value))
+                {
+                    return;
+                }
+
+                _rotationAngle = value;
+                WriteFieldChangedFlag(ChangedFieldFlags.RotationAngle, true);
+            }
+        }
+
+        private bool _spin;
+
+        public bool Spin
+        {
+            get => _spin;
+            set
+            {
+                if (Equals(_spin, value))
+                {
+                    return;
+                }
+
+                _spin = value;
+                WriteFieldChangedFlag(ChangedFieldFlags.Spin, true);
+            }
+        }
+
+        private bool _spinAutoReverse;
+
+        public bool SpinAutoReverse
+        {
+            get => _spinAutoReverse;
+            set
+            {
+                if (Equals(_spinAutoReverse, value))
+                {
+                    return;
+                }
+
+                _spinAutoReverse = value;
+                WriteFieldChangedFlag(ChangedFieldFlags.SpinAutoReverse, true);
+            }
+        }
+
 #if (NETFX_CORE || WINDOWS_UWP)
-        public EasingFunctionBase SpinEasingFunction { get; set; } = null;
+        private EasingFunctionBase _spinEasingFunction = null;
+
+        public EasingFunctionBase SpinEasingFunction
 #else
-        public IEasingFunction SpinEasingFunction { get; set; } = null;
+        private IEasingFunction _spinEasingFunction = null;
+
+        public IEasingFunction SpinEasingFunction
 #endif
-        public double SpinDuration { get; set; } = 1d;
+        {
+            get => _spinEasingFunction;
+            set
+            {
+                if (Equals(_spinEasingFunction, value))
+                {
+                    return;
+                }
+
+                _spinEasingFunction = value;
+                WriteFieldChangedFlag(ChangedFieldFlags.SpinEasingFunction, true);
+            }
+        }
+
+        private double _spinDuration = 1d;
+
+        public double SpinDuration
+        {
+            get => _spinDuration;
+            set
+            {
+                if (Equals(_spinDuration, value))
+                {
+                    return;
+                }
+
+                _spinDuration = value;
+                WriteFieldChangedFlag(ChangedFieldFlags.SpinDuration, true);
+            }
+        }
+
+        internal ChangedFieldFlags changedField; // Cache changed field bits
+
+        internal bool IsFieldChanged(ChangedFieldFlags reqFlag)
+        {
+            return (changedField & reqFlag) != 0;
+        }
+
+        internal void WriteFieldChangedFlag(ChangedFieldFlags reqFlag, bool set)
+        {
+            if (set)
+            {
+                changedField |= reqFlag;
+            }
+            else
+            {
+                changedField &= (~reqFlag);
+            }
+        }
+
+        [Flags]
+        internal enum ChangedFieldFlags : ushort
+        {
+            Width = 0x0001,
+            Height = 0x0002,
+            Flip = 0x0004,
+            RotationAngle = 0x0008,
+            Spin = 0x0010,
+            SpinAutoReverse = 0x0020,
+            SpinEasingFunction = 0x0040,
+            SpinDuration = 0x0080
+        }
     }
 }
