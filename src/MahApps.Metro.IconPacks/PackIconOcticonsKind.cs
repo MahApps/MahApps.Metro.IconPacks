@@ -109,6 +109,7 @@
         [Description("Inbox (Mail, Todo, New, Messages)")] Inbox,
         [Description("Infinity (Unlimited, Infinite)")] Infinity,
         [Description("Info (Help)")] Info,
+        [Description("InternalRepo (Internal,Repo,Repository)")] InternalRepo,
         [Description("IssueClosed (Done, Complete)")] IssueClosed,
         [Description("IssueOpened (New)")] IssueOpened,
         [Description("IssueReopened (Regression)")] IssueReopened,
