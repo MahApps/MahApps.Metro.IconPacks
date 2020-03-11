@@ -32,7 +32,7 @@
                             <Grid>
                                 <Ellipse Fill="{TemplateBinding Background}" StrokeThickness="0" />
                                 <Ellipse x:Name="ellipsebg"
-                                         Fill="{DynamicResource MahApps.Brushes.Black}"
+                                         Fill="{DynamicResource MahApps.Brushes.ThemeForeground}"
                                          StrokeThickness="0"
                                          Opacity="0" />
                                 <Ellipse x:Name="ellipse"
