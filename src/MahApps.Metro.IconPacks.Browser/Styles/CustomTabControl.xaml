@@ -12,8 +12,8 @@
     <SolidColorBrush x:Key="TabItemBackgroundIsMouseOverBrush" Color="{DynamicResource MahApps.Colors.Gray5}" />
     <SolidColorBrush x:Key="TabItemForegroundIsSelectedBrush" Color="{DynamicResource MahApps.Colors.IdealForeground}" />
     <SolidColorBrush x:Key="TabItemSelectorBrush" Color="LawnGreen" />
-    <SolidColorBrush x:Key="TabControlBackgroundBrush" Color="{DynamicResource MahApps.Colors.Black}" Opacity="0.04" />
-    <SolidColorBrush x:Key="SelectedIconBorderBrush" Color="{DynamicResource MahApps.Colors.Black}" Opacity="0.1" />
+    <SolidColorBrush x:Key="TabControlBackgroundBrush" Color="{DynamicResource MahApps.Colors.ThemeForeground}" Opacity="0.04" />
+    <SolidColorBrush x:Key="SelectedIconBorderBrush" Color="{DynamicResource MahApps.Colors.ThemeForeground}" Opacity="0.1" />
 
     <DataTemplate x:Key="SelectedIconContentTemplate" DataType="{x:Type viewModels:IIconViewModel}">
         <ContentControl x:Name="IconContent" Content="{Binding}" Focusable="False" IsTabStop="False" />
