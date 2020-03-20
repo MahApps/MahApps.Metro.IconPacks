@@ -144,6 +144,7 @@
         [Description("MortarBoard (Education, Learn, Teach)")] MortarBoard,
         [Description("Mute (Quiet, Sound, Audio, Turn, Off)")] Mute,
         [Description("NoNewline (Return)")] NoNewline,
+        [Description("NorthStar (Star, Snowflake, Asterisk)")] NorthStar,
         [Description("Note (Card, Paper, Ticket)")] Note,
         [Description("Octoface (Octocat, Brand)")] Octoface,
         [Description("Organization (People, Group, Team)")] Organization,
