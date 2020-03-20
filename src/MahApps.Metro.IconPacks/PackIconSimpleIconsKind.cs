@@ -678,7 +678,7 @@
         [Description("Matternet, http://mttr.net")] Matternet,
         [Description("Mazda, https://www.mazda.com/en/about/profile/library/")] Mazda,
         [Description("McAfee, https://www.mcafee.com/")] McAfee,
-        [Description("McDonald's, https://www.mcdonalds.com/gb/en-gb/newsroom.html")] McDonald's,
+        [Description("McDonald's, https://www.mcdonalds.com/gb/en-gb/newsroom.html")] McDonalds,
         [Description("MDN Web Docs, https://developer.mozilla.org/")] MdnWebDocs,
         [Description("MediaFire, https://www.mediafire.com/press/")] MediaFire,
         [Description("MediaTemple, https://mediatemple.net/company/about-us")] MediaTemple,
