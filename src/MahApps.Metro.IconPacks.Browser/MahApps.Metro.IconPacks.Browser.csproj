@@ -10,6 +10,8 @@
         <!-- <DisableFody>true</DisableFody> -->
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <IsPackable>false</IsPackable>
+        <!-- Workaround for https://github.com/dotnet/sourcelink/issues/91 -->
+        <DeterministicSourcePaths Condition="'$(EnableSourceLink)' == ''">false</DeterministicSourcePaths>
     </PropertyGroup>
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -22,7 +24,7 @@
         <ProjectReference Include="..\MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="MahApps.Metro" Version="2.0.0-alpha*" />
+        <PackageReference Include="MahApps.Metro" Version="2.*" />
         <PackageReference Include="AsyncAwaitBestPractices" Version="4.*" />
     </ItemGroup>
     <!-- <ItemGroup Condition=" '$(Configuration)' != 'Debug' and !$(TargetFramework.StartsWith('netcoreapp')) ">
