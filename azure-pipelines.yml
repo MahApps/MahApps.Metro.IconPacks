@@ -17,9 +17,7 @@ trigger:
      - appveyor.yml
 
 pr:
-- dev
-- master
-- release
+- develop
 
 name: $(Build.BuildId)
 

@@ -20,17 +20,11 @@
     <img src="https://img.shields.io/github/release/MahApps/MahApps.Metro.IconPacks.svg?style=flat-square">
   </a>
   <br />
-<!-- <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/master">
-	<img alt="appveyor-master" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/master.svg?logo=appveyor&style=flat-square&label=master">
-  </a>
-  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">-->
-	<!--<img alt="appveyor-dev" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?style=flat-square&&label=dev">-->
- <!-- </a>-->
   <a href="https://dev.azure.com/mahapps/MahApps.Metro.IconPacks/_build?definitionId=3">
     <img alt="azure-devops" src="https://img.shields.io/azure-devops/build/mahapps/6896073b-203e-45a5-892e-45600b9fe5ae/3.svg?logo=azure-devops&style=flat-square&label=dev">
   </a>
-  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/dev">
-    <img alt="appveyor-ci-dev" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/dev.svg?logo=appveyor&style=flat-square&&label=dev">
+  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/develop">
+    <img alt="appveyor-ci-dev" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/develop.svg?logo=appveyor&style=flat-square&&label=dev">
   </a>
   <br />
   <br />
@@ -57,7 +51,7 @@ This `IconPacks` library contains controls, markup extensions and converters to 
 | [GitHub Octicons](https://octicons.github.com/) | 9.6.0 | 204 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons"></a> |
 | [PICOL Icons](https://github.com/PicolSigns/Icons) | 1.1.0 | 549 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.PicolIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.PicolIcons.svg?style=flat-square&&label=PicolIcons"></a> |
 | [RPG Awesome](https://nagoshiashumari.github.io/Rpg-Awesome/) | 0.2.0 | 495 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.RPGAwesome/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.RPGAwesome.svg?style=flat-square&&label=RPGAwesome"></a> |
-| [Simple Icons](https://simpleicons.org/) | 2.14.0 | 1334 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> |
+| [Simple Icons](https://simpleicons.org/) | 3.0.1 | 1377 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> |
 | [Typicons](https://www.s-ings.com/typicons/) | 2.0.9 | 336 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> |
 | [Unicons](https://github.com/Iconscout/unicons) | 2.1.9 | 1170 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Unicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Unicons.svg?style=flat-square&&label=Unicons"></a> |
 | [Weather Icons](https://github.com/erikflowers/weather-icons) | 2.0.10 | 219 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> |
