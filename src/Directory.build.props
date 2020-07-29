@@ -46,8 +46,8 @@
 
     <!-- Add the references for all projects and targets -->
     <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2019.*" PrivateAssets="All" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.*" PrivateAssets="All" IncludeAssets="build; native" />
+        <PackageReference Include="JetBrains.Annotations" Version="2020.*" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.*" PrivateAssets="All"/>
         <!-- <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.18362.2002-preview" PrivateAssets="All" Condition=" $(TargetFramework.StartsWith('uap')) " /> -->
     </ItemGroup>
 
