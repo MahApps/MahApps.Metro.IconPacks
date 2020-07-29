@@ -25,6 +25,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="MahApps.Metro" Version="2.*" />
+        <PackageReference Include="ControlzEx" Version="4.*" />
         <PackageReference Include="AsyncAwaitBestPractices" Version="4.*" />
     </ItemGroup>
     <!-- <ItemGroup Condition=" '$(Configuration)' != 'Debug' and !$(TargetFramework.StartsWith('netcoreapp')) ">
