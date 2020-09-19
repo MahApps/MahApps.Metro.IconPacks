@@ -13,7 +13,7 @@
     /// </summary>
     /// <remarks>
     /// All icons sourced from Google Material Design icon font - <see><cref>http://google.github.io/material-design-icons/</cref></see>
-    /// google/material-design-icons is licensed under the Apache License 2.0 <see><cref>https://github.com/google/material-design-icons/blob/master/LICENSE</cref></see>
+    /// Google Material Design are licensed under the Apache License 2.0 <see><cref>https://github.com/google/material-design-icons/blob/master/LICENSE</cref></see>
     /// </remarks>
     public enum PackIconMaterialDesignKind
     {

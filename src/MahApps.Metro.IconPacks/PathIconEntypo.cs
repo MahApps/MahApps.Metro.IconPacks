@@ -9,7 +9,7 @@ namespace MahApps.Metro.IconPacks
 {
     /// <summary>
     /// All icons sourced from Entypo+ Icons Font <see><cref>http://www.entypo.com</cref></see>
-    /// Licensed under <see><cref>http://creativecommons.org/licenses/by-sa/4.0/</cref></see>.
+    /// Licensed under [CC BY 4.0](<see><cref>http://creativecommons.org/licenses/by-sa/4.0/</cref></see>).
     /// </summary>
     public class PathIconEntypo : PathIconControlBase
     {

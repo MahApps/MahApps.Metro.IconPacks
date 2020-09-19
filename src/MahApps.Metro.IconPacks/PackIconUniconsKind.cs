@@ -12,7 +12,7 @@
     /// List of available icons for use with <see cref="PackIconUnicons" />.
     /// </summary>
     /// <remarks>
-    /// Unicons are Open Source icons and licensed under [Apache 2.0](<see><cref>https://www.apache.org/licenses/LICENSE-2.0.txt</cref></see>). You're free to use these icons in your personal and commercial project. We would love to see the attribution in your app's **about** screen, but it's not mandatory.
+    /// Unicons are licensed under [Apache 2.0](<see><cref>https://www.apache.org/licenses/LICENSE-2.0.txt</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/Iconscout/unicons</cref></see>.
     /// </remarks>
     public enum PackIconUniconsKind

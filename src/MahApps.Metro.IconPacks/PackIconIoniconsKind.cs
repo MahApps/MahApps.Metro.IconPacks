@@ -12,7 +12,7 @@
     /// List of available icons for use with <see cref="PackIconIonicons" />.
     /// </summary>
     /// <remarks>
-    /// Ionicons is licensed under the [MIT license](<see><cref>https://github.com/ionic-team/ionicons/blob/master/LICENSE</cref></see>).
+    /// Ionicons are licensed under the [MIT license](<see><cref>https://github.com/ionic-team/ionicons/blob/master/LICENSE</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/ionic-team/ionicons</cref></see>.
     /// </remarks>
     public enum PackIconIoniconsKind
