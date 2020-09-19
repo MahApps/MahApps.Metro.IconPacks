@@ -12,8 +12,8 @@
     /// List of available icons for use with <see cref="PackIconTypicons" />.
     /// </summary>
     /// <remarks>
-    /// Typicons Icons/Artwork distributed under [CC BY-SA](<see><cref>https://creativecommons.org/licenses/by-sa/3.0/</cref></see>) licence.
-    /// Typicons Font distributed under 'SIL Open Font License' licence.
+    /// Typicons Icons/Artwork distributed under [CC BY-SA](<see><cref>https://creativecommons.org/licenses/by-sa/3.0/</cref></see>) license.
+    /// Typicons Font distributed under 'SIL Open Font License' license.
     /// </remarks>
     public enum PackIconTypiconsKind
     {

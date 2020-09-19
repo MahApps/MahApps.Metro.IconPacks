@@ -12,8 +12,8 @@
     /// List of available icons for use with <see cref="PackIconOcticons" />.
     /// </summary>
     /// <remarks>
-    /// All icons sourced from GitHub Octicons - <see><cref>https://octicons.github.com</cref></see> - 
-    /// <see><cref>https://github.com/primer/octicons/blob/master/LICENSE</cref></see>.
+    /// All icons sourced from GitHub Octicons <see><cref>https://octicons.github.com</cref></see>
+    /// In accordance of <see><cref>https://github.com/primer/octicons/blob/master/LICENSE</cref></see>.
     /// </remarks>
     public enum PackIconOcticonsKind
     {
@@ -72,7 +72,7 @@
         [Description("DiffRenamed (Moved, Arrow)")] DiffRenamed,
         [Description("Ellipsis (Dot, Read, More, Hidden, Expand)")] Ellipsis,
         [Description("Eye (Look, Watch, See)")] Eye,
-        [Description("EyeClosed (Hidden, Invisible, Concealed, )")] EyeClosed,
+        [Description("EyeClosed (Hidden, Invisible, Concealed)")] EyeClosed,
         [Description("File (File, Text, Words)")] File,
         [Description("FileBinary (Image, Video, Word, Powerpoint, Excel)")] FileBinary,
         [Description("FileCode (Text, Javascript, Html, Css, Php, Ruby, Coffeescript, Sass, Scss)")] FileCode,

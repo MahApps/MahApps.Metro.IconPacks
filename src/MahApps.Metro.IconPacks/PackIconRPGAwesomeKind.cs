@@ -12,7 +12,7 @@
     /// List of available icons for use with <see cref="PackIconRPGAwesome" />.
     /// </summary>
     /// <remarks>
-    /// The Rpg Awesome font is licensed under the [SIL OFL 1.1](<see><cref>http://scripts.sil.org/OFL</cref></see>)
+    /// The RPG Awesome font is licensed under the [SIL OFL 1.1](<see><cref>http://scripts.sil.org/OFL</cref></see>)
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/nagoshiashumari/Rpg-Awesome</cref></see>.
     /// </remarks>
     public enum PackIconRPGAwesomeKind

@@ -12,7 +12,7 @@
     /// List of available icons for use with <see cref="PackIconMicrons" />.
     /// </summary>
     /// <remarks>
-    /// The Microns icons are licensed under [CC BY-SA](<see><cref>https://creativecommons.org/licenses/by-sa/3.0/</cref></see>) licence.
+    /// The Microns icons are licensed under [CC BY-SA](<see><cref>https://creativecommons.org/licenses/by-sa/3.0/</cref></see>) license.
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/stephenhutchings/microns</cref></see>.
     /// </remarks>
     public enum PackIconMicronsKind
