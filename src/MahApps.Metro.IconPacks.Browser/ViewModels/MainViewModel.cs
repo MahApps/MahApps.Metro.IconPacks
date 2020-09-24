@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -16,8 +18,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         {
             this._dispatcher = dispatcher;
             this.AppVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
-            this.IconPacks = new ObservableCollection<IconPackViewModel>(
-                new[]
+            this.IconPacks = new ObservableCollection<object>(
+                new object[]
                 {
                     new IconPackViewModel(this, "BootstrapIcons", typeof(PackIconBootstrapIconsKind), typeof(PackIconBootstrapIcons)),
                     new IconPackViewModel(this, "BoxIcons", typeof(PackIconBoxIconsKind), typeof(PackIconBoxIcons)),
@@ -128,7 +130,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             });
         }
 
-        public ObservableCollection<IconPackViewModel> IconPacks { get; set; }
+        public ObservableCollection<object> IconPacks { get; set; }
 
         public string AppVersion { get; }
 
@@ -148,7 +150,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             {
                 if (Set(ref _filterText, value))
                 {
-                    foreach (var iconPack in this.IconPacks)
+                    foreach (var iconPack in this.IconPacks.OfType<IconPackViewModel>())
                     {
                         this._dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() => iconPack.FilterText = value));
                     }
