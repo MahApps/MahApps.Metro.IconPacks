@@ -7,7 +7,7 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:model="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
                       xmlns:viewModels="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
-                      xmlns:virtualizing="clr-namespace:MahApps.Metro.IconPacks.Browser.Virtualizing"
+                      xmlns:virtualizing="clr-namespace:MahApps.Metro.IconPacks.Browser.Virtualizing" xmlns:converter="http://metro.mahapps.com/winfx/xaml/shared" xmlns:sys="clr-namespace:System;assembly=System.Runtime" xmlns:local="clr-namespace:MahApps.Metro.IconPacks.Browser"
                       Title="IconPacks Browser"
                       Width="1200"
                       Height="800"
@@ -72,17 +72,214 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Key="SelectedIconContentTemplate" DataType="{x:Type viewModels:IIconViewModel}">
+            <ContentControl x:Name="IconContent" Content="{Binding}" Focusable="False" IsTabStop="False" />
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMaterialKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconMaterial Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMaterialDesignKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconMaterialDesign Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMaterialLightKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconMaterialLight Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFontAwesomeKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconFontAwesome Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconOcticonsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconOcticons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconPicolIconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconPicolIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconRPGAwesomeKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconRPGAwesome Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconMicronsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconMicrons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconModernKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconModern Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconEntypoKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconEntypo Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconSimpleIconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconSimpleIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconWeatherIconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconWeatherIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconTypiconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconTypicons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFeatherIconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconFeatherIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconIoniconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconIonicons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconJamIconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconJamIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconEvaIconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconEvaIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconBoxIconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconBoxIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconUniconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconUnicons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconZondiconsKind}">
+                    <Setter TargetName="IconContent" Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                <iconPacks:PackIconZondicons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True"  Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
         <DataTemplate x:Key="IconPacksBrowser.DataTemplates.Content" DataType="{x:Type model:IconPackViewModel}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="48" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Border Background="{DynamicResource MahApps.HamburgerMenu.Pane.Background}">
-                    <TextBlock Text="{Binding Caption}" FontSize="30" TextTrimming="CharacterEllipsis" FontWeight="Light" Foreground="White" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.ColumnSpan="2" Background="{DynamicResource MahApps.HamburgerMenu.Pane.Background}">
+                    <TextBlock FontSize="30"
+                               FontWeight="Light"
+                               Foreground="White"
+                               Text="{Binding Caption}"
+                               TextTrimming="CharacterEllipsis" />
                 </Border>
+
                 <ListBox x:Name="IconListBox"
                          Grid.Row="1"
+                         Grid.Column="0"
                          Margin="2"
                          FocusVisualStyle="{x:Null}"
                          ItemsSource="{Binding Icons}"
@@ -474,6 +671,45 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+
+                <Expander Grid.Row="1"
+                          Grid.Column="1"
+                          ExpandDirection="Right"
+                          BorderThickness="0"
+                          DataContext="{Binding ElementName=IconListBox, Path=SelectedItem}"
+                          controls:HeaderedControlHelper.HeaderBackground="{DynamicResource MahApps.Brushes.Gray6}"
+                          Background="{DynamicResource MahApps.Brushes.Gray6}"
+                          IsExpanded="False" >
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock Text="Preview" />
+                            <Border Background="White" Padding="5" Margin="5" >
+                                <ContentControl 
+                                    Background="Transparent"
+                                    Width="{Binding ElementName=ComboBoxIconPreviewSize, Path=Text, Converter={local:StringToDoubleConverter}}"
+                                    Height="{Binding ElementName=ComboBoxIconPreviewSize, Path=Text, Converter={local:StringToDoubleConverter}}"
+                                    Content="{Binding Mode=OneWay}"
+                                    ContentTemplate="{StaticResource SelectedIconContentTemplate}"
+                                    Focusable="False"
+                                    IsTabStop="False" />
+                            </Border>
+
+                            <ComboBox x:Name="ComboBoxIconPreviewSize" Text="48" IsEditable="True">
+                                <sys:Double>16</sys:Double>
+                                <sys:Double>24</sys:Double>
+                                <sys:Double>32</sys:Double>
+                                <sys:Double>48</sys:Double>
+                                <sys:Double>64</sys:Double>
+                                <sys:Double>128</sys:Double>
+                                <sys:Double>256</sys:Double>
+                                <sys:Double>512</sys:Double>
+                                <sys:Double>1024</sys:Double>
+                            </ComboBox>
+                            
+                        </StackPanel>
+                    </ScrollViewer>
+                </Expander>
+
             </Grid>
         </DataTemplate>
 
@@ -540,7 +776,8 @@
                     ItemsSource="{Binding IconPacks, Mode=OneWay}"
                     Style="{StaticResource CustomTabControlStyle}" />-->
 
-        <controls:HamburgerMenu Grid.Row="0"
+        <controls:HamburgerMenu x:Name="IconPacksHamburgerMenu"
+                                Grid.Row="0"
                                 CanResizeOpenPane="True"
                                 Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=SelectedItem}"
                                 ContentTemplate="{StaticResource IconPacksBrowser.DataTemplates.Content}"
@@ -549,20 +786,33 @@
                                 ItemsSource="{Binding IconPacks, Mode=OneWay}">
             <controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
                 <DataTemplate>
-                    <TextBox x:Name="FilterTextBox"
-                             Width="250"
-                             Margin="10,0,10,5"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"
-                             controls:TextBoxHelper.ClearTextButton="True"
-                             controls:TextBoxHelper.UseFloatingWatermark="True"
-                             controls:TextBoxHelper.Watermark="Filter by..."
-                             Background="#2000"
-                             BorderThickness="0,0,0,0"
-                             DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:MetroWindow}, Path=DataContext}"
-                             Foreground="White"
-                             SnapsToDevicePixels="True"
-                             Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+                    <Grid>
+                        <TextBox x:Name="FilterTextBox"
+                                 Height="20"
+                                 Margin="5,0"
+                                 Padding="20,0,0,0"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Center"
+                                 VerticalContentAlignment="Center"
+                                 controls:ControlsHelper.CornerRadius="10"
+                                 controls:TextBoxHelper.ClearTextButton="False"
+                                 controls:TextBoxHelper.UseFloatingWatermark="False"
+                                 controls:TextBoxHelper.Watermark="Filter by..."
+                                 Background="#2000"
+                                 BorderThickness="0,0,0,0"
+                                 DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:MetroWindow}, Path=DataContext}"
+                                 Foreground="White"
+                                 SnapsToDevicePixels="True"
+                                 Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+                        <iconPacks:PackIconModern Width="12"
+                                                  Height="12"
+                                                  Margin="12,0,0,0"
+                                                  VerticalAlignment="Center"
+                                                  Foreground="#5fff"
+                                                  IsHitTestVisible="False"
+                                                  Kind="Magnify" />
+                    </Grid>
+
                 </DataTemplate>
             </controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
         </controls:HamburgerMenu>
@@ -575,6 +825,7 @@
             <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" />
             
             <StatusBarItem Content="{Binding ElementName=IconPacksTabControl, Path=SelectedItem, Mode=OneWay}">
+            <StatusBarItem Content="{Binding ElementName=IconPacksHamburgerMenu, Path=SelectedItem, Mode=OneWay}">
                 <StatusBarItem.ContentTemplate>
                     <DataTemplate DataType="{x:Type viewModels:IconPackViewModel}">
                         <TextBlock>
