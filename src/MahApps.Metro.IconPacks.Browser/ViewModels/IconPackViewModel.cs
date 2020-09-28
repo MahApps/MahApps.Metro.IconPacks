@@ -73,9 +73,27 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         private bool FilterIconsPredicate(string filterText, IIconViewModel iconViewModel)
         {
-            return string.IsNullOrWhiteSpace(filterText)
-                   || iconViewModel.Name.IndexOf(filterText, StringComparison.CurrentCultureIgnoreCase) >= 0
-                   || (!string.IsNullOrWhiteSpace(iconViewModel.Description) && iconViewModel.Description.IndexOf(filterText, StringComparison.CurrentCultureIgnoreCase) >= 0);
+            if (string.IsNullOrWhiteSpace(filterText))
+            {
+                return true;
+            }
+            else
+            {
+                var filterSubStrings = filterText.Split(new char[] { '+', ',', ';', '&' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var filterSubString in filterSubStrings)
+                {
+                    var filterOrSubStrings = filterSubString.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    var isInName = filterOrSubStrings.Any(x => iconViewModel.Name.IndexOf(x.Trim(), StringComparison.CurrentCultureIgnoreCase) >= 0);
+                    var isInDescription = filterOrSubStrings.Any(x => (iconViewModel.Description?.IndexOf(x.Trim(), StringComparison.CurrentCultureIgnoreCase) ?? -1) >= 0);
+
+                    if (!(isInName || isInDescription)) return false;
+                }
+
+                return true;
+
+            }
         }
 
         private static string GetDescription(Enum value)
