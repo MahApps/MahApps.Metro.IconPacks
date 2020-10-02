@@ -72,6 +72,15 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconPixelartIconsKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconPixelartIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{StaticResource SelectedIconBorderBrush}" Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconRPGAwesomeKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
@@ -450,6 +459,15 @@
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                                             <iconPacks:PackIconPicolIcons Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding Value, Mode=OneWay}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconPixelartIconsKind}">
+                                <Setter TargetName="IconContent" Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                            <iconPacks:PackIconPixelartIcons Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding Value, Mode=OneWay}" />
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>
