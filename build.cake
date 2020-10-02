@@ -40,7 +40,7 @@ var isDevelopBranch = StringComparer.OrdinalIgnoreCase.Equals("develop", branchN
 var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("main", branchName);
 var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
 
-var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = true });
+var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = false });
 var msBuildPath = latestInstallationPath.Combine("./MSBuild/Current/Bin");
 var msBuildPathExe = msBuildPath.CombineWithFilePath("./MSBuild.exe");
 
