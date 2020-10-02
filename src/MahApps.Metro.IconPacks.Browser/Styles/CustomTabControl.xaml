@@ -239,7 +239,19 @@
                          BorderThickness="0 0 0 1"
                          SnapsToDevicePixels="True"
                          Background="Transparent"
-                         Text="{Binding MainViewModel.FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+                         Text="{Binding MainViewModel.FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" >
+                    <TextBox.ToolTip>
+                        <StackPanel>
+                            <TextBlock Text="Advanced filtering:" Foreground="{DynamicResource MahApps.Brushes.Accent}" FontWeight="Bold" />
+                            <TextBlock>
+                                <Run Text="Use these chars to match all substrings: &#x09;" /> <Run FontFamily="Courier New" Text="'&amp;' '+' ',' ';'"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Use this chars to match any substring: &#x09;" /> <Run FontFamily="Courier New" Text="'|'" />
+                            </TextBlock>
+                        </StackPanel>
+                    </TextBox.ToolTip>
+                </TextBox>
 
                 <StackPanel Margin="10 5 10 0"
                             VerticalAlignment="Top"
