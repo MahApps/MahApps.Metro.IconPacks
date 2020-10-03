@@ -52,6 +52,9 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconPicolIconsKind picolIconsKind:
                     PackIconPicolIconsDataFactory.DataIndex.Value?.TryGetValue(picolIconsKind, out data);
                     return data;
+                case PackIconPixelartIconsKind pixelartIconsKind:
+                    PackIconPixelartIconsDataFactory.DataIndex.Value?.TryGetValue(pixelartIconsKind, out data);
+                    return data;
                 case PackIconRPGAwesomeKind rpgAwesomeKind:
                     PackIconRPGAwesomeDataFactory.DataIndex.Value?.TryGetValue(rpgAwesomeKind, out data);
                     return data;
