@@ -414,9 +414,13 @@
                                FontWeight="Bold"
                                Foreground="{DynamicResource MahApps.Brushes.Gray6}"
                                Text="{Binding Caption, StringFormat='{}{0} icon collection'}" />
-                    <Button Command="{Binding GoToWebpage_Command}"
-                            Content="►"
-                            Style="{DynamicResource MahApps.Styles.Button.WindowCommands}" />
+                    <Button Margin="5"
+                            VerticalAlignment="Top"
+                            Command="{Binding GoToWebpage_Command}"
+                            Content="{iconPacks:FontAwesome Kind=ExternalLinkAltSolid}"
+                            Foreground="{DynamicResource MahApps.Brushes.Gray2}"
+                            Style="{DynamicResource MahApps.Styles.Button.WindowCommands}"
+                            ToolTip="{Binding Webpage}" />
                 </StackPanel>
                 <TextBox x:Name="FilterTextBox"
                          Width="250"
