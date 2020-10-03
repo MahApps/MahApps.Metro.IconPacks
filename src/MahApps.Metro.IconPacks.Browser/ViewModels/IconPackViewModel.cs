@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,10 +21,15 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private string _filterText;
         private IIconViewModel _selectedIcon;
 
-        public IconPackViewModel(MainViewModel mainViewModel, string caption, Type enumType, Type packType)
+        public IconPackViewModel(MainViewModel mainViewModel, string caption, Type enumType, Type packType, string webpage = null)
         {
             this.MainViewModel = mainViewModel;
             this.Caption = caption;
+            
+            this.Webpage = webpage;
+            this.GoToWebpage_Command = new SimpleCommand(
+                (_) => Process.Start(Webpage),
+                (_) => !string.IsNullOrWhiteSpace(Webpage));
 
             this.LoadEnumsAsync(enumType, packType).SafeFireAndForget();
         }
@@ -139,6 +145,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             get { return _iconCount; }
             set { Set(ref _iconCount, value); }
         }
+
+        public string Webpage { get; }
+
+        public SimpleCommand GoToWebpage_Command { get; } 
 
         public string FilterText
         {
