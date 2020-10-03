@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <DefineConstants>$(DefineConstants);REMIXICON</DefineConstants>
+        <AssemblyName>MahApps.Metro.IconPacks.RemixIcon</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.RemixIcon</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+    </PropertyGroup>
+    <!-- WPF Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <None Remove="**\*.rd.xml" />
+        <Compile Remove="*.cs;**\*Converter.cs" />
+        <Compile Include="**\PackIconRemixIcon*.cs" Exclude="**\bin\**\*.*;**\obj\**\*.*" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\RemixIcon\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconRemixIcon.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+    </ItemGroup>
+    <!-- UWP Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <Compile Remove="*.cs;**\*Converter.cs" />
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
+        <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
+        <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="*Extension*.cs" Include="*RemixIcon*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="*ImageExtension*.cs" Include="*RemixIcon*.cs" />
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\RemixIcon\*.xaml;Themes\UAP\PackIconRemixIcon.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
+    </ItemGroup>
+</Project>
