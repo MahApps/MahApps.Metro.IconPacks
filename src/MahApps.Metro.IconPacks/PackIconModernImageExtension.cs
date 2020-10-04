@@ -28,9 +28,9 @@ namespace MahApps.Metro.IconPacks
         protected override string GetPathData(object iconKind)
         {
             string data = null;
-            if (iconKind is PackIconModernKind modernKind)
+            if (iconKind is PackIconModernKind kind)
             {
-                PackIconModernDataFactory.DataIndex.Value?.TryGetValue(modernKind, out data);
+                PackIconModernDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
         }

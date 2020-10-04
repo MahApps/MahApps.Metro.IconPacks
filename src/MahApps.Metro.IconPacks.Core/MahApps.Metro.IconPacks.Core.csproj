@@ -13,7 +13,7 @@
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
         <None Remove="**\*.rd.xml" />
         <Compile Remove="PathIcon*.cs" />
-        <Compile Remove="Attributes\*.*" />
+        <Compile Remove="Attributes\DescriptionAttribute.cs" />
     </ItemGroup>
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
