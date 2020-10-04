@@ -414,13 +414,28 @@
                                FontWeight="Bold"
                                Foreground="{DynamicResource MahApps.Brushes.Gray6}"
                                Text="{Binding Caption, StringFormat='{}{0} icon collection'}" />
-                    <Button Margin="5"
+                    <Button Margin="5,5,0,5"
                             VerticalAlignment="Top"
-                            Command="{Binding GoToWebpage_Command}"
+                            Command="{x:Static viewModels:MainViewModel.OpenUrl_Command}"
+                            CommandParameter="{Binding ProjectUrl}"
                             Content="{iconPacks:FontAwesome Kind=ExternalLinkAltSolid}"
                             Foreground="{DynamicResource MahApps.Brushes.Gray2}"
-                            Style="{DynamicResource MahApps.Styles.Button.WindowCommands}"
-                            ToolTip="{Binding Webpage}" />
+                            Style="{DynamicResource MahApps.Styles.Button.WindowCommands}">
+                        <Button.ToolTip>
+                            <TextBlock Text="{Binding ProjectUrl, StringFormat='{}Visist: {0}'}" />
+                        </Button.ToolTip>
+                    </Button>
+                    <Button Margin="0,5,5,5"
+                            VerticalAlignment="Top"
+                            Command="{x:Static viewModels:MainViewModel.OpenUrl_Command}"
+                            CommandParameter="{Binding LicenseUrl}"
+                            Content="{iconPacks:Material Kind=License}"
+                            Foreground="{DynamicResource MahApps.Brushes.Gray2}"
+                            Style="{DynamicResource MahApps.Styles.Button.WindowCommands}">
+                        <Button.ToolTip>
+                            <TextBlock Text="{Binding LicenseUrl, StringFormat='{}View the License: {0}'}" />
+                        </Button.ToolTip>
+                    </Button>
                 </StackPanel>
                 <TextBox x:Name="FilterTextBox"
                          Width="250"

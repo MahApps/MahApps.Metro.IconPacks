@@ -19,9 +19,9 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             this.IconPacks = new ObservableCollection<IconPackViewModel>(
                 new[]
                 {
-                    new IconPackViewModel(this, "BoxIcons", typeof(PackIconBoxIconsKind), typeof(PackIconBoxIcons), "https://boxicons.com"),
-                    new IconPackViewModel(this, "Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo), "http://entypo.com"),
-                    new IconPackViewModel(this, "EvaIcons", typeof(PackIconEvaIconsKind), typeof(PackIconEvaIcons), "https://akveo.github.io/eva-icons/#/"),
+                    new IconPackViewModel(this, "BoxIcons", typeof(PackIconBoxIconsKind), typeof(PackIconBoxIcons)),
+                    new IconPackViewModel(this, "Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo)),
+                    new IconPackViewModel(this, "EvaIcons", typeof(PackIconEvaIconsKind), typeof(PackIconEvaIcons)),
                     new IconPackViewModel(this, "FeatherIcons", typeof(PackIconFeatherIconsKind), typeof(PackIconFeatherIcons)),
                     new IconPackViewModel(this, "FontAwesome", typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome)),
                     new IconPackViewModel(this, "Ionicons", typeof(PackIconIoniconsKind), typeof(PackIconIonicons)),
@@ -120,6 +120,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public string IconPacksVersion { get; }
 
         public ICommand GoToGitHubCommand { get; }
+
+        public static SimpleCommand OpenUrl_Command { get; } = new SimpleCommand(
+            (x) => MainViewModel.OpenUrlLink(x as string),
+            (x) => !string.IsNullOrWhiteSpace(x as string));
 
         public string FilterText
         {

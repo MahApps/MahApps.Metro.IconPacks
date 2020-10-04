@@ -21,15 +21,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private string _filterText;
         private IIconViewModel _selectedIcon;
 
-        public IconPackViewModel(MainViewModel mainViewModel, string caption, Type enumType, Type packType, string webpage = null)
+        public IconPackViewModel(MainViewModel mainViewModel, string caption, Type enumType, Type packType)
         {
             this.MainViewModel = mainViewModel;
             this.Caption = caption;
-            
-            this.Webpage = webpage;
-            this.GoToWebpage_Command = new SimpleCommand(
-                (_) => Process.Start(Webpage),
-                (_) => !string.IsNullOrWhiteSpace(Webpage));
 
             this.LoadEnumsAsync(enumType, packType).SafeFireAndForget();
         }
@@ -39,7 +34,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             var collection = await Task.Run(() => GetIcons(enumType, packType).OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase).ToList());
 
             this.Icons = new ObservableCollection<IIconViewModel>(collection);
-            this.IconCount = ((ICollection) this.Icons).Count;
+            this.IconCount = ((ICollection)this.Icons).Count;
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -66,7 +61,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             });
 
             this.Icons = new ObservableCollection<IIconViewModel>(collection);
-            this.IconCount = ((ICollection) this.Icons).Count;
+            this.IconCount = ((ICollection)this.Icons).Count;
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -74,7 +69,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private void PrepareFiltering()
         {
             this._iconsCollectionView = CollectionViewSource.GetDefaultView(this.Icons);
-            this._iconsCollectionView.Filter = o => this.FilterIconsPredicate(this.FilterText, (IIconViewModel) o);
+            this._iconsCollectionView.Filter = o => this.FilterIconsPredicate(this.FilterText, (IIconViewModel)o);
         }
 
         private bool FilterIconsPredicate(string filterText, IIconViewModel iconViewModel)
@@ -146,9 +141,35 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             set { Set(ref _iconCount, value); }
         }
 
-        public string Webpage { get; }
+        public string ProjectUrl
+        {
+            get
+            {
+                if (_selectedIcon is null || _selectedIcon.IconPackType is null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return ((MetaDataAttribute)Attribute.GetCustomAttribute(_selectedIcon.IconPackType, typeof(MetaDataAttribute)))?.ProjectUrl;
+                }
+            }
+        }
 
-        public SimpleCommand GoToWebpage_Command { get; } 
+        public string LicenseUrl
+        {
+            get
+            {
+                if (_selectedIcon is null || _selectedIcon.IconPackType is null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return ((MetaDataAttribute)Attribute.GetCustomAttribute(_selectedIcon.IconPackType, typeof(MetaDataAttribute)))?.LicenseUrl;
+                }
+            }
+        }
 
         public string FilterText
         {
