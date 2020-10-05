@@ -6,9 +6,9 @@
         protected override string GetPathData(object iconKind)
         {
             string data = null;
-            if (iconKind is PackIconMicronsKind micronsKind)
+            if (iconKind is PackIconMicronsKind kind)
             {
-                PackIconMicronsDataFactory.DataIndex.Value?.TryGetValue(micronsKind, out data);
+                PackIconMicronsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
         }

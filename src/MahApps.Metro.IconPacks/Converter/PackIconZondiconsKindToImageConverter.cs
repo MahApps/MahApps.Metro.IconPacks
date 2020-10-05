@@ -6,9 +6,9 @@
         protected override string GetPathData(object iconKind)
         {
             string data = null;
-            if (iconKind is PackIconZondiconsKind zondiconsKind)
+            if (iconKind is PackIconZondiconsKind kind)
             {
-                PackIconZondiconsDataFactory.DataIndex.Value?.TryGetValue(zondiconsKind, out data);
+                PackIconZondiconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
         }

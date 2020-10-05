@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Unicons are licensed under [Apache 2.0](<see><cref>https://www.apache.org/licenses/LICENSE-2.0.txt</cref></see>).
+    /// Unicons are licensed under [Apache 2.0](<see><cref>https://github.com/Iconscout/unicons/blob/master/LICENSE</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/Iconscout/unicons</cref></see>.
     /// </summary>
     public class PathIconUnicons : PathIconControlBase

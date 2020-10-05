@@ -8,9 +8,9 @@ namespace MahApps.Metro.IconPacks.Converter
         protected override string GetPathData(object iconKind)
         {
             string data = null;
-            if (iconKind is PackIconMaterialDesignKind materialDesignKind)
+            if (iconKind is PackIconMaterialDesignKind kind)
             {
-                PackIconMaterialDesignDataFactory.DataIndex.Value?.TryGetValue(materialDesignKind, out data);
+                PackIconMaterialDesignDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
         }

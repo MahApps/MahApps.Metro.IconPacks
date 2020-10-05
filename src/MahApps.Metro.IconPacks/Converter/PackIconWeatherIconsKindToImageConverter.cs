@@ -6,9 +6,9 @@
         protected override string GetPathData(object iconKind)
         {
             string data = null;
-            if (iconKind is PackIconWeatherIconsKind weatherIconsKind)
+            if (iconKind is PackIconWeatherIconsKind kind)
             {
-                PackIconWeatherIconsDataFactory.DataIndex.Value?.TryGetValue(weatherIconsKind, out data);
+                PackIconWeatherIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
         }
