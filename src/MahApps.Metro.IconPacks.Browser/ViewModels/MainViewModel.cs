@@ -121,6 +121,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         public ICommand GoToGitHubCommand { get; }
 
+        public static SimpleCommand OpenUrl_Command { get; } = new SimpleCommand(
+            (x) => MainViewModel.OpenUrlLink(x as string),
+            (x) => !string.IsNullOrWhiteSpace(x as string));
+
         public string FilterText
         {
             get { return _filterText; }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,7 +34,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             var collection = await Task.Run(() => GetIcons(enumType, packType).OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase).ToList());
 
             this.Icons = new ObservableCollection<IIconViewModel>(collection);
-            this.IconCount = ((ICollection) this.Icons).Count;
+            this.IconCount = ((ICollection)this.Icons).Count;
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -60,7 +61,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             });
 
             this.Icons = new ObservableCollection<IIconViewModel>(collection);
-            this.IconCount = ((ICollection) this.Icons).Count;
+            this.IconCount = ((ICollection)this.Icons).Count;
             this.PrepareFiltering();
             this.SelectedIcon = this.Icons.First();
         }
@@ -68,7 +69,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private void PrepareFiltering()
         {
             this._iconsCollectionView = CollectionViewSource.GetDefaultView(this.Icons);
-            this._iconsCollectionView.Filter = o => this.FilterIconsPredicate(this.FilterText, (IIconViewModel) o);
+            this._iconsCollectionView.Filter = o => this.FilterIconsPredicate(this.FilterText, (IIconViewModel)o);
         }
 
         private bool FilterIconsPredicate(string filterText, IIconViewModel iconViewModel)
@@ -138,6 +139,36 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         {
             get { return _iconCount; }
             set { Set(ref _iconCount, value); }
+        }
+
+        public string ProjectUrl
+        {
+            get
+            {
+                if (_selectedIcon is null || _selectedIcon.IconPackType is null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return ((MetaDataAttribute)Attribute.GetCustomAttribute(_selectedIcon.IconPackType, typeof(MetaDataAttribute)))?.ProjectUrl;
+                }
+            }
+        }
+
+        public string LicenseUrl
+        {
+            get
+            {
+                if (_selectedIcon is null || _selectedIcon.IconPackType is null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return ((MetaDataAttribute)Attribute.GetCustomAttribute(_selectedIcon.IconPackType, typeof(MetaDataAttribute)))?.LicenseUrl;
+                }
+            }
         }
 
         public string FilterText
