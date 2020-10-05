@@ -422,7 +422,7 @@
                             Foreground="{DynamicResource MahApps.Brushes.Gray2}"
                             Style="{DynamicResource MahApps.Styles.Button.WindowCommands}">
                         <Button.ToolTip>
-                            <TextBlock Text="{Binding ProjectUrl, StringFormat='{}Visist: {0}'}" />
+                            <TextBlock Text="{Binding ProjectUrl, StringFormat='{}Visit: {0}'}" />
                         </Button.ToolTip>
                     </Button>
                     <Button Margin="0,5,5,5"
