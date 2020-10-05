@@ -42,64 +42,58 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     new IconPackViewModel(this, "WeatherIcons", typeof(PackIconWeatherIconsKind), typeof(PackIconWeatherIcons)),
                     new IconPackViewModel(this, "Zondicons", typeof(PackIconZondiconsKind), typeof(PackIconZondicons)),
                     new IconPackViewModel(this, "All",
-                        new[]
-                        {
-                            typeof(PackIconBoxIconsKind),
-                            typeof(PackIconEntypoKind),
-                            typeof(PackIconEvaIconsKind),
-                            typeof(PackIconFeatherIconsKind),
-                            typeof(PackIconFontAwesomeKind),
-                            typeof(PackIconIoniconsKind),
-                            typeof(PackIconJamIconsKind),
-                            typeof(PackIconMaterialKind),
-                            typeof(PackIconMaterialDesignKind),
-                            typeof(PackIconMaterialLightKind),
-                            typeof(PackIconMicronsKind),
-                            typeof(PackIconModernKind),
-                            typeof(PackIconOcticonsKind),
-                            typeof(PackIconPicolIconsKind),
-                            typeof(PackIconPixelartIconsKind),
-                            typeof(PackIconRemixIconKind),
-                            typeof(PackIconRPGAwesomeKind),
-                            typeof(PackIconSimpleIconsKind),
-                            typeof(PackIconTypiconsKind),
-                            typeof(PackIconUniconsKind),
-                            typeof(PackIconWeatherIconsKind),
-                            typeof(PackIconZondiconsKind)
-                        },
-                        new[]
-                        {
-                            typeof(PackIconBoxIcons),
-                            typeof(PackIconEntypo),
-                            typeof(PackIconEvaIcons),
-                            typeof(PackIconFeatherIcons),
-                            typeof(PackIconFontAwesome),
-                            typeof(PackIconIonicons),
-                            typeof(PackIconJamIcons),
-                            typeof(PackIconMaterial),
-                            typeof(PackIconMaterialDesign),
-                            typeof(PackIconMaterialLight),
-                            typeof(PackIconMicrons),
-                            typeof(PackIconModern),
-                            typeof(PackIconOcticons),
-                            typeof(PackIconPicolIcons),
-                            typeof(PackIconPixelartIcons),
-                            typeof(PackIconRemixIcon),
-                            typeof(PackIconRPGAwesome),
-                            typeof(PackIconSimpleIcons),
-                            typeof(PackIconTypicons),
-                            typeof(PackIconUnicons),
-                            typeof(PackIconWeatherIcons),
-                            typeof(PackIconZondicons)
-                        })
+                                          new[]
+                                          {
+                                              typeof(PackIconBoxIconsKind),
+                                              typeof(PackIconEntypoKind),
+                                              typeof(PackIconEvaIconsKind),
+                                              typeof(PackIconFeatherIconsKind),
+                                              typeof(PackIconFontAwesomeKind),
+                                              typeof(PackIconIoniconsKind),
+                                              typeof(PackIconJamIconsKind),
+                                              typeof(PackIconMaterialKind),
+                                              typeof(PackIconMaterialDesignKind),
+                                              typeof(PackIconMaterialLightKind),
+                                              typeof(PackIconMicronsKind),
+                                              typeof(PackIconModernKind),
+                                              typeof(PackIconOcticonsKind),
+                                              typeof(PackIconPicolIconsKind),
+                                              typeof(PackIconPixelartIconsKind),
+                                              typeof(PackIconRemixIconKind),
+                                              typeof(PackIconRPGAwesomeKind),
+                                              typeof(PackIconSimpleIconsKind),
+                                              typeof(PackIconTypiconsKind),
+                                              typeof(PackIconUniconsKind),
+                                              typeof(PackIconWeatherIconsKind),
+                                              typeof(PackIconZondiconsKind)
+                                          },
+                                          new[]
+                                          {
+                                              typeof(PackIconBoxIcons),
+                                              typeof(PackIconEntypo),
+                                              typeof(PackIconEvaIcons),
+                                              typeof(PackIconFeatherIcons),
+                                              typeof(PackIconFontAwesome),
+                                              typeof(PackIconIonicons),
+                                              typeof(PackIconJamIcons),
+                                              typeof(PackIconMaterial),
+                                              typeof(PackIconMaterialDesign),
+                                              typeof(PackIconMaterialLight),
+                                              typeof(PackIconMicrons),
+                                              typeof(PackIconModern),
+                                              typeof(PackIconOcticons),
+                                              typeof(PackIconPicolIcons),
+                                              typeof(PackIconPixelartIcons),
+                                              typeof(PackIconRemixIcon),
+                                              typeof(PackIconRPGAwesome),
+                                              typeof(PackIconSimpleIcons),
+                                              typeof(PackIconTypicons),
+                                              typeof(PackIconUnicons),
+                                              typeof(PackIconWeatherIcons),
+                                              typeof(PackIconZondicons)
+                                          })
                 });
             this.IconPacksVersion = FileVersionInfo.GetVersionInfo(Assembly.GetAssembly(typeof(PackIconMaterial)).Location).FileVersion;
-            this.GoToGitHubCommand =
-                new SimpleCommand
-                {
-                    CanExecuteDelegate = x => true,
-                    ExecuteDelegate = x => OpenUrlLink("https://github.com/MahApps/MahApps.Metro.IconPacks")
-                };
         }
 
         private static void OpenUrlLink(string link)
@@ -119,11 +113,12 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         public string IconPacksVersion { get; }
 
-        public ICommand GoToGitHubCommand { get; }
-
-        public static SimpleCommand OpenUrl_Command { get; } = new SimpleCommand(
-            (x) => MainViewModel.OpenUrlLink(x as string),
-            (x) => !string.IsNullOrWhiteSpace(x as string));
+        public static ICommand OpenUrlCommand { get; } =
+            new SimpleCommand
+            {
+                CanExecuteDelegate = x => !string.IsNullOrWhiteSpace(x as string),
+                ExecuteDelegate = x => OpenUrlLink(x as string)
+            };
 
         public string FilterText
         {

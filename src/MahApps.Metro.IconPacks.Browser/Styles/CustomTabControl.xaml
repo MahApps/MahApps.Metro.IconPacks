@@ -12,12 +12,8 @@
     <SolidColorBrush x:Key="TabItemBackgroundIsMouseOverBrush" Color="{DynamicResource MahApps.Colors.Gray5}" />
     <SolidColorBrush x:Key="TabItemForegroundIsSelectedBrush" Color="{DynamicResource MahApps.Colors.IdealForeground}" />
     <SolidColorBrush x:Key="TabItemSelectorBrush" Color="LawnGreen" />
-    <SolidColorBrush x:Key="TabControlBackgroundBrush"
-                     Opacity="0.04"
-                     Color="{DynamicResource MahApps.Colors.ThemeForeground}" />
-    <SolidColorBrush x:Key="SelectedIconBorderBrush"
-                     Opacity="0.1"
-                     Color="{DynamicResource MahApps.Colors.ThemeForeground}" />
+    <SolidColorBrush x:Key="TabControlBackgroundBrush" Opacity="0.04" Color="{DynamicResource MahApps.Colors.ThemeForeground}" />
+    <SolidColorBrush x:Key="SelectedIconBorderBrush" Opacity="0.1" Color="{DynamicResource MahApps.Colors.ThemeForeground}" />
 
     <DataTemplate x:Key="SelectedIconContentTemplate" DataType="{x:Type viewModels:IIconViewModel}">
         <ContentControl x:Name="IconContent"
@@ -408,35 +404,11 @@
             <Grid Grid.Row="0"
                   RenderOptions.ClearTypeHint="Enabled"
                   TextOptions.TextFormattingMode="Display">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="20,5,0,0"
-                               FontSize="36"
-                               FontWeight="Bold"
-                               Foreground="{DynamicResource MahApps.Brushes.Gray6}"
-                               Text="{Binding Caption, StringFormat='{}{0} icon collection'}" />
-                    <Button Margin="5,5,0,5"
-                            VerticalAlignment="Top"
-                            Command="{x:Static viewModels:MainViewModel.OpenUrl_Command}"
-                            CommandParameter="{Binding ProjectUrl}"
-                            Content="{iconPacks:FontAwesome Kind=ExternalLinkAltSolid}"
-                            Foreground="{DynamicResource MahApps.Brushes.Gray2}"
-                            Style="{DynamicResource MahApps.Styles.Button.WindowCommands}">
-                        <Button.ToolTip>
-                            <TextBlock Text="{Binding ProjectUrl, StringFormat='{}Visit: {0}'}" />
-                        </Button.ToolTip>
-                    </Button>
-                    <Button Margin="0,5,5,5"
-                            VerticalAlignment="Top"
-                            Command="{x:Static viewModels:MainViewModel.OpenUrl_Command}"
-                            CommandParameter="{Binding LicenseUrl}"
-                            Content="{iconPacks:Material Kind=License}"
-                            Foreground="{DynamicResource MahApps.Brushes.Gray2}"
-                            Style="{DynamicResource MahApps.Styles.Button.WindowCommands}">
-                        <Button.ToolTip>
-                            <TextBlock Text="{Binding LicenseUrl, StringFormat='{}View the License: {0}'}" />
-                        </Button.ToolTip>
-                    </Button>
-                </StackPanel>
+                <TextBlock Text="{Binding Caption, StringFormat='{}{0} icon collection'}"
+                           Foreground="{DynamicResource MahApps.Brushes.Gray6}"
+                           FontWeight="Bold"
+                           FontSize="36"
+                           Margin="20 5 0 0" />
                 <TextBox x:Name="FilterTextBox"
                          Width="250"
                          Margin="10,0,10,5"
