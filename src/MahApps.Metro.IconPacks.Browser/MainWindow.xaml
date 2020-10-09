@@ -1,60 +1,57 @@
-﻿<controls:MetroWindow x:Class="MahApps.Metro.IconPacks.Browser.MainWindow"
-                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      xmlns:converter="http://metro.mahapps.com/winfx/xaml/shared"
-                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-                      xmlns:local="clr-namespace:MahApps.Metro.IconPacks.Browser"
-                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                      xmlns:model="clr-namespace:MahApps.Metro.IconPacks.Browser.Model"
-                      xmlns:sys="clr-namespace:System;assembly=System.Runtime"
-                      xmlns:viewModels="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
-                      xmlns:virtualizing="clr-namespace:MahApps.Metro.IconPacks.Browser.Virtualizing"
-                      Title="IconPacks Browser"
-                      Width="1200"
-                      Height="800"
-                      MinWidth="600"
-                      MinHeight="400"
-                      d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
-                      d:DesignHeight="400"
-                      d:DesignWidth="600"
-                      BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                      BorderThickness="1"
-                      ResizeMode="CanResizeWithGrip"
-                      TitleCharacterCasing="Normal"
-                      WindowStartupLocation="CenterScreen"
-                      WindowTransitionsEnabled="False"
-                      mc:Ignorable="d">
+﻿<mah:MetroWindow x:Class="MahApps.Metro.IconPacks.Browser.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:converter="http://metro.mahapps.com/winfx/xaml/shared"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 xmlns:local="clr-namespace:MahApps.Metro.IconPacks.Browser"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:model="clr-namespace:MahApps.Metro.IconPacks.Browser.Model"
+                 xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                 xmlns:viewModels="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
+                 xmlns:virtualizing="clr-namespace:MahApps.Metro.IconPacks.Browser.Virtualizing"
+                 Title="IconPacks Browser"
+                 Width="1200"
+                 Height="800"
+                 MinWidth="600"
+                 MinHeight="400"
+                 d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
+                 d:DesignHeight="400"
+                 d:DesignWidth="600"
+                 BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                 BorderThickness="1"
+                 ResizeMode="CanResizeWithGrip"
+                 TitleCharacterCasing="Normal"
+                 WindowStartupLocation="CenterScreen"
+                 WindowTransitionsEnabled="False"
+                 mc:Ignorable="d">
 
-    <controls:MetroWindow.Resources>
-        <!--<ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Browser;component/Styles/CustomTabControl.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+    <mah:MetroWindow.Resources>
+        <Style x:Key="LinkButtonStyle"
+               BasedOn="{StaticResource MahApps.Styles.Button.WindowCommands}"
+               TargetType="{x:Type Button}">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Opacity" Value="1" />
+        </Style>
 
-            <Style x:Key="LinkButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MahApps.Styles.Button.WindowCommands}">
-                <Setter Property="Padding" Value="0" />
-                <Setter Property="Cursor" Value="Hand" />
-                <Setter Property="Opacity" Value="1" />
-            </Style>
-
-            <Style x:Key="UnderlinedTextBlockStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="TextDecorations" Value="Underline" />
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-        </ResourceDictionary>
-        </ResourceDictionary>-->
+        <Style x:Key="UnderlinedTextBlockStyle"
+               BasedOn="{StaticResource {x:Type TextBlock}}"
+               TargetType="{x:Type TextBlock}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="TextDecorations" Value="Underline" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
         <model:IconTemplateSelector x:Key="IconPacksBrowser.DataTemplateSelectors.Icon" />
 
         <DataTemplate x:Key="IconPacksBrowser.DataTemplates.HamburgerMenuItem" DataType="{x:Type viewModels:IconPackViewModel}">
             <Grid Height="44">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type controls:HamburgerMenu}}, Path=CompactPaneLength}" />
+                    <ColumnDefinition Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=CompactPaneLength}" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Border Width="40"
@@ -166,8 +163,7 @@
                                                                             Kind="ChevronRight" />
                                             </StackPanel>
                                         </Button>
-                                        <Button Grid.Column="1"
-                                                Width="22"
+                                        <Button Width="22"
                                                 Height="22"
                                                 BorderThickness="0"
                                                 Command="{Binding CopyToClipboardAsContent}"
@@ -183,8 +179,7 @@
                                                                         Height="14"
                                                                         Kind="CodeBraces" />
                                         </Button>
-                                        <Button Grid.Column="1"
-                                                Width="22"
+                                        <Button Width="22"
                                                 Height="22"
                                                 BorderThickness="0"
                                                 Command="{Binding CopyToClipboardAsPathIcon}"
@@ -235,7 +230,7 @@
 
                 <Expander Grid.Row="1"
                           Grid.Column="1"
-                          controls:HeaderedControlHelper.HeaderBackground="{DynamicResource MahApps.Brushes.Gray6}"
+                          mah:HeaderedControlHelper.HeaderBackground="{DynamicResource MahApps.Brushes.Gray6}"
                           Background="{DynamicResource MahApps.Brushes.Gray6}"
                           BorderBrush="{DynamicResource MahApps.Brushes.Gray6}"
                           BorderThickness="0"
@@ -276,7 +271,7 @@
 
                             </Border>
 
-                            <controls:MetroHeader Header="Iconsize ">
+                            <mah:MetroHeader Header="Iconsize ">
                                 <ComboBox x:Name="ComboBoxIconPreviewSize"
                                           IsEditable="True"
                                           Text="48">
@@ -290,7 +285,7 @@
                                     <sys:Double>512</sys:Double>
                                     <sys:Double>1024</sys:Double>
                                 </ComboBox>
-                            </controls:MetroHeader>
+                            </mah:MetroHeader>
 
                             <TextBlock FontSize="14"
                                        FontWeight="Bold"
@@ -307,79 +302,52 @@
             </Grid>
         </DataTemplate>
 
-    </controls:MetroWindow.Resources>
+    </mah:MetroWindow.Resources>
 
-    <controls:MetroWindow.IconTemplate>
+    <mah:MetroWindow.IconTemplate>
         <DataTemplate>
-            <Viewbox Stretch="Uniform" Margin="4">
+            <Viewbox Margin="4" Stretch="Uniform">
                 <Canvas Width="31.828093" Height="35.996996">
                     <Canvas.RenderTransform>
-                        <TranslateTransform X="-33.222857" Y="-125.54317"/>
+                        <TranslateTransform X="-33.222857" Y="-125.54317" />
                     </Canvas.RenderTransform>
                     <Path Fill="{DynamicResource MahApps.Brushes.IdealForeground}">
                         <Path.Data>
-                            <PathGeometry Figures="m 63.728035 151.87945 -0.0325 0.0163 0.03096 0.01 -1.665925 5.8104 h -5.836454 l -1.665925 -5.8104 0.03096 -0.01 -0.03262 -0.0163 4.157493 -8.33778 h 0.01182 v 7.36721 c -0.485291 0.17099 -0.833784 0.6351 -0.833784 1.17902 0 0.69047 0.560201 1.25066 1.250664 1.25066 0.690475 0 1.250676 -0.56019 1.250676 -1.25066 0 -0.54392 -0.348493 -1.00803 -0.833784 -1.17902 v -7.36721 h 0.01182 z m -7.50401 6.67024 h 5.836452 v 1.66756 h -5.836452 z m -19.176915 1.66756 c -1.380946 0 -2.501336 -1.12039 -2.501336 -2.50134 v -19.17692 c 0 -3.68361 2.986621 -6.67023 6.670232 -6.67023 v -1.66756 c 0 -1.8418 1.493309 -3.33511 3.335112 -3.33511 h 6.670238 c 1.841803 0 3.335112 1.49331 3.335112 3.33511 v 1.66756 c 3.683607 0 6.670225 2.98662 6.670225 6.67023 v 4.61673 l -0.625325 -1.28162 h -2.918233 l -3.253691 6.67024 H 36.213332 v 1.66756 h 5.002674 v 3.33511 h 1.667556 v -3.33511 h 10.733274 l -0.801203 1.64476 2.157727 7.5268 v 0.83379 z m 15.841802 -28.34849 v -1.66756 c 0 -0.92171 -0.745839 -1.66755 -1.667556 -1.66755 h -6.670238 c -0.921716 0 -1.667556 0.74584 -1.667556 1.66755 v 1.66756 z m -6.129582 7.50401 c -0.33709 -0.003 -0.613935 0.0717 -0.613935 0.0717 -1.322324 0.26219 -2.073044 1.87438 -2.770031 1.79621 -0.48529 0 -1.309302 -1.03245 -1.325586 -0.89241 -0.01631 0.14168 0.114037 3.63151 2.377578 3.78784 1.941139 0.15633 3.445852 -2.01117 3.445852 -2.01117 l 0.02446 0.0212 c 0 0 1.504713 2.16588 3.445853 2.00954 2.263588 -0.15633 2.393862 -3.64453 2.377577 -3.78621 -0.01631 -0.14004 -0.841926 0.89241 -1.327205 0.89241 -0.695367 0.0782 -1.446087 -1.53402 -2.768412 -1.79621 0 0 -0.586246 -0.15959 -1.091071 -0.003 -0.193793 0.0798 -0.415261 0.14331 -0.622077 0.2915 l -0.013 0.0115 -0.04077 -0.0309 c -0.206813 -0.14982 -0.428281 -0.21171 -0.622074 -0.29313 z m 0 0" FillRule="NonZero"/>
+                            <PathGeometry Figures="m 63.728035 151.87945 -0.0325 0.0163 0.03096 0.01 -1.665925 5.8104 h -5.836454 l -1.665925 -5.8104 0.03096 -0.01 -0.03262 -0.0163 4.157493 -8.33778 h 0.01182 v 7.36721 c -0.485291 0.17099 -0.833784 0.6351 -0.833784 1.17902 0 0.69047 0.560201 1.25066 1.250664 1.25066 0.690475 0 1.250676 -0.56019 1.250676 -1.25066 0 -0.54392 -0.348493 -1.00803 -0.833784 -1.17902 v -7.36721 h 0.01182 z m -7.50401 6.67024 h 5.836452 v 1.66756 h -5.836452 z m -19.176915 1.66756 c -1.380946 0 -2.501336 -1.12039 -2.501336 -2.50134 v -19.17692 c 0 -3.68361 2.986621 -6.67023 6.670232 -6.67023 v -1.66756 c 0 -1.8418 1.493309 -3.33511 3.335112 -3.33511 h 6.670238 c 1.841803 0 3.335112 1.49331 3.335112 3.33511 v 1.66756 c 3.683607 0 6.670225 2.98662 6.670225 6.67023 v 4.61673 l -0.625325 -1.28162 h -2.918233 l -3.253691 6.67024 H 36.213332 v 1.66756 h 5.002674 v 3.33511 h 1.667556 v -3.33511 h 10.733274 l -0.801203 1.64476 2.157727 7.5268 v 0.83379 z m 15.841802 -28.34849 v -1.66756 c 0 -0.92171 -0.745839 -1.66755 -1.667556 -1.66755 h -6.670238 c -0.921716 0 -1.667556 0.74584 -1.667556 1.66755 v 1.66756 z m -6.129582 7.50401 c -0.33709 -0.003 -0.613935 0.0717 -0.613935 0.0717 -1.322324 0.26219 -2.073044 1.87438 -2.770031 1.79621 -0.48529 0 -1.309302 -1.03245 -1.325586 -0.89241 -0.01631 0.14168 0.114037 3.63151 2.377578 3.78784 1.941139 0.15633 3.445852 -2.01117 3.445852 -2.01117 l 0.02446 0.0212 c 0 0 1.504713 2.16588 3.445853 2.00954 2.263588 -0.15633 2.393862 -3.64453 2.377577 -3.78621 -0.01631 -0.14004 -0.841926 0.89241 -1.327205 0.89241 -0.695367 0.0782 -1.446087 -1.53402 -2.768412 -1.79621 0 0 -0.586246 -0.15959 -1.091071 -0.003 -0.193793 0.0798 -0.415261 0.14331 -0.622077 0.2915 l -0.013 0.0115 -0.04077 -0.0309 c -0.206813 -0.14982 -0.428281 -0.21171 -0.622074 -0.29313 z m 0 0" FillRule="NonZero" />
                         </Path.Data>
                     </Path>
-            <Viewbox Margin="5" Stretch="Uniform">
-                <Canvas Width="31.828093" Height="35.996996">
-                    <Canvas Name="layer1">
-                        <Canvas.RenderTransform>
-                            <TranslateTransform X="-33.222857" Y="-125.54317" />
-                        </Canvas.RenderTransform>
-                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Fill="#FFFFFFFF">
-                            <Path.Data>
-                                <PathGeometry Figures="m 63.728035 151.87945 -0.0325 0.0163 0.03096 0.01 -1.665925 5.8104 h -5.836454 l -1.665925 -5.8104 0.03096 -0.01 -0.03262 -0.0163 4.157493 -8.33778 h 0.01182 v 7.36721 c -0.485291 0.17099 -0.833784 0.6351 -0.833784 1.17902 0 0.69047 0.560201 1.25066 1.250664 1.25066 0.690475 0 1.250676 -0.56019 1.250676 -1.25066 0 -0.54392 -0.348493 -1.00803 -0.833784 -1.17902 v -7.36721 h 0.01182 z m -7.50401 6.67024 h 5.836452 v 1.66756 h -5.836452 z m -19.176915 1.66756 c -1.380946 0 -2.501336 -1.12039 -2.501336 -2.50134 v -19.17692 c 0 -3.68361 2.986621 -6.67023 6.670232 -6.67023 v -1.66756 c 0 -1.8418 1.493309 -3.33511 3.335112 -3.33511 h 6.670238 c 1.841803 0 3.335112 1.49331 3.335112 3.33511 v 1.66756 c 3.683607 0 6.670225 2.98662 6.670225 6.67023 v 4.61673 l -0.625325 -1.28162 h -2.918233 l -3.253691 6.67024 H 36.213332 v 1.66756 h 5.002674 v 3.33511 h 1.667556 v -3.33511 h 10.733274 l -0.801203 1.64476 2.157727 7.5268 v 0.83379 z m 15.841802 -28.34849 v -1.66756 c 0 -0.92171 -0.745839 -1.66755 -1.667556 -1.66755 h -6.670238 c -0.921716 0 -1.667556 0.74584 -1.667556 1.66755 v 1.66756 z m -6.129582 7.50401 c -0.33709 -0.003 -0.613935 0.0717 -0.613935 0.0717 -1.322324 0.26219 -2.073044 1.87438 -2.770031 1.79621 -0.48529 0 -1.309302 -1.03245 -1.325586 -0.89241 -0.01631 0.14168 0.114037 3.63151 2.377578 3.78784 1.941139 0.15633 3.445852 -2.01117 3.445852 -2.01117 l 0.02446 0.0212 c 0 0 1.504713 2.16588 3.445853 2.00954 2.263588 -0.15633 2.393862 -3.64453 2.377577 -3.78621 -0.01631 -0.14004 -0.841926 0.89241 -1.327205 0.89241 -0.695367 0.0782 -1.446087 -1.53402 -2.768412 -1.79621 0 0 -0.586246 -0.15959 -1.091071 -0.003 -0.193793 0.0798 -0.415261 0.14331 -0.622077 0.2915 l -0.013 0.0115 -0.04077 -0.0309 c -0.206813 -0.14982 -0.428281 -0.21171 -0.622074 -0.29313 z m 0 0" FillRule="NonZero" />
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
                 </Canvas>
             </Viewbox>
         </DataTemplate>
-    </controls:MetroWindow.IconTemplate>
+    </mah:MetroWindow.IconTemplate>
 
-    <controls:MetroWindow.RightWindowCommands>
-        <controls:WindowCommands>
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
             <Button Command="{x:Static viewModels:MainViewModel.OpenUrlCommand}"
                     CommandParameter="https://github.com/MahApps/MahApps.Metro.IconPacks"
-                    Content="{iconPacks:Modern SocialGithubOctocat, Width=22, Height=22}"
-            <Button Command="{Binding GoToGitHubCommand}"
                     Content="{iconPacks:Modern SocialGithubOctocat,
                                                Width=22,
                                                Height=22}"
                     ToolTip="IconPacks.Browser on GitHub" />
-        </controls:WindowCommands>
-    </controls:MetroWindow.RightWindowCommands>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
-        <TabControl x:Name="IconPacksTabControl"
-                    Grid.Row="0"
-                    DisplayMemberPath="Caption"
-                    ItemsSource="{Binding IconPacks, Mode=OneWay}"
-                    Style="{StaticResource CustomTabControlStyle}" />
-        
-        <StatusBar Grid.Row="1" MinHeight="24">
-        <!--<TabControl x:Name="IconPacksTabControl"
-                    Grid.Row="0"
-                    DisplayMemberPath="Caption"
-                    ItemsSource="{Binding IconPacks, Mode=OneWay}"
-                    Style="{StaticResource CustomTabControlStyle}" />-->
 
-        <controls:HamburgerMenu x:Name="IconPacksHamburgerMenu"
-                                Grid.Row="0"
-                                CanResizeOpenPane="True"
-                                Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=SelectedItem}"
-                                ContentTemplate="{StaticResource IconPacksBrowser.DataTemplates.Content}"
-                                IsPaneOpen="True"
-                                ItemTemplate="{StaticResource IconPacksBrowser.DataTemplates.HamburgerMenuItem}"
-                                ItemsSource="{Binding IconPacks, Mode=OneWay}"
-                                SelectedIndex="0">
-            <controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
+        <mah:HamburgerMenu x:Name="IconPacksHamburgerMenu"
+                           Grid.Row="0"
+                           CanResizeOpenPane="True"
+                           Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=SelectedItem}"
+                           ContentTemplate="{StaticResource IconPacksBrowser.DataTemplates.Content}"
+                           IsPaneOpen="True"
+                           ItemTemplate="{StaticResource IconPacksBrowser.DataTemplates.HamburgerMenuItem}"
+                           ItemsSource="{Binding IconPacks, Mode=OneWay}"
+                           SelectedIndex="0">
+            <mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
                 <DataTemplate>
                     <Grid>
                         <TextBox x:Name="FilterTextBox"
@@ -389,13 +357,13 @@
                                  HorizontalAlignment="Stretch"
                                  VerticalAlignment="Center"
                                  VerticalContentAlignment="Center"
-                                 controls:ControlsHelper.CornerRadius="10"
-                                 controls:TextBoxHelper.ClearTextButton="False"
-                                 controls:TextBoxHelper.UseFloatingWatermark="False"
-                                 controls:TextBoxHelper.Watermark="Filter by..."
+                                 mah:ControlsHelper.CornerRadius="10"
+                                 mah:TextBoxHelper.ClearTextButton="False"
+                                 mah:TextBoxHelper.UseFloatingWatermark="False"
+                                 mah:TextBoxHelper.Watermark="Filter by..."
                                  Background="#2000"
                                  BorderThickness="0,0,0,0"
-                                 DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:MetroWindow}, Path=DataContext}"
+                                 DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=mah:MetroWindow}, Path=DataContext}"
                                  Foreground="White"
                                  SnapsToDevicePixels="True"
                                  Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
@@ -409,17 +377,16 @@
                     </Grid>
 
                 </DataTemplate>
-            </controls:HamburgerMenu.HamburgerMenuHeaderTemplate>
-        </controls:HamburgerMenu>
+            </mah:HamburgerMenu.HamburgerMenuHeaderTemplate>
+        </mah:HamburgerMenu>
 
-        <StatusBar Grid.Row="1">
+        <StatusBar Grid.Row="1" Height="24">
             <!-- <StatusBarItem Content="{Binding AppVersion, Mode=OneWay}" ContentStringFormat="{}Browser v{0}" /> -->
             <!-- <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" /> -->
             <StatusBarItem Content="{Binding IconPacksVersion, Mode=OneWay}" ContentStringFormat="{}IconPacks v{0}" />
-            
+
             <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" />
-            
-            <StatusBarItem Content="{Binding ElementName=IconPacksTabControl, Path=SelectedItem, Mode=OneWay}">
+
             <StatusBarItem Content="{Binding ElementName=IconPacksHamburgerMenu, Path=SelectedItem, Mode=OneWay}">
                 <StatusBarItem.ContentTemplate>
                     <DataTemplate DataType="{x:Type viewModels:IconPackViewModel}">
@@ -434,13 +401,13 @@
                     </DataTemplate>
                 </StatusBarItem.ContentTemplate>
             </StatusBarItem>
-            
+
             <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" />
-            
-            <StatusBarItem Content="{Binding ElementName=IconPacksTabControl, Path=SelectedItem, Mode=OneWay}">
+
+            <StatusBarItem Content="{Binding ElementName=IconPacksHamburgerMenu, Path=SelectedItem, Mode=OneWay}">
                 <StatusBarItem.ContentTemplate>
                     <DataTemplate DataType="{x:Type viewModels:IconPackViewModel}">
-                        <Button Margin="0 0 4 0"
+                        <Button Margin="0,0,4,0"
                                 VerticalAlignment="Center"
                                 Command="{x:Static viewModels:MainViewModel.OpenUrlCommand}"
                                 CommandParameter="{Binding ProjectUrl}"
@@ -448,8 +415,14 @@
                             <Button.ContentTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <iconPacks:PackIconOcticons Kind="LinkExternal" Width="14" Height="14" VerticalAlignment="Center" Margin="0 0 4 0" />
-                                        <TextBlock Text="Project site" VerticalAlignment="Center" Style="{StaticResource UnderlinedTextBlockStyle}" />
+                                        <iconPacks:PackIconOcticons Width="14"
+                                                                    Height="14"
+                                                                    Margin="0,0,4,0"
+                                                                    VerticalAlignment="Center"
+                                                                    Kind="LinkExternal" />
+                                        <TextBlock VerticalAlignment="Center"
+                                                   Style="{StaticResource UnderlinedTextBlockStyle}"
+                                                   Text="Project site" />
                                     </StackPanel>
                                 </DataTemplate>
                             </Button.ContentTemplate>
@@ -462,11 +435,11 @@
             </StatusBarItem>
 
             <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" />
-            
-            <StatusBarItem Content="{Binding ElementName=IconPacksTabControl, Path=SelectedItem, Mode=OneWay}">
+
+            <StatusBarItem Content="{Binding ElementName=IconPacksHamburgerMenu, Path=SelectedItem, Mode=OneWay}">
                 <StatusBarItem.ContentTemplate>
                     <DataTemplate DataType="{x:Type viewModels:IconPackViewModel}">
-                        <Button Margin="0 0 4 0"
+                        <Button Margin="0,0,4,0"
                                 VerticalAlignment="Center"
                                 Command="{x:Static viewModels:MainViewModel.OpenUrlCommand}"
                                 CommandParameter="{Binding LicenseUrl}"
@@ -474,8 +447,14 @@
                             <Button.ContentTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <iconPacks:PackIconOcticons Kind="Law" Width="14" Height="14" VerticalAlignment="Center" Margin="0 0 4 0" />
-                                        <TextBlock Text="License" VerticalAlignment="Center" Style="{StaticResource UnderlinedTextBlockStyle}" />
+                                        <iconPacks:PackIconOcticons Width="14"
+                                                                    Height="14"
+                                                                    Margin="0,0,4,0"
+                                                                    VerticalAlignment="Center"
+                                                                    Kind="Law" />
+                                        <TextBlock VerticalAlignment="Center"
+                                                   Style="{StaticResource UnderlinedTextBlockStyle}"
+                                                   Text="License" />
                                     </StackPanel>
                                 </DataTemplate>
                             </Button.ContentTemplate>
@@ -489,4 +468,4 @@
         </StatusBar>
     </Grid>
 
-</controls:MetroWindow>
+</mah:MetroWindow>

@@ -671,8 +671,7 @@
                                                                         Kind="ChevronRight" />
                                         </StackPanel>
                                     </Button>
-                                    <Button Grid.Column="1"
-                                            Width="22"
+                                    <Button Width="22"
                                             Height="22"
                                             BorderThickness="0"
                                             Command="{Binding CopyToClipboardAsContent}"
@@ -688,8 +687,7 @@
                                                                     Height="14"
                                                                     Kind="CodeBraces" />
                                     </Button>
-                                    <Button Grid.Column="1"
-                                            Width="22"
+                                    <Button Width="22"
                                             Height="22"
                                             BorderThickness="0"
                                             Command="{Binding CopyToClipboardAsPathIcon}"

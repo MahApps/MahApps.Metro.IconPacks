@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.IconPacks.Browser.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Markup;
 
 namespace MahApps.Metro.IconPacks.Browser.Model
