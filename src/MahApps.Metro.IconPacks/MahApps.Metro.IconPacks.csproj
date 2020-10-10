@@ -8,6 +8,7 @@
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage;GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
     </PropertyGroup>
+
     <ItemGroup>
         <ProjectReference Include="MahApps.Metro.IconPacks.BoxIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Entypo.csproj" />
@@ -32,23 +33,31 @@
         <ProjectReference Include="MahApps.Metro.IconPacks.WeatherIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Zondicons.csproj" />
     </ItemGroup>
+
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
         <None Remove="**\*.rd.xml" />
-        <Compile Remove="*.cs;**\*Converter.cs" />
-        <Compile Include="Converter\PackIconKindToImageConverter.cs" />
-        <Compile Include="PackIconControl*.cs;PackIconExtension.cs;PackIconImageExtension.cs" />
-        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIconControl.xaml;Themes\WPF\IconPacks.xaml;Themes\WPF\Generic.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Compile Remove="Icons\**\*.cs" />
+        <Page Generator="MSBuild:Compile"
+              Include="Themes\WPF\PackIconControl.xaml;Themes\WPF\IconPacks.xaml;Themes\WPF\Generic.xaml"
+              Link="Themes\%(RecursiveDir)%(Filename)%(Extension)"
+              SubType="Designer" />
     </ItemGroup>
+
     <!-- UWP Items include -->
     <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' and '$(TargetFramework)' != 'uap10.0.16299' ">
-        <Compile Remove="*Extension*.cs" />
+        <Compile Remove="**\*Extension*.cs" />
     </ItemGroup>
+
     <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
-        <Compile Remove="*.cs;**\*Converter.cs" />
+        <Compile Remove="*.cs;Icons\**\*.cs;**\*Converter.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Include="PackIconExtension.cs" />
-        <Page Generator="MSBuild:Compile" Include="Themes\UAP\IconPacks.xaml;Themes\UAP\Generic.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" />
+        <Page Generator="MSBuild:Compile"
+              Include="Themes\UAP\IconPacks.xaml;Themes\UAP\Generic.xaml"
+              Link="Themes\%(RecursiveDir)%(Filename)%(Extension)"
+              SubType="Designer"
+              Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>
 
@@ -68,6 +77,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Core</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.BoxIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.BoxIcons</TargetPath>
             </BuildOutputInPackage>
@@ -77,6 +87,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.BoxIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.BoxIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Entypo\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Entypo</TargetPath>
             </BuildOutputInPackage>
@@ -86,6 +97,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Entypo\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Entypo\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.EvaIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.EvaIcons</TargetPath>
             </BuildOutputInPackage>
@@ -95,6 +107,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.EvaIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.EvaIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FeatherIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.FeatherIcons</TargetPath>
             </BuildOutputInPackage>
@@ -104,6 +117,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FeatherIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.FeatherIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.FontAwesome</TargetPath>
             </BuildOutputInPackage>
@@ -113,6 +127,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.FontAwesome\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Ionicons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Ionicons</TargetPath>
             </BuildOutputInPackage>
@@ -122,6 +137,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Ionicons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Ionicons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.JamIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.JamIcons</TargetPath>
             </BuildOutputInPackage>
@@ -131,6 +147,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.JamIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.JamIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Material\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Material</TargetPath>
             </BuildOutputInPackage>
@@ -140,6 +157,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Material\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Material\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.MaterialDesign</TargetPath>
             </BuildOutputInPackage>
@@ -149,6 +167,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.MaterialDesign\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialLight\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.MaterialLight</TargetPath>
             </BuildOutputInPackage>
@@ -158,6 +177,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialLight\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.MaterialLight\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Microns\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Microns</TargetPath>
             </BuildOutputInPackage>
@@ -167,6 +187,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Microns\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Microns\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Modern\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Modern</TargetPath>
             </BuildOutputInPackage>
@@ -176,6 +197,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Modern\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Modern\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Octicons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Octicons</TargetPath>
             </BuildOutputInPackage>
@@ -185,6 +207,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Octicons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Octicons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.PicolIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.PicolIcons</TargetPath>
             </BuildOutputInPackage>
@@ -194,6 +217,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.PicolIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.PicolIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.PixelartIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.PixelartIcons</TargetPath>
             </BuildOutputInPackage>
@@ -203,6 +227,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.PixelartIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.PixelartIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RemixIcon\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.RemixIcon</TargetPath>
             </BuildOutputInPackage>
@@ -212,6 +237,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RemixIcon\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.RemixIcon\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RPGAwesome\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.RPGAwesome</TargetPath>
             </BuildOutputInPackage>
@@ -221,6 +247,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RPGAwesome\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.RPGAwesome\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.SimpleIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.SimpleIcons</TargetPath>
             </BuildOutputInPackage>
@@ -230,6 +257,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.SimpleIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.SimpleIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Typicons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Typicons</TargetPath>
             </BuildOutputInPackage>
@@ -239,6 +267,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Typicons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Typicons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Unicons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Unicons</TargetPath>
             </BuildOutputInPackage>
@@ -248,6 +277,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Unicons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Unicons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.WeatherIcons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.WeatherIcons</TargetPath>
             </BuildOutputInPackage>
@@ -257,6 +287,7 @@
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.WeatherIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.WeatherIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
+
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Zondicons\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Zondicons</TargetPath>
             </BuildOutputInPackage>
