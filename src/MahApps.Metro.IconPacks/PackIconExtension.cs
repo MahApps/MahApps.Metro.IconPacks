@@ -76,16 +76,16 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconJamIcons, PackIconJamIconsKind>((PackIconJamIconsKind) this.Kind);
             }
 #endif
-#if ALL || MATERIAL
-            if (this.Kind is PackIconMaterialKind)
-            {
-                return this.GetPackIcon<PackIconMaterial, PackIconMaterialKind>((PackIconMaterialKind) this.Kind);
-            }
-#endif
 #if ALL || MATERIALDESIGN
             if (this.Kind is PackIconMaterialDesignKind)
             {
                 return this.GetPackIcon<PackIconMaterialDesign, PackIconMaterialDesignKind>((PackIconMaterialDesignKind) this.Kind);
+            }
+#endif
+#if ALL || MATERIAL
+            if (this.Kind is PackIconMaterialKind)
+            {
+                return this.GetPackIcon<PackIconMaterial, PackIconMaterialKind>((PackIconMaterialKind) this.Kind);
             }
 #endif
 #if ALL || MATERIALLIGHT
