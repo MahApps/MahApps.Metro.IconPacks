@@ -8,8 +8,8 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.FontAwesome/Themes/PackIconFontAwesome.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Ionicons/Themes/PackIconIonicons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.JamIcons/Themes/PackIconJamIcons.xaml" />
-        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Material/Themes/PackIconMaterial.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.MaterialDesign/Themes/PackIconMaterialDesign.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Material/Themes/PackIconMaterial.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.MaterialLight/Themes/PackIconMaterialLight.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Microns/Themes/PackIconMicrons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Modern/Themes/PackIconModern.xaml" />
