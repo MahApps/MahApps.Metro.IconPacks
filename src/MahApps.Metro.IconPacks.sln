@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Pic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.PixelartIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.PixelartIcons.csproj", "{79EB4876-621F-43BC-8B51-DAED7937CB4D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.RadixIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.RadixIcons.csproj", "{84C1BB52-09AA-42A9-AF8F-51FFD9949505}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.RemixIcon", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.RemixIcon.csproj", "{8EF0DC1D-9DDC-4218-8E51-80CDC098EC90}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.RPGAwesome", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.RPGAwesome.csproj", "{AC7D3308-B470-4E51-9E91-44512031A557}"
@@ -370,6 +372,18 @@ Global
 		{8EF0DC1D-9DDC-4218-8E51-80CDC098EC90}.Release|x64.Build.0 = Release|Any CPU
 		{8EF0DC1D-9DDC-4218-8E51-80CDC098EC90}.Release|x86.ActiveCfg = Release|Any CPU
 		{8EF0DC1D-9DDC-4218-8E51-80CDC098EC90}.Release|x86.Build.0 = Release|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Debug|x64.Build.0 = Debug|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Debug|x86.Build.0 = Debug|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Release|x64.ActiveCfg = Release|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Release|x64.Build.0 = Release|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Release|x86.ActiveCfg = Release|Any CPU
+		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

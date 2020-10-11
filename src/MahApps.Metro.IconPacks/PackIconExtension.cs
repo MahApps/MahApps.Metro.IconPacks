@@ -124,6 +124,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconPixelartIcons, PackIconPixelartIconsKind>((PackIconPixelartIconsKind) this.Kind);
             }
 #endif
+#if ALL || RADIXICONS
+            if (this.Kind is PackIconRadixIconsKind)
+            {
+                return this.GetPackIcon<PackIconRadixIcons, PackIconRadixIconsKind>((PackIconRadixIconsKind) this.Kind);
+            }
+#endif
 #if ALL || REMIXICON
             if (this.Kind is PackIconRemixIconKind)
             {
