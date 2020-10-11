@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.csproj", "{E55968FD-91B1-4ACE-B711-30724797A662}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.BootstrapIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.BootstrapIcons.csproj", "{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.BoxIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.BoxIcons.csproj", "{EA043463-47C1-4888-92E0-826872C331A8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Entypo", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Entypo.csproj", "{F6D84D92-189D-4A16-9612-C345B26DB14F}"
@@ -384,6 +386,18 @@ Global
 		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Release|x64.Build.0 = Release|Any CPU
 		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Release|x86.ActiveCfg = Release|Any CPU
 		{84C1BB52-09AA-42A9-AF8F-51FFD9949505}.Release|x86.Build.0 = Release|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Debug|x64.Build.0 = Debug|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Debug|x86.Build.0 = Debug|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Release|x64.ActiveCfg = Release|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Release|x64.Build.0 = Release|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Release|x86.ActiveCfg = Release|Any CPU
+		{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

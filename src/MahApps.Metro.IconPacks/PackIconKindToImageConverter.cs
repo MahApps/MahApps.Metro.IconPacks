@@ -10,6 +10,9 @@ namespace MahApps.Metro.IconPacks.Converter
             string data = null;
             switch (iconKind)
             {
+                case PackIconBootstrapIconsKind kind:
+                    PackIconBootstrapIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconBoxIconsKind kind:
                     PackIconBoxIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
@@ -89,6 +92,7 @@ namespace MahApps.Metro.IconPacks.Converter
         {
             switch (iconKind)
             {
+                case PackIconBootstrapIconsKind _:
                 case PackIconBoxIconsKind _:
                 case PackIconEvaIconsKind _:
                 case PackIconJamIconsKind _:

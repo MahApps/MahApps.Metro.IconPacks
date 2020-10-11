@@ -36,7 +36,8 @@ This `IconPacks` library contains controls, markup extensions and converters to 
 | Icon collection | Version | &#8721; | NuGet |
 |---|--:|--:|:--|
 | Complete IconPacks collection with all Icons in one package | | | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks"></a> |
-| [BoxIcons](https://boxicons.com/) | 2.0.5 | 1462 | <a href="https://github.com/atisawd/boxicons"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BoxIcons.svg?style=flat-square&&label=BoxIcons"></a> |
+| [Bootstrap Icons](https://icons.getbootstrap.com/) | 1.0.0 | 1120 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.BootstrapIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BootstrapIcons.svg?style=flat-square&&label=BootstrapIcons"></a> |
+| [BoxIcons](https://boxicons.com/) | 2.0.5 | 1462 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.BoxIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BoxIcons.svg?style=flat-square&&label=BoxIcons"></a> |
 | [Entypo+](http://www.entypo.com/) | | 411 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Entypo/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Entypo.svg?style=flat-square&&label=Entypo"></a> |
 | [Eva Icons](https://github.com/akveo/eva-icons) | 1.1.3 | 490 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.EvaIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.EvaIcons.svg?style=flat-square&&label=EvaIcons"></a> |
 | [Feather Icons](https://github.com/feathericons/feather) | 4.28.0 | 286 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> |

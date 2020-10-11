@@ -19,6 +19,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             this.IconPacks = new ObservableCollection<IconPackViewModel>(
                 new[]
                 {
+                    new IconPackViewModel(this, "BootstrapIcons", typeof(PackIconBootstrapIconsKind), typeof(PackIconBootstrapIcons)),
                     new IconPackViewModel(this, "BoxIcons", typeof(PackIconBoxIconsKind), typeof(PackIconBoxIcons)),
                     new IconPackViewModel(this, "Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo)),
                     new IconPackViewModel(this, "EvaIcons", typeof(PackIconEvaIconsKind), typeof(PackIconEvaIcons)),
@@ -45,6 +46,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     new IconPackViewModel(this, "All",
                                           new[]
                                           {
+                                              typeof(PackIconBootstrapIconsKind),
                                               typeof(PackIconBoxIconsKind),
                                               typeof(PackIconEntypoKind),
                                               typeof(PackIconEvaIconsKind),
@@ -71,6 +73,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                                           },
                                           new[]
                                           {
+                                              typeof(PackIconBootstrapIcons),
                                               typeof(PackIconBoxIcons),
                                               typeof(PackIconEntypo),
                                               typeof(PackIconEvaIcons),

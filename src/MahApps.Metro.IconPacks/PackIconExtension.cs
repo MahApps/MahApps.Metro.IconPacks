@@ -34,6 +34,12 @@ namespace MahApps.Metro.IconPacks
         public override object ProvideValue(IServiceProvider serviceProvider)
 #endif
         {
+#if ALL || BOOTSTRAPICONS
+            if (this.Kind is PackIconBootstrapIconsKind)
+            {
+                return this.GetPackIcon<PackIconBootstrapIcons, PackIconBootstrapIconsKind>((PackIconBootstrapIconsKind) this.Kind);
+            }
+#endif
 #if ALL || BOXICONS
             if (this.Kind is PackIconBoxIconsKind)
             {
