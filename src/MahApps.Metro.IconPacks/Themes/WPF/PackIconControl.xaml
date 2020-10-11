@@ -36,6 +36,13 @@
             </Grid>
         </Grid>
         <ControlTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconBootstrapIconsKind}">
+                <Setter TargetName="PART_IconPath" Property="LayoutTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleY="-1" />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconBoxIconsKind}">
                 <Setter TargetName="PART_IconPath" Property="LayoutTransform">
                     <Setter.Value>

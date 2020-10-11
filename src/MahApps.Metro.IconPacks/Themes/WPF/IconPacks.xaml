@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.BootstrapIcons;component/Themes/PackIconBootstrapIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.BoxIcons;component/Themes/PackIconBoxIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Entypo;component/Themes/PackIconEntypo.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.EvaIcons;component/Themes/PackIconEvaIcons.xaml" />
