@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <DefineConstants>$(DefineConstants);RADIXICONS</DefineConstants>
+        <IconsName>RadixIcons</IconsName>
+        <AssemblyName>MahApps.Metro.IconPacks.RadixIcons</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.RadixIcons</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+    </PropertyGroup>
+
+    <!-- WPF Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <None Remove="**\*.rd.xml" />
+        <Compile Remove="*.cs;Icons\**\*.cs" />
+        <Compile Include="**\$(IconsName)\*.cs" Exclude="**\$(IconsName)\Path*.*;**\bin\**\*.*;**\obj\**\*.*" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\$(IconsName)\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\PackIcon$(IconsName).xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+    </ItemGroup>
+
+    <!-- UWP Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <Compile Remove="*.cs;Icons\**\*.cs" />
+        <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
+        <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
+        <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="**\*Extension*.cs;**\*ImageConverter*.cs" Include="**\$(IconsName)\*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="**\*ImageExtension*.cs;**\*ImageConverter*.cs" Include="**\$(IconsName)\*.cs" />
+        <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\$(IconsName)\*.xaml;Themes\UAP\PackIcon$(IconsName).xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
+    </ItemGroup>
+</Project>

@@ -25,6 +25,7 @@
         <ProjectReference Include="MahApps.Metro.IconPacks.Octicons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.PicolIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.PixelartIcons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.RadixIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.RemixIcon.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.RPGAwesome.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.SimpleIcons.csproj" />
@@ -226,6 +227,16 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.PixelartIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.PixelartIcons\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RadixIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.RadixIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RadixIcons\Themes\PackIconRadixIcons.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.RadixIcons\Themes\PackIconRadixIcons.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RadixIcons\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.RadixIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.RemixIcon\*.*">

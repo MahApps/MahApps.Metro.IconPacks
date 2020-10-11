@@ -75,6 +75,9 @@ namespace MahApps.Metro.IconPacks
                 case PackIconPixelartIconsKind kind:
                     PackIconPixelartIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconRadixIconsKind kind:
+                    PackIconRadixIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconRemixIconKind kind:
                     PackIconRemixIconDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
@@ -110,6 +113,7 @@ namespace MahApps.Metro.IconPacks
                 case PackIconEvaIconsKind _:
                 case PackIconJamIconsKind _:
                 case PackIconMaterialDesignKind _:
+                case PackIconRadixIconsKind _:
                 case PackIconRemixIconKind _:
                 case PackIconRPGAwesomeKind _:
                 case PackIconTypiconsKind _:

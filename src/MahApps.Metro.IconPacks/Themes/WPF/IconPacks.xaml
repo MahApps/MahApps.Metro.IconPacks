@@ -16,6 +16,7 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Octicons;component/Themes/PackIconOcticons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PicolIcons;component/Themes/PackIconPicolIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PixelartIcons;component/Themes/PackIconPixelartIcons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.RadixIcons;component/Themes/PackIconRadixIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.RemixIcon;component/Themes/PackIconRemixIcon.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.RPGAwesome;component/Themes/PackIconRPGAwesome.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.SimpleIcons;component/Themes/PackIconSimpleIcons.xaml" />
