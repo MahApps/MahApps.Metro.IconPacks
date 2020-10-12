@@ -19,6 +19,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private ICollectionView _iconsCollectionView;
         private string _filterText;
         private IIconViewModel _selectedIcon;
+        private string _projectUrl;
+        private string _licenseUrl;
 
         public IconPackViewModel(MainViewModel mainViewModel, string caption, Type enumType, Type packType)
         {
@@ -73,24 +75,40 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         private bool FilterIconsPredicate(string filterText, IIconViewModel iconViewModel)
         {
-            return string.IsNullOrWhiteSpace(filterText)
-                   || iconViewModel.Name.IndexOf(filterText, StringComparison.CurrentCultureIgnoreCase) >= 0
-                   || (!string.IsNullOrWhiteSpace(iconViewModel.Description) && iconViewModel.Description.IndexOf(filterText, StringComparison.CurrentCultureIgnoreCase) >= 0);
+            if (string.IsNullOrWhiteSpace(filterText))
+            {
+                return true;
+            }
+            else
+            {
+                var filterSubStrings = filterText.Split(new char[] {'+', ',', ';', '&'}, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var filterSubString in filterSubStrings)
+                {
+                    var filterOrSubStrings = filterSubString.Split(new char[] {'|'}, StringSplitOptions.RemoveEmptyEntries);
+
+                    var isInName = filterOrSubStrings.Any(x => iconViewModel.Name.IndexOf(x.Trim(), StringComparison.CurrentCultureIgnoreCase) >= 0);
+                    var isInDescription = filterOrSubStrings.Any(x => (iconViewModel.Description?.IndexOf(x.Trim(), StringComparison.CurrentCultureIgnoreCase) ?? -1) >= 0);
+
+                    if (!(isInName || isInDescription)) return false;
+                }
+
+                return true;
+            }
         }
 
         private static string GetDescription(Enum value)
         {
             var fieldInfo = value.GetType().GetField(value.ToString());
-            var attribute = fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false).FirstOrDefault() as DescriptionAttribute;
-            return attribute != null ? attribute.Description : value.ToString();
+            return fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false).FirstOrDefault() is DescriptionAttribute attribute ? attribute.Description : value.ToString();
         }
 
         private static IEnumerable<IIconViewModel> GetIcons(Type enumType, Type packType)
         {
             return Enum.GetValues(enumType)
-                .OfType<Enum>()
-                .Where(k => k.ToString() != "None")
-                .Select(k => GetIconViewModel(enumType, packType, k));
+                       .OfType<Enum>()
+                       .Where(k => k.ToString() != "None")
+                       .Select(k => GetIconViewModel(enumType, packType, k));
         }
 
         private static IIconViewModel GetIconViewModel(Type enumType, Type packType, Enum k)
@@ -122,6 +140,18 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             set { Set(ref _iconCount, value); }
         }
 
+        public string ProjectUrl
+        {
+            get { return _projectUrl; }
+            set { Set(ref _projectUrl, value); }
+        }
+
+        public string LicenseUrl
+        {
+            get { return _licenseUrl; }
+            set { Set(ref _licenseUrl, value); }
+        }
+
         public string FilterText
         {
             get { return _filterText; }
@@ -129,7 +159,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             {
                 if (Set(ref _filterText, value))
                 {
-                    this._iconsCollectionView.Refresh();
+                    this._iconsCollectionView?.Refresh();
                 }
             }
         }
@@ -137,7 +167,15 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public IIconViewModel SelectedIcon
         {
             get { return _selectedIcon; }
-            set { Set(ref _selectedIcon, value); }
+            set
+            {
+                if (Set(ref _selectedIcon, value))
+                {
+                    var metaData = Attribute.GetCustomAttribute(_selectedIcon.IconPackType, typeof(MetaDataAttribute)) as MetaDataAttribute;
+                    this.ProjectUrl = metaData != null ? metaData.ProjectUrl : string.Empty;
+                    this.LicenseUrl = metaData != null ? metaData.LicenseUrl : string.Empty;
+                }
+            }
         }
     }
 
@@ -197,7 +235,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     CanExecuteDelegate = x => (x != null),
                     ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        var icon = (IIconViewModel)x;
+                        var icon = (IIconViewModel) x;
                         var iconPack = Activator.CreateInstance(icon.IconPackType) as PackIconControlBase;
                         if (iconPack == null) return;
 

@@ -34,10 +34,22 @@ namespace MahApps.Metro.IconPacks
         public override object ProvideValue(IServiceProvider serviceProvider)
 #endif
         {
+#if ALL || BOOTSTRAPICONS
+            if (this.Kind is PackIconBootstrapIconsKind)
+            {
+                return this.GetPackIcon<PackIconBootstrapIcons, PackIconBootstrapIconsKind>((PackIconBootstrapIconsKind) this.Kind);
+            }
+#endif
 #if ALL || BOXICONS
             if (this.Kind is PackIconBoxIconsKind)
             {
                 return this.GetPackIcon<PackIconBoxIcons, PackIconBoxIconsKind>((PackIconBoxIconsKind) this.Kind);
+            }
+#endif
+#if ALL || CODICONS
+            if (this.Kind is PackIconCodiconsKind)
+            {
+                return this.GetPackIcon<PackIconCodicons, PackIconCodiconsKind>((PackIconCodiconsKind) this.Kind);
             }
 #endif
 #if ALL || ENTYPO
@@ -58,10 +70,28 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconFeatherIcons, PackIconFeatherIconsKind>((PackIconFeatherIconsKind) this.Kind);
             }
 #endif
+#if ALL || FILEICONS
+            if (this.Kind is PackIconFileIconsKind)
+            {
+                return this.GetPackIcon<PackIconFileIcons, PackIconFileIconsKind>((PackIconFileIconsKind) this.Kind);
+            }
+#endif
+#if ALL || FONTAUDIO
+            if (this.Kind is PackIconFontaudioKind)
+            {
+                return this.GetPackIcon<PackIconFontaudio, PackIconFontaudioKind>((PackIconFontaudioKind) this.Kind);
+            }
+#endif
 #if ALL || FONTAWESOME
             if (this.Kind is PackIconFontAwesomeKind)
             {
                 return this.GetPackIcon<PackIconFontAwesome, PackIconFontAwesomeKind>((PackIconFontAwesomeKind) this.Kind);
+            }
+#endif
+#if ALL || FORKAWESOME
+            if (this.Kind is PackIconForkAwesomeKind)
+            {
+                return this.GetPackIcon<PackIconForkAwesome, PackIconForkAwesomeKind>((PackIconForkAwesomeKind) this.Kind);
             }
 #endif
 #if ALL || IONICONS
@@ -76,16 +106,16 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconJamIcons, PackIconJamIconsKind>((PackIconJamIconsKind) this.Kind);
             }
 #endif
-#if ALL || MATERIAL
-            if (this.Kind is PackIconMaterialKind)
-            {
-                return this.GetPackIcon<PackIconMaterial, PackIconMaterialKind>((PackIconMaterialKind) this.Kind);
-            }
-#endif
 #if ALL || MATERIALDESIGN
             if (this.Kind is PackIconMaterialDesignKind)
             {
                 return this.GetPackIcon<PackIconMaterialDesign, PackIconMaterialDesignKind>((PackIconMaterialDesignKind) this.Kind);
+            }
+#endif
+#if ALL || MATERIAL
+            if (this.Kind is PackIconMaterialKind)
+            {
+                return this.GetPackIcon<PackIconMaterial, PackIconMaterialKind>((PackIconMaterialKind) this.Kind);
             }
 #endif
 #if ALL || MATERIALLIGHT
@@ -118,6 +148,24 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconPicolIcons, PackIconPicolIconsKind>((PackIconPicolIconsKind) this.Kind);
             }
 #endif
+#if ALL || PIXELARTICONS
+            if (this.Kind is PackIconPixelartIconsKind)
+            {
+                return this.GetPackIcon<PackIconPixelartIcons, PackIconPixelartIconsKind>((PackIconPixelartIconsKind) this.Kind);
+            }
+#endif
+#if ALL || RADIXICONS
+            if (this.Kind is PackIconRadixIconsKind)
+            {
+                return this.GetPackIcon<PackIconRadixIcons, PackIconRadixIconsKind>((PackIconRadixIconsKind) this.Kind);
+            }
+#endif
+#if ALL || REMIXICON
+            if (this.Kind is PackIconRemixIconKind)
+            {
+                return this.GetPackIcon<PackIconRemixIcon, PackIconRemixIconKind>((PackIconRemixIconKind) this.Kind);
+            }
+#endif
 #if ALL || RPGAWESOME
             if (this.Kind is PackIconRPGAwesomeKind)
             {
@@ -140,6 +188,12 @@ namespace MahApps.Metro.IconPacks
             if (this.Kind is PackIconUniconsKind)
             {
                 return this.GetPackIcon<PackIconUnicons, PackIconUniconsKind>((PackIconUniconsKind) this.Kind);
+            }
+#endif
+#if ALL || VAADINICONS
+            if (this.Kind is PackIconVaadinIconsKind)
+            {
+                return this.GetPackIcon<PackIconVaadinIcons, PackIconVaadinIconsKind>((PackIconVaadinIconsKind) this.Kind);
             }
 #endif
 #if ALL || WEATHERICONS

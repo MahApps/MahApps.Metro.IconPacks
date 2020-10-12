@@ -30,65 +30,92 @@ namespace MahApps.Metro.IconPacks
             string data = null;
             switch (iconKind)
             {
-                case PackIconBoxIconsKind boxIconsKind:
-                    PackIconBoxIconsDataFactory.DataIndex.Value?.TryGetValue(boxIconsKind, out data);
+                case PackIconBootstrapIconsKind kind:
+                    PackIconBootstrapIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconEntypoKind entypoKind:
-                    PackIconEntypoDataFactory.DataIndex.Value?.TryGetValue(entypoKind, out data);
+                case PackIconBoxIconsKind kind:
+                    PackIconBoxIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconEvaIconsKind evaIconsKind:
-                    PackIconEvaIconsDataFactory.DataIndex.Value?.TryGetValue(evaIconsKind, out data);
+                case PackIconCodiconsKind kind:
+                    PackIconCodiconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconFeatherIconsKind featherIconsKind:
-                    PackIconFeatherIconsDataFactory.DataIndex.Value?.TryGetValue(featherIconsKind, out data);
+                case PackIconEntypoKind kind:
+                    PackIconEntypoDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconFontAwesomeKind fontAwesomeKind:
-                    PackIconFontAwesomeDataFactory.DataIndex.Value?.TryGetValue(fontAwesomeKind, out data);
+                case PackIconEvaIconsKind kind:
+                    PackIconEvaIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconIoniconsKind ioniconsKind:
-                    PackIconIoniconsDataFactory.DataIndex.Value?.TryGetValue(ioniconsKind, out data);
+                case PackIconFeatherIconsKind kind:
+                    PackIconFeatherIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconJamIconsKind jamIconsKind:
-                    PackIconJamIconsDataFactory.DataIndex.Value?.TryGetValue(jamIconsKind, out data);
+                case PackIconFileIconsKind kind:
+                    PackIconFileIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconMaterialDesignKind materialDesignKind:
-                    PackIconMaterialDesignDataFactory.DataIndex.Value?.TryGetValue(materialDesignKind, out data);
+                case PackIconFontaudioKind kind:
+                    PackIconFontaudioDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconMaterialKind materialKind:
-                    PackIconMaterialDataFactory.DataIndex.Value?.TryGetValue(materialKind, out data);
+                case PackIconFontAwesomeKind kind:
+                    PackIconFontAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconMaterialLightKind materialLightKind:
-                    PackIconMaterialLightDataFactory.DataIndex.Value?.TryGetValue(materialLightKind, out data);
+                case PackIconForkAwesomeKind kind:
+                    PackIconForkAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconMicronsKind micronsKind:
-                    PackIconMicronsDataFactory.DataIndex.Value?.TryGetValue(micronsKind, out data);
+                case PackIconIoniconsKind kind:
+                    PackIconIoniconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconModernKind modernKind:
-                    PackIconModernDataFactory.DataIndex.Value?.TryGetValue(modernKind, out data);
+                case PackIconJamIconsKind kind:
+                    PackIconJamIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconOcticonsKind octiconsKind:
-                    PackIconOcticonsDataFactory.DataIndex.Value?.TryGetValue(octiconsKind, out data);
+                case PackIconMaterialDesignKind kind:
+                    PackIconMaterialDesignDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconPicolIconsKind picolIconsKind:
-                    PackIconPicolIconsDataFactory.DataIndex.Value?.TryGetValue(picolIconsKind, out data);
+                case PackIconMaterialKind kind:
+                    PackIconMaterialDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconRPGAwesomeKind rpgAwesomeKind:
-                    PackIconRPGAwesomeDataFactory.DataIndex.Value?.TryGetValue(rpgAwesomeKind, out data);
+                case PackIconMaterialLightKind kind:
+                    PackIconMaterialLightDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconSimpleIconsKind simpleIconsKind:
-                    PackIconSimpleIconsDataFactory.DataIndex.Value?.TryGetValue(simpleIconsKind, out data);
+                case PackIconMicronsKind kind:
+                    PackIconMicronsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconTypiconsKind typiconsKind:
-                    PackIconTypiconsDataFactory.DataIndex.Value?.TryGetValue(typiconsKind, out data);
+                case PackIconModernKind kind:
+                    PackIconModernDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconUniconsKind uniconsKind:
-                    PackIconUniconsDataFactory.DataIndex.Value?.TryGetValue(uniconsKind, out data);
+                case PackIconOcticonsKind kind:
+                    PackIconOcticonsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconWeatherIconsKind weatherIconsKind:
-                    PackIconWeatherIconsDataFactory.DataIndex.Value?.TryGetValue(weatherIconsKind, out data);
+                case PackIconPicolIconsKind kind:
+                    PackIconPicolIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconZondiconsKind zondiconsKind:
-                    PackIconZondiconsDataFactory.DataIndex.Value?.TryGetValue(zondiconsKind, out data);
+                case PackIconPixelartIconsKind kind:
+                    PackIconPixelartIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconRadixIconsKind kind:
+                    PackIconRadixIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconRemixIconKind kind:
+                    PackIconRemixIconDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconRPGAwesomeKind kind:
+                    PackIconRPGAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconSimpleIconsKind kind:
+                    PackIconSimpleIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconTypiconsKind kind:
+                    PackIconTypiconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconUniconsKind kind:
+                    PackIconUniconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconVaadinIconsKind kind:
+                    PackIconVaadinIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconWeatherIconsKind kind:
+                    PackIconWeatherIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconZondiconsKind kind:
+                    PackIconZondiconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 default:
                     return null;
@@ -98,15 +125,26 @@ namespace MahApps.Metro.IconPacks
         /// <inheritdoc />
         protected override ScaleTransform GetScaleTransform(object iconKind)
         {
-            return
-                ((iconKind is PackIconBoxIconsKind)
-                 || (iconKind is PackIconEvaIconsKind)
-                 || (iconKind is PackIconJamIconsKind)
-                 || (iconKind is PackIconMaterialDesignKind)
-                 || (iconKind is PackIconRPGAwesomeKind)
-                 || (iconKind is PackIconTypiconsKind))
-                    ? new ScaleTransform(1, -1)
-                    : new ScaleTransform(1, 1);
+            switch (iconKind)
+            {
+                case PackIconBootstrapIconsKind _:
+                case PackIconBoxIconsKind _:
+                case PackIconCodiconsKind _:
+                case PackIconEvaIconsKind _:
+                case PackIconFileIconsKind _:
+                case PackIconFontaudioKind _:
+                case PackIconForkAwesomeKind _:
+                case PackIconJamIconsKind _:
+                case PackIconMaterialDesignKind _:
+                case PackIconRadixIconsKind _:
+                case PackIconRemixIconKind _:
+                case PackIconRPGAwesomeKind _:
+                case PackIconTypiconsKind _:
+                case PackIconVaadinIconsKind _:
+                    return new ScaleTransform(1, -1);
+                default:
+                    return new ScaleTransform(1, 1);
+            }
         }
 
         /// <inheritdoc />
