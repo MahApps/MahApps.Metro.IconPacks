@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Fea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.FileIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.FileIcons.csproj", "{7BFC8DCC-D9CB-4E51-8C30-82A5B36EAEF1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Fontaudio", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Fontaudio.csproj", "{07F804BA-8585-4108-9C8F-7413D2567DA1}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.FontAwesome", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.FontAwesome.csproj", "{C7F2A63D-0B08-41BA-BE0C-ECBB2CC6ADFF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.ForkAwesome", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.ForkAwesome.csproj", "{70ECF2D4-3B42-4291-B06E-9BC0D247D8E9}"
@@ -454,6 +456,18 @@ Global
 		{70ECF2D4-3B42-4291-B06E-9BC0D247D8E9}.Release|x64.Build.0 = Release|Any CPU
 		{70ECF2D4-3B42-4291-B06E-9BC0D247D8E9}.Release|x86.ActiveCfg = Release|Any CPU
 		{70ECF2D4-3B42-4291-B06E-9BC0D247D8E9}.Release|x86.Build.0 = Release|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Debug|x64.Build.0 = Debug|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Debug|x86.Build.0 = Debug|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Release|x64.ActiveCfg = Release|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Release|x64.Build.0 = Release|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Release|x86.ActiveCfg = Release|Any CPU
+		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

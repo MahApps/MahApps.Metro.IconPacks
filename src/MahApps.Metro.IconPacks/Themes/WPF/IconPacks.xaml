@@ -8,6 +8,7 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.EvaIcons;component/Themes/PackIconEvaIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FeatherIcons;component/Themes/PackIconFeatherIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FileIcons;component/Themes/PackIconFileIcons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Fontaudio;component/Themes/PackIconFontaudio.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FontAwesome;component/Themes/PackIconFontAwesome.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.ForkAwesome;component/Themes/PackIconForkAwesome.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Ionicons;component/Themes/PackIconIonicons.xaml" />
