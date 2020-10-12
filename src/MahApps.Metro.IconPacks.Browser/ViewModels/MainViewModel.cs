@@ -41,6 +41,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     new IconPackViewModel(this, "SimpleIcons", typeof(PackIconSimpleIconsKind), typeof(PackIconSimpleIcons)),
                     new IconPackViewModel(this, "Typicons", typeof(PackIconTypiconsKind), typeof(PackIconTypicons)),
                     new IconPackViewModel(this, "Unicons", typeof(PackIconUniconsKind), typeof(PackIconUnicons)),
+                    new IconPackViewModel(this, "VaadinIcons", typeof(PackIconVaadinIconsKind), typeof(PackIconVaadinIcons)),
                     new IconPackViewModel(this, "WeatherIcons", typeof(PackIconWeatherIconsKind), typeof(PackIconWeatherIcons)),
                     new IconPackViewModel(this, "Zondicons", typeof(PackIconZondiconsKind), typeof(PackIconZondicons)),
                     new IconPackViewModel(this, "All",
@@ -68,6 +69,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                                               typeof(PackIconSimpleIconsKind),
                                               typeof(PackIconTypiconsKind),
                                               typeof(PackIconUniconsKind),
+                                              typeof(PackIconVaadinIconsKind),
                                               typeof(PackIconWeatherIconsKind),
                                               typeof(PackIconZondiconsKind)
                                           },
@@ -95,6 +97,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                                               typeof(PackIconSimpleIcons),
                                               typeof(PackIconTypicons),
                                               typeof(PackIconUnicons),
+                                              typeof(PackIconVaadinIcons),
                                               typeof(PackIconWeatherIcons),
                                               typeof(PackIconZondicons)
                                           })

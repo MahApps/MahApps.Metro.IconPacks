@@ -109,6 +109,10 @@ namespace MahApps.Metro.IconPacks
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
+            foreach (var packIcon in PackIconVaadinIconsDataFactory.Create())
+            {
+                dictionary.Add(packIcon.Key, packIcon.Value);
+            }
             foreach (var packIcon in PackIconWeatherIconsDataFactory.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
