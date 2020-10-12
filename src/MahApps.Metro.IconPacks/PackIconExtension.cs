@@ -76,6 +76,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconFileIcons, PackIconFileIconsKind>((PackIconFileIconsKind) this.Kind);
             }
 #endif
+#if ALL || FONTAUDIO
+            if (this.Kind is PackIconFontaudioKind)
+            {
+                return this.GetPackIcon<PackIconFontaudio, PackIconFontaudioKind>((PackIconFontaudioKind) this.Kind);
+            }
+#endif
 #if ALL || FONTAWESOME
             if (this.Kind is PackIconFontAwesomeKind)
             {

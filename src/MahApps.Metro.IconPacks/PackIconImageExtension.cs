@@ -51,6 +51,9 @@ namespace MahApps.Metro.IconPacks
                 case PackIconFileIconsKind kind:
                     PackIconFileIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconFontaudioKind kind:
+                    PackIconFontaudioDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconFontAwesomeKind kind:
                     PackIconFontAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
@@ -129,6 +132,7 @@ namespace MahApps.Metro.IconPacks
                 case PackIconCodiconsKind _:
                 case PackIconEvaIconsKind _:
                 case PackIconFileIconsKind _:
+                case PackIconFontaudioKind _:
                 case PackIconForkAwesomeKind _:
                 case PackIconJamIconsKind _:
                 case PackIconMaterialDesignKind _:
