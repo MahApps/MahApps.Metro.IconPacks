@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Boo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.BoxIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.BoxIcons.csproj", "{EA043463-47C1-4888-92E0-826872C331A8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Codicons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Codicons.csproj", "{D9BF4500-ED93-4879-8C21-009CA7886AA1}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Entypo", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Entypo.csproj", "{F6D84D92-189D-4A16-9612-C345B26DB14F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.EvaIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.EvaIcons.csproj", "{7DAE30B2-26A6-4496-9E3E-8E30F3D1265E}"
@@ -412,6 +414,18 @@ Global
 		{FC285039-CF89-4FDD-B7CD-4402AC5219AC}.Release|x64.Build.0 = Release|Any CPU
 		{FC285039-CF89-4FDD-B7CD-4402AC5219AC}.Release|x86.ActiveCfg = Release|Any CPU
 		{FC285039-CF89-4FDD-B7CD-4402AC5219AC}.Release|x86.Build.0 = Release|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Debug|x64.Build.0 = Debug|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Debug|x86.Build.0 = Debug|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Release|x64.ActiveCfg = Release|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Release|x64.Build.0 = Release|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Release|x86.ActiveCfg = Release|Any CPU
+		{D9BF4500-ED93-4879-8C21-009CA7886AA1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
