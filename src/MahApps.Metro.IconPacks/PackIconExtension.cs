@@ -70,6 +70,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconFeatherIcons, PackIconFeatherIconsKind>((PackIconFeatherIconsKind) this.Kind);
             }
 #endif
+#if ALL || FILEICONS
+            if (this.Kind is PackIconFileIconsKind)
+            {
+                return this.GetPackIcon<PackIconFileIcons, PackIconFileIconsKind>((PackIconFileIconsKind) this.Kind);
+            }
+#endif
 #if ALL || FONTAWESOME
             if (this.Kind is PackIconFontAwesomeKind)
             {
