@@ -76,6 +76,9 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconUniconsKind kind:
                     PackIconUniconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconVaadinIconsKind kind:
+                    PackIconVaadinIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconWeatherIconsKind kind:
                     PackIconWeatherIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
@@ -101,6 +104,7 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconRemixIconKind _:
                 case PackIconRPGAwesomeKind _:
                 case PackIconTypiconsKind _:
+                case PackIconVaadinIconsKind _:
                     return new ScaleTransform(1, -1);
                 default:
                     return new ScaleTransform(1, 1);

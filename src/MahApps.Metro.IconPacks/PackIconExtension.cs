@@ -166,6 +166,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconUnicons, PackIconUniconsKind>((PackIconUniconsKind) this.Kind);
             }
 #endif
+#if ALL || VAADINICONS
+            if (this.Kind is PackIconVaadinIconsKind)
+            {
+                return this.GetPackIcon<PackIconVaadinIcons, PackIconVaadinIconsKind>((PackIconVaadinIconsKind) this.Kind);
+            }
+#endif
 #if ALL || WEATHERICONS
             if (this.Kind is PackIconWeatherIconsKind)
             {
