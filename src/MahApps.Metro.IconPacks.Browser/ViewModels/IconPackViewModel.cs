@@ -172,7 +172,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             get { return _selectedIcon; }
             set
             {
-                if (Set(ref _selectedIcon, value))
+                if (Set(ref _selectedIcon, value) && !(_selectedIcon is null))
                 {
                     var metaData = Attribute.GetCustomAttribute(_selectedIcon.IconPackType, typeof(MetaDataAttribute)) as MetaDataAttribute;
                     this.ProjectUrl = metaData != null ? metaData.ProjectUrl : string.Empty;
