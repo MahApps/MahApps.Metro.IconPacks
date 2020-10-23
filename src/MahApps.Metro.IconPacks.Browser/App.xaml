@@ -13,6 +13,7 @@
                 
                 <!-- Custom Styles -->
                 <ResourceDictionary Source="Styles/SearchTextBox.xaml" />
+                <ResourceDictionary Source="Styles/NavigationListBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource MahApps.Styles.ListBoxItem}">

@@ -38,6 +38,8 @@
             <Setter Property="Opacity" Value="1" />
         </Style>
 
+        <CollectionViewSource x:Key="Test" Source="{Binding IconPacks}" />
+
         <Style
             x:Key="UnderlinedTextBlockStyle"
             BasedOn="{StaticResource {x:Type TextBlock}}"
@@ -51,35 +53,6 @@
 
         <model:IconTemplateSelector x:Key="IconPacksBrowser.DataTemplateSelectors.Icon" />
 
-        <DataTemplate x:Key="IconPacksBrowser.DataTemplates.HamburgerMenuItem" DataType="{x:Type viewModels:IconPackViewModel}">
-            <Grid Height="44">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type mah:HamburgerMenu}}, Path=CompactPaneLength}" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Border
-                    Width="40"
-                    Height="30"
-                    Background="{DynamicResource MahApps.Brushes.Highlight}"
-                    CornerRadius="15">
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        FontFamily="Agency FB"
-                        FontSize="16"
-                        FontWeight="Bold"
-                        Text="{Binding ShortName}" />
-                </Border>
-
-                <TextBlock
-                    Grid.Column="1"
-                    VerticalAlignment="Center"
-                    FontSize="16"
-                    Text="{Binding Caption}"
-                    TextTrimming="CharacterEllipsis" />
-            </Grid>
-        </DataTemplate>
-
         <DataTemplate x:Key="IconPacksBrowser.DataTemplates.Content" DataType="{x:Type viewModels:IconPackViewModel}">
             <Grid>
                 <Grid.RowDefinitions>
@@ -90,17 +63,19 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-
-                <Border Grid.ColumnSpan="2" Background="{DynamicResource MahApps.HamburgerMenu.Pane.Background}">
+                <Border
+                    Grid.ColumnSpan="2"
+                    BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                    BorderThickness="0,0,0,3">
                     <DockPanel LastChildFill="True">
                         <TextBlock
+                            Margin="10,0"
                             FontSize="30"
-                            FontWeight="Light"
-                            Foreground="White"
+                            FontWeight="DemiBold"
+                            Foreground="{DynamicResource MahApps.Brushes.Highlight}"
                             Text="{Binding Caption}"
                             TextTrimming="CharacterEllipsis" />
                     </DockPanel>
-
                 </Border>
 
                 <ListBox
@@ -341,11 +316,14 @@
     <mah:MetroWindow.CommandBindings>
         <CommandBinding Command="{x:Static ApplicationCommands.Find}" Executed="Find_Executed" />
     </mah:MetroWindow.CommandBindings>
-    
+
     <mah:MetroWindow.InputBindings>
-        <KeyBinding Command="{x:Static ApplicationCommands.Find}" Key="F" Modifiers="Ctrl" />
+        <KeyBinding
+            Key="F"
+            Command="{x:Static ApplicationCommands.Find}"
+            Modifiers="Ctrl" />
     </mah:MetroWindow.InputBindings>
-    
+
     <mah:MetroWindow.IconTemplate>
         <DataTemplate>
             <Viewbox Margin="4" Stretch="Uniform">
@@ -381,30 +359,50 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <mah:SplitView IsPaneOpen="True"
-                       DisplayMode="Inline"
-                       CanResizeOpenPane="True">
+        <mah:SplitView
+            CanResizeOpenPane="True"
+            DisplayMode="Inline"
+            IsPaneOpen="True"
+            PaneBackground="{DynamicResource MahApps.Brushes.Gray7}">
             <mah:SplitView.Pane>
                 <DockPanel>
-                    <TextBox
+                    <Border
+                        Height="48"
+                        Background="{DynamicResource MahApps.Brushes.ThemeBackground}"
+                        BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                        BorderThickness="0,0,0,3"
+                        DockPanel.Dock="Top">
+                        <TextBox
                             x:Name="FilterTextBox"
+                            Margin="5"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Center"
                             VerticalContentAlignment="Center"
                             mah:TextBoxHelper.Watermark="Filter by..."
                             DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=mah:MetroWindow}, Path=DataContext}"
-                            DockPanel.Dock="Top"
-                            Margin="0,5"
-                            Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}"
-                            Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Search}"/>
-                <mah:HamburgerMenuListBox ItemsSource="{Binding IconPacks, Mode=OneWay}" 
-                                          ItemTemplate="{DynamicResource IconPacksBrowser.DataTemplates.HamburgerMenuItem}"/>
-                    
+                            Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Search}"
+                            Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+                    </Border>
+
+
+                    <ListBox
+                        Name="NavigationListBox"
+                        Margin="0,5"
+                        Style="{DynamicResource IconPacksBrowser.Styles.ListBox.Navigation}">
+                        <ListBox.ItemsSource>
+                            <CompositeCollection>
+                                <Separator />
+                                <CollectionContainer Collection="{Binding Source={StaticResource Test}}" />
+                            </CompositeCollection>
+                        </ListBox.ItemsSource>
+                    </ListBox>
+
                 </DockPanel>
             </mah:SplitView.Pane>
+            <mah:TransitioningContentControl Content="{Binding ElementName=NavigationListBox, Path=SelectedItem}" ContentTemplate="{StaticResource IconPacksBrowser.DataTemplates.Content}" />
         </mah:SplitView>
-        
-        
+
+
         <!--<mah:HamburgerMenu
             x:Name="IconPacksHamburgerMenu"
             Grid.Row="0"
