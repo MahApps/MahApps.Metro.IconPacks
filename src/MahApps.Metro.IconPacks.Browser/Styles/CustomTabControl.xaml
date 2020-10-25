@@ -656,7 +656,7 @@
                                             Command="{Binding CopyToClipboard}"
                                             CommandParameter="{Binding}"
                                             Focusable="False"
-                                            Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
+                                            Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Path=(TextElement.Foreground)}"
                                             IsTabStop="False"
                                             Style="{StaticResource CustomMetroCircleButtonStyle}">
                                         <Button.ToolTip>
@@ -678,7 +678,7 @@
                                             Command="{Binding CopyToClipboardAsContent}"
                                             CommandParameter="{Binding}"
                                             Focusable="False"
-                                            Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
+                                            Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Path=(TextElement.Foreground)}"
                                             IsTabStop="False"
                                             Style="{StaticResource CustomMetroCircleButtonStyle}">
                                         <Button.ToolTip>
@@ -695,7 +695,7 @@
                                             Command="{Binding CopyToClipboardAsPathIcon}"
                                             CommandParameter="{Binding}"
                                             Focusable="False"
-                                            Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
+                                            Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Path=(TextElement.Foreground)}"
                                             IsTabStop="False"
                                             Style="{StaticResource CustomMetroCircleButtonStyle}">
                                         <Button.ToolTip>
@@ -711,7 +711,7 @@
                                             Command="{Binding CopyToClipboardAsGeometry}"
                                             CommandParameter="{Binding}"
                                             Focusable="False"
-                                            Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=Foreground}"
+                                            Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Path=(TextElement.Foreground)}"
                                             IsTabStop="False"
                                             Style="{StaticResource CustomMetroCircleButtonStyle}">
                                         <Button.ToolTip>

@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// Typicons Icons/Artwork distributed under [CC BY-SA](<see><cref>https://creativecommons.org/licenses/by-sa/3.0/</cref></see>) license.
     /// Typicons Font distributed under 'SIL Open Font License' license.
     /// </summary>
-    [MetaData("https://www.s-ings.com/typicons/", "https://creativecommons.org/licenses/by-sa/3.0/")]
+    [MetaData("Typicons", "https://www.s-ings.com/typicons/", "https://creativecommons.org/licenses/by-sa/3.0/")]
     public class PackIconTypicons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

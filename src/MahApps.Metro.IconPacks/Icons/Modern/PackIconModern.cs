@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from Modern UI Icons Font <see><cref>http://modernuiicons.com</cref></see>
     /// In accordance of <see><cref>https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt</cref></see>.
     /// </summary>
-    [MetaData("http://modernuiicons.com/", "https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt")]
+    [MetaData("Modern UI Icons", "http://modernuiicons.com/", "https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt")]
     public class PackIconModern : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

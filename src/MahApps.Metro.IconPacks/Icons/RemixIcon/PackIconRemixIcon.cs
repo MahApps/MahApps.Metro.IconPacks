@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// RemixIcon released under the [Apache License Version 2.0](<see><cref>https://github.com/Remix-Design/RemixIcon/blob/master/License</cref></see>)
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/Remix-Design/RemixIcon</cref></see>.
     /// </summary>
-    [MetaData("https://remixicon.com/", "https://github.com/Remix-Design/RemixIcon/blob/master/License")]
+    [MetaData("Remix Icon", "https://remixicon.com/", "https://github.com/Remix-Design/RemixIcon/blob/master/License")]
     public class PackIconRemixIcon : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

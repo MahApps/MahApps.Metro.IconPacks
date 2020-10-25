@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// File Icons are licensed under the [MIT license](<see><cref>https://github.com/file-icons/atom/blob/master/LICENSE.md</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/file-icons/icons</cref></see>.
     /// </summary>
-    [MetaData("https://github.com/file-icons/icons", "https://github.com/file-icons/atom/blob/master/LICENSE.md")]
+    [MetaData("File Icons", "https://github.com/file-icons/icons", "https://github.com/file-icons/atom/blob/master/LICENSE.md")]
     public class PackIconFileIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

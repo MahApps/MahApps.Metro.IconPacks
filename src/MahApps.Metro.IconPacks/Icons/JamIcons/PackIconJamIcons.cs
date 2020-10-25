@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// Jam Icons licensed under the MIT License <see><cref>https://github.com/michaelampr/jam/blob/master/LICENSE</cref></see>
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/michaelampr/jam</cref></see>.
     /// </summary>
-    [MetaData("https://jam-icons.com/", "https://github.com/michaelampr/jam/blob/master/LICENSE")]
+    [MetaData("Jam Icons", "https://jam-icons.com/", "https://github.com/michaelampr/jam/blob/master/LICENSE")]
     public class PackIconJamIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

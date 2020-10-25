@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from Google Material Design icon font - <see><cref>http://google.github.io/material-design-icons/</cref></see>
     /// Google Material Design are licensed under the Apache License 2.0 <see><cref>https://github.com/google/material-design-icons/blob/master/LICENSE</cref></see>
     /// </summary>
-    [MetaData("http://google.github.io/material-design-icons/", "http://google.github.io/material-design-icons/#licensing")]
+    [MetaData("Material design icons (Google)", "http://google.github.io/material-design-icons/", "http://google.github.io/material-design-icons/#licensing")]
     public class PackIconMaterialDesign : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

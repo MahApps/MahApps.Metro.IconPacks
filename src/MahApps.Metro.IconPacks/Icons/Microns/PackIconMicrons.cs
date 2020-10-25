@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// The Microns icons are licensed under [CC BY-SA](<see><cref>https://creativecommons.org/licenses/by-sa/3.0/</cref></see>) license.
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/stephenhutchings/microns</cref></see>.
     /// </summary>
-    [MetaData("https://www.s-ings.com/projects/microns-icon-font/", "https://github.com/stephenhutchings/microns/blob/master/LICENCE.md")]
+    [MetaData("Microns", "https://www.s-ings.com/projects/microns-icon-font/", "https://github.com/stephenhutchings/microns/blob/master/LICENCE.md")]
     public class PackIconMicrons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

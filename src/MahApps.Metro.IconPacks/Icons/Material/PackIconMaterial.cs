@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from Material Design Icons Font <see><cref>https://materialdesignicons.com</cref></see>
     /// In accordance of <see><cref>https://github.com/Templarian/MaterialDesign/blob/master/license.txt</cref></see>.
     /// </summary>
-    [MetaData("https://materialdesignicons.com/", "https://github.com/Templarian/MaterialDesign/blob/master/LICENSE")]
+    [MetaData("Material Design Icons", "https://materialdesignicons.com/", "https://github.com/Templarian/MaterialDesign/blob/master/LICENSE")]
     public class PackIconMaterial : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

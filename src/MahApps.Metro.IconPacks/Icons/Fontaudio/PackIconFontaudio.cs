@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// Fontaudio by @fefanto <see><cref>https://github.com/fefanto</cref></see>. License: Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License. <see><cref>https://github.com/fefanto/fontaudio#license</cref></see>
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/fefanto/fontaudio</cref></see>.
     /// </summary>
-    [MetaData("https://github.com/fefanto/fontaudio", "https://github.com/fefanto/fontaudio#license")]
+    [MetaData("Fontaudio", "https://github.com/fefanto/fontaudio", "https://github.com/fefanto/fontaudio#license")]
     public class PackIconFontaudio : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

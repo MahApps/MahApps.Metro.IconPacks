@@ -119,7 +119,7 @@ Task("Build")
     };
     MSBuild(solution, msBuildSettings
             .SetMaxCpuCount(0)
-            .WithProperty("GeneratePackageOnBuild", target == "appveyor" ? "true" : "false")
+            .WithProperty("GeneratePackageOnBuild", target == "appveyor" && !isPullRequest ? "true" : "false")
             .WithProperty("PackageOutputPath", MakeAbsolute(PACKAGE_DIR).ToString())
             .WithProperty("RepositoryBranch", branchName)
             .WithProperty("RepositoryCommit", gitVersion.Sha)

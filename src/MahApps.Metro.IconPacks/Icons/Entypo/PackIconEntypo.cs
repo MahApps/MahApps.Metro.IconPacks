@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from Entypo+ Icons Font <see><cref>http://www.entypo.com</cref></see>
     /// Licensed under [CC BY 4.0](<see><cref>http://creativecommons.org/licenses/by-sa/4.0/</cref></see>).
     /// </summary>
-    [MetaData("http://www.entypo.com/", "https://creativecommons.org/licenses/by-sa/4.0/")]
+    [MetaData("Entypo+", "http://www.entypo.com/", "https://creativecommons.org/licenses/by-sa/4.0/")]
     public class PackIconEntypo : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty
