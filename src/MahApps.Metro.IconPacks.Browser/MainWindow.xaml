@@ -38,7 +38,8 @@
             <Setter Property="Opacity" Value="1" />
         </Style>
 
-        <CollectionViewSource x:Key="Test" Source="{Binding IconPacks}" />
+        <CollectionViewSource x:Key="IconPacksBrowser.Collections.IconPacks" Source="{Binding IconPacks}" />
+        <CollectionViewSource x:Key="IconPacksBrowser.Collections.All" Source="{Binding AllIconPacksCollection}" />
 
         <Style
             x:Key="UnderlinedTextBlockStyle"
@@ -363,7 +364,7 @@
             CanResizeOpenPane="True"
             DisplayMode="Inline"
             IsPaneOpen="True"
-            PaneBackground="{DynamicResource MahApps.Brushes.Gray7}">
+            PaneBackground="{DynamicResource MahApps.Brushes.Gray8}">
             <mah:SplitView.Pane>
                 <DockPanel>
                     <Border
@@ -391,8 +392,9 @@
                         Style="{DynamicResource IconPacksBrowser.Styles.ListBox.Navigation}">
                         <ListBox.ItemsSource>
                             <CompositeCollection>
+                                <CollectionContainer Collection="{Binding Source={StaticResource IconPacksBrowser.Collections.All}}" />
                                 <Separator />
-                                <CollectionContainer Collection="{Binding Source={StaticResource Test}}" />
+                                <CollectionContainer Collection="{Binding Source={StaticResource IconPacksBrowser.Collections.IconPacks}}" />
                             </CompositeCollection>
                         </ListBox.ItemsSource>
                     </ListBox>

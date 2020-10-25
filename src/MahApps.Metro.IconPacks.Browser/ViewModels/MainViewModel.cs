@@ -1,9 +1,12 @@
 ﻿using MahApps.Metro.Controls;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Security.Policy;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Threading;
 
@@ -116,6 +119,21 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                                               typeof(PackIconZondicons)
                                           })
                 });
+
+
+
+            this.IconPacks = new ObservableCollection<IconPackViewModel>();
+
+            foreach (var (Name, EnumType, IconPackType) in availableIconPacks)
+            {
+                IconPacks.Add(new IconPackViewModel(this, Name, EnumType, IconPackType));
+            }
+
+            this.AllIconPacksCollection = new List<IconPackViewModel>(1)
+            {
+                new IconPackViewModel(this, "All Icons", availableIconPacks.Select(x => x.EnumType).ToArray(), availableIconPacks.Select(x=> x.IconPackType).ToArray())
+            };
+
             this.IconPacksVersion = FileVersionInfo.GetVersionInfo(Assembly.GetAssembly(typeof(PackIconMaterial)).Location).FileVersion;
         }
 
@@ -130,7 +148,9 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             });
         }
 
-        public ObservableCollection<object> IconPacks { get; set; }
+        public ObservableCollection<IconPackViewModel> IconPacks { get; }
+
+        public List<IconPackViewModel> AllIconPacksCollection { get; }
 
         public string AppVersion { get; }
 

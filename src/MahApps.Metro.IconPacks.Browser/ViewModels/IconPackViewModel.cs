@@ -22,11 +22,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private string _projectUrl;
         private string _licenseUrl;
 
-        public IconPackViewModel(MainViewModel mainViewModel, string caption, string shortName, Type enumType, Type packType)
+        public IconPackViewModel(MainViewModel mainViewModel, string caption, Type enumType, Type packType)
         {
             this.MainViewModel = mainViewModel;
             this.Caption = caption;
-            this.ShortName = shortName; 
 
             this.LoadEnumsAsync(enumType, packType).SafeFireAndForget();
         }
@@ -41,11 +40,10 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             this.SelectedIcon = this.Icons.First();
         }
 
-        public IconPackViewModel(MainViewModel mainViewModel, string caption, string shortName, Type[] enumTypes, Type[] packTypes)
+        public IconPackViewModel(MainViewModel mainViewModel, string caption, Type[] enumTypes, Type[] packTypes)
         {
             this.MainViewModel = mainViewModel;
             this.Caption = caption;
-            this.ShortName = shortName;
 
             this.LoadAllEnumsAsync(enumTypes, packTypes).SafeFireAndForget();
         }
@@ -129,7 +127,6 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public MainViewModel MainViewModel { get; }
 
         public string Caption { get; }
-        public string ShortName { get; }
 
         public IEnumerable<IIconViewModel> Icons
         {
