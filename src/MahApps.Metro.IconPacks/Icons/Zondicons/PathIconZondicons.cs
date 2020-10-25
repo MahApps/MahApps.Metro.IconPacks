@@ -11,6 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// Zondicons are licensed under the [CC BY 4.0](<see><cref>https://creativecommons.org/licenses/by/4.0/</cref></see>).
     /// Zondicons are availabe at <see><cref>https://www.zondicons.com/</cref></see>.
     /// </summary>
+    [MetaData("Zondicons", "https://www.zondicons.com/", "https://creativecommons.org/licenses/by/4.0/")]
     public class PathIconZondicons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

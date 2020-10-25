@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from GitHub Octicons <see><cref>https://octicons.github.com</cref></see>
     /// In accordance of <see><cref>https://github.com/primer/octicons/blob/master/LICENSE</cref></see>.
     /// </summary>
-    [MetaData("https://primer.style/octicons/", "https://github.com/primer/octicons/blob/master/LICENSE")]
+    [MetaData("Octicons", "https://primer.style/octicons/", "https://github.com/primer/octicons/blob/master/LICENSE")]
     public class PackIconOcticons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// RadixIcons licensed under the MIT License <see><cref>https://github.com/modulz/radix-icons/blob/master/LICENSE</cref></see>
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/modulz/radix-icons</cref></see>.
     /// </summary>
-    [MetaData("https://icons.modulz.app/", "https://github.com/modulz/radix-icons/blob/master/LICENSE")]
+    [MetaData("Radix Icons", "https://icons.modulz.app/", "https://github.com/modulz/radix-icons/blob/master/LICENSE")]
     public class PackIconRadixIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

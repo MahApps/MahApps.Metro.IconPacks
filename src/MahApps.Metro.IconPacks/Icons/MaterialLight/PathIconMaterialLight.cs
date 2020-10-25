@@ -11,6 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from Material Design Light Icons <see><cref>https://github.com/Templarian/MaterialDesignLight</cref></see>
     /// In accordance of <see><cref>https://github.com/Templarian/MaterialDesignLight/blob/master/LICENSE.md</cref></see>.
     /// </summary>
+    [MetaData("Material Design Icons Light", "https://github.com/Templarian/MaterialDesignLight", "https://github.com/Templarian/MaterialDesignLight/blob/master/LICENSE.md")]
     public class PathIconMaterialLight : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

@@ -11,6 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// The RPG Awesome font is licensed under the [SIL OFL 1.1](<see><cref>http://scripts.sil.org/OFL</cref></see>)
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/nagoshiashumari/Rpg-Awesome</cref></see>.
     /// </summary>
+    [MetaData("RPG Awesome", "http://nagoshiashumari.github.io/Rpg-Awesome/", "https://github.com/nagoshiashumari/Rpg-Awesome/blob/master/LICENSE.md")]
     public class PathIconRPGAwesome : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

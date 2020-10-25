@@ -11,6 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// Vaadin Icons are licensed under the [Apache License 2.0](<see><cref>https://github.com/vaadin/vaadin-icons/blob/master/LICENSE</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/vaadin/vaadin-icons</cref></see>.
     /// </summary>
+    [MetaData("Vaadin Icons", "https://vaadin.com/icons", "https://github.com/vaadin/vaadin-icons/blob/master/LICENSE")]
     public class PathIconVaadinIcons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

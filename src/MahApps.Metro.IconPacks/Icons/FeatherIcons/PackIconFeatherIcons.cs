@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// Feather is licensed under the MIT License <see><cref>https://github.com/feathericons/feather/blob/master/LICENSE</cref></see>
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/feathericons/feather</cref></see>.
     /// </summary>
-    [MetaData("https://feathericons.com/", "https://github.com/feathericons/feather/blob/master/LICENSE")]
+    [MetaData("Feather Icons", "https://feathericons.com/", "https://github.com/feathericons/feather/blob/master/LICENSE")]
     public class PackIconFeatherIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty
