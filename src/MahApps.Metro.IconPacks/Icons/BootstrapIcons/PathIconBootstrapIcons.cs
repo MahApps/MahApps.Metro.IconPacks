@@ -11,6 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// Bootstrap Icons are licensed under the [MIT license](<see><cref>https://github.com/twbs/icons/blob/main/LICENSE.md</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/twbs/icons</cref></see>.
     /// </summary>
+    [MetaData("Bootstrap Icons", "https://icons.getbootstrap.com/", "https://github.com/twbs/icons/blob/main/LICENSE.md")]
     public class PathIconBootstrapIcons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// eva-icons licensed under the MIT License <see><cref>https://github.com/akveo/eva-icons/blob/master/LICENSE.txt</cref></see>
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/akveo/eva-icons</cref></see>.
     /// </summary>
-    [MetaData("https://akveo.github.io/eva-icons/", "https://github.com/akveo/eva-icons/blob/master/LICENSE.txt")]
+    [MetaData("Eva Icons", "https://akveo.github.io/eva-icons/", "https://github.com/akveo/eva-icons/blob/master/LICENSE.txt")]
     public class PackIconEvaIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

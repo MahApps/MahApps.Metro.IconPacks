@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// The Fork Awesome font is licensed under the SIL OFL 1.1 (<see><cref>http://scripts.sil.org/OFL</cref></see>). Fork Awesome is a fork based of off Font Awesome 4.7.0 by Dave Gandy.
     /// More info on licenses at <see><cref>https://forkawesome.github.io</cref></see>. Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/ForkAwesome/Fork-Awesome</cref></see>.
     /// </summary>
-    [MetaData("https://forkaweso.me/", "https://github.com/ForkAwesome/Fork-Awesome/blob/master/LICENSES")]
+    [MetaData("Fork Awesome", "https://forkaweso.me/", "https://github.com/ForkAwesome/Fork-Awesome/blob/master/LICENSES")]
     public class PackIconForkAwesome : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

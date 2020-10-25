@@ -11,6 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// Weather Icons are licensed under [SIL OFL 1.1](<see><cref>http://scripts.sil.org/OFL</cref></see>)
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/erikflowers/weather-icons</cref></see>.
     /// </summary>
+    [MetaData("Weather Icons", "https://github.com/erikflowers/weather-icons", "https://github.com/erikflowers/weather-icons#licensing")]
     public class PathIconWeatherIcons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

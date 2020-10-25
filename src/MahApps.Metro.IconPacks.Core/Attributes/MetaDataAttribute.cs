@@ -12,11 +12,14 @@ namespace MahApps.Metro.IconPacks
         {
         }
 
-        public MetaDataAttribute(string projectUrl, string licenseUrl)
+        public MetaDataAttribute(string name, string projectUrl, string licenseUrl)
         {
+            Name = name;
             ProjectUrl = projectUrl;
             LicenseUrl = licenseUrl;
         }
+
+        public string Name { get; }
 
         public string ProjectUrl { get; }
 

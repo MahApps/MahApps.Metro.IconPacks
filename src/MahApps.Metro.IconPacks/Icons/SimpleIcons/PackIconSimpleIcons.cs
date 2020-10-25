@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// All SVG icons for popular brands, maintained by Dan Leech <see><cref>https://twitter.com/bathtype</cref></see>.
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/danleech/simple-icons</cref></see>.
     /// </summary>
-    [MetaData("https://simpleicons.org/", "https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md")]
+    [MetaData("Simple Icons", "https://simpleicons.org/", "https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md")]
     public class PackIconSimpleIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

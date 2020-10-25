@@ -11,6 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// Typicons Icons/Artwork distributed under [CC BY-SA](<see><cref>https://creativecommons.org/licenses/by-sa/3.0/</cref></see>) license.
     /// Typicons Font distributed under 'SIL Open Font License' license.
     /// </summary>
+    [MetaData("Typicons", "https://www.s-ings.com/typicons/", "https://creativecommons.org/licenses/by-sa/3.0/")]
     public class PathIconTypicons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

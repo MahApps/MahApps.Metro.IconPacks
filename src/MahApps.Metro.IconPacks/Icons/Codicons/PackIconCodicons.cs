@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// Codicons are licensed under the [Creative Commons Attribution 4.0 International Public License](<see><cref>https://github.com/microsoft/vscode-codicons/blob/master/LICENSE</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/microsoft/vscode-codicons</cref></see>.
     /// </summary>
-    [MetaData("https://github.com/microsoft/vscode-codicons", "https://github.com/microsoft/vscode-codicons/blob/master/LICENSE")]
+    [MetaData("Codicons", "https://github.com/microsoft/vscode-codicons", "https://github.com/microsoft/vscode-codicons/blob/master/LICENSE")]
     public class PackIconCodicons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

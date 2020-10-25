@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// Unicons are licensed under [Apache 2.0](<see><cref>https://github.com/Iconscout/unicons/blob/master/LICENSE</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/Iconscout/unicons</cref></see>.
     /// </summary>
-    [MetaData("https://iconscout.com/unicons", "https://github.com/Iconscout/unicons/blob/master/LICENSE")]
+    [MetaData("Unicons", "https://iconscout.com/unicons", "https://github.com/Iconscout/unicons/blob/master/LICENSE")]
     public class PackIconUnicons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

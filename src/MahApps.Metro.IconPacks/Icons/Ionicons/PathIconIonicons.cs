@@ -11,6 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// Ionicons are licensed under the [MIT license](<see><cref>https://github.com/ionic-team/ionicons/blob/master/LICENSE</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/ionic-team/ionicons</cref></see>.
     /// </summary>
+    [MetaData("Ionicons", "https://ionicons.com/", "https://github.com/ionic-team/ionicons/blob/master/LICENSE")]
     public class PathIconIonicons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

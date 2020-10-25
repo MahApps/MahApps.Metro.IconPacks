@@ -13,7 +13,7 @@ namespace MahApps.Metro.IconPacks
     /// BoxIcons licensed under [SIL OFL 1.1](<see><cref>http://scripts.sil.org/OFL</cref></see>)
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/atisawd/boxicons</cref></see>.
     /// </summary>
-    [MetaData("https://boxicons.com/", "https://boxicons.com/usage/#license")]
+    [MetaData("Boxicons", "https://boxicons.com/", "https://boxicons.com/usage/#license")]
     public class PackIconBoxIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

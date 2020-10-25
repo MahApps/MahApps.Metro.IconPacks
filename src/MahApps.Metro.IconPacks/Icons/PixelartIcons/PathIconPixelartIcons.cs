@@ -11,6 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// PixelartIcons are licensed under the [MIT license](<see><cref>https://github.com/halfmage/pixelarticons/blob/master/LICENSE</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/halfmage/pixelarticons</cref></see>.
     /// </summary>
+    [MetaData("Pixelarticons", "https://pixelarticons.com/", "https://github.com/halfmage/pixelarticons/blob/master/LICENSE")]
     public class PathIconPixelartIcons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
