@@ -267,10 +267,12 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
         {
             int childrenPerRow = CalculateChildrenPerRow(finalSize);
 
+            double extraColumSpacePerItem = (ActualWidth % (childrenPerRow * ChildSize)) / childrenPerRow; 
+
             int row = itemIndex/childrenPerRow;
             int column = itemIndex%childrenPerRow;
 
-            child.Arrange(new Rect(column*this.ChildSize, row*this.ChildSize, this.ChildSize, this.ChildSize));
+            child.Arrange(new Rect(column * (this.ChildSize + extraColumSpacePerItem), row*this.ChildSize, this.ChildSize + extraColumSpacePerItem, this.ChildSize));
         }
 
         /// <summary>
