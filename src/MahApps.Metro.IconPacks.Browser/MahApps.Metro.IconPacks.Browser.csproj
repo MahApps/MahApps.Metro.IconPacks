@@ -28,6 +28,7 @@
         <PackageReference Include="MahApps.Metro" Version="2.*" />
         <PackageReference Include="ControlzEx" Version="4.*" />
         <PackageReference Include="AsyncAwaitBestPractices" Version="4.*" />
+        <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
     </ItemGroup>
     <!-- <ItemGroup Condition=" '$(Configuration)' != 'Debug' and !$(TargetFramework.StartsWith('netcoreapp')) ">
         <PackageReference Include="Fody" Version="6.*">
