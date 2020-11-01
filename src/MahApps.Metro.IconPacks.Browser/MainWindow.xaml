@@ -56,32 +56,12 @@
 
         <DataTemplate x:Key="IconPacksBrowser.DataTemplates.Content" DataType="{x:Type viewModels:IconPackViewModel}">
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="48" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Border
-                    Grid.ColumnSpan="2"
-                    BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                    BorderThickness="0,0,0,3">
-                    <DockPanel LastChildFill="True">
-                        <TextBlock
-                            Margin="10,0"
-                            FontSize="30"
-                            FontWeight="DemiBold"
-                            Foreground="{DynamicResource MahApps.Brushes.Highlight}"
-                            Text="{Binding Caption}"
-                            TextTrimming="CharacterEllipsis" />
-                    </DockPanel>
-                </Border>
-
                 <ListBox
                     x:Name="IconListBox"
-                    Grid.Row="1"
                     Grid.Column="0"
                     Margin="2"
                     FocusVisualStyle="{x:Null}"
@@ -231,7 +211,6 @@
                 </ListBox>
 
                 <Expander
-                    Grid.Row="1"
                     Grid.Column="1"
                     mah:HeaderedControlHelper.HeaderBackground="{DynamicResource MahApps.Brushes.Gray6}"
                     Background="{DynamicResource MahApps.Brushes.Gray6}"
@@ -356,56 +335,64 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
+        <Border
+            Grid.Row="0"
+            Height="48"
+            Background="{DynamicResource MahApps.Brushes.ThemeBackground}"
+            BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+            BorderThickness="0,0,0,3"
+            DockPanel.Dock="Top">
+            <DockPanel LastChildFill="True">
+                <TextBox
+                    x:Name="FilterTextBox"
+                    MinWidth="200"
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    mah:TextBoxHelper.Watermark="Filter by..."
+                    DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=mah:MetroWindow}, Path=DataContext}"
+                    DockPanel.Dock="Right"
+                    Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Search}"
+                    Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
+                <mah:TransitioningContentControl
+                    Margin="10,0"
+                    VerticalAlignment="Center"
+                    Content="{Binding ElementName=NavigationListBox, Path=SelectedItem.Caption}"
+                    FontSize="30"
+                    FontWeight="DemiBold"
+                    Foreground="{DynamicResource MahApps.Brushes.Highlight}" />
+            </DockPanel>
+        </Border>
         <mah:SplitView
+            Grid.Row="1"
             CanResizeOpenPane="True"
             DisplayMode="Inline"
-            OpenPaneLength="205"
             IsPaneOpen="True"
+            OpenPaneLength="205"
             PaneBackground="{DynamicResource MahApps.Brushes.Gray8}">
             <mah:SplitView.Pane>
-                <DockPanel>
-                    <Border
-                        Height="48"
-                        Background="{DynamicResource MahApps.Brushes.ThemeBackground}"
-                        BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                        BorderThickness="0,0,0,3"
-                        DockPanel.Dock="Top">
-                        <TextBox
-                            x:Name="FilterTextBox"
-                            Margin="5"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            mah:TextBoxHelper.Watermark="Filter by..."
-                            DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=mah:MetroWindow}, Path=DataContext}"
-                            Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Search}"
-                            Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}" />
-                    </Border>
-
-
-                    <ListBox
-                        Name="NavigationListBox"
-                        Margin="0,5"
-                        Style="{DynamicResource IconPacksBrowser.Styles.ListBox.Navigation}">
-                        <ListBox.ItemsSource>
-                            <CompositeCollection>
-                                <CollectionContainer Collection="{Binding Source={StaticResource IconPacksBrowser.Collections.All}}" />
-                                <Separator />
-                                <CollectionContainer Collection="{Binding Source={StaticResource IconPacksBrowser.Collections.IconPacks}}" />
-                            </CompositeCollection>
-                        </ListBox.ItemsSource>
-                    </ListBox>
-
-                </DockPanel>
+                <ListBox
+                    Name="NavigationListBox"
+                    Margin="0,5"
+                    SelectedIndex="0"
+                    Style="{DynamicResource IconPacksBrowser.Styles.ListBox.Navigation}">
+                    <ListBox.ItemsSource>
+                        <CompositeCollection>
+                            <CollectionContainer Collection="{Binding Source={StaticResource IconPacksBrowser.Collections.All}}" />
+                            <Separator />
+                            <CollectionContainer Collection="{Binding Source={StaticResource IconPacksBrowser.Collections.IconPacks}}" />
+                        </CompositeCollection>
+                    </ListBox.ItemsSource>
+                </ListBox>
             </mah:SplitView.Pane>
             <mah:TransitioningContentControl Content="{Binding ElementName=NavigationListBox, Path=SelectedItem}" ContentTemplate="{StaticResource IconPacksBrowser.DataTemplates.Content}" />
         </mah:SplitView>
 
-        <StatusBar Grid.Row="1" Height="24">
+        <StatusBar Grid.Row="2" Height="24">
             <!-- <StatusBarItem Content="{Binding AppVersion, Mode=OneWay}" ContentStringFormat="{}Browser v{0}" /> -->
             <!-- <Separator Style="{DynamicResource MahApps.Styles.Separator.StatusBar}" /> -->
             <StatusBarItem Content="{Binding IconPacksVersion, Mode=OneWay}" ContentStringFormat="{}IconPacks v{0}" />
