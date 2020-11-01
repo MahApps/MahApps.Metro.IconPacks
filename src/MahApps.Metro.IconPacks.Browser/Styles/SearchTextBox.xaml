@@ -7,7 +7,10 @@
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
     <!--  TextBox Style  -->
-    <Style x:Key="IconPacksBrowser.Styles.TextBox.Search" TargetType="{x:Type TextBox}">
+    <Style
+        x:Key="IconPacksBrowser.Styles.TextBox.Search"
+        BasedOn="{StaticResource MahApps.Styles.TextBox}"
+        TargetType="{x:Type TextBox}">
         <Setter Property="mah:TextBoxHelper.ButtonFontSize" Value="{DynamicResource MahApps.Font.Size.Button.ClearText}" />
         <Setter Property="mah:TextBoxHelper.ButtonWidth" Value="22" />
         <Setter Property="mah:TextBoxHelper.Watermark" Value="Filter by..." />
@@ -22,10 +25,10 @@
         <Setter Property="mah:TextBoxHelper.ButtonContentTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <mah:FontIcon
-                        FontFamily="Segoe MDL2 Assets"
-                        FontSize="12"
-                        Glyph="&#xE711;" />
+                    <iconPacks:PackIconModern
+                        Width="12"
+                        Height="12"
+                        Kind="ClearInverseReflectHorizontal" />
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -236,12 +239,10 @@
                             <Setter TargetName="PART_icon" Property="Opacity" Value="0.8" />
                         </Trigger>
                         <Trigger SourceName="PART_ClearText" Property="IsMouseOver" Value="True">
-                            <Setter TargetName="PART_ClearText" Property="Background" Value="{DynamicResource MahApps.Brushes.Gray8}" />
                             <Setter TargetName="PART_ClearText" Property="Foreground" Value="{DynamicResource MahApps.Brushes.Accent}" />
                         </Trigger>
                         <Trigger SourceName="PART_ClearText" Property="IsPressed" Value="True">
-                            <Setter TargetName="PART_ClearText" Property="Background" Value="{DynamicResource MahApps.Brushes.ThemeForeground}" />
-                            <Setter TargetName="PART_ClearText" Property="Foreground" Value="{DynamicResource MahApps.Brushes.ThemeBackground}" />
+                            <Setter TargetName="PART_ClearText" Property="Foreground" Value="{DynamicResource MahApps.Brushes.ThemeForeground}" />
                         </Trigger>
 
                         <MultiTrigger>

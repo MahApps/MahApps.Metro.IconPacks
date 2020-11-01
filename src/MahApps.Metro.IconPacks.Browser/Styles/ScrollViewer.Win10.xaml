@@ -141,6 +141,7 @@
                     Grid.Row="0"
                     Command="ScrollBar.LineUpCommand"
                     Content="M240.125,160L400.125,320 80.125,320 240.125,160z"
+                    Opacity="0"
                     Style="{DynamicResource MahApps.Styles.RepeatButton.ScrollBarSmall}"
                     Visibility="Visible" />
                 <Track
@@ -171,6 +172,7 @@
                     Grid.Row="2"
                     Command="ScrollBar.LineDownCommand"
                     Content="M80.125,192L400.125,192 240.125,352 80.125,192z"
+                    Opacity="0"
                     Style="{DynamicResource MahApps.Styles.RepeatButton.ScrollBarSmall}"
                     Visibility="Visible" />
             </Grid>
