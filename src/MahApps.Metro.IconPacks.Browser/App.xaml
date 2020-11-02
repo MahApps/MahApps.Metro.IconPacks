@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="Styles/SearchTextBox.xaml" />
                 <ResourceDictionary Source="Styles/NavigationListBox.xaml" />
                 <ResourceDictionary Source="Styles/ScrollViewer.Win10.xaml" />
+                <ResourceDictionary Source="Styles/SidebarExpander.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style BasedOn="{StaticResource MahApps.Styles.ListBoxItem}" TargetType="{x:Type ListBoxItem}">

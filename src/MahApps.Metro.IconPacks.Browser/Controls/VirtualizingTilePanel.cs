@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace MahApps.Metro.IconPacks.Browser.Virtualizing
+namespace MahApps.Metro.IconPacks.Browser.Controls
 {
     /// <summary>
     /// This panel is taken from Dan Crevier's Blog post:

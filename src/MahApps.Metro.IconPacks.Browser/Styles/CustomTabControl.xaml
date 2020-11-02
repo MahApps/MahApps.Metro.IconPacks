@@ -5,7 +5,7 @@
                     xmlns:converter="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core"
                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                     xmlns:viewModels="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
-                    xmlns:virtualizing="clr-namespace:MahApps.Metro.IconPacks.Browser.Virtualizing">
+                    xmlns:virtualizing="clr-namespace:MahApps.Metro.IconPacks.Browser.Controls">
 
     <SolidColorBrush x:Key="TabItemPanelBackgroundBrush" Color="{DynamicResource MahApps.Colors.Gray8}" />
     <SolidColorBrush x:Key="TabItemBackgroundIsSelectedBrush" Color="{DynamicResource MahApps.Colors.Gray2}" />
