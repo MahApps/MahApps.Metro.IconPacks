@@ -35,8 +35,21 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                 {
                     newWidth = MaxWidth;
                 }
-                SetCurrentValue(WidthProperty, newWidth);
+                MahApps.Metro.IconPacks.Browser.Properties.Settings.Default.SidebarExpandedWidth = newWidth;
             }
         }
+
+
+        // Helper for the animation
+        public double AnimateWidthFactor
+        {
+            get { return (double)GetValue(AnimateWidthFactorProperty); }
+            set { SetValue(AnimateWidthFactorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AnimateWidthFactor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AnimateWidthFactorProperty = DependencyProperty.Register("AnimateWidthFactor", typeof(double), typeof(SidebarExpander), new PropertyMetadata(0d));
+
+
     }
 }

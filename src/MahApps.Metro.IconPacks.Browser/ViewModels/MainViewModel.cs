@@ -170,7 +170,11 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             {
                 if (Set(ref _filterText, value))
                 {
-                    foreach (var iconPack in this.IconPacks.OfType<IconPackViewModel>())
+                    foreach (var iconPack in this.IconPacks)
+                    {
+                        this._dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() => iconPack.FilterText = value));
+                    }
+                    foreach (var iconPack in this.AllIconPacksCollection)
                     {
                         this._dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() => iconPack.FilterText = value));
                     }

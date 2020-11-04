@@ -39,6 +39,7 @@
         <Setter Property="FontSize" Value="16" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="10,0,5,0" />
+        <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
         <Setter Property="mah:ItemHelper.ActiveSelectionBackgroundBrush" Value="Transparent" />
         <Setter Property="mah:ItemHelper.ActiveSelectionForegroundBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}" />
         <Setter Property="mah:ItemHelper.DisabledForegroundBrush" Value="{DynamicResource MahApps.Brushes.Gray}" />

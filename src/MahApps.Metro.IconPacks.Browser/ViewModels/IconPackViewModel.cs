@@ -160,6 +160,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                 if (Set(ref _filterText, value))
                 {
                     this._iconsCollectionView?.Refresh();
+
                 }
             }
         }

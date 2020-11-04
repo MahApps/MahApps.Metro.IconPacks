@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MahApps.Metro.IconPacks.Browser.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SidebarExpandedWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">280</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

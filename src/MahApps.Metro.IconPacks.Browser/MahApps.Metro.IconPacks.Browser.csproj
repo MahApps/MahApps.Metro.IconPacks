@@ -51,7 +51,15 @@
       <Resource Remove="Icon\Icon.ico" />
     </ItemGroup>
     <ItemGroup>
+      <_SettingsFiles Remove="Properties\Settings.settings" />
+    </ItemGroup>
+    <ItemGroup>
         <Compile DependentUpon="%(Filename)" SubType="Code" Update="**\obj\**\*.g$(DefaultLanguageSourceExtension)" />
         <Compile DependentUpon="%(Filename)" SubType="Designer" Update="**\*.xaml$(DefaultLanguageSourceExtension)" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Update="Properties\Settings.settings">
+        <Generator>PublicSettingsSingleFileGenerator</Generator>
+      </None>
     </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace MahApps.Metro.IconPacks.Browser.Controls
 {
@@ -15,6 +16,8 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
     /// </summary>
     class VirtualizingTilePanel : VirtualizingPanel, IScrollInfo
     {
+        private DispatcherOperation arrangeChildObjectsOperation;
+
         public VirtualizingTilePanel()
         {
             // For use in the IScrollInfo implementation
@@ -150,19 +153,30 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
         /// <returns>Size used</returns>
         protected override Size ArrangeOverride(Size finalSize)
         {
-            IItemContainerGenerator generator = this.ItemContainerGenerator;
-
-            UpdateScrollInfo(finalSize);
-
-            for (int i = 0; i < this.Children.Count; i++)
+            // Let's cancel the current arrange if we start a new one.
+            if (arrangeChildObjectsOperation?.Status == DispatcherOperationStatus.Executing || arrangeChildObjectsOperation?.Status == DispatcherOperationStatus.Pending)
             {
-                UIElement child = this.Children[i];
-
-                // Map the child offset to an item offset
-                int itemIndex = generator.IndexFromGeneratorPosition(new GeneratorPosition(i, 0));
-
-                ArrangeChild(itemIndex, child, finalSize);
+                arrangeChildObjectsOperation.Abort();
             }
+
+            var arrageChildObjectsAction = new Action(() =>
+            {
+                IItemContainerGenerator generator = this.ItemContainerGenerator;
+
+                UpdateScrollInfo(finalSize);
+
+                for (int i = 0; i < this.Children.Count; i++)
+                {
+                    UIElement child = this.Children[i];
+
+                    // Map the child offset to an item offset
+                    int itemIndex = generator.IndexFromGeneratorPosition(new GeneratorPosition(i, 0));
+
+                    ArrangeChild(itemIndex, child, finalSize);
+                }
+            });
+
+            arrangeChildObjectsOperation = Dispatcher.BeginInvoke(DispatcherPriority.Background, arrageChildObjectsAction);
 
             return finalSize;
         }

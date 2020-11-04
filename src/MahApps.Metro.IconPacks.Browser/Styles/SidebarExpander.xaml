@@ -1,9 +1,12 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:Converters="http://metro.mahapps.com/winfx/xaml/shared"
-    xmlns:ctrls="clr-namespace:MahApps.Metro.IconPacks.Browser.Controls"
-    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Converters="http://metro.mahapps.com/winfx/xaml/shared"
+                    xmlns:ctrls="clr-namespace:MahApps.Metro.IconPacks.Browser.Controls"
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                    xmlns:prop="clr-namespace:MahApps.Metro.IconPacks.Browser.Properties">
+
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
     <Style x:Key="IconPackBrowser.Styles.Thumb.Invisible" TargetType="Thumb">
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -13,90 +16,35 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
-                    <Grid
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Background="Red" />
+                    <Grid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Background="Transparent" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style
-        x:Key="IconPackBrowser.Styles.ToggleButton.ExpanderHeader"
-        BasedOn="{StaticResource MahApps.Styles.ToggleButton.ExpanderHeader.Base}"
-        TargetType="{x:Type ToggleButton}">
+    <Style x:Key="IconPackBrowser.Styles.ToggleButton.ExpanderHeader"
+           BasedOn="{StaticResource MahApps.Styles.ToggleButton.ExpanderHeader.Base}"
+           TargetType="{x:Type ToggleButton}">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <Border
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                        <Grid
-                            Margin="{TemplateBinding Padding}"
-                            Background="Transparent"
-                            SnapsToDevicePixels="False">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid Margin="1">
-                                <Grid.LayoutTransform>
-                                    <TransformGroup>
-                                        <TransformGroup.Children>
-                                            <TransformCollection>
-                                                <RotateTransform Angle="-90" />
-                                            </TransformCollection>
-                                        </TransformGroup.Children>
-                                    </TransformGroup>
-                                </Grid.LayoutTransform>
-                                <Ellipse
-                                    x:Name="Circle"
-                                    Width="{DynamicResource ExpanderToggleButtonEllipseThemeSize}"
-                                    Height="{DynamicResource ExpanderToggleButtonEllipseThemeSize}"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Stroke="{TemplateBinding Foreground}" />
-                                <Path
-                                    x:Name="Arrow"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Data="M 1,4.5  L 4.5,1  L 8,4.5"
-                                    SnapsToDevicePixels="false"
-                                    Stroke="{TemplateBinding Foreground}"
-                                    StrokeThickness="2" />
-                            </Grid>
-                            <mah:ContentControlEx
-                                Grid.Row="1"
-                                Margin="0,4,0,0"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Content="{TemplateBinding Content}"
-                                ContentCharacterCasing="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mah:ControlsHelper.ContentCharacterCasing)}"
-                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                RecognizesAccessKey="{TemplateBinding mah:ControlsHelper.RecognizesAccessKey}"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </Grid>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <mah:ContentControlEx Grid.Row="1"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                              RecognizesAccessKey="{TemplateBinding mah:ControlsHelper.RecognizesAccessKey}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="true">
-                            <Setter TargetName="Arrow" Property="Data" Value="M 1,1.5 L 4.5,5 L 8,1.5" />
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter TargetName="Arrow" Property="Stroke" Value="{DynamicResource MahApps.Brushes.Gray2}" />
-                            <Setter TargetName="Circle" Property="Stroke" Value="{DynamicResource MahApps.Brushes.Gray2}" />
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="true">
-                            <Setter TargetName="Arrow" Property="Stroke" Value="{DynamicResource MahApps.Brushes.ThemeForeground}" />
-                            <Setter TargetName="Circle" Property="Stroke" Value="{DynamicResource MahApps.Brushes.ThemeForeground}" />
-                            <Setter TargetName="Circle" Property="StrokeThickness" Value="2" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -107,79 +55,97 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.Gray8}" />
         <Setter Property="mah:HeaderedControlHelper.HeaderBackground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}" />
+        <Setter Property="MinWidth" Value="24" />
+        <Setter Property="MaxWidth" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Panel}, Path=ActualWidth, Converter={Converters:MathSubtractConverter}, ConverterParameter=150}" />
+        <Setter Property="mah:ExpanderHelper.CollapseStoryboard" Value="{x:Null}" />
+        <Setter Property="mah:ExpanderHelper.ExpandStoryboard" Value="{x:Null}" />
+        <Setter Property="Width">
+            <Setter.Value>
+                <MultiBinding Converter="{Converters:MathMultiplyConverter}">
+                    <Binding Path="SidebarExpandedWidth" Source="{x:Static prop:Settings.Default}" />
+                    <Binding Path="AnimateWidthFactor" RelativeSource="{RelativeSource Mode=Self}" />
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ctrls:SidebarExpander}">
                     <Grid>
-                        <Rectangle
-                            x:Name="DisabledVisualElement"
-                            Fill="{DynamicResource MahApps.Brushes.Control.Disabled}"
-                            IsHitTestVisible="false"
-                            Opacity="0" />
+                        <Rectangle x:Name="DisabledVisualElement"
+                                   Fill="{DynamicResource MahApps.Brushes.Control.Disabled}"
+                                   IsHitTestVisible="false"
+                                   Opacity="0" />
                         <DockPanel x:Name="ExpanderRoot">
-                            <Border
-                                x:Name="HeaderSite"
-                                Background="{TemplateBinding mah:HeaderedControlHelper.HeaderBackground}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                DockPanel.Dock="Left"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                UseLayoutRounding="True">
-                                <ToggleButton
-                                    x:Name="ToggleSite"
-                                    mah:ControlsHelper.ContentCharacterCasing="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(mah:ControlsHelper.ContentCharacterCasing)}"
-                                    IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"
-                                    Style="{StaticResource IconPackBrowser.Styles.ToggleButton.ExpanderHeader}"
-                                    UseLayoutRounding="False">
+                            <Border x:Name="HeaderSite"
+                                    Background="{TemplateBinding mah:HeaderedControlHelper.HeaderBackground}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    DockPanel.Dock="Left"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    UseLayoutRounding="True">
+                                <ToggleButton x:Name="ToggleSite"
+                                              IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"
+                                              Style="{StaticResource IconPackBrowser.Styles.ToggleButton.ExpanderHeader}"
+                                              UseLayoutRounding="False">
                                     <ToggleButton.Foreground>
                                         <MultiBinding Converter="{x:Static Converters:BackgroundToForegroundConverter.Instance}">
-                                            <Binding
-                                                Mode="OneWay"
-                                                Path="(mah:HeaderedControlHelper.HeaderBackground)"
-                                                RelativeSource="{RelativeSource TemplatedParent}" />
-                                            <Binding
-                                                Mode="OneWay"
-                                                Path="(mah:HeaderedControlHelper.HeaderForeground)"
-                                                RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <Binding Mode="OneWay"
+                                                     Path="(mah:HeaderedControlHelper.HeaderBackground)"
+                                                     RelativeSource="{RelativeSource TemplatedParent}" />
+                                            <Binding Mode="OneWay"
+                                                     Path="(mah:HeaderedControlHelper.HeaderForeground)"
+                                                     RelativeSource="{RelativeSource TemplatedParent}" />
                                         </MultiBinding>
                                     </ToggleButton.Foreground>
                                     <Grid>
-                                        <ContentControl
-                                            Content="{TemplateBinding Header}"
-                                            ContentStringFormat="{TemplateBinding HeaderStringFormat}"
-                                            ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                            ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
-                                            FontFamily="{TemplateBinding mah:HeaderedControlHelper.HeaderFontFamily}"
-                                            FontSize="{TemplateBinding mah:HeaderedControlHelper.HeaderFontSize}"
-                                            FontStretch="{TemplateBinding mah:HeaderedControlHelper.HeaderFontStretch}"
-                                            FontWeight="{TemplateBinding mah:HeaderedControlHelper.HeaderFontWeight}" />
-                                        <Thumb
-                                            x:Name="PART_ResizingThumb"
-                                            Style="{DynamicResource IconPackBrowser.Styles.Thumb.Invisible}"
-                                            Visibility="{TemplateBinding IsExpanded,
-                                                                         Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                        <StackPanel Margin="4"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Vertical">
+
+                                            <iconPacks:PackIconMicrons x:Name="Arrow1"
+                                                                       Margin="0,0,0,16"
+                                                                       HorizontalAlignment="Center"
+                                                                       Foreground="{DynamicResource MahApps.Brushes.Gray1}"
+                                                                       Kind="Left" />
+                                            <ContentControl HorizontalAlignment="Center"
+                                                            Content="{TemplateBinding Header}"
+                                                            ContentStringFormat="{TemplateBinding HeaderStringFormat}"
+                                                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                            ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                                                            FontFamily="{TemplateBinding mah:HeaderedControlHelper.HeaderFontFamily}"
+                                                            FontSize="{TemplateBinding mah:HeaderedControlHelper.HeaderFontSize}"
+                                                            FontStretch="{TemplateBinding mah:HeaderedControlHelper.HeaderFontStretch}"
+                                                            FontWeight="{TemplateBinding mah:HeaderedControlHelper.HeaderFontWeight}" />
+                                            <iconPacks:PackIconMicrons x:Name="Arrow2"
+                                                                       Margin="0,16,0,0"
+                                                                       HorizontalAlignment="Center"
+                                                                       Foreground="{DynamicResource MahApps.Brushes.Gray1}"
+                                                                       Kind="Left" />
+                                        </StackPanel>
+
+                                        <Thumb x:Name="PART_ResizingThumb"
+                                               Style="{DynamicResource IconPackBrowser.Styles.Thumb.Invisible}"
+                                               Visibility="{TemplateBinding IsExpanded,
+                                                                            Converter={StaticResource BooleanToVisibilityConverter}}" />
                                     </Grid>
                                 </ToggleButton>
                             </Border>
-                            <Border
-                                x:Name="ExpandSite"
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                DockPanel.Dock="Right"
-                                Focusable="false"
-                                Opacity="0"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                UseLayoutRounding="True"
-                                Visibility="Collapsed">
-                                <ContentPresenter
-                                    Margin="{TemplateBinding Padding}"
-                                    Content="{TemplateBinding Content}"
-                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                    Cursor="{TemplateBinding Cursor}"
-                                    UseLayoutRounding="False" />
+                            <Border x:Name="ExpandSite"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    DockPanel.Dock="Right"
+                                    Focusable="false"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    UseLayoutRounding="True"
+                                    Visibility="Visible">
+                                <ContentPresenter Margin="{TemplateBinding Padding}"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  Cursor="{TemplateBinding Cursor}"
+                                                  UseLayoutRounding="False" />
                             </Border>
                         </DockPanel>
                         <VisualStateManager.VisualStateGroups>
@@ -200,27 +166,74 @@
                         </VisualStateManager.VisualStateGroups>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <MultiDataTrigger>
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding IsExpanded, RelativeSource={RelativeSource Self}}" Value="True" />
-                                <Condition Binding="{Binding Path=(mah:ExpanderHelper.ExpandStoryboard), RelativeSource={RelativeSource Self}}" Value="{x:Null}" />
-                            </MultiDataTrigger.Conditions>
-                            <Setter TargetName="ExpandSite" Property="Opacity" Value="1" />
-                            <Setter TargetName="ExpandSite" Property="Visibility" Value="Visible" />
-                        </MultiDataTrigger>
-                        <MultiDataTrigger>
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding IsExpanded, RelativeSource={RelativeSource Self}}" Value="False" />
-                                <Condition Binding="{Binding Path=(mah:ExpanderHelper.CollapseStoryboard), RelativeSource={RelativeSource Self}}" Value="{x:Null}" />
-                            </MultiDataTrigger.Conditions>
-                            <Setter TargetName="ExpandSite" Property="Opacity" Value="0" />
-                            <Setter TargetName="ExpandSite" Property="Visibility" Value="Collapsed" />
-                        </MultiDataTrigger>
-                        <Trigger Property="IsExpanded" Value="false">
-                            <Setter Property="Width" Value="{Binding ElementName=HeaderSite, Path=ActualWidth}" />
-                        </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                        <Trigger SourceName="HeaderSite" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Arrow1" Property="Foreground" Value="{DynamicResource MahApps.Brushes.Gray2}" />
+                            <Setter TargetName="Arrow2" Property="Foreground" Value="{DynamicResource MahApps.Brushes.Gray2}" />
+                        </Trigger>
+                        <Trigger SourceName="ToggleSite" Property="IsPressed" Value="True">
+                            <Setter TargetName="Arrow1" Property="Foreground" Value="{DynamicResource MahApps.Brushes.ThemeForeground}" />
+                            <Setter TargetName="Arrow2" Property="Foreground" Value="{DynamicResource MahApps.Brushes.ThemeForeground}" />
+                        </Trigger>
+                        <Trigger Property="IsExpanded" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="ExpandStoryboard">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="AnimateWidthFactor"
+                                                         From="0"
+                                                         To="1"
+                                                         Duration="0:0:0.5" />
+                                        <DoubleAnimation Storyboard.TargetName="Arrow1"
+                                                         Storyboard.TargetProperty="RotationAngle"
+                                                         To="180"
+                                                         Duration="0:0:0.5" />
+                                        <DoubleAnimation Storyboard.TargetName="Arrow2"
+                                                         Storyboard.TargetProperty="RotationAngle"
+                                                         To="180"
+                                                         Duration="0:0:0.5" />
+                                        <DoubleAnimation BeginTime="0:0:0.5"
+                                                         Storyboard.TargetProperty="MinWidth"
+                                                         To="100"
+                                                         Duration="0" />
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ExpandSite" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <StopStoryboard BeginStoryboardName="ExpandStoryboard" />
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsExpanded" Value="False">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard x:Name="CollapseStoryboard">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="AnimateWidthFactor"
+                                                         From="1"
+                                                         To="0"
+                                                         Duration="0:0:0.5" />
+                                        <DoubleAnimation Storyboard.TargetName="Arrow1"
+                                                         Storyboard.TargetProperty="RotationAngle"
+                                                         To="0"
+                                                         Duration="0:0:0.5" />
+                                        <DoubleAnimation Storyboard.TargetName="Arrow2"
+                                                         Storyboard.TargetProperty="RotationAngle"
+                                                         To="0"
+                                                         Duration="0:0:0.5" />
+                                        <ObjectAnimationUsingKeyFrames BeginTime="0:0:0.5"
+                                                                       Storyboard.TargetName="ExpandSite"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame Value="{x:Static Visibility.Collapsed}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <StopStoryboard BeginStoryboardName="CollapseStoryboard" />
+                            </Trigger.ExitActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
