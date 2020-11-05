@@ -52,8 +52,7 @@
         <model:IconTemplateSelector x:Key="IconPacksBrowser.DataTemplateSelectors.Icon" />
 
         <DataTemplate x:Key="IconPacksBrowser.DataTemplates.Content" DataType="{x:Type viewModels:IconPackViewModel}">
-            <ListBox x:Name="IconListBox"
-                     Grid.Column="0"
+            <ListBox Grid.Column="0"
                      Margin="2"
                      FocusVisualStyle="{x:Null}"
                      ItemsSource="{Binding Icons}"
@@ -88,16 +87,12 @@
                                   VerticalAlignment="Top"
                                   Focusable="False"
                                   Visibility="Collapsed">
-                                <Grid x:Name="Background" Opacity=".2">
-                                    <Ellipse Width="22"
-                                             HorizontalAlignment="Left"
-                                             Fill="LightGray" />
-                                    <Ellipse Width="22"
-                                             HorizontalAlignment="Right"
-                                             Fill="LightGray" />
-                                    <Rectangle Margin="11,0" Fill="LightGray" />
-                                </Grid>
-                                <StackPanel Margin="11,0" Orientation="Horizontal">
+                                <Rectangle RadiusX="11" RadiusY="11" Margin="11,0" >
+                                    <Rectangle.Fill>
+                                        <SolidColorBrush Opacity=".2" Color="{DynamicResource MahApps.Colors.ThemeBackground}" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                    <StackPanel Margin="11,0" Orientation="Horizontal">
                                     <Button Grid.Column="0"
                                             Width="22"
                                             Height="22"
