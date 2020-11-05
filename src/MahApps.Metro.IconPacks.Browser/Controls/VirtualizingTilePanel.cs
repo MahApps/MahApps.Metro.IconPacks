@@ -17,6 +17,8 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
     class VirtualizingTilePanel : VirtualizingPanel, IScrollInfo
     {
         private DispatcherOperation arrangeChildObjectsOperation;
+        private int childrenPerRow;
+        private double calculatedChildWidth;
 
         public VirtualizingTilePanel()
         {
@@ -78,6 +80,14 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                             InvalidateMeasure();
                     }
                 }
+
+                // Store the values which are valid for all children so the calculation is less heavier. 
+                if (sizeInfo.WidthChanged)
+                {
+                    childrenPerRow = CalculateChildrenPerRow(sizeInfo.NewSize);
+                    calculatedChildWidth = sizeInfo.NewSize.Width / childrenPerRow;
+                }
+
             }
             base.OnRenderSizeChanged(sizeInfo);
         }
@@ -172,11 +182,11 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                     // Map the child offset to an item offset
                     int itemIndex = generator.IndexFromGeneratorPosition(new GeneratorPosition(i, 0));
 
-                    ArrangeChild(itemIndex, child, finalSize);
+                    ArrangeChild(itemIndex, child);
                 }
             });
 
-            arrangeChildObjectsOperation = Dispatcher.BeginInvoke(DispatcherPriority.Background, arrageChildObjectsAction);
+            arrangeChildObjectsOperation = Dispatcher.BeginInvoke(DispatcherPriority.Render, arrageChildObjectsAction);
 
             return finalSize;
         }
@@ -277,16 +287,12 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
         /// <param name="itemIndex">The data item index of the child</param>
         /// <param name="child">The element to position</param>
         /// <param name="finalSize">The size of the panel</param>
-        private void ArrangeChild(int itemIndex, UIElement child, Size finalSize)
+        private void ArrangeChild(int itemIndex, UIElement child)
         {
-            int childrenPerRow = CalculateChildrenPerRow(finalSize);
-
-            double extraColumSpacePerItem = (ActualWidth % (childrenPerRow * ChildSize)) / childrenPerRow; 
-
             int row = itemIndex/childrenPerRow;
             int column = itemIndex%childrenPerRow;
 
-            child.Arrange(new Rect(column * (this.ChildSize + extraColumSpacePerItem), row*this.ChildSize, this.ChildSize + extraColumSpacePerItem, this.ChildSize));
+            child.Arrange(new Rect(column * (this.calculatedChildWidth), row*this.ChildSize, this.calculatedChildWidth, this.ChildSize));
         }
 
         /// <summary>
