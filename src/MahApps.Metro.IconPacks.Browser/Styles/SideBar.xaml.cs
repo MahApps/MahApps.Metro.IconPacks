@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MahApps.Metro.IconPacks.Browser.Styles
+namespace MahApps.Metro.IconPacks.Browser.Controls
 {
     /// <summary>
     /// Interaction logic for SideBar.xaml

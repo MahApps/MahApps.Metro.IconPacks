@@ -192,16 +192,14 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
     public class IconViewModel : ViewModelBase, IIconViewModel
     {
         public IconViewModel()
-        {
-            this.CopyToClipboard =
+        { 
+            this.CopyToClipboard = 
                 new SimpleCommand
                 {
                     CanExecuteDelegate = x => (x != null),
                     ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        var icon = (IIconViewModel) x;
-                        var text = $"<iconPacks:{icon.IconPackType.Name} Kind=\"{icon.Name}\" />";
-                        Clipboard.SetDataObject(text);
+                        Clipboard.SetDataObject(CopyToClipboardText);
                     }))
                 };
 
@@ -211,9 +209,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     CanExecuteDelegate = x => (x != null),
                     ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        var icon = (IIconViewModel) x;
-                        var text = $"{{iconPacks:{icon.IconPackType.Name.Replace("PackIcon", "")} Kind={icon.Name}}}";
-                        Clipboard.SetDataObject(text);
+                        Clipboard.SetDataObject(CopyToClipboardAsContentText);
                     }))
                 };
 
@@ -223,10 +219,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     CanExecuteDelegate = x => (x != null),
                     ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        var icon = (IIconViewModel) x;
-                        // The UWP type is in WPF app not available
-                        var text = $"<iconPacks:{icon.IconPackType.Name.Replace("PackIcon", "PathIcon")} Kind=\"{icon.Name}\" />";
-                        Clipboard.SetDataObject(text);
+                        Clipboard.SetDataObject(CopyToClipboardAsPathIconText);
                     }))
                 };
 
@@ -236,27 +229,21 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     CanExecuteDelegate = x => (x != null),
                     ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        var icon = (IIconViewModel) x;
-                        var iconPack = Activator.CreateInstance(icon.IconPackType) as PackIconControlBase;
-                        if (iconPack == null) return;
-
-                        var kindProperty = icon.IconPackType.GetProperty("Kind");
-                        if (kindProperty == null) return;
-
-                        kindProperty.SetValue(iconPack, icon.Value);
-
-                        Clipboard.SetDataObject(iconPack.Data);
+                        Clipboard.SetDataObject(CopyToClipboardAsGeometryText);
                     }))
                 };
         }
-
         public ICommand CopyToClipboard { get; }
+        public string CopyToClipboardText => $"<iconPacks:{IconPackType.Name} Kind=\"{Name}\" />";
 
         public ICommand CopyToClipboardAsContent { get; }
+        public string CopyToClipboardAsContentText => $"{{iconPacks:{IconPackType.Name.Replace("PackIcon", "")} Kind={Name}}}";
 
         public ICommand CopyToClipboardAsPathIcon { get; }
+        public string CopyToClipboardAsPathIconText => $"<iconPacks:{IconPackType.Name.Replace("PackIcon", "PathIcon")} Kind=\"{Name}\" />";
 
         public ICommand CopyToClipboardAsGeometry { get; }
+        public string CopyToClipboardAsGeometryText => GetPathData();
 
         public string Name { get; set; }
 
@@ -267,5 +254,15 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public Type IconType { get; set; }
 
         public object Value { get; set; }
+
+        internal string GetPathData()
+        {
+            var iconPack = Activator.CreateInstance(IconPackType) as PackIconControlBase;
+            if (iconPack == null) return null;
+            var kindProperty = IconPackType.GetProperty("Kind");
+            if (kindProperty == null) return null;
+            kindProperty.SetValue(iconPack, Value);
+            return iconPack.Data;
+        }
     }
 }

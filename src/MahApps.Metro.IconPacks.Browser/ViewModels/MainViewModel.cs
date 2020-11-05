@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Security.Policy;
+using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -181,5 +182,15 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                 }
             }
         }
+
+        public static ICommand CopyTextToClipboardCommand { get; } =
+            new SimpleCommand
+            {
+                CanExecuteDelegate = x => (x is string),
+                ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    Clipboard.SetDataObject(x as string);
+                }))
+            };
     }
 }
