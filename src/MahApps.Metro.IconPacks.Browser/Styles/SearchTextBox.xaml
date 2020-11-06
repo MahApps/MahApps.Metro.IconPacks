@@ -4,8 +4,13 @@
     xmlns:Converters="http://metro.mahapps.com/winfx/xaml/shared"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.Shared.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
+    
     <!--  TextBox Style  -->
     <Style
         x:Key="IconPacksBrowser.Styles.TextBox.Search"
@@ -197,6 +202,7 @@
 
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Value="">
                             <Setter TargetName="PART_Message" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="PART_ClearText" Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
 
                         <MultiDataTrigger>

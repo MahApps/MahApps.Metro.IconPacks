@@ -256,8 +256,8 @@
                        CanResizeOpenPane="True"
                        DisplayMode="Inline"
                        IsPaneOpen="True"
-                       OpenPaneLength="205"
-                       PaneBackground="{DynamicResource MahApps.Brushes.Gray8}">
+                       PaneBackground="{DynamicResource IconPackBrowser.Brushes.PanelBackground}"
+                       OpenPaneLength="205">
             <mah:SplitView.Pane>
                 <ListBox Name="NavigationListBox"
                          SelectedIndex="0"
@@ -281,9 +281,9 @@
                 <mah:TransitioningContentControl Content="{Binding ElementName=NavigationListBox, Path=SelectedItem}" ContentTemplate="{StaticResource IconPacksBrowser.DataTemplates.Content}" />
 
                 <ctrls:SidebarExpander Grid.Column="1"
-                                       mah:HeaderedControlHelper.HeaderBackground="{DynamicResource MahApps.Brushes.Gray8}"
-                                       Background="{DynamicResource MahApps.Brushes.Gray8}"
-                                       BorderBrush="{DynamicResource MahApps.Brushes.Gray8}"
+                                       mah:HeaderedControlHelper.HeaderBackground="{DynamicResource IconPackBrowser.Brushes.PanelBackground}"
+                                       Background="{DynamicResource IconPackBrowser.Brushes.PanelBackground}"
+                                       BorderBrush="{DynamicResource MahApps.Brushes.Gray10}"
                                        BorderThickness="0"
                                        DataContext="{Binding ElementName=NavigationListBox, Path=SelectedItem.SelectedIcon}"
                                        ExpandDirection="Right"
