@@ -5,5 +5,8 @@
     <Setting Name="SidebarExpandedWidth" Type="System.Double" Scope="User">
       <Value Profile="(Default)">280</Value>
     </Setting>
+    <Setting Name="IconPreviewSize" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">48</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

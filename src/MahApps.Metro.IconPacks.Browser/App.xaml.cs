@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.IconPacks.Browser.Properties;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,10 @@ namespace MahApps.Metro.IconPacks.Browser
   /// </summary>
   public partial class App : Application
   {
-  }
+        protected override void OnExit(ExitEventArgs e)
+        {
+            Settings.Default.Save();
+            base.OnExit(e);
+        }
+    }
 }

@@ -193,56 +193,14 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
     {
         public IconViewModel()
         { 
-            this.CopyToClipboard = 
-                new SimpleCommand
-                {
-                    CanExecuteDelegate = x => (x != null),
-                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                        Clipboard.SetDataObject(CopyToClipboardText);
-                    }))
-                };
-
-            this.CopyToClipboardAsContent =
-                new SimpleCommand
-                {
-                    CanExecuteDelegate = x => (x != null),
-                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                        Clipboard.SetDataObject(CopyToClipboardAsContentText);
-                    }))
-                };
-
-            this.CopyToClipboardAsPathIcon =
-                new SimpleCommand
-                {
-                    CanExecuteDelegate = x => (x != null),
-                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                        Clipboard.SetDataObject(CopyToClipboardAsPathIconText);
-                    }))
-                };
-
-            this.CopyToClipboardAsGeometry =
-                new SimpleCommand
-                {
-                    CanExecuteDelegate = x => (x != null),
-                    ExecuteDelegate = x => Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                        Clipboard.SetDataObject(CopyToClipboardAsGeometryText);
-                    }))
-                };
         }
-        public ICommand CopyToClipboard { get; }
+
         public string CopyToClipboardText => $"<iconPacks:{IconPackType.Name} Kind=\"{Name}\" />";
 
-        public ICommand CopyToClipboardAsContent { get; }
         public string CopyToClipboardAsContentText => $"{{iconPacks:{IconPackType.Name.Replace("PackIcon", "")} Kind={Name}}}";
 
-        public ICommand CopyToClipboardAsPathIcon { get; }
         public string CopyToClipboardAsPathIconText => $"<iconPacks:{IconPackType.Name.Replace("PackIcon", "PathIcon")} Kind=\"{Name}\" />";
 
-        public ICommand CopyToClipboardAsGeometry { get; }
         public string CopyToClipboardAsGeometryText => GetPathData();
 
         public string Name { get; set; }

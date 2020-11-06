@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.IconPacks.Browser.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
         public SideBar()
         {
             InitializeComponent();
+        }
+
+        private void IconPreview_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta != 0 && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                Settings.Default.IconPreviewSize += Math.Sign(e.Delta) * 4;
+                e.Handled = true;
+            }
+            else if (Keyboard.Modifiers == ModifierKeys.Shift)
+            {
+                this.PreviewScrollViewer.ScrollToHorizontalOffset(this.PreviewScrollViewer.HorizontalOffset - e.Delta / 3);
+                e.Handled = true;
+            }
         }
     }
 }

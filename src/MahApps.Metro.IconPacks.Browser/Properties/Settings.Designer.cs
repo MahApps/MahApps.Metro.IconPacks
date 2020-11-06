@@ -34,5 +34,17 @@ namespace MahApps.Metro.IconPacks.Browser.Properties {
                 this["SidebarExpandedWidth"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("48")]
+        public double IconPreviewSize {
+            get {
+                return ((double)(this["IconPreviewSize"]));
+            }
+            set {
+                this["IconPreviewSize"] = value;
+            }
+        }
     }
 }
