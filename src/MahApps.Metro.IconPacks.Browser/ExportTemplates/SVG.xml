@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- You can use the following parameters inside the template:
+  - {{PageWidth}}
+  - {{PageHeight}}
+  - {{PathData}}
+  - {{FillColor}}
+  - {{StrokeColor}}
+  - {{StrokeWidth}}
+  - {{StrokeLineCap}}
+  - {{StrokeLineJoin}}
+  - {{TranformMatrix}} 
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="{{PageWidth}}"
+     height="{{PageHeight}}">
+    <path d="{{PathData}}"
+          style="fill:{{FillColor}};
+                 stroke:{{StrokeColor}}
+                 stroke-width:{{StrokeWidth}};
+                 stroke-linecap:{{StrokeLineCap}};
+                 stroke-linejoin:{{StrokeLineJoin}};"
+          transform="matrix({{TranformMatrix}})" />
+</svg>

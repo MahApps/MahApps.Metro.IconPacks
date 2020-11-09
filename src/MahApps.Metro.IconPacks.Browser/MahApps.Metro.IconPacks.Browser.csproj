@@ -58,6 +58,9 @@
         <Compile DependentUpon="%(Filename)" SubType="Designer" Update="**\*.xaml$(DefaultLanguageSourceExtension)" />
     </ItemGroup>
     <ItemGroup>
+      <None Update="ExportTemplates\SVG.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
       <None Update="Properties\Settings.settings">
         <Generator>PublicSettingsSingleFileGenerator</Generator>
       </None>

@@ -2,15 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:Converters="http://metro.mahapps.com/winfx/xaml/shared"
+             xmlns:ctrls="clr-namespace:MahApps.Metro.IconPacks.Browser.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:iconPacks1="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:iconPacks2="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material"
              xmlns:local="clr-namespace:MahApps.Metro.IconPacks.Browser"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
-             xmlns:vm="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels" 
-             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" 
              xmlns:prop="clr-namespace:MahApps.Metro.IconPacks.Browser.Properties"
-             xmlns:ctrls="clr-namespace:MahApps.Metro.IconPacks.Browser.Controls" xmlns:iconPacks1="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:iconPacks2="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:vm="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
+             x:Name="ucSideBar"
              d:DataContext="{d:DesignInstance Type=vm:IconViewModel,
                                               IsDesignTimeCreatable=True}"
              d:DesignHeight="450"
@@ -25,15 +28,18 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <GroupBox Grid.Row="0" Header="Preview" Padding="0">
-                <ScrollViewer Padding="2"
+            <GroupBox Grid.Row="0"
+                      Padding="0"
+                      Header="Preview">
+                <ScrollViewer x:Name="PreviewScrollViewer"
+                              Padding="2"
                               Background="White"
-                              x:Name="PreviewScrollViewer"
                               HorizontalScrollBarVisibility="Auto"
                               PreviewMouseWheel="IconPreview_PreviewMouseWheel"
                               Style="{StaticResource MahApps.Styles.ScrollViewer}"
                               VerticalScrollBarVisibility="Auto">
-                    <ContentControl Width="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
+                    <ContentControl x:Name="PreviewHolder"
+                                    Width="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
                                     Height="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
                                     Background="Transparent"
                                     Content="{Binding Mode=OneWay}"
@@ -53,7 +59,7 @@
                 <Expander Margin="0,2,0,0"
                           Header="Preview options"
                           IsExpanded="True">
-                    <mah:MetroHeader Header="Iconsize " Padding="2,0">    
+                    <mah:MetroHeader Padding="2,0" Header="Iconsize ">
                         <ComboBox x:Name="ComboBoxIconPreviewSize"
                                   BorderThickness="0"
                                   IsEditable="True"
@@ -75,43 +81,48 @@
                           Header="Copy to clipboard"
                           IsExpanded="True">
                     <StackPanel>
-                        <!-- WPF Control -->
+                        <!--  WPF Control  -->
                         <mah:MetroHeader Padding="2,0,2,5">
                             <mah:MetroHeader.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
-                                        <iconPacks:PackIconEvaIcons Width="20" Height="10" Kind="Code" VerticalAlignment="Center" />
-                                        <TextBlock Text="Copy icon as WPF-Control" VerticalAlignment="Center" />
+                                        <iconPacks:PackIconEvaIcons Width="20"
+                                                                    Height="10"
+                                                                    VerticalAlignment="Center"
+                                                                    Kind="Code" />
+                                        <TextBlock VerticalAlignment="Center" Text="Copy icon as WPF-Control" />
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardText}"  />
+                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardText}" />
                         </mah:MetroHeader>
-                        
-                        <!-- Content Markup-->
+
+                        <!--  Content Markup  -->
                         <mah:MetroHeader Padding="2,0,2,5">
                             <mah:MetroHeader.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
                                         <iconPacks:PackIconMaterial Width="20"
                                                                     Height="10"
-                                                                    Kind="CodeBraces" VerticalAlignment="Center" />
-                                        <TextBlock Text="Copy icon as content" VerticalAlignment="Center" />
+                                                                    VerticalAlignment="Center"
+                                                                    Kind="CodeBraces" />
+                                        <TextBlock VerticalAlignment="Center" Text="Copy icon as content" />
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
                             <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsContentText}" />
                         </mah:MetroHeader>
 
-                        <!-- Copy as UWP Control-->
+                        <!--  Copy as UWP Control  -->
                         <mah:MetroHeader Padding="2,0,2,5">
                             <mah:MetroHeader.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
                                         <iconPacks:PackIconFontAwesome Width="20"
-                                                                       Height="10" VerticalAlignment="Center" 
+                                                                       Height="10"
+                                                                       VerticalAlignment="Center"
                                                                        Kind="DrawPolygonSolid" />
-                                        <TextBlock Text="Copy icon as UWP-Control" VerticalAlignment="Center" />
+                                        <TextBlock VerticalAlignment="Center" Text="Copy icon as UWP-Control" />
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
@@ -123,10 +134,10 @@
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
                                         <iconPacks:PackIconMaterial Width="20"
-                                                                    VerticalAlignment="Center"
                                                                     Height="10"
+                                                                    VerticalAlignment="Center"
                                                                     Kind="Draw" />
-                                        <TextBlock Text="Copy path data" VerticalAlignment="Center" />
+                                        <TextBlock VerticalAlignment="Center" Text="Copy path data" />
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
@@ -135,14 +146,15 @@
                     </StackPanel>
                 </Expander>
 
-                <TextBlock FontSize="14"
-                           FontWeight="Bold"
-                           Foreground="{DynamicResource MahApps.Brushes.Accent}"
-                           Text="Export" />
-                <Button Content="Save as svg" />
-                <Button Content="Save as XAML (WPF)" />
-                <Button Content="Save as XAML (UWP)" />
-                <Button Content="Save as PNG" />
+                <Expander Header="Export">
+                    <StackPanel>
+                        <Button Command="{Binding SaveAsSvg_Command, ElementName=ucSideBar}" Content="Save as svg" />
+                        <Button Content="Save as XAML (WPF)" />
+                        <Button Content="Save as XAML (UWP)" />
+                        <Button Content="Save as PNG" />
+                    </StackPanel>
+                </Expander>
+
             </StackPanel>
         </Grid>
     </ScrollViewer>

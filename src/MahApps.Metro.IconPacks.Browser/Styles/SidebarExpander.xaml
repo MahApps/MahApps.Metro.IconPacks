@@ -86,17 +86,8 @@
                                 <ToggleButton x:Name="ToggleSite"
                                               IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"
                                               Style="{StaticResource IconPackBrowser.Styles.ToggleButton.ExpanderHeader}"
+                                              Foreground="{TemplateBinding Foreground}"
                                               UseLayoutRounding="False">
-                                    <ToggleButton.Foreground>
-                                        <MultiBinding Converter="{x:Static Converters:BackgroundToForegroundConverter.Instance}">
-                                            <Binding Mode="OneWay"
-                                                     Path="(mah:HeaderedControlHelper.HeaderBackground)"
-                                                     RelativeSource="{RelativeSource TemplatedParent}" />
-                                            <Binding Mode="OneWay"
-                                                     Path="(mah:HeaderedControlHelper.HeaderForeground)"
-                                                     RelativeSource="{RelativeSource TemplatedParent}" />
-                                        </MultiBinding>
-                                    </ToggleButton.Foreground>
                                     <Grid>
                                         <StackPanel Margin="4"
                                                     VerticalAlignment="Center"

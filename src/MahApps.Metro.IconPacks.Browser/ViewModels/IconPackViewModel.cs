@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using AsyncAwaitBestPractices;
+using Microsoft.Win32;
 
 namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
@@ -192,7 +193,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
     public class IconViewModel : ViewModelBase, IIconViewModel
     {
         public IconViewModel()
-        { 
+        {
         }
 
         public string CopyToClipboardText => $"<iconPacks:{IconPackType.Name} Kind=\"{Name}\" />";
@@ -201,7 +202,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         public string CopyToClipboardAsPathIconText => $"<iconPacks:{IconPackType.Name.Replace("PackIcon", "PathIcon")} Kind=\"{Name}\" />";
 
-        public string CopyToClipboardAsGeometryText => GetPathData();
+        public string CopyToClipboardAsGeometryText => GetPackIconControlBase().Data;
 
         public string Name { get; set; }
 
@@ -213,14 +214,16 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
         public object Value { get; set; }
 
-        internal string GetPathData()
+
+        internal PackIconControlBase GetPackIconControlBase()
         {
             var iconPack = Activator.CreateInstance(IconPackType) as PackIconControlBase;
             if (iconPack == null) return null;
             var kindProperty = IconPackType.GetProperty("Kind");
             if (kindProperty == null) return null;
             kindProperty.SetValue(iconPack, Value);
-            return iconPack.Data;
+
+            return iconPack;
         }
     }
 }
