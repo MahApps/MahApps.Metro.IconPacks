@@ -22,112 +22,48 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         {
             this._dispatcher = dispatcher;
             this.AppVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
-            this.IconPacks = new ObservableCollection<object>(
-                new object[]
+            
+            var availableIconPacks = new List<(Type EnumType, Type IconPackType)>(
+                new []
                 {
-                    new IconPackViewModel(this, "BootstrapIcons", typeof(PackIconBootstrapIconsKind), typeof(PackIconBootstrapIcons)),
-                    new IconPackViewModel(this, "BoxIcons", typeof(PackIconBoxIconsKind), typeof(PackIconBoxIcons)),
-                    new IconPackViewModel(this, "Codicons", typeof(PackIconCodiconsKind), typeof(PackIconCodicons)),
-                    new IconPackViewModel(this, "Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo)),
-                    new IconPackViewModel(this, "EvaIcons", typeof(PackIconEvaIconsKind), typeof(PackIconEvaIcons)),
-                    new IconPackViewModel(this, "FeatherIcons", typeof(PackIconFeatherIconsKind), typeof(PackIconFeatherIcons)),
-                    new IconPackViewModel(this, "FileIcons", typeof(PackIconFileIconsKind), typeof(PackIconFileIcons)),
-                    new IconPackViewModel(this, "Fontaudio", typeof(PackIconFontaudioKind), typeof(PackIconFontaudio)),
-                    new IconPackViewModel(this, "FontAwesome", typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome)),
-                    new IconPackViewModel(this, "ForkAwesome", typeof(PackIconForkAwesomeKind), typeof(PackIconForkAwesome)),
-                    new IconPackViewModel(this, "Ionicons", typeof(PackIconIoniconsKind), typeof(PackIconIonicons)),
-                    new IconPackViewModel(this, "JamIcons", typeof(PackIconJamIconsKind), typeof(PackIconJamIcons)),
-                    new IconPackViewModel(this, "Material", typeof(PackIconMaterialKind), typeof(PackIconMaterial)),
-                    new IconPackViewModel(this, "MaterialDesign (Google)", typeof(PackIconMaterialDesignKind), typeof(PackIconMaterialDesign)),
-                    new IconPackViewModel(this, "MaterialLight", typeof(PackIconMaterialLightKind), typeof(PackIconMaterialLight)),
-                    new IconPackViewModel(this, "Microns", typeof(PackIconMicronsKind), typeof(PackIconMicrons)),
-                    new IconPackViewModel(this, "Modern", typeof(PackIconModernKind), typeof(PackIconModern)),
-                    new IconPackViewModel(this, "Octicons", typeof(PackIconOcticonsKind), typeof(PackIconOcticons)),
-                    new IconPackViewModel(this, "PICOL", typeof(PackIconPicolIconsKind), typeof(PackIconPicolIcons)),
-                    new IconPackViewModel(this, "PixelartIcons", typeof(PackIconPixelartIconsKind), typeof(PackIconPixelartIcons)),
-                    new IconPackViewModel(this, "RadixIcons", typeof(PackIconRadixIconsKind), typeof(PackIconRadixIcons)),
-                    new IconPackViewModel(this, "RemixIcon", typeof(PackIconRemixIconKind), typeof(PackIconRemixIcon)),
-                    new IconPackViewModel(this, "RPGAwesome", typeof(PackIconRPGAwesomeKind), typeof(PackIconRPGAwesome)),
-                    new IconPackViewModel(this, "SimpleIcons", typeof(PackIconSimpleIconsKind), typeof(PackIconSimpleIcons)),
-                    new IconPackViewModel(this, "Typicons", typeof(PackIconTypiconsKind), typeof(PackIconTypicons)),
-                    new IconPackViewModel(this, "Unicons", typeof(PackIconUniconsKind), typeof(PackIconUnicons)),
-                    new IconPackViewModel(this, "VaadinIcons", typeof(PackIconVaadinIconsKind), typeof(PackIconVaadinIcons)),
-                    new IconPackViewModel(this, "WeatherIcons", typeof(PackIconWeatherIconsKind), typeof(PackIconWeatherIcons)),
-                    new IconPackViewModel(this, "Zondicons", typeof(PackIconZondiconsKind), typeof(PackIconZondicons)),
-                    new IconPackViewModel(this, "All",
-                                          new[]
-                                          {
-                                              typeof(PackIconBootstrapIconsKind),
-                                              typeof(PackIconBoxIconsKind),
-                                              typeof(PackIconCodiconsKind),
-                                              typeof(PackIconEntypoKind),
-                                              typeof(PackIconEvaIconsKind),
-                                              typeof(PackIconFeatherIconsKind),
-                                              typeof(PackIconFileIconsKind),
-                                              typeof(PackIconFontaudioKind),
-                                              typeof(PackIconFontAwesomeKind),
-                                              typeof(PackIconForkAwesomeKind),
-                                              typeof(PackIconIoniconsKind),
-                                              typeof(PackIconJamIconsKind),
-                                              typeof(PackIconMaterialKind),
-                                              typeof(PackIconMaterialDesignKind),
-                                              typeof(PackIconMaterialLightKind),
-                                              typeof(PackIconMicronsKind),
-                                              typeof(PackIconModernKind),
-                                              typeof(PackIconOcticonsKind),
-                                              typeof(PackIconPicolIconsKind),
-                                              typeof(PackIconPixelartIconsKind),
-                                              typeof(PackIconRadixIconsKind),
-                                              typeof(PackIconRemixIconKind),
-                                              typeof(PackIconRPGAwesomeKind),
-                                              typeof(PackIconSimpleIconsKind),
-                                              typeof(PackIconTypiconsKind),
-                                              typeof(PackIconUniconsKind),
-                                              typeof(PackIconVaadinIconsKind),
-                                              typeof(PackIconWeatherIconsKind),
-                                              typeof(PackIconZondiconsKind)
-                                          },
-                                          new[]
-                                          {
-                                              typeof(PackIconBootstrapIcons),
-                                              typeof(PackIconBoxIcons),
-                                              typeof(PackIconCodicons),
-                                              typeof(PackIconEntypo),
-                                              typeof(PackIconEvaIcons),
-                                              typeof(PackIconFeatherIcons),
-                                              typeof(PackIconFileIcons),
-                                              typeof(PackIconFontaudio),
-                                              typeof(PackIconFontAwesome),
-                                              typeof(PackIconForkAwesome),
-                                              typeof(PackIconIonicons),
-                                              typeof(PackIconJamIcons),
-                                              typeof(PackIconMaterial),
-                                              typeof(PackIconMaterialDesign),
-                                              typeof(PackIconMaterialLight),
-                                              typeof(PackIconMicrons),
-                                              typeof(PackIconModern),
-                                              typeof(PackIconOcticons),
-                                              typeof(PackIconPicolIcons),
-                                              typeof(PackIconPixelartIcons),
-                                              typeof(PackIconRadixIcons),
-                                              typeof(PackIconRemixIcon),
-                                              typeof(PackIconRPGAwesome),
-                                              typeof(PackIconSimpleIcons),
-                                              typeof(PackIconTypicons),
-                                              typeof(PackIconUnicons),
-                                              typeof(PackIconVaadinIcons),
-                                              typeof(PackIconWeatherIcons),
-                                              typeof(PackIconZondicons)
-                                          })
+                    (typeof(PackIconBootstrapIconsKind), typeof(PackIconBootstrapIcons)),
+                    (typeof(PackIconBoxIconsKind), typeof(PackIconBoxIcons)),
+                    (typeof(PackIconCodiconsKind), typeof(PackIconCodicons)),
+                    (typeof(PackIconEntypoKind), typeof(PackIconEntypo)),
+                    (typeof(PackIconEvaIconsKind), typeof(PackIconEvaIcons)),
+                    (typeof(PackIconFeatherIconsKind), typeof(PackIconFeatherIcons)),
+                    (typeof(PackIconFileIconsKind), typeof(PackIconFileIcons)),
+                    (typeof(PackIconFontaudioKind), typeof(PackIconFontaudio)),
+                    (typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome)),
+                    (typeof(PackIconForkAwesomeKind), typeof(PackIconForkAwesome)),
+                    (typeof(PackIconIoniconsKind), typeof(PackIconIonicons)),
+                    (typeof(PackIconJamIconsKind), typeof(PackIconJamIcons)),
+                    (typeof(PackIconMaterialKind), typeof(PackIconMaterial)),
+                    (typeof(PackIconMaterialDesignKind), typeof(PackIconMaterialDesign)),
+                    (typeof(PackIconMaterialLightKind), typeof(PackIconMaterialLight)),
+                    (typeof(PackIconMicronsKind), typeof(PackIconMicrons)),
+                    (typeof(PackIconModernKind), typeof(PackIconModern)),
+                    (typeof(PackIconOcticonsKind), typeof(PackIconOcticons)),
+                    (typeof(PackIconPicolIconsKind), typeof(PackIconPicolIcons)),
+                    (typeof(PackIconPixelartIconsKind), typeof(PackIconPixelartIcons)),
+                    (typeof(PackIconRadixIconsKind), typeof(PackIconRadixIcons)),
+                    (typeof(PackIconRemixIconKind), typeof(PackIconRemixIcon)),
+                    (typeof(PackIconRPGAwesomeKind), typeof(PackIconRPGAwesome)),
+                    (typeof(PackIconSimpleIconsKind), typeof(PackIconSimpleIcons)),
+                    (typeof(PackIconTypiconsKind), typeof(PackIconTypicons)),
+                    (typeof(PackIconUniconsKind), typeof(PackIconUnicons)),
+                    (typeof(PackIconVaadinIconsKind), typeof(PackIconVaadinIcons)),
+                    (typeof(PackIconWeatherIconsKind), typeof(PackIconWeatherIcons)),
+                    (typeof(PackIconZondiconsKind), typeof(PackIconZondicons)),
                 });
 
 
 
             this.IconPacks = new ObservableCollection<IconPackViewModel>();
 
-            foreach (var (Name, EnumType, IconPackType) in availableIconPacks)
+            foreach (var (EnumType, IconPackType) in availableIconPacks)
             {
-                IconPacks.Add(new IconPackViewModel(this, Name, EnumType, IconPackType));
+                IconPacks.Add(new IconPackViewModel(this, EnumType, IconPackType));
             }
 
             this.AllIconPacksCollection = new List<IconPackViewModel>(1)

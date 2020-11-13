@@ -23,10 +23,13 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         private string _projectUrl;
         private string _licenseUrl;
 
-        public IconPackViewModel(MainViewModel mainViewModel, string caption, Type enumType, Type packType)
+        public IconPackViewModel(MainViewModel mainViewModel, Type enumType, Type packType)
         {
             this.MainViewModel = mainViewModel;
-            this.Caption = caption;
+
+            // Get the Name of the IconPack via Attributes
+            var attributes = Attribute.GetCustomAttribute(packType, typeof(MetaDataAttribute)) as MetaDataAttribute;
+            this.Caption = attributes.Name;
 
             this.LoadEnumsAsync(enumType, packType).SafeFireAndForget();
         }
