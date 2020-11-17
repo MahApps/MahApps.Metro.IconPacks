@@ -12,9 +12,9 @@ namespace MahApps.Metro.IconPacks.Browser.Model
 <DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""
               xmlns:x=""http://schemas.microsoft.com/winfx/2006/xaml"" 
               xmlns:iconPacks=""http://metro.mahapps.com/winfx/xaml/iconpacks""
-              xmlns:converter=""http://metro.mahapps.com/winfx/xaml/shared"">
-    <iconPacks:[[IconPackType]] Width = ""{TemplateBinding ActualWidth}""
-                                Height = ""{TemplateBinding ActualHeight}""
+              xmlns:converter=""clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core"">
+    <iconPacks:[[IconPackType]] Width = ""Auto""
+                                Height = ""Auto""
                                 HorizontalAlignment = ""Center""
                                 VerticalAlignment = ""Center""
                                 Kind = ""{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}""
