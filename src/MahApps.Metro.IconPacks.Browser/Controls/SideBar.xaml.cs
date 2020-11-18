@@ -23,6 +23,7 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
         public SideBar()
         {
             SaveAsSvg_Command = new SimpleCommand((_) => SaveAsSvg_Execute(),(_) => DataContext is IIconViewModel);
+            SaveAsWpf_Command = new SimpleCommand((_) => SaveAsWpf_Execute(),(_) => DataContext is IIconViewModel);
             InitializeComponent();
         }
 
@@ -100,5 +101,66 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
             await progress.CloseAsync();
         }
 
+
+        public ICommand SaveAsWpf_Command { get; }
+        private async void SaveAsWpf_Execute()
+        {
+            var progress = await this.TryFindParent<MetroWindow>()?.ShowProgressAsync("Export", "Saving selected icon as WPF-XAML-file");
+            progress.SetIndeterminate();
+
+            var fileSaveDialog = new SaveFileDialog()
+            {
+                AddExtension = true,
+                DefaultExt = "xaml",
+                FileName = $"{SelectedIcon?.IconPackType.Name.Remove(0, 8)}-{SelectedIcon.Name}",
+                Filter = "WPF-XAML (*.xaml)|*.xaml",
+                OverwritePrompt = true
+            };
+
+            if (fileSaveDialog.ShowDialog() == true)
+            {
+                string wpfFileContent;
+
+                var iconContol = PreviewHolder.FindChild<PackIconControlBase>();
+                var iconPath = PreviewHolder.FindChild<Path>();
+
+                var bBox = iconPath.Data.Bounds;
+
+                var xamlSize = Math.Max(bBox.Width, bBox.Height);
+                var T = iconPath.LayoutTransform.Value;
+
+                var transform = T.ToString(CultureInfo.InvariantCulture);
+                    
+                //    string.Join(",", new[]
+                //{
+                //    T.M11.ToString(CultureInfo.InvariantCulture),
+                //    T.M21.ToString(CultureInfo.InvariantCulture),
+                //    T.M12.ToString(CultureInfo.InvariantCulture),
+                //    T.M22.ToString(CultureInfo.InvariantCulture),
+                //    (T.M11*(T.OffsetX - bBox.Left + T.M11*(svgSize - bBox.Width)/2) + (bBox.Width - T.M11 * bBox.Width) / 2).ToString(CultureInfo.InvariantCulture),
+                //    (T.M22*(T.OffsetY - (bBox.Top - T.M22*(svgSize - bBox.Height)/2)) + (bBox.Height - T.M22 * bBox.Height) / 2).ToString(CultureInfo.InvariantCulture)
+                //});
+
+                var wpfFileTemplate = io.File.ReadAllText(io.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "WPF.xml"));
+
+                wpfFileContent = wpfFileTemplate
+                    .Replace("{{PageWidth}}", xamlSize.ToString(CultureInfo.InvariantCulture))
+                    .Replace("{{PageHeight}}", xamlSize.ToString(CultureInfo.InvariantCulture))
+                    .Replace("{{PathData}}", iconContol.Data)
+                    .Replace("{{FillColor}}", iconPath.Fill is Brush ? "Black" : "{x:Null}")
+                    .Replace("{{StrokeColor}}", iconPath.Stroke is Brush ? "Black" : "{x:Null}")
+                    .Replace("{{StrokeWidth}}", iconPath.Stroke is null ? "0" : iconPath.StrokeThickness.ToString(CultureInfo.InvariantCulture))
+                    .Replace("{{StrokeLineCap}}", iconPath.StrokeEndLineCap.ToString())
+                    .Replace("{{StrokeLineJoin}}", iconPath.StrokeLineJoin.ToString())
+                    .Replace("{{TranformMatrix}}", transform);
+
+                using (io.StreamWriter file = new io.StreamWriter(fileSaveDialog.FileName))
+                {
+                    file.Write(wpfFileContent);
+                }
+
+            }
+            await progress.CloseAsync();
+        }
     }
 }
