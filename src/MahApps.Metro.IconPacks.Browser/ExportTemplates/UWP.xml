@@ -1,0 +1,17 @@
+﻿<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        Width="{{PageWidth}}" 
+        Height="{{PageHeight}}">
+    <Canvas.RenderTransform>
+        <MatrixTransform Matrix="{{TranformMatrix}}" />
+    </Canvas.RenderTransform>
+    <Path Data="{{PathData}}"
+          Stroke="{{StrokeColor}}"
+          Fill="{{FillColor}}"
+          Stretch="Uniform" 
+          UseLayoutRounding="False"
+          StrokeThickness="{{StrokeWidth}}"
+          StrokeStartLineCap="{{StrokeLineCap}}"
+          StrokeEndLineCap="{{StrokeLineCap}}"
+          StrokeLineJoin="{{StrokeLineJoin}}"/>
+</Canvas>

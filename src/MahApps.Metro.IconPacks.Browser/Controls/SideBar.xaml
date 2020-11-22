@@ -77,7 +77,7 @@
                           Header="Copy to clipboard"
                           IsExpanded="True">
                     <StackPanel>
-                        <!--WPF Control-->
+                        <!--  WPF Control  -->
                         <mah:MetroHeader Padding="2,0,2,5">
                             <mah:MetroHeader.Header>
                                 <StackPanel Orientation="Horizontal">
@@ -108,7 +108,7 @@
                             </mah:MetroHeader.Header>
                             <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsContentText}" />
                         </mah:MetroHeader>
-                        <!--Copy as UWP Control-->
+                        <!--  Copy as UWP Control  -->
                         <mah:MetroHeader Padding="2,0,2,5">
                             <mah:MetroHeader.Header>
                                 <StackPanel Orientation="Horizontal">
@@ -141,11 +141,17 @@
                     </StackPanel>
                 </Expander>
 
-                <Expander Header="Export" IsExpanded="True">
+                <Expander Header="Export" IsExpanded="True" Padding="4,0,4,4">
+                    <Expander.Resources>
+                        <Style TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button.Flat}">
+                            <Setter Property="Margin" Value="0,4,0,0" />
+                            <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.ThemeBackground}" />
+                        </Style>
+                    </Expander.Resources>
                     <StackPanel>
-                        <Button Command="{Binding SaveAsSvg_Command, ElementName=ucSideBar}" Content="Save as svg" />
-                        <Button Command="{Binding SaveAsWpf_Command, ElementName=ucSideBar}" Content="Save as XAML (WPF)" />
-                        <Button Content="Save as XAML (UWP)" />
+                        <Button Command="{Binding SaveAsSvg_Command, ElementName=ucSideBar, Mode=OneTime}" Content="Save as svg" />
+                        <Button Command="{Binding SaveAsWpf_Command, ElementName=ucSideBar, Mode=OneTime}" Content="Save as XAML (WPF)" />
+                        <Button Command="{Binding ElementName=ucSideBar, Path=SaveAsUwp_Command, Mode=OneTime}" Content="Save as XAML (UWP)" />
                         <Button Content="Save as PNG" />
                     </StackPanel>
                 </Expander>
