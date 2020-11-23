@@ -152,7 +152,7 @@
                         <Button Command="{Binding SaveAsSvg_Command, ElementName=ucSideBar, Mode=OneTime}" Content="Save as svg" />
                         <Button Command="{Binding SaveAsWpf_Command, ElementName=ucSideBar, Mode=OneTime}" Content="Save as XAML (WPF)" />
                         <Button Command="{Binding ElementName=ucSideBar, Path=SaveAsUwp_Command, Mode=OneTime}" Content="Save as XAML (UWP)" />
-                        <Button Content="Save as PNG" />
+                        <Button Command="{Binding ElementName=ucSideBar, Path=SaveAsBitmap_Command, Mode=OneTime}" Content="Save as Bitmap" />
                     </StackPanel>
                 </Expander>
             </StackPanel>

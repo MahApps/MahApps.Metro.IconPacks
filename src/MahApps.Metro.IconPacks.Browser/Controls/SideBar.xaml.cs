@@ -3,6 +3,7 @@ using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.IconPacks.Browser.Model;
 using MahApps.Metro.IconPacks.Browser.Properties;
 using MahApps.Metro.IconPacks.Browser.ViewModels;
+using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 using System;
 using System.Globalization;
@@ -26,6 +27,8 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
             SaveAsSvg_Command = new SimpleCommand((_) => SaveAsSvg_Execute(), (_) => DataContext is IIconViewModel);
             SaveAsWpf_Command = new SimpleCommand((_) => SaveAsWpf_Execute(), (_) => DataContext is IIconViewModel);
             SaveAsUwp_Command = new SimpleCommand((_) => SaveAsUwp_Execute(), (_) => DataContext is IIconViewModel);
+            SaveAsBitmap_Command = new SimpleCommand((_) => SaveAsBitmap_Execute(), (_) => DataContext is IIconViewModel);
+
             InitializeComponent();
         }
 
@@ -214,6 +217,53 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                     file.Write(wpfFileContent);
                 }
 
+            }
+            await progress.CloseAsync();
+        }
+
+
+        public ICommand SaveAsBitmap_Command { get; }
+
+        private async void SaveAsBitmap_Execute()
+        {
+            var progress = await this.TryFindParent<MetroWindow>()?.ShowProgressAsync("Export", "Saving selected icon as bitmap image");
+            progress.SetIndeterminate();
+
+            var fileSaveDialog = new SaveFileDialog()
+            {
+                AddExtension = true,
+                FileName = $"{SelectedIcon?.IconPackType.Name.Remove(0, 8)}-{SelectedIcon.Name}",
+                Filter = "PNG-File (*.png)|*.png|JPEG-File (*.jpg)|*.jpg|BMP-File (*.bmp)|*.bmp",
+                OverwritePrompt = true
+            };
+
+            if (fileSaveDialog.ShowDialog() == true)
+            {
+                BitmapEncoder encoder;
+
+                RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int)this.PreviewHolder.Width, (int)this.PreviewHolder.Height, 96, 96, PixelFormats.Default);
+                renderTargetBitmap.Render(PreviewHolder);
+
+                switch (io.Path.GetExtension(fileSaveDialog.FileName).ToLowerInvariant())
+                {
+                    case ".png":
+                        encoder = new PngBitmapEncoder();
+                        break;
+                    case ".jpg":
+                        encoder = new JpegBitmapEncoder();
+                        break;
+                    case ".bmp":
+                        encoder = new BmpBitmapEncoder();
+                        break;
+                    default:
+                        await this.TryFindParent<MetroWindow>()?.ShowMessageAsync("Error", $"You selected a wrong file type. Currently images of type \"{io.Path.GetExtension(fileSaveDialog.FileName)}\" are not supported");
+                        return;
+                }
+
+                encoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
+
+                using var fileStream = new io.FileStream(fileSaveDialog.FileName, io.FileMode.Create);
+                encoder.Save(fileStream);
             }
             await progress.CloseAsync();
         }
