@@ -241,9 +241,34 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
             {
                 BitmapEncoder encoder;
 
-                RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int)this.PreviewHolder.Width, (int)this.PreviewHolder.Height, 96, 96, PixelFormats.Default);
-                renderTargetBitmap.Render(PreviewHolder);
+                var canvas = new Canvas
+                {
+                    Width = Settings.Default.IconPreviewSize,
+                    Height = Settings.Default.IconPreviewSize,
+                    Background = Brushes.Transparent
+                };
 
+                var iconPath = PreviewHolder.FindChild<Path>();
+
+                var path = new Path()
+                {
+                    LayoutTransform = iconPath.LayoutTransform,
+                    Data = iconPath.Data,
+                    Stretch = Stretch.Uniform,
+                    Fill = Brushes.Black,
+                    Width = Settings.Default.IconPreviewSize,
+                    Height = Settings.Default.IconPreviewSize
+                };
+
+                canvas.Children.Add(path);
+
+                var size = new System.Windows.Size(Settings.Default.IconPreviewSize, Settings.Default.IconPreviewSize);
+                canvas.Measure(size);
+                canvas.Arrange(new System.Windows.Rect(size));
+
+                var renderTargetBitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96, 96, PixelFormats.Pbgra32);
+                renderTargetBitmap.Render(canvas);
+               
                 switch (io.Path.GetExtension(fileSaveDialog.FileName).ToLowerInvariant())
                 {
                     case ".png":
