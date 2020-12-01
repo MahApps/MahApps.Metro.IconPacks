@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,19 +25,19 @@ namespace MahApps.Metro.IconPacks.Browser.Model
 
         internal static string FillTemplate(string template, ExportParameters parameters) 
         {
-            return template.Replace("{{IconKind}}",parameters.IconKind)
-                           .Replace("{{IconPackName}}",parameters.IconPackName)
-                           .Replace("{{IconPackHomepage}}",parameters.IconPackHomepage)
-                           .Replace("{{IconPackLicense}}",parameters.IconPackLicense)
-                           .Replace("{{PageWidth}}", parameters.PageWidth)
-                           .Replace("{{PageHeight}}", parameters.PageHeight)
-                           .Replace("{{PathData}}", parameters.PathData)
-                           .Replace("{{FillColor}}", parameters.FillColor)
-                           .Replace("{{StrokeColor}}", parameters.StrokeColor)
-                           .Replace("{{StrokeWidth}}", parameters.StrokeWidth)
-                           .Replace("{{StrokeLineCap}}", parameters.StrokeLineCap)
-                           .Replace("{{StrokeLineJoin}}", parameters.StrokeLineJoin)
-                           .Replace("{{TranformMatrix}}", parameters.TranformMatrix);
+            return template.Replace("@IconKind", parameters.IconKind)
+                           .Replace("@IconPackName", parameters.IconPackName)
+                           .Replace("@IconPackHomepage", parameters.IconPackHomepage)
+                           .Replace("@IconPackLicense", parameters.IconPackLicense)
+                           .Replace("@PageWidth", parameters.PageWidth)
+                           .Replace("@PageHeight", parameters.PageHeight)
+                           .Replace("@PathData", parameters.PathData)
+                           .Replace("@FillColor", parameters.FillColor)
+                           .Replace("@StrokeColor", parameters.StrokeColor)
+                           .Replace("@StrokeWidth", parameters.StrokeWidth)
+                           .Replace("@StrokeLineCap", parameters.StrokeLineCap)
+                           .Replace("@StrokeLineJoin", parameters.StrokeLineJoin)
+                           .Replace("@TranformMatrix", parameters.TranformMatrix);
         }
     }
 

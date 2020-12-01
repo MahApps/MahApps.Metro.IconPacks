@@ -1,18 +1,18 @@
 ﻿<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        Width="{{PageWidth}}" 
-        Height="{{PageHeight}}">
+        Width="@PageWidth" 
+        Height="@PageHeight">
     <Canvas.LayoutTransform>
-        <MatrixTransform Matrix="{{TranformMatrix}}" />
+        <MatrixTransform Matrix="@TranformMatrix" />
     </Canvas.LayoutTransform>
-    <Path Data="{{PathData}}"
-          Stroke="{{StrokeColor}}"
-          Fill="{{FillColor}}"
+    <Path Data="@PathData"
+          Stroke="@StrokeColor"
+          Fill="@FillColor"
           Stretch="Uniform" 
           SnapsToDevicePixels="False"
           UseLayoutRounding="False"
-          StrokeThickness="{{StrokeWidth}}"
-          StrokeStartLineCap="{{StrokeLineCap}}"
-          StrokeEndLineCap="{{StrokeLineCap}}"
-          StrokeLineJoin="{{StrokeLineJoin}}"/>
+          StrokeThickness="@StrokeWidth"
+          StrokeStartLineCap="@StrokeLineCap"
+          StrokeEndLineCap="@StrokeLineCap"
+          StrokeLineJoin="@StrokeLineJoin"/>
 </Canvas>
