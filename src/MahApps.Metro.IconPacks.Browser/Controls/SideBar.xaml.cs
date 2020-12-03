@@ -84,13 +84,13 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                     (T.M22*(T.OffsetY - (bBox.Top - T.M22*(svgSize - bBox.Height)/2)) + (bBox.Height - T.M22 * bBox.Height) / 2).ToString(CultureInfo.InvariantCulture)
                 });
 
-                var parameters = new ExportParameters()
+                var parameters = new ExportParameters(SelectedIcon)
                 {
-                    FillColor = iconPath.Fill is Brush ? "black" : "none",
+                    FillColor = iconPath.Fill is Brush ? iconPath.Fill.ToString(CultureInfo.InvariantCulture).Remove(1,2) : "none", // We need to remove the alpha channel for svg
                     PageHeight = svgSize.ToString(CultureInfo.InvariantCulture),
                     PageWidth = svgSize.ToString(CultureInfo.InvariantCulture),
                     PathData = iconContol.Data,
-                    StrokeColor = iconPath.Stroke is Brush ? "black" : "none",
+                    StrokeColor = iconPath.Stroke is Brush ? iconPath.Stroke.ToString(CultureInfo.InvariantCulture).Remove(1, 2) : "none", // We need to remove the alpha channel for svg
                     StrokeWidth = iconPath.Stroke is null ? "0" : iconPath.StrokeThickness.ToString(CultureInfo.InvariantCulture),
                     StrokeLineCap = iconPath.StrokeEndLineCap.ToString().ToLower(),
                     StrokeLineJoin = iconPath.StrokeLineJoin.ToString().ToLower(),
@@ -141,13 +141,13 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
 
                 var wpfFileTemplate = io.File.ReadAllText(io.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "WPF.xml"));
 
-                var parameters = new ExportParameters()
+                var parameters = new ExportParameters(SelectedIcon)
                 {
-                    FillColor = iconPath.Fill is Brush ? "Black" : "{x:Null}",
+                    FillColor = iconPath.Fill is Brush ? iconPath.Fill.ToString(CultureInfo.InvariantCulture) : "{x:Null}",
                     PageHeight = xamlSize.ToString(CultureInfo.InvariantCulture),
                     PageWidth = xamlSize.ToString(CultureInfo.InvariantCulture),
                     PathData = iconContol.Data,
-                    StrokeColor = iconPath.Stroke is Brush ? "Black" : "{x:Null}",
+                    StrokeColor = iconPath.Stroke is Brush ? iconPath.Stroke.ToString(CultureInfo.InvariantCulture) : "{x:Null}",
                     StrokeWidth = iconPath.Stroke is null ? "0" : iconPath.StrokeThickness.ToString(CultureInfo.InvariantCulture),
                     StrokeLineCap = iconPath.StrokeEndLineCap.ToString().ToLower(),
                     StrokeLineJoin = iconPath.StrokeLineJoin.ToString().ToLower(),
@@ -196,13 +196,13 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
 
                 var wpfFileTemplate = io.File.ReadAllText(io.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "UWP.xml"));
 
-                var parameters = new ExportParameters()
+                var parameters = new ExportParameters(SelectedIcon)
                 {
-                    FillColor = iconPath.Fill is Brush ? "Black" : "{x:Null}",
+                    FillColor = iconPath.Fill is Brush ? iconPath.Fill.ToString(CultureInfo.InvariantCulture) : "{x:Null}",
                     PageHeight = xamlSize.ToString(CultureInfo.InvariantCulture),
                     PageWidth = xamlSize.ToString(CultureInfo.InvariantCulture),
                     PathData = iconContol.Data,
-                    StrokeColor = iconPath.Stroke is Brush ? "Black" : "{x:Null}",
+                    StrokeColor = iconPath.Stroke is Brush ? iconPath.Stroke.ToString(CultureInfo.InvariantCulture) : "{x:Null}",
                     StrokeWidth = iconPath.Stroke is null ? "0" : iconPath.StrokeThickness.ToString(CultureInfo.InvariantCulture),
                     StrokeLineCap = iconPath.StrokeEndLineCap.ToString().ToLower(),
                     StrokeLineJoin = iconPath.StrokeLineJoin.ToString().ToLower(),

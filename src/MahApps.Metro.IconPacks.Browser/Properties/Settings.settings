@@ -8,5 +8,11 @@
     <Setting Name="IconPreviewSize" Type="System.Double" Scope="User">
       <Value Profile="(Default)">48</Value>
     </Setting>
+    <Setting Name="IconForeground" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FF000000</Value>
+    </Setting>
+    <Setting Name="IconBackground" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FFFFFFFF</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

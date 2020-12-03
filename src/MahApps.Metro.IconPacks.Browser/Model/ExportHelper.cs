@@ -1,9 +1,13 @@
+using MahApps.Metro.IconPacks.Browser.Properties;
+using MahApps.Metro.IconPacks.Browser.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace MahApps.Metro.IconPacks.Browser.Model
 {
@@ -33,6 +37,7 @@ namespace MahApps.Metro.IconPacks.Browser.Model
                            .Replace("@PageHeight", parameters.PageHeight)
                            .Replace("@PathData", parameters.PathData)
                            .Replace("@FillColor", parameters.FillColor)
+                           .Replace("@Background", parameters.Background)
                            .Replace("@StrokeColor", parameters.StrokeColor)
                            .Replace("@StrokeWidth", parameters.StrokeWidth)
                            .Replace("@StrokeLineCap", parameters.StrokeLineCap)
@@ -44,6 +49,33 @@ namespace MahApps.Metro.IconPacks.Browser.Model
 
     internal struct ExportParameters
     {
+
+        /// <summary>
+        /// Provides a default set of Export parameters. You should edit this to your needs. 
+        /// </summary>
+        /// <param name="icon"></param>
+        internal ExportParameters(IIconViewModel icon)
+        {
+            var metaData = Attribute.GetCustomAttribute(icon.IconPackType, typeof(MetaDataAttribute)) as MetaDataAttribute;
+
+            this.IconKind = icon.Name;
+            this.IconPackName = icon.IconPackType.Name;
+            this.PageWidth = Settings.Default.IconPreviewSize.ToString(CultureInfo.InvariantCulture);
+            this.PageHeight = Settings.Default.IconPreviewSize.ToString(CultureInfo.InvariantCulture);
+            this.FillColor = Settings.Default.IconForeground.ToString(CultureInfo.InvariantCulture);
+            this.Background = Settings.Default.IconBackground.ToString(CultureInfo.InvariantCulture);
+            this.StrokeColor = Settings.Default.IconForeground.ToString(CultureInfo.InvariantCulture);
+            this.StrokeWidth = "0";
+            this.StrokeLineCap = PenLineCap.Round.ToString();
+            this.StrokeLineJoin = PenLineJoin.Round.ToString();
+            this.PathData = null;
+            this.TranformMatrix = Matrix.Identity.ToString(CultureInfo.InvariantCulture);
+
+
+            this.IconPackHomepage = metaData?.ProjectUrl;
+            this.IconPackLicense = metaData?.LicenseUrl;
+        }
+
         internal string IconKind { get; set; }
         internal string IconPackName { get; set; }
         internal string IconPackHomepage { get; set; }
@@ -52,6 +84,7 @@ namespace MahApps.Metro.IconPacks.Browser.Model
         internal string PageHeight { get; set; }
         internal string PathData { get; set; }
         internal string FillColor { get; set; }
+        internal string Background { get; set; }
         internal string StrokeColor { get; set; }
         internal string StrokeWidth { get; set; }
         internal string StrokeLineCap { get; set; }
