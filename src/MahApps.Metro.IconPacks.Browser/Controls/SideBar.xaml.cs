@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using io = System.IO;
+using System.Windows.Markup;
+using System.Windows;
 
 namespace MahApps.Metro.IconPacks.Browser.Controls
 {
@@ -97,7 +99,7 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                     TranformMatrix = transform
                 };
 
-                var svgFileTemplate = io.File.ReadAllText(io.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "SVG.xml"));
+                var svgFileTemplate = ExportHelper.SvgFileTemplate;
 
                 svgFileContent = ExportHelper.FillTemplate(svgFileTemplate, parameters);
 
@@ -139,7 +141,7 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                 var T = iconPath.LayoutTransform.Value; 
 
 
-                var wpfFileTemplate = io.File.ReadAllText(io.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "WPF.xml"));
+                var wpfFileTemplate = ExportHelper.WpfFileTemplate;
 
                 var parameters = new ExportParameters(SelectedIcon)
                 {
@@ -194,7 +196,7 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                 var T = iconPath.LayoutTransform.Value;
 
 
-                var wpfFileTemplate = io.File.ReadAllText(io.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "UWP.xml"));
+                var wpfFileTemplate = ExportHelper.UwpFileTemplate;
 
                 var parameters = new ExportParameters(SelectedIcon)
                 {
@@ -241,33 +243,40 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
             {
                 BitmapEncoder encoder;
 
-                var canvas = new Canvas
-                {
-                    Width = Settings.Default.IconPreviewSize,
-                    Height = Settings.Default.IconPreviewSize,
-                    Background = Brushes.Transparent
-                };
+                string wpfContent;
 
+                var iconContol = PreviewHolder.FindChild<PackIconControlBase>();
                 var iconPath = PreviewHolder.FindChild<Path>();
 
-                var path = new Path()
+                var T = iconPath.LayoutTransform.Value;
+
+                var bitmapTemplate = ExportHelper.BitmapImageTemplate;
+
+                var parameters = new ExportParameters(SelectedIcon)
                 {
-                    LayoutTransform = iconPath.LayoutTransform,
-                    Data = iconPath.Data,
-                    Stretch = Stretch.Uniform,
-                    Fill = Brushes.Black,
-                    Width = Settings.Default.IconPreviewSize,
-                    Height = Settings.Default.IconPreviewSize
+                    FillColor = iconPath.Fill is Brush ? iconPath.Fill.ToString(CultureInfo.InvariantCulture) : "{x:Null}",
+                    PageHeight = Settings.Default.IconPreviewSize.ToString(CultureInfo.InvariantCulture),
+                    PageWidth = Settings.Default.IconPreviewSize.ToString(CultureInfo.InvariantCulture),
+                    PathData = iconContol.Data,
+                    StrokeColor = iconPath.Stroke is Brush ? iconPath.Stroke.ToString(CultureInfo.InvariantCulture) : "{x:Null}",
+                    StrokeWidth = iconPath.Stroke is null ? "0" : iconPath.StrokeThickness.ToString(CultureInfo.InvariantCulture),
+                    StrokeLineCap = iconPath.StrokeEndLineCap.ToString().ToLower(),
+                    StrokeLineJoin = iconPath.StrokeLineJoin.ToString().ToLower(),
+                    TranformMatrix = T.ToString(CultureInfo.InvariantCulture)
                 };
 
-                canvas.Children.Add(path);
+                wpfContent = ExportHelper.FillTemplate(bitmapTemplate, parameters);
 
-                var size = new System.Windows.Size(Settings.Default.IconPreviewSize, Settings.Default.IconPreviewSize);
-                canvas.Measure(size);
-                canvas.Arrange(new System.Windows.Rect(size));
+
+                var pathHolder = (UIElement)XamlReader.Parse(wpfContent);
+                
+
+                var size = new Size(Settings.Default.IconPreviewSize, Settings.Default.IconPreviewSize);
+                pathHolder.Measure(size);
+                pathHolder.Arrange(new Rect(size));
 
                 var renderTargetBitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96, 96, PixelFormats.Pbgra32);
-                renderTargetBitmap.Render(canvas);
+                renderTargetBitmap.Render(pathHolder);
                
                 switch (io.Path.GetExtension(fileSaveDialog.FileName).ToLowerInvariant())
                 {

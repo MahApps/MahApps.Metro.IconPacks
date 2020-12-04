@@ -26,28 +26,46 @@
 
             <GroupBox Header="Preview"
                       Grid.Row="0"
-                      Padding="0">
-                <ScrollViewer x:Name="PreviewScrollViewer"
-                              Padding="2"
-                              HorizontalScrollBarVisibility="Auto"
-                              PreviewMouseWheel="IconPreview_PreviewMouseWheel"
-                              Style="{StaticResource MahApps.Styles.ScrollViewer}"
-                              VerticalScrollBarVisibility="Auto">
-                    <ScrollViewer.Background>
-                        <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconBackground}" />
-                    </ScrollViewer.Background>
-                    <ContentControl x:Name="PreviewHolder" Content="{Binding Mode=OneWay}"
-                                    Width="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
-                                    Height="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
-                                    Background="Transparent"
-                                    ContentTemplateSelector="{StaticResource IconPacksBrowser.DataTemplateSelectors.Icon}"
-                                    Focusable="False"
-                                    IsTabStop="False">
-                        <ContentControl.Foreground>
-                            <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconForeground}" />
-                        </ContentControl.Foreground>
-                    </ContentControl>
-                </ScrollViewer>
+                      Padding="0"
+                      Background="White">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <ScrollViewer x:Name="PreviewScrollViewer"
+                                  Padding="2"
+                                  mah:ScrollViewerHelper.BubbleUpScrollEventToParentScrollviewer="True"
+                                  HorizontalScrollBarVisibility="Auto"
+                                  PreviewMouseWheel="IconPreview_PreviewMouseWheel"
+                                  Style="{StaticResource MahApps.Styles.ScrollViewer}"
+                                  VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer.Background>
+                            <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconBackground}" />
+                        </ScrollViewer.Background>
+                        <ContentControl x:Name="PreviewHolder" Content="{Binding Mode=OneWay}"
+                                        Width="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
+                                        Height="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
+                                        Background="Transparent"
+                                        ContentTemplateSelector="{StaticResource IconPacksBrowser.DataTemplateSelectors.Icon}"
+                                        Focusable="False"
+                                        IsTabStop="False">
+                            <ContentControl.Foreground>
+                                <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconForeground}" />
+                            </ContentControl.Foreground>
+                        </ContentControl>
+                    </ScrollViewer>
+
+                    <TextBox IsReadOnly="True" Grid.Row="1" Background="{x:Null}" BorderThickness="0" MinHeight="1">
+                        <TextBox.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}" >
+                                <Binding Path="IconPackType.Name" Mode="OneWay" />
+                                <Binding Path="Name" Mode="OneWay" />
+                            </MultiBinding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+
             </GroupBox>
 
             <GridSplitter Grid.Row="1"
@@ -75,12 +93,18 @@
                                 <sys:Double>1024</sys:Double>
                             </ComboBox>
                         </mah:MetroHeader>
-                        <mah:MetroHeader Header="Foreground">
-                            <mah:ColorPicker SelectedColor="{Binding Source={x:Static prop:Settings.Default}, Path=IconForeground}" DefaultColor="Black" />
+                        <mah:MetroHeader Padding="2,0" Header="Foreground">
+                            <mah:ColorPicker mah:TextBoxHelper.ClearTextButton="True"
+                                             BorderThickness="0"
+                                             DefaultColor="Black"
+                                             SelectedColor="{Binding Source={x:Static prop:Settings.Default}, Path=IconForeground}" />
                         </mah:MetroHeader>
 
-                        <mah:MetroHeader Header="Background">
-                            <mah:ColorPicker SelectedColor="{Binding Source={x:Static prop:Settings.Default}, Path=IconBackground}" DefaultColor="White" />
+                        <mah:MetroHeader Padding="2,0" Header="Background">
+                            <mah:ColorPicker mah:TextBoxHelper.ClearTextButton="True"
+                                             BorderThickness="0"
+                                             DefaultColor="Transparent"
+                                             SelectedColor="{Binding Source={x:Static prop:Settings.Default}, Path=IconBackground}" />
                         </mah:MetroHeader>
                     </StackPanel>
                 </Expander>
@@ -154,6 +178,7 @@
                 </Expander>
 
                 <Expander Header="Export"
+                          Margin="0,5,0,0"
                           Padding="4,0,4,4"
                           IsExpanded="True">
                     <Expander.Resources>

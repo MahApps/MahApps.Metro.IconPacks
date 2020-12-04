@@ -13,6 +13,7 @@ namespace MahApps.Metro.IconPacks.Browser.Model
 {
     internal class ExportHelper
     {
+
         // SVG-File
         private static string _SvgFileTemplate;
         internal static string SvgFileTemplate => _SvgFileTemplate ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "SVG.xml"));
@@ -25,6 +26,11 @@ namespace MahApps.Metro.IconPacks.Browser.Model
         // XAML-File (WPF)
         private static string _UwpFileTemplate;
         internal static string UwpFileTemplate => _UwpFileTemplate ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "WPF.xml"));
+
+        // Bitmap-Image
+        private static string _BitmapImageTemplate;
+        internal static string BitmapImageTemplate => _BitmapImageTemplate ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "Bitmap.xml"));
+
 
 
         internal static string FillTemplate(string template, ExportParameters parameters) 

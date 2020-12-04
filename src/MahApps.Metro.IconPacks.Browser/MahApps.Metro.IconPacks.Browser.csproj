@@ -58,6 +58,9 @@
         <Compile DependentUpon="%(Filename)" SubType="Designer" Update="**\*.xaml$(DefaultLanguageSourceExtension)" />
     </ItemGroup>
     <ItemGroup>
+      <None Update="ExportTemplates\Bitmap.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
       <None Update="ExportTemplates\ReadMe.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>

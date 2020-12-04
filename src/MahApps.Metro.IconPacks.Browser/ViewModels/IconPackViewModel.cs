@@ -187,6 +187,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
     public interface IIconViewModel
     {
         string Name { get; set; }
+        string IconPackName { get; }
         string Description { get; set; }
         Type IconPackType { get; set; }
         Type IconType { get; set; }
@@ -208,6 +209,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         public string CopyToClipboardAsGeometryText => GetPackIconControlBase().Data;
 
         public string Name { get; set; }
+
+        public string IconPackName => IconPackType.Name.Replace("PackIcon", "");
 
         public string Description { get; set; }
 
