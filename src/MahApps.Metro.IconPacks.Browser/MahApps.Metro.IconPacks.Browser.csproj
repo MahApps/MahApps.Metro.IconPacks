@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <Project Sdk="MSBuild.Sdk.Extras">
     <!-- Project properties -->
@@ -72,9 +72,6 @@
       </None>
       <None Update="ExportTemplates\WPF.xml">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Properties\Settings.settings">
-        <Generator>PublicSettingsSingleFileGenerator</Generator>
       </None>
     </ItemGroup>
 </Project>

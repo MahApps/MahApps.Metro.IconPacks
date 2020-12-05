@@ -70,5 +70,29 @@ namespace MahApps.Metro.IconPacks.Browser.Properties {
                 this["IconBackground"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF008A00")]
+        public global::System.Windows.Media.Color AppAccentColor {
+            get {
+                return ((global::System.Windows.Media.Color)(this["AppAccentColor"]));
+            }
+            set {
+                this["AppAccentColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Light")]
+        public string AppTheme {
+            get {
+                return ((string)(this["AppTheme"]));
+            }
+            set {
+                this["AppTheme"] = value;
+            }
+        }
     }
 }

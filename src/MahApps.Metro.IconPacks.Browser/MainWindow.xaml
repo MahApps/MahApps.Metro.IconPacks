@@ -168,6 +168,19 @@
 
     </mah:MetroWindow.Resources>
 
+    <mah:MetroWindow.Flyouts>
+        <mah:FlyoutsControl>
+            <mah:Flyout IsOpen="{Binding ElementName=ToggleButtonOpenSettings, Path=IsChecked, Mode=TwoWay}"
+                        Position="Right"
+                        MinWidth="350"
+                        Header="Settings"
+                        CloseButtonVisibility="Visible"
+                        IsModal="True" >
+                <ctrls:SettingsView />
+            </mah:Flyout>
+        </mah:FlyoutsControl>
+    </mah:MetroWindow.Flyouts>
+
     <mah:MetroWindow.CommandBindings>
         <CommandBinding Command="{x:Static ApplicationCommands.Find}" Executed="Find_Executed" />
     </mah:MetroWindow.CommandBindings>
@@ -197,6 +210,8 @@
 
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
+            <ToggleButton Content="{iconPacks:Modern Kind=Settings}"
+                          x:Name="ToggleButtonOpenSettings" />
             <Button Command="{x:Static viewModels:MainViewModel.OpenUrlCommand}"
                     CommandParameter="https://github.com/MahApps/MahApps.Metro.IconPacks"
                     Content="{iconPacks:Modern SocialGithubOctocat,

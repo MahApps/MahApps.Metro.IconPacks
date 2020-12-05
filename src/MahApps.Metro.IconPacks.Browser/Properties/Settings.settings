@@ -14,5 +14,11 @@
     <Setting Name="IconBackground" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFFFFFFF</Value>
     </Setting>
+    <Setting Name="AppAccentColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)">#FF008A00</Value>
+    </Setting>
+    <Setting Name="AppTheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Light</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
