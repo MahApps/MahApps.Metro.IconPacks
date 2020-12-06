@@ -13,10 +13,10 @@ using System.Windows.Media;
 
 namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
-    public class SettingsViewModel : ViewModelBase
+    public static class SettingsViewModel
     {
 
-        public SettingsViewModel()
+        static SettingsViewModel()
         {
             AccentColorNamesDictionary = new Dictionary<Color?, string>();
 
@@ -40,12 +40,14 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     }
                 }
             }
+
+            AccentColors = new List<Color?>(AccentColorNamesDictionary.Keys);
         }
 
-        public Dictionary<Color?, string> AccentColorNamesDictionary = new Dictionary<Color?, string>();
+        public static Dictionary<Color?, string> AccentColorNamesDictionary { get; } = new Dictionary<Color?, string>();
 
 
-        public IEnumerable<Color?> AccentColors => AccentColorNamesDictionary.Keys;
+        public static List<Color?> AccentColors { get; }
 
 
         public static void SetTheme()

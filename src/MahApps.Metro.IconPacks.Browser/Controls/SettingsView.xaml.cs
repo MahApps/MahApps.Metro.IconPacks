@@ -26,7 +26,12 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
             InitializeComponent();
         }
 
-        private void AccentColorPicker_DropDownClosed(object sender, EventArgs e)
+        private void AccentColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            SettingsViewModel.SetTheme();
+        }
+
+        private void AppThemeChanged(object sender, SelectionChangedEventArgs e)
         {
             SettingsViewModel.SetTheme();
         }
