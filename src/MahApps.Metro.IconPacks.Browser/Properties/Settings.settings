@@ -20,5 +20,8 @@
     <Setting Name="AppTheme" Type="System.String" Scope="User">
       <Value Profile="(Default)">Light</Value>
     </Setting>
+    <Setting Name="ExportTemplatesDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

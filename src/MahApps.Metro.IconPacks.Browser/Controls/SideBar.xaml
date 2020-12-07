@@ -56,11 +56,13 @@
                         </ContentControl>
                     </ScrollViewer>
 
-                    <TextBox IsReadOnly="True" Grid.Row="1" Background="{x:Null}" BorderThickness="0" MinHeight="1">
+                    <TextBox IsReadOnly="True" Grid.Row="1" BorderThickness="0" MinHeight="1" TextWrapping="Wrap">
                         <TextBox.Text>
-                            <MultiBinding StringFormat="{}{0}: {1}" >
+                            <MultiBinding StringFormat="{}{0}: {1}
+                                          {2}" >
                                 <Binding Path="IconPackType.Name" Mode="OneWay" />
                                 <Binding Path="Name" Mode="OneWay" />
+                                <Binding Path="Description" Mode="OneWay" />
                             </MultiBinding>
                         </TextBox.Text>
                     </TextBox>
@@ -185,6 +187,7 @@
                         <Style BasedOn="{StaticResource MahApps.Styles.Button.Flat}" TargetType="Button">
                             <Setter Property="Margin" Value="0,4,0,0" />
                             <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.ThemeBackground}" />
+                            <Setter Property="Foreground" Value="{DynamicResource MahApps.Brushes.ThemeForeground}" />
                         </Style>
                     </Expander.Resources>
                     <StackPanel>

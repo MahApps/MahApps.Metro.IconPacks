@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.IconPacks.Browser.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -200,13 +201,13 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
         {
         }
 
-        public string CopyToClipboardText => $"<iconPacks:{IconPackType.Name} Kind=\"{Name}\" />";
+        public string CopyToClipboardText => ExportHelper.FillTemplate(ExportHelper.ClipboardWpf, new ExportParameters(this)); // $"<iconPacks:{IconPackType.Name} Kind=\"{Name}\" />";
 
-        public string CopyToClipboardAsContentText => $"{{iconPacks:{IconPackType.Name.Replace("PackIcon", "")} Kind={Name}}}";
+        public string CopyToClipboardAsContentText => ExportHelper.FillTemplate(ExportHelper.ClipboardContent, new ExportParameters(this)); // $"{{iconPacks:{IconPackType.Name.Replace("PackIcon", "")} Kind={Name}}}";
 
-        public string CopyToClipboardAsPathIconText => $"<iconPacks:{IconPackType.Name.Replace("PackIcon", "PathIcon")} Kind=\"{Name}\" />";
+        public string CopyToClipboardAsPathIconText => ExportHelper.FillTemplate(ExportHelper.ClipboardUwp, new ExportParameters(this)); // $"<iconPacks:{IconPackType.Name.Replace("PackIcon", "PathIcon")} Kind=\"{Name}\" />";
 
-        public string CopyToClipboardAsGeometryText => GetPackIconControlBase().Data;
+        public string CopyToClipboardAsGeometryText => ExportHelper.FillTemplate(ExportHelper.ClipboardData, new ExportParameters(this) { PathData = GetPackIconControlBase().Data }); // GetPackIconControlBase().Data;
 
         public string Name { get; set; }
 

@@ -94,5 +94,17 @@ namespace MahApps.Metro.IconPacks.Browser.Properties {
                 this["AppTheme"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ExportTemplatesDir {
+            get {
+                return ((string)(this["ExportTemplatesDir"]));
+            }
+            set {
+                this["ExportTemplatesDir"] = value;
+            }
+        }
     }
 }

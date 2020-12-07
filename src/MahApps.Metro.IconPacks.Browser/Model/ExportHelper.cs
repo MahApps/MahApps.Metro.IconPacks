@@ -16,21 +16,38 @@ namespace MahApps.Metro.IconPacks.Browser.Model
 
         // SVG-File
         private static string _SvgFileTemplate;
-        internal static string SvgFileTemplate => _SvgFileTemplate ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "SVG.xml"));
+        internal static string SvgFileTemplate => _SvgFileTemplate ??= LoadTemplateString("SVG.xml");
 
 
         // XAML-File (WPF)
         private static string _WpfFileTemplate;
-        internal static string WpfFileTemplate => _WpfFileTemplate ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "WPF.xml"));
+        internal static string WpfFileTemplate => _WpfFileTemplate ??= LoadTemplateString("WPF.xml");
 
         // XAML-File (WPF)
         private static string _UwpFileTemplate;
-        internal static string UwpFileTemplate => _UwpFileTemplate ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "WPF.xml"));
+        internal static string UwpFileTemplate => _UwpFileTemplate ??= LoadTemplateString("WPF.xml");
 
         // Bitmap-Image
         private static string _BitmapImageTemplate;
-        internal static string BitmapImageTemplate => _BitmapImageTemplate ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "Bitmap.xml"));
+        internal static string BitmapImageTemplate => _BitmapImageTemplate ??= LoadTemplateString("Bitmap.xml");
 
+        
+        // Clipboard - WPF
+        private static string _ClipboardWpf;
+        internal static string ClipboardWpf => _ClipboardWpf ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "Clipboard.WPF.xml"));
+
+
+        // Clipboard - UWP
+        private static string _ClipboardUwp;
+        internal static string ClipboardUwp => _ClipboardUwp ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "Clipboard.UWP.xml"));
+        
+        // Clipboard - Content
+        private static string _ClipboardContent;
+        internal static string ClipboardContent => _ClipboardContent ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "Clipboard.Content.xml"));
+
+        // Clipboard - PathData
+        private static string _ClipboardData;
+        internal static string ClipboardData => _ClipboardData ??= File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", "Clipboard.PathData.xml"));
 
 
         internal static string FillTemplate(string template, ExportParameters parameters) 
@@ -50,6 +67,19 @@ namespace MahApps.Metro.IconPacks.Browser.Model
                            .Replace("@StrokeLineJoin", parameters.StrokeLineJoin)
                            .Replace("@TranformMatrix", parameters.TranformMatrix);
         }
+
+        internal static string LoadTemplateString(string fileName)
+        {
+            if (string.IsNullOrWhiteSpace(Settings.Default.ExportTemplatesDir) || !File.Exists(Path.Combine(Settings.Default.ExportTemplatesDir, fileName)))
+            {
+
+                return File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates", fileName));
+            }
+            else
+            {
+                return File.ReadAllText(Path.Combine(Settings.Default.ExportTemplatesDir, fileName));
+            }
+        }
     }
 
 
@@ -65,7 +95,7 @@ namespace MahApps.Metro.IconPacks.Browser.Model
             var metaData = Attribute.GetCustomAttribute(icon.IconPackType, typeof(MetaDataAttribute)) as MetaDataAttribute;
 
             this.IconKind = icon.Name;
-            this.IconPackName = icon.IconPackType.Name;
+            this.IconPackName = icon.IconPackType.Name.Replace("PackIcon","");
             this.PageWidth = Settings.Default.IconPreviewSize.ToString(CultureInfo.InvariantCulture);
             this.PageHeight = Settings.Default.IconPreviewSize.ToString(CultureInfo.InvariantCulture);
             this.FillColor = Settings.Default.IconForeground.ToString(CultureInfo.InvariantCulture);
