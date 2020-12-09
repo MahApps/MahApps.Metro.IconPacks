@@ -25,6 +25,7 @@
         <Setter Property="Padding" Value="4" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Opacity" Value="0.5" />
         <!--  change SnapsToDevicePixels to True to view a better border and validation error  -->
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="mah:TextBoxHelper.ButtonContentTemplate">
@@ -292,6 +293,14 @@
             </Setter.Value>
         </Setter>
         <Setter Property="Validation.ErrorTemplate" Value="{DynamicResource MahApps.Templates.ValidationError}" />
+        <Style.Triggers>
+            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                <Setter Property="Opacity" Value="1" />
+            </Trigger>
+            <Trigger Property="mah:TextBoxHelper.HasText" Value="True">
+                <Setter Property="Opacity" Value="1" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style

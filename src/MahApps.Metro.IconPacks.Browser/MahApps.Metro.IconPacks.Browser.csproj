@@ -29,6 +29,7 @@
         <PackageReference Include="ControlzEx" Version="4.*" />
         <PackageReference Include="AsyncAwaitBestPractices" Version="4.*" />
         <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
+        <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
     </ItemGroup>
     <!-- <ItemGroup Condition=" '$(Configuration)' != 'Debug' and !$(TargetFramework.StartsWith('netcoreapp')) ">
         <PackageReference Include="Fody" Version="6.*">

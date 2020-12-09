@@ -22,14 +22,14 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
     /// </summary>
     public partial class SideBar : UserControl
     {
-        IIconViewModel SelectedIcon => DataContext as IIconViewModel;
+        IIconViewModel SelectedIcon => (DataContext as IconPackViewModel)?.SelectedIcon;
 
         public SideBar()
         {
-            SaveAsSvg_Command = new SimpleCommand((_) => SaveAsSvg_Execute(), (_) => DataContext is IIconViewModel);
-            SaveAsWpf_Command = new SimpleCommand((_) => SaveAsWpf_Execute(), (_) => DataContext is IIconViewModel);
-            SaveAsUwp_Command = new SimpleCommand((_) => SaveAsUwp_Execute(), (_) => DataContext is IIconViewModel);
-            SaveAsBitmap_Command = new SimpleCommand((_) => SaveAsBitmap_Execute(), (_) => DataContext is IIconViewModel);
+            SaveAsSvg_Command = new SimpleCommand((_) => SaveAsSvg_Execute(), (_) => !(SelectedIcon is null));
+            SaveAsWpf_Command = new SimpleCommand((_) => SaveAsWpf_Execute(), (_) => !(SelectedIcon is null));
+            SaveAsUwp_Command = new SimpleCommand((_) => SaveAsUwp_Execute(), (_) => !(SelectedIcon is null));
+            SaveAsBitmap_Command = new SimpleCommand((_) => SaveAsBitmap_Execute(), (_) => !(SelectedIcon is null));
 
             InitializeComponent();
         }

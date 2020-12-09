@@ -259,6 +259,7 @@
                         </StackPanel>
                     </TextBox.ToolTip>
                 </TextBox>
+                
                 <mah:TransitioningContentControl Margin="10,0"
                                                  VerticalAlignment="Center"
                                                  Content="{Binding ElementName=NavigationListBox, Path=SelectedItem.Caption}"
@@ -300,7 +301,7 @@
                                        Background="{DynamicResource IconPackBrowser.Brushes.PanelBackground}"
                                        BorderBrush="{DynamicResource MahApps.Brushes.Gray10}"
                                        BorderThickness="0"
-                                       DataContext="{Binding ElementName=NavigationListBox, Path=SelectedItem.SelectedIcon}"
+                                       DataContext="{Binding ElementName=NavigationListBox, Path=SelectedItem}"
                                        ExpandDirection="Right"
                                        IsExpanded="True">
                     <ctrls:SidebarExpander.Header>

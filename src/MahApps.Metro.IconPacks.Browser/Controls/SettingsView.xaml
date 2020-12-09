@@ -85,7 +85,11 @@
             <GroupBox Header="Export">
                 <StackPanel>
                     <mah:MetroHeader Header="Directory for custom export templates">
-                        <TextBox Text="{Binding Source={x:Static prop:Settings.Default}, Path=ExportTemplatesDir}" />
+                        <StackPanel>
+                            <TextBox Text="{Binding Source={x:Static prop:Settings.Default}, Path=ExportTemplatesDir}" IsReadOnly="True" />
+                            <Button Command="{x:Static vm:SettingsViewModel.SelectTemplateFolderCommand}" Content="Select a custom template folder" />
+                            <Button Command="{x:Static vm:SettingsViewModel.CopyOriginalTemplatesCommand}" Content="Copy original templates to custom folder" />
+                        </StackPanel>
                     </mah:MetroHeader>
                 </StackPanel>
             </GroupBox>

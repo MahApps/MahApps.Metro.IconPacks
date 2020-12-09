@@ -27,7 +27,30 @@
             <GroupBox Header="Preview"
                       Grid.Row="0"
                       Padding="0"
-                      Background="White">
+                      DataContext="{Binding SelectedIcon}">
+                <GroupBox.Background>
+                    <DrawingBrush TileMode="Tile"
+                                  Viewport="0,0,20,20"
+                                  ViewportUnits="Absolute">
+                        <DrawingBrush.Drawing>
+                            <DrawingGroup>
+                                <GeometryDrawing Brush="{DynamicResource MahApps.Brushes.ThemeBackground}">
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,20,20" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing Brush="{DynamicResource MahApps.Brushes.Gray9}">
+                                    <GeometryDrawing.Geometry>
+                                        <GeometryGroup>
+                                            <RectangleGeometry Rect="0,0,10,10" />
+                                            <RectangleGeometry Rect="10,10,10,10" />
+                                        </GeometryGroup>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingGroup>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </GroupBox.Background>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -55,17 +78,6 @@
                             </ContentControl.Foreground>
                         </ContentControl>
                     </ScrollViewer>
-
-                    <TextBox IsReadOnly="True" Grid.Row="1" BorderThickness="0" MinHeight="1" TextWrapping="Wrap">
-                        <TextBox.Text>
-                            <MultiBinding StringFormat="{}{0}: {1}
-                                          {2}" >
-                                <Binding Path="IconPackType.Name" Mode="OneWay" />
-                                <Binding Path="Name" Mode="OneWay" />
-                                <Binding Path="Description" Mode="OneWay" />
-                            </MultiBinding>
-                        </TextBox.Text>
-                    </TextBox>
                 </Grid>
 
             </GroupBox>
@@ -76,6 +88,32 @@
 
             <StackPanel Grid.Row="2">
 
+                <Expander Header="Icon Information">
+                    <StackPanel>
+                        <mah:MetroHeader Header="IconPackName and IconKind"
+                                         Padding="2,0"
+                                         DataContext="{Binding SelectedIcon}">
+                            <ctrls:CopyToClipboardTextBox>
+                                <ctrls:CopyToClipboardTextBox.TextToCopy>
+                                    <MultiBinding StringFormat="{}{0}.{1}">
+                                        <Binding Mode="OneWay" Path="IconPackName" />
+                                        <Binding Mode="OneWay" Path="Name" />
+                                    </MultiBinding>
+                                </ctrls:CopyToClipboardTextBox.TextToCopy>
+                            </ctrls:CopyToClipboardTextBox>
+                        </mah:MetroHeader>
+                        <mah:MetroHeader Padding="2,0" Header="Additional Tags">
+                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding SelectedIcon.Description}" />
+                        </mah:MetroHeader>
+                        <mah:MetroHeader Padding="2,0" Header="License URL">
+                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding LicenseUrl}" />
+                        </mah:MetroHeader>
+                        <mah:MetroHeader Padding="2,0" Header="Homepage">
+                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding ProjectUrl}" />
+                        </mah:MetroHeader>
+                    </StackPanel>
+                </Expander>
+                
                 <Expander Header="Preview options"
                           Margin="0,2,0,0"
                           IsExpanded="True">
@@ -113,6 +151,7 @@
 
                 <Expander Header="Copy to clipboard"
                           Margin="0,5,0,0"
+                          DataContext="{Binding SelectedIcon}"
                           IsExpanded="True">
                     <StackPanel>
                         <!--  WPF Control  -->
@@ -181,6 +220,7 @@
 
                 <Expander Header="Export"
                           Margin="0,5,0,0"
+                          DataContext="{Binding SelectedIcon}"
                           Padding="4,0,4,4"
                           IsExpanded="True">
                     <Expander.Resources>
