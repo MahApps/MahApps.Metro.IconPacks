@@ -16,7 +16,7 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <TextBox BorderThickness="0"
-                 FontFamily="Consolas"
+                 FontFamily="{Binding ElementName=ucCopyToClipboardTextBox, Path=FontFamily}"
                  IsReadOnly="True"
                  TextWrapping="Wrap"
                  MaxHeight="60"

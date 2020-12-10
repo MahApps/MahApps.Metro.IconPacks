@@ -103,10 +103,8 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
 
                 svgFileContent = ExportHelper.FillTemplate(svgFileTemplate, parameters);
 
-                using (io.StreamWriter file = new io.StreamWriter(fileSaveDialog.FileName))
-                {
-                    file.Write(svgFileContent);
-                }
+                using io.StreamWriter file = new io.StreamWriter(fileSaveDialog.FileName);
+                file.Write(svgFileContent);
 
             }
             await progress.CloseAsync();
@@ -159,10 +157,8 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                 wpfFileContent = ExportHelper.FillTemplate(wpfFileTemplate, parameters);
 
 
-                using (io.StreamWriter file = new io.StreamWriter(fileSaveDialog.FileName))
-                {
-                    file.Write(wpfFileContent);
-                }
+                using io.StreamWriter file = new io.StreamWriter(fileSaveDialog.FileName);
+                file.Write(wpfFileContent);
 
             }
             await progress.CloseAsync();
@@ -214,10 +210,8 @@ namespace MahApps.Metro.IconPacks.Browser.Controls
                 wpfFileContent = ExportHelper.FillTemplate(wpfFileTemplate, parameters);
 
 
-                using (io.StreamWriter file = new io.StreamWriter(fileSaveDialog.FileName))
-                {
-                    file.Write(wpfFileContent);
-                }
+                using io.StreamWriter file = new io.StreamWriter(fileSaveDialog.FileName);
+                file.Write(wpfFileContent);
 
             }
             await progress.CloseAsync();

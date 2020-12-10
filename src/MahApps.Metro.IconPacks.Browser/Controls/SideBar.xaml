@@ -51,35 +51,28 @@
                         </DrawingBrush.Drawing>
                     </DrawingBrush>
                 </GroupBox.Background>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <ScrollViewer x:Name="PreviewScrollViewer"
+                <ScrollViewer x:Name="PreviewScrollViewer"
                                   Padding="2"
                                   mah:ScrollViewerHelper.BubbleUpScrollEventToParentScrollviewer="True"
                                   HorizontalScrollBarVisibility="Auto"
                                   PreviewMouseWheel="IconPreview_PreviewMouseWheel"
                                   Style="{StaticResource MahApps.Styles.ScrollViewer}"
                                   VerticalScrollBarVisibility="Auto">
-                        <ScrollViewer.Background>
-                            <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconBackground}" />
-                        </ScrollViewer.Background>
-                        <ContentControl x:Name="PreviewHolder" Content="{Binding Mode=OneWay}"
+                    <ScrollViewer.Background>
+                        <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconBackground}" />
+                    </ScrollViewer.Background>
+                    <ContentControl x:Name="PreviewHolder" Content="{Binding Mode=OneWay}"
                                         Width="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
                                         Height="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
                                         Background="Transparent"
                                         ContentTemplateSelector="{StaticResource IconPacksBrowser.DataTemplateSelectors.Icon}"
                                         Focusable="False"
                                         IsTabStop="False">
-                            <ContentControl.Foreground>
-                                <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconForeground}" />
-                            </ContentControl.Foreground>
-                        </ContentControl>
-                    </ScrollViewer>
-                </Grid>
-
+                        <ContentControl.Foreground>
+                            <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconForeground}" />
+                        </ContentControl.Foreground>
+                    </ContentControl>
+                </ScrollViewer>
             </GroupBox>
 
             <GridSplitter Grid.Row="1"
@@ -88,7 +81,8 @@
 
             <StackPanel Grid.Row="2">
 
-                <Expander Header="Icon Information">
+                <Expander Header="Icon Information" 
+                          Margin="0,2,0,0">
                     <StackPanel>
                         <mah:MetroHeader Header="IconPackName and IconKind"
                                          Padding="2,0"
@@ -102,25 +96,24 @@
                                 </ctrls:CopyToClipboardTextBox.TextToCopy>
                             </ctrls:CopyToClipboardTextBox>
                         </mah:MetroHeader>
-                        <mah:MetroHeader Padding="2,0" Header="Additional Tags">
+                        <mah:MetroHeader Header="Additional Tags">
                             <ctrls:CopyToClipboardTextBox TextToCopy="{Binding SelectedIcon.Description}" />
                         </mah:MetroHeader>
-                        <mah:MetroHeader Padding="2,0" Header="License URL">
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding LicenseUrl}" />
+                        <mah:MetroHeader Header="Homepage">
+                            <TextBox Text="{Binding ProjectUrl}" Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Hyperlink}"/>
                         </mah:MetroHeader>
-                        <mah:MetroHeader Padding="2,0" Header="Homepage">
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding ProjectUrl}" />
+                        <mah:MetroHeader Header="License URL">
+                            <TextBox Text="{Binding LicenseUrl}" Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Hyperlink}"/>
                         </mah:MetroHeader>
                     </StackPanel>
                 </Expander>
                 
                 <Expander Header="Preview options"
-                          Margin="0,2,0,0"
+                          Margin="0,5,0,0"
                           IsExpanded="True">
                     <StackPanel>
-                        <mah:MetroHeader Padding="2,0" Header="Iconsize ">
+                        <mah:MetroHeader Header="Iconsize ">
                             <ComboBox x:Name="ComboBoxIconPreviewSize" Text="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
-                                      BorderThickness="0"
                                       IsEditable="True">
                                 <sys:Double>16</sys:Double>
                                 <sys:Double>24</sys:Double>
@@ -133,18 +126,12 @@
                                 <sys:Double>1024</sys:Double>
                             </ComboBox>
                         </mah:MetroHeader>
-                        <mah:MetroHeader Padding="2,0" Header="Foreground">
-                            <mah:ColorPicker mah:TextBoxHelper.ClearTextButton="True"
-                                             BorderThickness="0"
-                                             DefaultColor="Black"
-                                             SelectedColor="{Binding Source={x:Static prop:Settings.Default}, Path=IconForeground}" />
+                        <mah:MetroHeader Header="Foreground">
+                            <mah:ColorPicker SelectedColor="{Binding Source={x:Static prop:Settings.Default}, Path=IconForeground}" />
                         </mah:MetroHeader>
 
-                        <mah:MetroHeader Padding="2,0" Header="Background">
-                            <mah:ColorPicker mah:TextBoxHelper.ClearTextButton="True"
-                                             BorderThickness="0"
-                                             DefaultColor="Transparent"
-                                             SelectedColor="{Binding Source={x:Static prop:Settings.Default}, Path=IconBackground}" />
+                        <mah:MetroHeader Header="Background">
+                            <mah:ColorPicker SelectedColor="{Binding Source={x:Static prop:Settings.Default}, Path=IconBackground}" />
                         </mah:MetroHeader>
                     </StackPanel>
                 </Expander>
@@ -155,7 +142,7 @@
                           IsExpanded="True">
                     <StackPanel>
                         <!--  WPF Control  -->
-                        <mah:MetroHeader Padding="2,0,2,5">
+                        <mah:MetroHeader>
                             <mah:MetroHeader.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
@@ -167,11 +154,11 @@
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardText}" />
+                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardText}" FontFamily="Consolas"/>
                         </mah:MetroHeader>
 
                         <!--  Content Markup  -->
-                        <mah:MetroHeader Padding="2,0,2,5">
+                        <mah:MetroHeader>
                             <mah:MetroHeader.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
@@ -183,10 +170,10 @@
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsContentText}" />
+                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsContentText}" FontFamily="Consolas"/>
                         </mah:MetroHeader>
                         <!--  Copy as UWP Control  -->
-                        <mah:MetroHeader Padding="2,0,2,5">
+                        <mah:MetroHeader>
                             <mah:MetroHeader.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
@@ -198,10 +185,10 @@
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsPathIconText}" />
+                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsPathIconText}" FontFamily="Consolas"/>
                         </mah:MetroHeader>
 
-                        <mah:MetroHeader Padding="2,0,2,5">
+                        <mah:MetroHeader>
                             <mah:MetroHeader.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
@@ -213,7 +200,7 @@
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsGeometryText}" />
+                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsGeometryText}" FontFamily="Consolas" />
                         </mah:MetroHeader>
                     </StackPanel>
                 </Expander>

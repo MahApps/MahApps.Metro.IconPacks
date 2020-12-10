@@ -13,11 +13,14 @@ using System.Windows.Media;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System.IO;
 using System.Windows;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
-    public static class SettingsViewModel
+    public class SettingsViewModel : ViewModelBase
     {
+
+        private readonly IDialogCoordinator dialogCoordinator;
 
         static SettingsViewModel()
         {
@@ -47,6 +50,14 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             AccentColors = new List<Color?>(AccentColorNamesDictionary.Keys);
         }
 
+        public SettingsViewModel(IDialogCoordinator dialogCoordinator)
+        {
+            this.dialogCoordinator = dialogCoordinator;
+            this.CopyOriginalTemplatesCommand = new SimpleCommand((_) => CopyOriginalTemplatesCommand_Executed(), (_) => Directory.Exists(Settings.Default.ExportTemplatesDir));
+            this.SelectTemplateFolderCommand = new SimpleCommand((_) => SelectTemplateFolderCommand_Executed());
+            this.ClearTemplatesDirCommand = new SimpleCommand((_) => ClearTemplatesDirCommand_Executed(), (_) => !string.IsNullOrEmpty(Settings.Default.ExportTemplatesDir));
+        }
+
         public static Dictionary<Color?, string> AccentColorNamesDictionary { get; } = new Dictionary<Color?, string>();
 
 
@@ -59,26 +70,33 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             ThemeManager.Current.ChangeTheme(App.Current, newTheme);
         }
 
-        public static SimpleCommand SelectTemplateFolderCommand { get; } = new SimpleCommand((_) => SelectTemplateFolderCommand_Executed());
-        private static void SelectTemplateFolderCommand_Executed()
+        public SimpleCommand SelectTemplateFolderCommand { get; }
+        private async void SelectTemplateFolderCommand_Executed()
         {
-            var dialog = new CommonOpenFileDialog()
+            try
             {
-                IsFolderPicker = true,
-                Multiselect = false,
-                Title = "Select the Template Folder"
-            };
+                var dialog = new CommonOpenFileDialog()
+                {
+                    IsFolderPicker = true,
+                    Multiselect = false,
+                    Title = "Select the Template Folder"
+                };
 
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                {
+                    Settings.Default.ExportTemplatesDir = dialog.FileName;
+                }
+            }
+            catch (Exception e)
             {
-                Settings.Default.ExportTemplatesDir = dialog.FileName;
+                await dialogCoordinator.ShowMessageAsync(this, "Error", e.Message);
             }
         }
 
-        public static SimpleCommand CopyOriginalTemplatesCommand { get; } = new SimpleCommand((_) => CopyOriginalTemplates_Executed(), (_) => Directory.Exists(Settings.Default.ExportTemplatesDir));
-        private static void CopyOriginalTemplates_Executed()
+        public SimpleCommand CopyOriginalTemplatesCommand { get; } 
+        private async void CopyOriginalTemplatesCommand_Executed()
         {
-            string[] failedItems = Array.Empty<string>();
+            List<string> failedItems = new List<string>();
             string[] orignalTemplates = Directory.GetFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ExportTemplates"));
             
             foreach (var template in orignalTemplates)
@@ -91,9 +109,23 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                 }
                 else
                 {
-                    // TODO failedItems.Append(Path.GetFileName(template));
+                    failedItems.Add("• " + Path.GetFileName(template));
                 }
             }
+
+            if (failedItems.Count > 0)
+            {
+                await dialogCoordinator.ShowMessageAsync(this, "Templates already exists", $"The following files already exist in the templates folder. Either delete them or choose an empy folder. \n\n{string.Join(Environment.NewLine, failedItems)}");
+            }
+
+            MainViewModel.OpenUrlCommand.Execute(Settings.Default.ExportTemplatesDir);
+        }
+
+        public SimpleCommand ClearTemplatesDirCommand { get; }
+
+        private void ClearTemplatesDirCommand_Executed()
+        {
+            Settings.Default.ExportTemplatesDir = null;
         }
 
     }

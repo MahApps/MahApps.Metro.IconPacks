@@ -25,6 +25,7 @@
                  TitleCharacterCasing="Normal"
                  WindowStartupLocation="CenterScreen"
                  WindowTransitionsEnabled="False"
+                 mah:DialogParticipation.Register="{Binding}"
                  mc:Ignorable="d">
 
     <mah:MetroWindow.Resources>
@@ -173,8 +174,10 @@
             <mah:Flyout IsOpen="{Binding ElementName=ToggleButtonOpenSettings, Path=IsChecked, Mode=TwoWay}"
                         Position="Right"
                         MinWidth="350"
+                        Background="#FF323232"
                         Header="Settings"
                         CloseButtonVisibility="Visible"
+                        DataContext="{Binding Settings}"
                         IsModal="True" >
                 <ctrls:SettingsView />
             </mah:Flyout>

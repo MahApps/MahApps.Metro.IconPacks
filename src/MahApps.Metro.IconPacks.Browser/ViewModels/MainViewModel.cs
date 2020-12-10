@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,11 +16,13 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        private readonly IDialogCoordinator dialogCoordinator;
         private Dispatcher _dispatcher;
         private string _filterText;
 
         public MainViewModel(Dispatcher dispatcher)
         {
+            this.dialogCoordinator = DialogCoordinator.Instance;
             this._dispatcher = dispatcher;
             this.AppVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
             
@@ -72,6 +75,8 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             };
 
             this.IconPacksVersion = FileVersionInfo.GetVersionInfo(Assembly.GetAssembly(typeof(PackIconMaterial)).Location).FileVersion;
+
+            this.Settings = new SettingsViewModel(this.dialogCoordinator);
         }
 
         private static void OpenUrlLink(string link)
@@ -128,5 +133,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     Clipboard.SetDataObject(x as string);
                 }))
             };
+
+        public SettingsViewModel Settings { get; }
     }
 }

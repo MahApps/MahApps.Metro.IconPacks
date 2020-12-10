@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:model="clr-namespace:MahApps.Metro.IconPacks.Browser.Model"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -18,6 +19,7 @@
                 <ResourceDictionary Source="Styles/NavigationListBox.xaml" />
                 <ResourceDictionary Source="Styles/ScrollViewerWin10.xaml" />
                 <ResourceDictionary Source="Styles/SidebarExpander.xaml" />
+                <ResourceDictionary Source="Styles/HyperlinkTextBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <!--  Templates  -->
@@ -103,6 +105,23 @@
                 </Setter>
             </Style>
 
+            <Style TargetType="Expander" BasedOn="{StaticResource MahApps.Styles.Expander}">
+                <Setter Property="IsExpanded" Value="True" />
+            </Style>
+
+            <Style TargetType="mah:MetroHeader" BasedOn="{StaticResource MahApps.Styles.MetroHeader}">
+                <Setter Property="mah:HeaderedControlHelper.HeaderFontSize" Value="{DynamicResource MahApps.Sizes.Font.Content}" />
+                <Setter Property="Padding" Value="2,0,2,5" />
+            </Style>
+
+            <Style TargetType="mah:ColorPicker" BasedOn="{StaticResource MahApps.Styles.ColorPicker}">
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+            
+            <Style TargetType="ComboBox" BasedOn="{StaticResource MahApps.Styles.ComboBox}">
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
