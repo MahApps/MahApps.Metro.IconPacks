@@ -1,0 +1,38 @@
+﻿<!-- ####################################################################
+
+This file was generates automatically via the 
+MahApps.Metro.IconPacks.Browser (MIT-License). 
+
+Visit https://github.com/MahApps/MahApps.Metro.IconPacks and 
+https://github.com/MahApps/MahApps.Metro.IconPacks/blob/develop/LICENSE 
+for more information.
+ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+Icon-Name: 			@IconKind
+Iconpack:			@IconPackName
+Iconpack-Homepage: 	@IconPackHomepage
+Iconpack-License:	@IconPackLicense
+
+#####################################################################-->
+
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        Width="@PageWidth" 
+        Height="@PageHeight">
+    <Canvas.LayoutTransform>
+        <MatrixTransform Matrix="@TranformMatrix" />
+    </Canvas.LayoutTransform>
+    <Path Data="@PathData"
+          Stroke="@StrokeColor"
+          Fill="@FillColor"
+          Stretch="Uniform"
+          Width="@PageWidth"
+          Height="@PageHeight"
+          SnapsToDevicePixels="False"
+          UseLayoutRounding="False"
+          StrokeThickness="@StrokeWidth"
+          StrokeStartLineCap="@StrokeLineCap"
+          StrokeEndLineCap="@StrokeLineCap"
+          StrokeLineJoin="@StrokeLineJoin"/>
+</Canvas>

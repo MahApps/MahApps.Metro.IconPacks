@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ####################################################################
+
+This file was generates automatically via the 
+MahApps.Metro.IconPacks.Browser (MIT-License). 
+
+Visit https://github.com/MahApps/MahApps.Metro.IconPacks and 
+https://github.com/MahApps/MahApps.Metro.IconPacks/blob/develop/LICENSE 
+for more information.
+ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+Icon-Name: 			@IconKind
+Iconpack:			@IconPackName
+Iconpack-Homepage: 	@IconPackHomepage
+Iconpack-License:	@IconPackLicense
+
+#####################################################################-->
+
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="@PageWidth"
+     height="@PageHeight">
+    <path d="@PathData"
+          style="fill:@FillColor;
+                 stroke:@StrokeColor
+                 stroke-width:@StrokeWidth;
+                 stroke-linecap:@StrokeLineCap;
+                 stroke-linejoin:@StrokeLineJoin;"
+          transform="matrix(@TranformMatrix)" />
+</svg>
