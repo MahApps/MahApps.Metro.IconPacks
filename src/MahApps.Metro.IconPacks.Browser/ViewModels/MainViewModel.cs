@@ -17,11 +17,21 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private readonly IDialogCoordinator dialogCoordinator;
-        private Dispatcher _dispatcher;
+        private readonly Dispatcher _dispatcher;
         private string _filterText;
+        private static MainViewModel _Instance;
 
         public MainViewModel(Dispatcher dispatcher)
         {
+            if (_Instance is null)
+            {
+                _Instance = this;
+            }
+            else
+            {
+                return;
+            }
+
             this.dialogCoordinator = DialogCoordinator.Instance;
             this._dispatcher = dispatcher;
             this.AppVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
@@ -66,12 +76,12 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
 
             foreach (var (EnumType, IconPackType) in availableIconPacks)
             {
-                IconPacks.Add(new IconPackViewModel(this, EnumType, IconPackType));
+                IconPacks.Add(new IconPackViewModel(this, EnumType, IconPackType, dialogCoordinator));
             }
 
             this.AllIconPacksCollection = new List<IconPackViewModel>(1)
             {
-                new IconPackViewModel(this, "All Icons", availableIconPacks.Select(x => x.EnumType).ToArray(), availableIconPacks.Select(x=> x.IconPackType).ToArray())
+                new IconPackViewModel(this, "All Icons", availableIconPacks.Select(x => x.EnumType).ToArray(), availableIconPacks.Select(x=> x.IconPackType).ToArray(), dialogCoordinator)
             };
 
             this.IconPacksVersion = FileVersionInfo.GetVersionInfo(Assembly.GetAssembly(typeof(PackIconMaterial)).Location).FileVersion;
@@ -79,15 +89,22 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
             this.Settings = new SettingsViewModel(this.dialogCoordinator);
         }
 
-        private static void OpenUrlLink(string link)
+        private async static void OpenUrlLink(string link)
         {
-            Process.Start(new ProcessStartInfo
+            try
             {
-                FileName = link ?? throw new System.ArgumentNullException(nameof(link)),
-                // UseShellExecute is default to false on .NET Core while true on .NET Framework.
-                // Only this value is set to true, the url link can be opened.
-                UseShellExecute = true,
-            });
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = link ?? throw new System.ArgumentNullException(nameof(link)),
+                    // UseShellExecute is default to false on .NET Core while true on .NET Framework.
+                    // Only this value is set to true, the url link can be opened.
+                    UseShellExecute = true,
+                });
+            }
+            catch (Exception e)
+            {
+                await DialogCoordinator.Instance.ShowMessageAsync(MainViewModel._Instance , "Error", e.Message);
+            }
         }
 
         public ObservableCollection<IconPackViewModel> IconPacks { get; }

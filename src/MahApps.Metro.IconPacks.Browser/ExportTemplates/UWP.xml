@@ -27,6 +27,8 @@ Iconpack-License:	@IconPackLicense
           Stroke="@StrokeColor"
           Fill="@FillColor"
           Stretch="Uniform" 
+          Width="@PageWidth" 
+          Height="@PageHeight"
           UseLayoutRounding="False"
           StrokeThickness="@StrokeWidth"
           StrokeStartLineCap="@StrokeLineCap"

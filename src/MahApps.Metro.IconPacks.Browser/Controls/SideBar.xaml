@@ -1,5 +1,4 @@
-﻿<UserControl x:Name="ucSideBar"
-             x:Class="MahApps.Metro.IconPacks.Browser.Controls.SideBar"
+﻿<UserControl x:Class="MahApps.Metro.IconPacks.Browser.Controls.SideBar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:ctrls="clr-namespace:MahApps.Metro.IconPacks.Browser.Controls"
@@ -10,7 +9,7 @@
              xmlns:prop="clr-namespace:MahApps.Metro.IconPacks.Browser.Properties"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:vm="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
-             d:DataContext="{d:DesignInstance Type=vm:IconViewModel,
+             d:DataContext="{d:DesignInstance Type=vm:IconPackViewModel,
                                               IsDesignTimeCreatable=True}"
              d:DesignHeight="450"
              d:DesignWidth="800"
@@ -207,7 +206,6 @@
 
                 <Expander Header="Export"
                           Margin="0,5,0,0"
-                          DataContext="{Binding SelectedIcon}"
                           Padding="4,0,4,4"
                           IsExpanded="True">
                     <Expander.Resources>
@@ -218,10 +216,10 @@
                         </Style>
                     </Expander.Resources>
                     <StackPanel>
-                        <Button Command="{Binding SaveAsSvg_Command, ElementName=ucSideBar, Mode=OneTime}" Content="Save as svg" />
-                        <Button Command="{Binding SaveAsWpf_Command, ElementName=ucSideBar, Mode=OneTime}" Content="Save as XAML (WPF)" />
-                        <Button Command="{Binding ElementName=ucSideBar, Path=SaveAsUwp_Command, Mode=OneTime}" Content="Save as XAML (UWP)" />
-                        <Button Command="{Binding ElementName=ucSideBar, Path=SaveAsBitmap_Command, Mode=OneTime}" Content="Save as Bitmap" />
+                        <Button Command="{Binding SaveAsSvg_Command}" Content="Save as svg" />
+                        <Button Command="{Binding SaveAsWpf_Command}" Content="Save as XAML (WPF)" />
+                        <Button Command="{Binding SaveAsUwp_Command}" Content="Save as XAML (UWP)" />
+                        <Button Command="{Binding SaveAsBitmap_Command}" Content="Save as Bitmap" />
                     </StackPanel>
                 </Expander>
             </StackPanel>
