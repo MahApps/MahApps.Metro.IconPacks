@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Codicons", "https://github.com/microsoft/vscode-codicons", "https://github.com/microsoft/vscode-codicons/blob/master/LICENSE")]
     public class PackIconCodicons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconCodiconsKind), typeof(PackIconCodicons), new PropertyMetadata(default(PackIconCodiconsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconCodicons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconCodiconsKind), typeof(PackIconCodicons), new PropertyMetadata(default(PackIconCodiconsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

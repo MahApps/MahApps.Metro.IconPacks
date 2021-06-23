@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Material design icons (Google)", "http://google.github.io/material-design-icons/", "http://google.github.io/material-design-icons/#licensing")]
     public class PackIconMaterialDesign : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconMaterialDesignKind), typeof(PackIconMaterialDesign), new PropertyMetadata(default(PackIconMaterialDesignKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconMaterialDesign)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconMaterialDesignKind), typeof(PackIconMaterialDesign), new PropertyMetadata(default(PackIconMaterialDesignKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

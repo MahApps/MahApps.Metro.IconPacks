@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Remix Icon", "https://remixicon.com/", "https://github.com/Remix-Design/RemixIcon/blob/master/License")]
     public class PackIconRemixIcon : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconRemixIconKind), typeof(PackIconRemixIcon), new PropertyMetadata(default(PackIconRemixIconKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconRemixIcon)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconRemixIconKind), typeof(PackIconRemixIcon), new PropertyMetadata(default(PackIconRemixIconKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

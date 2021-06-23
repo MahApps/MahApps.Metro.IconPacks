@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Radix Icons", "https://icons.modulz.app/", "https://github.com/modulz/radix-icons/blob/master/LICENSE")]
     public class PackIconRadixIcons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconRadixIconsKind), typeof(PackIconRadixIcons), new PropertyMetadata(default(PackIconRadixIconsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconRadixIcons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconRadixIconsKind), typeof(PackIconRadixIcons), new PropertyMetadata(default(PackIconRadixIconsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

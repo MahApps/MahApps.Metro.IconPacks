@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Material Design Icons Light", "https://github.com/Templarian/MaterialDesignLight", "https://github.com/Templarian/MaterialDesignLight/blob/master/LICENSE.md")]
     public class PackIconMaterialLight : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconMaterialLightKind), typeof(PackIconMaterialLight), new PropertyMetadata(default(PackIconMaterialLightKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconMaterialLight)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconMaterialLightKind), typeof(PackIconMaterialLight), new PropertyMetadata(default(PackIconMaterialLightKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

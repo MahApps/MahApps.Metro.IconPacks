@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Unicons", "https://iconscout.com/unicons", "https://github.com/Iconscout/unicons/blob/master/LICENSE")]
     public class PackIconUnicons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconUniconsKind), typeof(PackIconUnicons), new PropertyMetadata(default(PackIconUniconsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconUnicons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconUniconsKind), typeof(PackIconUnicons), new PropertyMetadata(default(PackIconUniconsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Jam Icons", "https://jam-icons.com/", "https://github.com/michaelampr/jam/blob/master/LICENSE")]
     public class PackIconJamIcons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconJamIconsKind), typeof(PackIconJamIcons), new PropertyMetadata(default(PackIconJamIconsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconJamIcons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconJamIconsKind), typeof(PackIconJamIcons), new PropertyMetadata(default(PackIconJamIconsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.
