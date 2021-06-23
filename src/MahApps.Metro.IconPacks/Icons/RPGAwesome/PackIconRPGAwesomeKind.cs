@@ -512,6 +512,6 @@
         [Description("wyvern (eaeb)")] Wyvern,
         [Description("x-mark (eaec)")] XMark,
         [Description("zebra-shield (eaed)")] ZebraShield,
-        [Description("zigzag-leaf (eaee)")] ZigzagLeaf,
+        [Description("zigzag-leaf (eaee)")] ZigzagLeaf
     }
 }

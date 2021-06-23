@@ -1277,6 +1277,6 @@
         [Description("appbar.xbox")] Xbox,
         [Description("appbar.youtube")] Youtube,
         [Description("appbar.youtube.play")] YoutubePlay,
-        [Description("appbar.zune")] Zune,
+        [Description("appbar.zune")] Zune
     }
 }

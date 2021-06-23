@@ -348,6 +348,6 @@
         [Description("window (EB7F)")] Window,
         [Description("word-wrap (EB80)")] WordWrap,
         [Description("zoom-in (EB81)")] ZoomIn,
-        [Description("zoom-out (EB82)")] ZoomOut,
+        [Description("zoom-out (EB82)")] ZoomOut
     }
 }

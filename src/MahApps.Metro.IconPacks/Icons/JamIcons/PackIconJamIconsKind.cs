@@ -913,6 +913,6 @@
         [Description("yelp-square (F47D)")] YelpSquare,
         [Description("youtube (F481)")] Youtube,
         [Description("youtube-circle (F47F)")] YoutubeCircle,
-        [Description("youtube-square (F480)")] YoutubeSquare,
+        [Description("youtube-square (F480)")] YoutubeSquare
     }
 }

@@ -124,7 +124,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                 FileName = link ?? throw new System.ArgumentNullException(nameof(link)),
                 // UseShellExecute is default to false on .NET Core while true on .NET Framework.
                 // Only this value is set to true, the url link can be opened.
-                UseShellExecute = true,
+                UseShellExecute = true
             });
         }
 

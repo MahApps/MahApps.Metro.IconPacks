@@ -713,6 +713,6 @@
         [Description("logo-xing (xing)")] LogoXing,
         [Description("logo-yahoo (yahoo)")] LogoYahoo,
         [Description("logo-yen (yen)")] LogoYen,
-        [Description("logo-youtube (youtube)")] LogoYoutube,
+        [Description("logo-youtube (youtube)")] LogoYoutube
     }
 }

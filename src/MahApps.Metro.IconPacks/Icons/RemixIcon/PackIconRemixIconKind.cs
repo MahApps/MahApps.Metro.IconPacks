@@ -2288,6 +2288,6 @@
         [Description("zoom-out-fill (System, F2DC)")] ZoomOutFill,
         [Description("zoom-out-line (System, F2DD)")] ZoomOutLine,
         [Description("zzz-fill (Health, F2DE)")] ZzzFill,
-        [Description("zzz-line (Health, F2DF)")] ZzzLine,
+        [Description("zzz-line (Health, F2DF)")] ZzzLine
     }
 }

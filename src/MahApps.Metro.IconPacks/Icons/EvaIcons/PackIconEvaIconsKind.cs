@@ -507,6 +507,6 @@
         [Description("Wifi (EBE7)")] Wifi,
         [Description("WifiOff (EBE8)")] WifiOff,
         [Description("WifiOffOutline (EBE9)")] WifiOffOutline,
-        [Description("WifiOutline (EBEA)")] WifiOutline,
+        [Description("WifiOutline (EBEA)")] WifiOutline
     }
 }
