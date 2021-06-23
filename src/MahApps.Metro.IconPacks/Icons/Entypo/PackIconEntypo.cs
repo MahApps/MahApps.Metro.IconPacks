@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Entypo+", "http://www.entypo.com/", "https://creativecommons.org/licenses/by-sa/4.0/")]
     public class PackIconEntypo : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconEntypoKind), typeof(PackIconEntypo), new PropertyMetadata(default(PackIconEntypoKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconEntypo)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconEntypoKind), typeof(PackIconEntypo), new PropertyMetadata(default(PackIconEntypoKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

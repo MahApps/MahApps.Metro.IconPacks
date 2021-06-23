@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Modern UI Icons", "http://modernuiicons.com/", "https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt")]
     public class PackIconModern : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconModernKind), typeof(PackIconModern), new PropertyMetadata(default(PackIconModernKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconModern)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconModernKind), typeof(PackIconModern), new PropertyMetadata(default(PackIconModernKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

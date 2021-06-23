@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Feather Icons", "https://feathericons.com/", "https://github.com/feathericons/feather/blob/master/LICENSE")]
     public class PackIconFeatherIcons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconFeatherIconsKind), typeof(PackIconFeatherIcons), new PropertyMetadata(default(PackIconFeatherIconsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconFeatherIcons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconFeatherIconsKind), typeof(PackIconFeatherIcons), new PropertyMetadata(default(PackIconFeatherIconsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

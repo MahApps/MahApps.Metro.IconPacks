@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Fontaudio", "https://github.com/fefanto/fontaudio", "https://github.com/fefanto/fontaudio#license")]
     public class PackIconFontaudio : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconFontaudioKind), typeof(PackIconFontaudio), new PropertyMetadata(default(PackIconFontaudioKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconFontaudio)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconFontaudioKind), typeof(PackIconFontaudio), new PropertyMetadata(default(PackIconFontaudioKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

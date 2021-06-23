@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Microns", "https://www.s-ings.com/projects/microns-icon-font/", "https://github.com/stephenhutchings/microns/blob/master/LICENCE.md")]
     public class PackIconMicrons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconMicronsKind), typeof(PackIconMicrons), new PropertyMetadata(default(PackIconMicronsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconMicrons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconMicronsKind), typeof(PackIconMicrons), new PropertyMetadata(default(PackIconMicronsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

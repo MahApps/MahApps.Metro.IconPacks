@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Vaadin Icons", "https://vaadin.com/icons", "https://github.com/vaadin/vaadin-icons/blob/master/LICENSE")]
     public class PackIconVaadinIcons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconVaadinIconsKind), typeof(PackIconVaadinIcons), new PropertyMetadata(default(PackIconVaadinIconsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconVaadinIcons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconVaadinIconsKind), typeof(PackIconVaadinIcons), new PropertyMetadata(default(PackIconVaadinIconsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

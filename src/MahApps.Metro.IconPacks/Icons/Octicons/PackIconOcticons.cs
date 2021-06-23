@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Octicons", "https://primer.style/octicons/", "https://github.com/primer/octicons/blob/master/LICENSE")]
     public class PackIconOcticons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconOcticonsKind), typeof(PackIconOcticons), new PropertyMetadata(default(PackIconOcticonsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconOcticons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconOcticonsKind), typeof(PackIconOcticons), new PropertyMetadata(default(PackIconOcticonsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

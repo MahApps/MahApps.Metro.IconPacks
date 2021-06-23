@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Fork Awesome", "https://forkaweso.me/", "https://github.com/ForkAwesome/Fork-Awesome/blob/master/LICENSES")]
     public class PackIconForkAwesome : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconForkAwesomeKind), typeof(PackIconForkAwesome), new PropertyMetadata(default(PackIconForkAwesomeKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconForkAwesome)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconForkAwesomeKind), typeof(PackIconForkAwesome), new PropertyMetadata(default(PackIconForkAwesomeKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

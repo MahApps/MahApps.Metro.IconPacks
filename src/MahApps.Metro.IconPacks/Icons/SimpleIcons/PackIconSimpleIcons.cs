@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Simple Icons", "https://simpleicons.org/", "https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md")]
     public class PackIconSimpleIcons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconSimpleIconsKind), typeof(PackIconSimpleIcons), new PropertyMetadata(default(PackIconSimpleIconsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconSimpleIcons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconSimpleIconsKind), typeof(PackIconSimpleIcons), new PropertyMetadata(default(PackIconSimpleIconsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

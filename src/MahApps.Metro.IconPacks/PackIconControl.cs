@@ -13,16 +13,16 @@ namespace MahApps.Metro.IconPacks
     /// </summary>
     public class PackIconControl : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(Enum), typeof(PackIconControl), new PropertyMetadata(default(Enum), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconControl)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(Enum), typeof(PackIconControl), new PropertyMetadata(default(Enum), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.

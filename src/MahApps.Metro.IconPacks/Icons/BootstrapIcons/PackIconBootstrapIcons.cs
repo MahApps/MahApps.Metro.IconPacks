@@ -16,16 +16,16 @@ namespace MahApps.Metro.IconPacks
     [MetaData("Bootstrap Icons", "https://icons.getbootstrap.com/", "https://github.com/twbs/icons/blob/main/LICENSE.md")]
     public class PackIconBootstrapIcons : PackIconControlBase
     {
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconBootstrapIconsKind), typeof(PackIconBootstrapIcons), new PropertyMetadata(default(PackIconBootstrapIconsKind), KindPropertyChangedCallback));
-
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static PropertyChangedCallback KindPropertyChangedCallback { get; } = (dependencyObject, e) =>
         {
             if (e.NewValue != e.OldValue)
             {
                 ((PackIconBootstrapIcons)dependencyObject).UpdateData();
             }
-        }
+        };
+
+        public static readonly DependencyProperty KindProperty
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconBootstrapIconsKind), typeof(PackIconBootstrapIcons), new PropertyMetadata(default(PackIconBootstrapIconsKind), KindPropertyChangedCallback));
 
         /// <summary>
         /// Gets or sets the icon to display.
