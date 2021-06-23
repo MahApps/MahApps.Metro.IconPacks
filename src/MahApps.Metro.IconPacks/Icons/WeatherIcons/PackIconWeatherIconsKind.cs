@@ -236,6 +236,6 @@
         [Description("wi-wind-beaufort-8")] WindBeaufort8,
         [Description("wi-wind-beaufort-9")] WindBeaufort9,
         [Description("wi-wind-deg")] WindDeg,
-        [Description("wi-windy")] Windy,
+        [Description("wi-windy")] Windy
     }
 }

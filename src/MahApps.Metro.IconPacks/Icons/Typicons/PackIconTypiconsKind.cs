@@ -353,6 +353,6 @@
         [Description("zoom-in-outline")] ZoomInOutline,
         [Description("zoom-out")] ZoomOut,
         [Description("zoom-outline")] ZoomOutline,
-        [Description("zoom-out-outline")] ZoomOutOutline,
+        [Description("zoom-out-outline")] ZoomOutOutline
     }
 }

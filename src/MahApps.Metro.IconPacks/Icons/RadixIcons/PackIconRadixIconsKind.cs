@@ -277,6 +277,6 @@
         [Description("view-vertical (ea00)")] ViewVertical,
         [Description("width (ea01)")] Width,
         [Description("zoom-in (ea02)")] ZoomIn,
-        [Description("zoom-out (ea03)")] ZoomOut,
+        [Description("zoom-out (ea03)")] ZoomOut
     }
 }

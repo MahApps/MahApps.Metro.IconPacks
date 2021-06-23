@@ -566,6 +566,6 @@
         [Description("xml (59937, xml)")] Xml,
         [Description("xml_document (59938, xml_document)")] XmlDocument,
         [Description("zoom_in (59939, zoom_in)")] ZoomIn,
-        [Description("zoom_out (59940, zoom_out)")] ZoomOut,
+        [Description("zoom_out (59940, zoom_out)")] ZoomOut
     }
 }

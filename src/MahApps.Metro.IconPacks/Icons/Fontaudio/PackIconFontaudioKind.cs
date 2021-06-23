@@ -172,6 +172,6 @@
         [Description("fad-waveform (F198)")] Waveform,
         [Description("fad-xlrplug (F199)")] Xlrplug,
         [Description("fad-zoomin (F19A)")] Zoomin,
-        [Description("fad-zoomout (F19B)")] Zoomout,
+        [Description("fad-zoomout (F19B)")] Zoomout
     }
 }

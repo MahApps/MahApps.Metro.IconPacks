@@ -1480,6 +1480,6 @@
         [Description("Zoom, https://zoom.us/brandguidelines")] Zoom,
         [Description("Zorin, https://zorinos.com/press/")] Zorin,
         [Description("Zulip, https://github.com/zulip/zulip/")] Zulip,
-        [Description("Z-Wave, https://www.z-wave.com/")] ZWave,
+        [Description("Z-Wave, https://www.z-wave.com/")] ZWave
     }
 }

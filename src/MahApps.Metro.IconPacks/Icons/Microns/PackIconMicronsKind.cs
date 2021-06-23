@@ -125,6 +125,6 @@
         [Description("mu-web (E76A, world, map)")] Web,
         [Description("mu-wifi (E76B, online)")] Wifi,
         [Description("mu-zoom-in (E745, magnify)")] ZoomIn,
-        [Description("mu-zoom-out (E746, magnify)")] ZoomOut,
+        [Description("mu-zoom-out (E746, magnify)")] ZoomOut
     }
 }

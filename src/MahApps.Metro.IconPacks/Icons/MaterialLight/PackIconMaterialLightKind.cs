@@ -274,6 +274,6 @@
         [Description("volume-off")] VolumeOff,
         [Description("volume-plus")] VolumePlus,
         [Description("wifi")] Wifi,
-        [Description("xml")] Xml,
+        [Description("xml")] Xml
     }
 }

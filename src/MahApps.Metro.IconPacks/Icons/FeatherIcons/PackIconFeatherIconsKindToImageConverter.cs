@@ -27,7 +27,7 @@ namespace MahApps.Metro.IconPacks.Converter
             {
                 StartLineCap = PenLineCap.Round,
                 EndLineCap = PenLineCap.Round,
-                LineJoin = PenLineJoin.Round,
+                LineJoin = PenLineJoin.Round
             };
             geometryDrawing.Pen = pen;
 

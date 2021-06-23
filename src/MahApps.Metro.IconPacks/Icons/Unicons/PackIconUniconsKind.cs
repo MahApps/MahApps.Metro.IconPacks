@@ -1201,6 +1201,6 @@
         [Description("yen (Business, yen-sign, money, currency, yen)")] Yen,
         [Description("yen-circle (Business, yen-coin, yen, coin, money, currency, yen-circle)")] YenCircle,
         [Description("yin-yang (User Interface, chinese-symbol, taoism, yang, china, traditional, religious-symbol, yin-yang)")] YinYang,
-        [Description("youtube (Brand Logos, logo, social-media, brand, youtube)")] Youtube,
+        [Description("youtube (Brand Logos, logo, social-media, brand, youtube)")] Youtube
     }
 }

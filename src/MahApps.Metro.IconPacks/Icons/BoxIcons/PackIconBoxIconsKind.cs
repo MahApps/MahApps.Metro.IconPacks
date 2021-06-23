@@ -1517,6 +1517,6 @@
         [Description("SolidYinYang (Solid, ee5a)")] SolidYinYang,
         [Description("SolidZap (Solid, ee5b)")] SolidZap,
         [Description("SolidZoomIn (Solid, ee5c)")] SolidZoomIn,
-        [Description("SolidZoomOut (Solid, ee5d)")] SolidZoomOut,
+        [Description("SolidZoomOut (Solid, ee5d)")] SolidZoomOut
     }
 }

@@ -653,6 +653,6 @@
         [Description("workplace (e900, Location, Office, structure, headquarters, office, work, building)")] Workplace,
         [Description("wrench (e749, Tools, Item, Edit, wrench, settings)")] Wrench,
         [Description("youtube (e6e5, Brand, Social, Media, video, clip, movie)")] Youtube,
-        [Description("youtube-square (e6e4, Brand, Social, Media, video, clip, movie)")] YoutubeSquare,
+        [Description("youtube-square (e6e4, Brand, Social, Media, video, clip, movie)")] YoutubeSquare
     }
 }

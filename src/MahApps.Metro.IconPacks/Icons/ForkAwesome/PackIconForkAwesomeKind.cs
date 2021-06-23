@@ -761,6 +761,6 @@
         [Description("youtube (f167, Brand Icons, film, video)")] Youtube,
         [Description("youtube-play (f16a, Brand Icons, Video Player Icons, playing, start)")] YoutubePlay,
         [Description("youtube-square (f166, Brand Icons, film, video)")] YoutubeSquare,
-        [Description("zotero (f309, Brand Icons)")] Zotero,
+        [Description("zotero (f309, Brand Icons)")] Zotero
     }
 }
