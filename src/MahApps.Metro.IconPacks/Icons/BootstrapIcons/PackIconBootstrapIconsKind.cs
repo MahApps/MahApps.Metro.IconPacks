@@ -1168,6 +1168,6 @@
         [Description("x-square (F57C)")] XSquare,
         [Description("x-square-fill (F57B)")] XSquareFill,
         [Description("zoom-in (F57E)")] ZoomIn,
-        [Description("zoom-out (F57F)")] ZoomOut,
+        [Description("zoom-out (F57F)")] ZoomOut
     }
 }

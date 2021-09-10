@@ -893,6 +893,6 @@
         [Description("zilog (eb56)")] Zilog,
         [Description("zimpl (e9c8)")] Zimpl,
         [Description("zorinos (eb01)")] Zorinos,
-        [Description("zork (1b6)")] Zork,
+        [Description("zork (1b6)")] Zork
     }
 }

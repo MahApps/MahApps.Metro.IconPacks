@@ -161,7 +161,7 @@ namespace MahApps.Metro.IconPacks
                 {
                     StartLineCap = PenLineCap.Round,
                     EndLineCap = PenLineCap.Round,
-                    LineJoin = PenLineJoin.Round,
+                    LineJoin = PenLineJoin.Round
                 };
                 geometryDrawing.Pen = pen;
             }

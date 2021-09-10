@@ -309,7 +309,7 @@ namespace MahApps.Metro.IconPacks
                        {PackIconFeatherIconsKind.Zap, "M 13,2 3,14 h 9 l -1,8 10,-12 h -9 z"},
                        {PackIconFeatherIconsKind.ZapOff, "M 1,1 23,23 M 8,8 3,14 h 9 l -1,8 5,-6 M 18.57,12.91 21,10 H 15.66 M 12.41,6.75 13,2 10.57,4.92"},
                        {PackIconFeatherIconsKind.ZoomIn, "m 8,11 h 6 M 11,8 v 6 m 10,7 -4.35,-4.35 M 19,11 a 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 8,8 0 0 1 8,8 z"},
-                       {PackIconFeatherIconsKind.ZoomOut, "m 8,11 h 6 m 7,10 -4.35,-4.35 M 19,11 a 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 8,8 0 0 1 8,8 z"},
+                       {PackIconFeatherIconsKind.ZoomOut, "m 8,11 h 6 m 7,10 -4.35,-4.35 M 19,11 a 8,8 0 0 1 -8,8 8,8 0 0 1 -8,-8 8,8 0 0 1 8,-8 8,8 0 0 1 8,8 z"}
                    };
         }
     }

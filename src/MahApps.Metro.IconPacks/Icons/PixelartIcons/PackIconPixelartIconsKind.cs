@@ -468,6 +468,6 @@
         [Description("wind")] Wind,
         [Description("zap")] Zap,
         [Description("zoom-in")] ZoomIn,
-        [Description("zoom-out")] ZoomOut,
+        [Description("zoom-out")] ZoomOut
     }
 }

@@ -1618,6 +1618,6 @@
         [Description("Yoast (f2b1)")] YoastBrands,
         [Description("YouTube (f167, film, video, youtube-play, youtube-square)")] YoutubeBrands,
         [Description("YouTube Square (f431)")] YoutubeSquareBrands,
-        [Description("Zhihu (f63f)")] ZhihuBrands,
+        [Description("Zhihu (f63f)")] ZhihuBrands
     }
 }

@@ -949,6 +949,6 @@
         [Description("youtube_searched_for (e8fa)")] YoutubeSearchedFor,
         [Description("zoom_in (e8ff)")] ZoomIn,
         [Description("zoom_out (e900)")] ZoomOut,
-        [Description("zoom_out_map (e56b)")] ZoomOutMap,
+        [Description("zoom_out_map (e56b)")] ZoomOutMap
     }
 }

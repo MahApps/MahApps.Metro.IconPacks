@@ -303,6 +303,6 @@
         [Description("zap (Flash, Camera, Lightning)")] Zap,
         [Description("zap-off (Flash, Camera, Lightning)")] ZapOff,
         [Description("zoom-in (MagnifyingGlass)")] ZoomIn,
-        [Description("zoom-out (MagnifyingGlass)")] ZoomOut,
+        [Description("zoom-out (MagnifyingGlass)")] ZoomOut
     }
 }

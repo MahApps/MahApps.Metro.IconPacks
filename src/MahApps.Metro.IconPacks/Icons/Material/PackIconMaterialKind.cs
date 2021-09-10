@@ -5872,6 +5872,6 @@
         [Description("zodiac-scorpio (horoscope-scorpio)")] ZodiacScorpio,
         [Description("zodiac-taurus (horoscope-taurus)")] ZodiacTaurus,
         [Description("zodiac-virgo (horoscope-virgo)")] ZodiacVirgo,
-        [Description("z-wave (zwave)")] ZWave,
+        [Description("z-wave (zwave)")] ZWave
     }
 }

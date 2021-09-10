@@ -314,6 +314,6 @@
         [Description("wrench")] Wrench,
         [Description("yin-yang")] YinYang,
         [Description("zoom-in")] ZoomIn,
-        [Description("zoom-out")] ZoomOut,
+        [Description("zoom-out")] ZoomOut
     }
 }
