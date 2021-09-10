@@ -1,6 +1,6 @@
-#module nuget:?package=Cake.DotNetTool.Module
-#tool "dotnet:?package=NuGetKeyVaultSignTool&version=2.0.2"
-#tool "dotnet:?package=AzureSignTool&version=2.0.17"
+#module nuget:?package=Cake.DotNetTool.Module&version=0.5.0
+#tool dotnet:?package=NuGetKeyVaultSignTool&version=2.0.2
+#tool dotnet:?package=AzureSignTool&version=2.0.17
 
 void SignFiles(IEnumerable<FilePath> files, string description, string repoUrl)
 {

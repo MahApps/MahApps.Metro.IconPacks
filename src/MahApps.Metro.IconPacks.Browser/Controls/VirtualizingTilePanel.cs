@@ -5,8 +5,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using System.Windows.Threading;
 
-namespace MahApps.Metro.IconPacks.Browser.Virtualizing
+namespace MahApps.Metro.IconPacks.Browser.Controls
 {
     /// <summary>
     /// This panel is taken from Dan Crevier's Blog post:
@@ -15,6 +16,10 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
     /// </summary>
     class VirtualizingTilePanel : VirtualizingPanel, IScrollInfo
     {
+        private DispatcherOperation arrangeChildObjectsOperation;
+        private int childrenPerRow;
+        private double calculatedChildWidth;
+
         public VirtualizingTilePanel()
         {
             // For use in the IScrollInfo implementation
@@ -75,6 +80,14 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
                             InvalidateMeasure();
                     }
                 }
+
+                // Store the values which are valid for all children so the calculation is less heavier. 
+                if (sizeInfo.WidthChanged)
+                {
+                    childrenPerRow = CalculateChildrenPerRow(sizeInfo.NewSize);
+                    calculatedChildWidth = sizeInfo.NewSize.Width / childrenPerRow;
+                }
+
             }
             base.OnRenderSizeChanged(sizeInfo);
         }
@@ -150,19 +163,30 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
         /// <returns>Size used</returns>
         protected override Size ArrangeOverride(Size finalSize)
         {
-            IItemContainerGenerator generator = this.ItemContainerGenerator;
-
-            UpdateScrollInfo(finalSize);
-
-            for (int i = 0; i < this.Children.Count; i++)
+            // Let's cancel the current arrange if we start a new one.
+            if (arrangeChildObjectsOperation?.Status == DispatcherOperationStatus.Executing || arrangeChildObjectsOperation?.Status == DispatcherOperationStatus.Pending)
             {
-                UIElement child = this.Children[i];
-
-                // Map the child offset to an item offset
-                int itemIndex = generator.IndexFromGeneratorPosition(new GeneratorPosition(i, 0));
-
-                ArrangeChild(itemIndex, child, finalSize);
+                arrangeChildObjectsOperation.Abort();
             }
+
+            var arrageChildObjectsAction = new Action(() =>
+            {
+                IItemContainerGenerator generator = this.ItemContainerGenerator;
+
+                UpdateScrollInfo(finalSize);
+
+                for (int i = 0; i < this.Children.Count; i++)
+                {
+                    UIElement child = this.Children[i];
+
+                    // Map the child offset to an item offset
+                    int itemIndex = generator.IndexFromGeneratorPosition(new GeneratorPosition(i, 0));
+
+                    ArrangeChild(itemIndex, child);
+                }
+            });
+
+            arrangeChildObjectsOperation = Dispatcher.BeginInvoke(DispatcherPriority.Render, arrageChildObjectsAction);
 
             return finalSize;
         }
@@ -263,14 +287,12 @@ namespace MahApps.Metro.IconPacks.Browser.Virtualizing
         /// <param name="itemIndex">The data item index of the child</param>
         /// <param name="child">The element to position</param>
         /// <param name="finalSize">The size of the panel</param>
-        private void ArrangeChild(int itemIndex, UIElement child, Size finalSize)
+        private void ArrangeChild(int itemIndex, UIElement child)
         {
-            int childrenPerRow = CalculateChildrenPerRow(finalSize);
-
             int row = itemIndex/childrenPerRow;
             int column = itemIndex%childrenPerRow;
 
-            child.Arrange(new Rect(column*this.ChildSize, row*this.ChildSize, this.ChildSize, this.ChildSize));
+            child.Arrange(new Rect(column * (this.calculatedChildWidth), row*this.ChildSize, this.calculatedChildWidth, this.ChildSize));
         }
 
         /// <summary>

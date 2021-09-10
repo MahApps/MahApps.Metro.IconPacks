@@ -4,10 +4,11 @@
 
 #load sign.cake
 
-#tool GitVersion.CommandLine&version=5.3.7
-#tool gitreleasemanager
-#tool vswhere
-#addin Cake.Figlet
+#tool dotnet:?package=GitReleaseManager.Tool&version=0.11.0
+#tool dotnet:?package=GitVersion.Tool&version=5.6.6
+
+#tool vswhere&version=2.8.4
+#addin nuget:?package=Cake.Figlet&version=1.4.0
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
