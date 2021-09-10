@@ -63,13 +63,13 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
-                            <ContentControl Grid.Row="0"
-                                            Width="32"
-                                            Height="32"
-                                            Content="{Binding}"
-                                            ContentTemplateSelector="{StaticResource IconPacksBrowser.DataTemplateSelectors.Icon}"
-                                            Focusable="False"
-                                            IsTabStop="False" />
+                            <iconPacks:PackIconControl Grid.Row="0"
+                                                       Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                       Width="32"
+                                                       Height="32"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       SnapsToDevicePixels="True" />
                             <Grid x:Name="Copy2ClipboardActions"
                                   Grid.Row="0"
                                   HorizontalAlignment="Center"

@@ -22,9 +22,6 @@
                 <ResourceDictionary Source="Styles/HyperlinkTextBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <!--  Templates  -->
-            <model:IconTemplateSelector x:Key="IconPacksBrowser.DataTemplateSelectors.Icon" />
-
             <!--  Brushes  -->
             <SolidColorBrush
                 x:Key="IconPackBrowser.Brushes.PanelBackground"
