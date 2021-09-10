@@ -19,22 +19,22 @@
                  d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
                  d:DesignHeight="400"
                  d:DesignWidth="600"
+                 mah:DialogParticipation.Register="{Binding}"
                  BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
                  BorderThickness="1"
                  ResizeMode="CanResizeWithGrip"
                  TitleCharacterCasing="Normal"
                  WindowStartupLocation="CenterScreen"
                  WindowTransitionsEnabled="False"
-                 mah:DialogParticipation.Register="{Binding}"
                  mc:Ignorable="d">
 
     <mah:MetroWindow.Resources>
         <Style x:Key="LinkButtonStyle"
                BasedOn="{StaticResource MahApps.Styles.Button.WindowCommands}"
                TargetType="{x:Type Button}">
-            <Setter Property="Padding" Value="0" />
             <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Opacity" Value="1" />
+            <Setter Property="Padding" Value="0" />
         </Style>
 
         <CollectionViewSource x:Key="IconPacksBrowser.Collections.IconPacks" Source="{Binding IconPacks}" />
@@ -64,11 +64,11 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <iconPacks:PackIconControl Grid.Row="0"
-                                                       Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
                                                        Width="32"
                                                        Height="32"
                                                        HorizontalAlignment="Center"
                                                        VerticalAlignment="Center"
+                                                       Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
                                                        SnapsToDevicePixels="True" />
                             <Grid x:Name="Copy2ClipboardActions"
                                   Grid.Row="0"
@@ -81,7 +81,7 @@
                                         <SolidColorBrush Opacity=".2" Color="{DynamicResource MahApps.Colors.ThemeBackground}" />
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <StackPanel Margin="11,0" Orientation="Horizontal">
+                                <StackPanel Margin="11 0" Orientation="Horizontal">
                                     <Button Grid.Column="0"
                                             Width="22"
                                             Height="22"
@@ -97,10 +97,10 @@
                                         </Button.ToolTip>
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconMaterial Width="7"
-                                                                        Margin="1,0"
+                                                                        Margin="1 0"
                                                                         Kind="ChevronLeft" />
                                             <iconPacks:PackIconMaterial Width="7"
-                                                                        Margin="1,0"
+                                                                        Margin="1 0"
                                                                         Kind="ChevronRight" />
                                         </StackPanel>
                                     </Button>
@@ -171,14 +171,14 @@
 
     <mah:MetroWindow.Flyouts>
         <mah:FlyoutsControl>
-            <mah:Flyout IsOpen="{Binding ElementName=ToggleButtonOpenSettings, Path=IsChecked, Mode=TwoWay}"
-                        Position="Right"
-                        MinWidth="350"
+            <mah:Flyout MinWidth="350"
                         Background="#FF323232"
-                        Header="Settings"
                         CloseButtonVisibility="Visible"
                         DataContext="{Binding Settings}"
-                        IsModal="True" >
+                        Header="Settings"
+                        IsModal="True"
+                        IsOpen="{Binding ElementName=ToggleButtonOpenSettings, Path=IsChecked, Mode=TwoWay}"
+                        Position="Right">
                 <ctrls:SettingsView />
             </mah:Flyout>
         </mah:FlyoutsControl>
@@ -213,8 +213,7 @@
 
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
-            <ToggleButton Content="{iconPacks:Modern Kind=Settings}"
-                          x:Name="ToggleButtonOpenSettings" />
+            <ToggleButton x:Name="ToggleButtonOpenSettings" Content="{iconPacks:Modern Kind=Settings}" />
             <Button Command="{x:Static viewModels:MainViewModel.OpenUrlCommand}"
                     CommandParameter="https://github.com/MahApps/MahApps.Metro.IconPacks"
                     Content="{iconPacks:Modern SocialGithubOctocat, Width=22, Height=22}"
@@ -232,7 +231,7 @@
                 Height="48"
                 Background="{DynamicResource MahApps.Brushes.ThemeBackground}"
                 BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                BorderThickness="0,0,0,3"
+                BorderThickness="0 0 0 3"
                 DockPanel.Dock="Top">
             <DockPanel LastChildFill="True">
                 <TextBox x:Name="FilterTextBox"
@@ -258,8 +257,8 @@
                         </StackPanel>
                     </TextBox.ToolTip>
                 </TextBox>
-                
-                <mah:TransitioningContentControl Margin="10,0"
+
+                <mah:TransitioningContentControl Margin="10 0"
                                                  VerticalAlignment="Center"
                                                  Content="{Binding ElementName=NavigationListBox, Path=SelectedItem.Caption}"
                                                  FontSize="30"
@@ -272,8 +271,8 @@
                        CanResizeOpenPane="True"
                        DisplayMode="Inline"
                        IsPaneOpen="True"
-                       PaneBackground="{DynamicResource IconPackBrowser.Brushes.PanelBackground}"
-                       OpenPaneLength="205">
+                       OpenPaneLength="205"
+                       PaneBackground="{DynamicResource IconPackBrowser.Brushes.PanelBackground}">
             <mah:SplitView.Pane>
                 <ListBox Name="NavigationListBox"
                          SelectedIndex="0"
@@ -293,7 +292,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                
+
                 <mah:TransitioningContentControl Content="{Binding ElementName=NavigationListBox, Path=SelectedItem}" ContentTemplate="{StaticResource IconPacksBrowser.DataTemplates.Content}" />
 
                 <ctrls:SidebarExpander Grid.Column="1"
@@ -346,7 +345,7 @@
             <StatusBarItem Content="{Binding ElementName=NavigationListBox, Path=SelectedItem, Mode=OneWay}">
                 <StatusBarItem.ContentTemplate>
                     <DataTemplate DataType="{x:Type viewModels:IconPackViewModel}">
-                        <Button Margin="0,0,4,0"
+                        <Button Margin="0 0 4 0"
                                 VerticalAlignment="Center"
                                 Command="{x:Static viewModels:MainViewModel.OpenUrlCommand}"
                                 CommandParameter="{Binding ProjectUrl}"
@@ -356,7 +355,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <iconPacks:PackIconOcticons Width="14"
                                                                     Height="14"
-                                                                    Margin="0,0,4,0"
+                                                                    Margin="0 0 4 0"
                                                                     VerticalAlignment="Center"
                                                                     Kind="LinkExternal" />
                                         <TextBlock VerticalAlignment="Center"
@@ -378,7 +377,7 @@
             <StatusBarItem Content="{Binding ElementName=NavigationListBox, Path=SelectedItem, Mode=OneWay}">
                 <StatusBarItem.ContentTemplate>
                     <DataTemplate DataType="{x:Type viewModels:IconPackViewModel}">
-                        <Button Margin="0,0,4,0"
+                        <Button Margin="0 0 4 0"
                                 VerticalAlignment="Center"
                                 Command="{x:Static viewModels:MainViewModel.OpenUrlCommand}"
                                 CommandParameter="{Binding LicenseUrl}"
@@ -388,7 +387,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <iconPacks:PackIconOcticons Width="14"
                                                                     Height="14"
-                                                                    Margin="0,0,4,0"
+                                                                    Margin="0 0 4 0"
                                                                     VerticalAlignment="Center"
                                                                     Kind="Law" />
                                         <TextBlock VerticalAlignment="Center"

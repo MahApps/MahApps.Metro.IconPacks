@@ -9,10 +9,8 @@
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
     <Style x:Key="IconPackBrowser.Styles.Thumb.Invisible" TargetType="Thumb">
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Width" Value="3" />
         <Setter Property="Cursor" Value="SizeWE" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
@@ -22,6 +20,8 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Width" Value="3" />
     </Style>
 
     <Style x:Key="IconPackBrowser.Styles.ToggleButton.ExpanderHeader"
@@ -52,21 +52,10 @@
     </Style>
 
     <Style BasedOn="{StaticResource MahApps.Styles.Expander}" TargetType="{x:Type ctrls:SidebarExpander}">
-        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.Gray8}" />
-        <Setter Property="mah:HeaderedControlHelper.HeaderBackground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}" />
-        <Setter Property="MinWidth" Value="24" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="MaxWidth" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Panel}, Path=ActualWidth, Converter={Converters:MathSubtractConverter}, ConverterParameter=150}" />
-        <Setter Property="mah:ExpanderHelper.CollapseStoryboard" Value="{x:Null}" />
-        <Setter Property="mah:ExpanderHelper.ExpandStoryboard" Value="{x:Null}" />
-        <Setter Property="Width">
-            <Setter.Value>
-                <MultiBinding Converter="{Converters:MathMultiplyConverter}">
-                    <Binding Path="SidebarExpandedWidth" Source="{x:Static prop:Settings.Default}" />
-                    <Binding Path="AnimateWidthFactor" RelativeSource="{RelativeSource Mode=Self}" />
-                </MultiBinding>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="MinWidth" Value="24" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ctrls:SidebarExpander}">
@@ -84,9 +73,9 @@
                                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                     UseLayoutRounding="True">
                                 <ToggleButton x:Name="ToggleSite"
+                                              Foreground="{TemplateBinding Foreground}"
                                               IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"
                                               Style="{StaticResource IconPackBrowser.Styles.ToggleButton.ExpanderHeader}"
-                                              Foreground="{TemplateBinding Foreground}"
                                               UseLayoutRounding="False">
                                     <Grid>
                                         <StackPanel Margin="4"
@@ -94,7 +83,7 @@
                                                     Orientation="Vertical">
 
                                             <iconPacks:PackIconMicrons x:Name="Arrow1"
-                                                                       Margin="0,0,0,16"
+                                                                       Margin="0 0 0 16"
                                                                        HorizontalAlignment="Center"
                                                                        Foreground="{DynamicResource MahApps.Brushes.Gray1}"
                                                                        Kind="Left" />
@@ -108,7 +97,7 @@
                                                             FontStretch="{TemplateBinding mah:HeaderedControlHelper.HeaderFontStretch}"
                                                             FontWeight="{TemplateBinding mah:HeaderedControlHelper.HeaderFontWeight}" />
                                             <iconPacks:PackIconMicrons x:Name="Arrow2"
-                                                                       Margin="0,16,0,0"
+                                                                       Margin="0 16 0 0"
                                                                        HorizontalAlignment="Center"
                                                                        Foreground="{DynamicResource MahApps.Brushes.Gray1}"
                                                                        Kind="Left" />
@@ -116,8 +105,7 @@
 
                                         <Thumb x:Name="PART_ResizingThumb"
                                                Style="{DynamicResource IconPackBrowser.Styles.Thumb.Invisible}"
-                                               Visibility="{TemplateBinding IsExpanded,
-                                                                            Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                               Visibility="{TemplateBinding IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}" />
                                     </Grid>
                                 </ToggleButton>
                             </Border>
@@ -230,6 +218,17 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="Width">
+            <Setter.Value>
+                <MultiBinding Converter="{Converters:MathMultiplyConverter}">
+                    <Binding Path="SidebarExpandedWidth" Source="{x:Static prop:Settings.Default}" />
+                    <Binding Path="AnimateWidthFactor" RelativeSource="{RelativeSource Mode=Self}" />
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="mah:ExpanderHelper.CollapseStoryboard" Value="{x:Null}" />
+        <Setter Property="mah:ExpanderHelper.ExpandStoryboard" Value="{x:Null}" />
+        <Setter Property="mah:HeaderedControlHelper.HeaderBackground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Background}" />
     </Style>
 
 </ResourceDictionary>

@@ -1,16 +1,17 @@
 ﻿<UserControl x:Class="MahApps.Metro.IconPacks.Browser.Controls.SideBar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:converter="http://metro.mahapps.com/winfx/xaml/shared"
              xmlns:ctrls="clr-namespace:MahApps.Metro.IconPacks.Browser.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prop="clr-namespace:MahApps.Metro.IconPacks.Browser.Properties"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:vm="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
-             d:DataContext="{d:DesignInstance Type=vm:IconPackViewModel, IsDesignTimeCreatable=True}"
+             d:DataContext="{d:DesignInstance Type=vm:IconPackViewModel,
+                                              IsDesignTimeCreatable=True}"
              d:DesignHeight="450"
              d:DesignWidth="800"
              mc:Ignorable="d">
@@ -23,10 +24,10 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <GroupBox Header="Preview"
-                      Grid.Row="0"
+            <GroupBox Grid.Row="0"
                       Padding="0"
-                      DataContext="{Binding SelectedIcon}">
+                      DataContext="{Binding SelectedIcon}"
+                      Header="Preview">
                 <GroupBox.Background>
                     <DrawingBrush TileMode="Tile"
                                   Viewport="0,0,20,20"
@@ -51,21 +52,21 @@
                     </DrawingBrush>
                 </GroupBox.Background>
                 <ScrollViewer x:Name="PreviewScrollViewer"
-                                  Padding="2"
-                                  mah:ScrollViewerHelper.BubbleUpScrollEventToParentScrollviewer="True"
-                                  HorizontalScrollBarVisibility="Auto"
-                                  PreviewMouseWheel="IconPreview_PreviewMouseWheel"
-                                  Style="{StaticResource MahApps.Styles.ScrollViewer}"
-                                  VerticalScrollBarVisibility="Auto">
+                              Padding="2"
+                              mah:ScrollViewerHelper.BubbleUpScrollEventToParentScrollviewer="True"
+                              HorizontalScrollBarVisibility="Auto"
+                              PreviewMouseWheel="IconPreview_PreviewMouseWheel"
+                              Style="{StaticResource MahApps.Styles.ScrollViewer}"
+                              VerticalScrollBarVisibility="Auto">
                     <ScrollViewer.Background>
                         <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconBackground}" />
                     </ScrollViewer.Background>
                     <iconPacks:PackIconControl x:Name="PreviewHolder"
-                                               Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
                                                Width="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
                                                Height="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
+                                               Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
                                                SnapsToDevicePixels="True">
                         <iconPacks:PackIconControl.Foreground>
                             <SolidColorBrush Color="{Binding Source={x:Static prop:Settings.Default}, Path=IconForeground}" />
@@ -80,12 +81,11 @@
 
             <StackPanel Grid.Row="2">
 
-                <Expander Header="Icon Information" 
-                          Margin="0,2,0,0">
+                <Expander Margin="0 2 0 0" Header="Icon Information">
                     <StackPanel>
-                        <mah:MetroHeader Header="IconPackName and IconKind"
-                                         Padding="2,0"
-                                         DataContext="{Binding SelectedIcon}">
+                        <mah:MetroHeader Padding="2 0"
+                                         DataContext="{Binding SelectedIcon}"
+                                         Header="IconPackName and IconKind">
                             <ctrls:CopyToClipboardTextBox>
                                 <ctrls:CopyToClipboardTextBox.TextToCopy>
                                     <MultiBinding StringFormat="{}{0}.{1}">
@@ -99,21 +99,22 @@
                             <ctrls:CopyToClipboardTextBox TextToCopy="{Binding SelectedIcon.Description}" />
                         </mah:MetroHeader>
                         <mah:MetroHeader Header="Homepage">
-                            <TextBox Text="{Binding ProjectUrl}" Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Hyperlink}"/>
+                            <TextBox Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Hyperlink}" Text="{Binding ProjectUrl}" />
                         </mah:MetroHeader>
                         <mah:MetroHeader Header="License URL">
-                            <TextBox Text="{Binding LicenseUrl}" Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Hyperlink}"/>
+                            <TextBox Style="{DynamicResource IconPacksBrowser.Styles.TextBox.Hyperlink}" Text="{Binding LicenseUrl}" />
                         </mah:MetroHeader>
                     </StackPanel>
                 </Expander>
-                
-                <Expander Header="Preview options"
-                          Margin="0,5,0,0"
+
+                <Expander Margin="0 5 0 0"
+                          Header="Preview options"
                           IsExpanded="True">
                     <StackPanel>
                         <mah:MetroHeader Header="Iconsize ">
-                            <ComboBox x:Name="ComboBoxIconPreviewSize" Text="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}"
-                                      IsEditable="True">
+                            <ComboBox x:Name="ComboBoxIconPreviewSize"
+                                      IsEditable="True"
+                                      Text="{Binding Source={x:Static prop:Settings.Default}, Path=IconPreviewSize}">
                                 <sys:Double>16</sys:Double>
                                 <sys:Double>24</sys:Double>
                                 <sys:Double>32</sys:Double>
@@ -135,9 +136,9 @@
                     </StackPanel>
                 </Expander>
 
-                <Expander Header="Copy to clipboard"
-                          Margin="0,5,0,0"
+                <Expander Margin="0 5 0 0"
                           DataContext="{Binding SelectedIcon}"
+                          Header="Copy to clipboard"
                           IsExpanded="True">
                     <StackPanel>
                         <!--  WPF Control  -->
@@ -153,7 +154,7 @@
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardText}" FontFamily="Consolas"/>
+                            <ctrls:CopyToClipboardTextBox FontFamily="Consolas" TextToCopy="{Binding CopyToClipboardText}" />
                         </mah:MetroHeader>
 
                         <!--  Content Markup  -->
@@ -169,7 +170,7 @@
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsContentText}" FontFamily="Consolas"/>
+                            <ctrls:CopyToClipboardTextBox FontFamily="Consolas" TextToCopy="{Binding CopyToClipboardAsContentText}" />
                         </mah:MetroHeader>
                         <!--  Copy as UWP Control  -->
                         <mah:MetroHeader>
@@ -184,7 +185,7 @@
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsPathIconText}" FontFamily="Consolas"/>
+                            <ctrls:CopyToClipboardTextBox FontFamily="Consolas" TextToCopy="{Binding CopyToClipboardAsPathIconText}" />
                         </mah:MetroHeader>
 
                         <mah:MetroHeader>
@@ -199,20 +200,20 @@
                                     </StackPanel>
                                 </StackPanel>
                             </mah:MetroHeader.Header>
-                            <ctrls:CopyToClipboardTextBox TextToCopy="{Binding CopyToClipboardAsGeometryText}" FontFamily="Consolas" />
+                            <ctrls:CopyToClipboardTextBox FontFamily="Consolas" TextToCopy="{Binding CopyToClipboardAsGeometryText}" />
                         </mah:MetroHeader>
                     </StackPanel>
                 </Expander>
 
-                <Expander Header="Export"
-                          Margin="0,5,0,0"
-                          Padding="4,0,4,4"
+                <Expander Margin="0 5 0 0"
+                          Padding="4 0 4 4"
+                          Header="Export"
                           IsExpanded="True">
                     <Expander.Resources>
                         <Style BasedOn="{StaticResource MahApps.Styles.Button.Flat}" TargetType="Button">
-                            <Setter Property="Margin" Value="0,4,0,0" />
                             <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.ThemeBackground}" />
                             <Setter Property="Foreground" Value="{DynamicResource MahApps.Brushes.ThemeForeground}" />
+                            <Setter Property="Margin" Value="0 4 0 0" />
                         </Style>
                     </Expander.Resources>
                     <StackPanel>

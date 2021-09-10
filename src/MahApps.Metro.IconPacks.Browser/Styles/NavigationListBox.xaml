@@ -25,27 +25,15 @@
            TargetType="{x:Type ListBoxItem}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Regular" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}, Path=Foreground, Mode=OneWay}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="MinHeight" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="FontWeight" Value="Regular" />
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="10,0,5,0" />
+        <Setter Property="Padding" Value="10 0 5 0" />
         <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
-        <Setter Property="mah:ItemHelper.ActiveSelectionBackgroundBrush" Value="Transparent" />
-        <Setter Property="mah:ItemHelper.ActiveSelectionForegroundBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}" />
-        <Setter Property="mah:ItemHelper.DisabledForegroundBrush" Value="{DynamicResource MahApps.Brushes.Gray}" />
-        <Setter Property="mah:ItemHelper.DisabledSelectedBackgroundBrush" Value="Transparent" />
-        <Setter Property="mah:ItemHelper.DisabledSelectedForegroundBrush" Value="{DynamicResource MahApps.Brushes.Gray}" />
-        <Setter Property="mah:ItemHelper.HoverBackgroundBrush" Value="{DynamicResource MahApps.Brushes.Gray9}" />
-        <Setter Property="mah:ItemHelper.HoverSelectedBackgroundBrush" Value="{DynamicResource MahApps.Brushes.Gray9}" />
-        <Setter Property="mah:ItemHelper.HoverSelectedForegroundBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}" />
-        <Setter Property="mah:ItemHelper.SelectedBackgroundBrush" Value="Transparent" />
-        <Setter Property="mah:ItemHelper.SelectedForegroundBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -123,16 +111,27 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="mah:ItemHelper.ActiveSelectionBackgroundBrush" Value="Transparent" />
+        <Setter Property="mah:ItemHelper.ActiveSelectionForegroundBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}" />
+        <Setter Property="mah:ItemHelper.DisabledForegroundBrush" Value="{DynamicResource MahApps.Brushes.Gray}" />
+        <Setter Property="mah:ItemHelper.DisabledSelectedBackgroundBrush" Value="Transparent" />
+        <Setter Property="mah:ItemHelper.DisabledSelectedForegroundBrush" Value="{DynamicResource MahApps.Brushes.Gray}" />
+        <Setter Property="mah:ItemHelper.HoverBackgroundBrush" Value="{DynamicResource MahApps.Brushes.Gray9}" />
+        <Setter Property="mah:ItemHelper.HoverSelectedBackgroundBrush" Value="{DynamicResource MahApps.Brushes.Gray9}" />
+        <Setter Property="mah:ItemHelper.HoverSelectedForegroundBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}" />
+        <Setter Property="mah:ItemHelper.SelectedBackgroundBrush" Value="Transparent" />
+        <Setter Property="mah:ItemHelper.SelectedForegroundBrush" Value="{DynamicResource MahApps.Brushes.AccentBase}" />
     </Style>
 
     <Style x:Key="IconPacksBrowser.Styles.ListBox.Navigation"
            BasedOn="{StaticResource MahApps.Styles.ListBox.HamburgerMenu}"
            TargetType="{x:Type ListBox}">
-        <Setter Property="ItemContainerStyle" Value="{DynamicResource IconPacksBrowser.Styles.ListBoxItem.Navigation}" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="ItemTemplateSelector" Value="{StaticResource iconPacksBrowser.DataTemplateSelector.Navigation}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True" />
+        <Setter Property="ItemContainerStyle" Value="{DynamicResource IconPacksBrowser.Styles.ListBoxItem.Navigation}" />
+        <Setter Property="ItemTemplateSelector" Value="{StaticResource iconPacksBrowser.DataTemplateSelector.Navigation}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBox}">
@@ -155,6 +154,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True" />
     </Style>
 
 </ResourceDictionary>

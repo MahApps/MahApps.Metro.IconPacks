@@ -3,34 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
+             x:Name="ucCopyToClipboardTextBox"
              d:DesignHeight="30"
              d:DesignWidth="800"
-             x:Name="ucCopyToClipboardTextBox"
              mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <TextBox BorderThickness="0"
+        <TextBox MaxHeight="60"
+                 mah:TextBoxHelper.SelectAllOnFocus="True"
+                 BorderThickness="0"
                  FontFamily="{Binding ElementName=ucCopyToClipboardTextBox, Path=FontFamily}"
                  IsReadOnly="True"
+                 Text="{Binding ElementName=ucCopyToClipboardTextBox, Path=TextToCopy, Mode=OneWay}"
                  TextWrapping="Wrap"
-                 MaxHeight="60"
-                 VerticalScrollBarVisibility="Auto"
-                 mah:TextBoxHelper.SelectAllOnFocus="True"
-                 Text="{Binding ElementName=ucCopyToClipboardTextBox, Path=TextToCopy, Mode=OneWay}" />
+                 VerticalScrollBarVisibility="Auto" />
         <Button Grid.Column="1"
                 Width="22"
-                ToolTip="Copy"
                 Command="{x:Static vm:MainViewModel.CopyTextToClipboardCommand}"
                 CommandParameter="{Binding ElementName=ucCopyToClipboardTextBox, Path=TextToCopy}"
-                Content="{iconPacks:Octicons Kind=Clippy}" >
+                Content="{iconPacks:Octicons Kind=Clippy}"
+                ToolTip="Copy">
             <Button.Style>
-                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MahApps.Styles.Button.Chromeless}">
+                <Style BasedOn="{StaticResource MahApps.Styles.Button.Chromeless}" TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.ThemeBackground}" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
