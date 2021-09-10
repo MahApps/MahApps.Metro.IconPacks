@@ -4,10 +4,10 @@
     xmlns:Converters="http://metro.mahapps.com/winfx/xaml/shared"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
+
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.Shared.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
     
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     
@@ -25,16 +25,13 @@
         <Setter Property="Padding" Value="4" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="Opacity" Value="0.6" />
         <!--  change SnapsToDevicePixels to True to view a better border and validation error  -->
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="mah:TextBoxHelper.ButtonContentTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <iconPacks:PackIconModern
-                        Width="12"
-                        Height="12"
-                        Kind="ClearInverseReflectHorizontal" />
+                    <iconPacks:PackIconModern Width="12" Height="12" Kind="Close" Margin="0 0 8 0" />
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -78,7 +75,7 @@
                                 Grid.Column="0"
                                 Width="12"
                                 Height="{TemplateBinding FontSize}"
-                                Margin="5,0,0,0"
+                                Margin="8 0 0 0"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Foreground="{DynamicResource MahApps.Brushes.Gray3}"

@@ -217,9 +217,7 @@
                           x:Name="ToggleButtonOpenSettings" />
             <Button Command="{x:Static viewModels:MainViewModel.OpenUrlCommand}"
                     CommandParameter="https://github.com/MahApps/MahApps.Metro.IconPacks"
-                    Content="{iconPacks:Modern SocialGithubOctocat,
-                                               Width=22,
-                                               Height=22}"
+                    Content="{iconPacks:Modern SocialGithubOctocat, Width=22, Height=22}"
                     ToolTip="IconPacks.Browser on GitHub" />
         </mah:WindowCommands>
     </mah:MetroWindow.RightWindowCommands>
@@ -238,10 +236,8 @@
                 DockPanel.Dock="Top">
             <DockPanel LastChildFill="True">
                 <TextBox x:Name="FilterTextBox"
-                         MinWidth="200"
+                         MinWidth="400"
                          Margin="5"
-                         VerticalAlignment="Center"
-                         VerticalContentAlignment="Center"
                          mah:TextBoxHelper.Watermark="Filter by... (Ctrl + F)"
                          Background="{DynamicResource MahApps.Brushes.Gray9}"
                          BorderThickness="0"
@@ -268,7 +264,8 @@
                                                  Content="{Binding ElementName=NavigationListBox, Path=SelectedItem.Caption}"
                                                  FontSize="30"
                                                  FontWeight="DemiBold"
-                                                 Foreground="{DynamicResource MahApps.Brushes.Highlight}" />
+                                                 Foreground="{DynamicResource MahApps.Brushes.Highlight}"
+                                                 RestartTransitionOnContentChange="True" />
             </DockPanel>
         </Border>
         <mah:SplitView Grid.Row="1"
