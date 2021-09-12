@@ -1,4 +1,4 @@
-<div align="center">
+﻿v align="center">
 
   <a href="https://github.com/MahApps/MahApps.Metro.IconPacks">
     <img alt="MahApps.Metro.IconPacks" src="./resources/Icon.svg">
@@ -60,7 +60,7 @@ This `IconPacks` library contains controls, markup extensions and converters to 
 | [Remix Icon](https://remixicon.com/) | 2.5.0 | 2271 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.RemixIcon/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.RemixIcon.svg?style=flat-square&&label=RemixIcon"></a> |
 | [RPG Awesome](https://nagoshiashumari.github.io/Rpg-Awesome/) | 0.2.0 | 495 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.RPGAwesome/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.RPGAwesome.svg?style=flat-square&&label=RPGAwesome"></a> |
 | [Simple Icons](https://simpleicons.org/) | 5.14.0 | 2007 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.SimpleIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.SimpleIcons.svg?style=flat-square&&label=SimpleIcons"></a> |
-| [Typicons](https://www.s-ings.com/typicons/) | 2.0.9 | 336 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> |
+| [Typicons](https://www.s-ings.com/typicons/) | 2.1.2 | 336 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Typicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Typicons.svg?style=flat-square&&label=Typicons"></a> |
 | [Unicons](https://github.com/Iconscout/unicons) | 2.1.11 | 1184 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Unicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Unicons.svg?style=flat-square&&label=Unicons"></a> |
 | [Vaadin Icons](https://vaadin.com/icons) | 4.3.2 | 636 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.VaadinIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.VaadinIcons.svg?style=flat-square&&label=VaadinIcons"></a> |
 | [Weather Icons](https://github.com/erikflowers/weather-icons) | 2.0.10 | 219 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> |
