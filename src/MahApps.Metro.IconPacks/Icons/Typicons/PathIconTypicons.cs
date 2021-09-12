@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Typicons Icons/Artwork distributed under [CC BY-SA](<see><cref>https://creativecommons.org/licenses/by-sa/3.0/</cref></see>) license.
-    /// Typicons Font distributed under 'SIL Open Font License' license.
+    /// Typicons Icons can be found at <see><cref>https://www.s-ings.com/typicons/</cref></see>.
+    /// Font files are available under the SIL Open Font Licence. Artwork available under the CC BY-SA Licence. [License](<see><cref>https://github.com/stephenhutchings/typicons.font/blob/master/LICENCE.md</cref></see>).
     /// </summary>
-    [MetaData("Typicons", "https://www.s-ings.com/typicons/", "https://creativecommons.org/licenses/by-sa/3.0/")]
+    [MetaData("Typicons", "https://www.s-ings.com/typicons/", "https://github.com/stephenhutchings/typicons.font/blob/master/LICENCE.md")]
     public class PathIconTypicons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
