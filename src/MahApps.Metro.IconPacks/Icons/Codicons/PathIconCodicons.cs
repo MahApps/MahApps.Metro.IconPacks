@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Codicons are licensed under the [Creative Commons Attribution 4.0 International Public License](<see><cref>https://github.com/microsoft/vscode-codicons/blob/master/LICENSE</cref></see>).
+    /// Codicons are licensed under the [Creative Commons Attribution 4.0 International Public License](<see><cref>https://github.com/microsoft/vscode-codicons/blob/main/LICENSE</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/microsoft/vscode-codicons</cref></see>.
     /// </summary>
-    [MetaData("Codicons", "https://github.com/microsoft/vscode-codicons", "https://github.com/microsoft/vscode-codicons/blob/master/LICENSE")]
+    [MetaData("Codicons", "https://github.com/microsoft/vscode-codicons", "https://github.com/microsoft/vscode-codicons/blob/main/LICENSE")]
     public class PathIconCodicons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
