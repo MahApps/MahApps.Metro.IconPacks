@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
   <a href="https://github.com/MahApps/MahApps.Metro.IconPacks">
     <img alt="MahApps.Metro.IconPacks" src="./resources/Icon.svg">
@@ -52,7 +52,7 @@ This `IconPacks` library contains controls, markup extensions and converters to 
 | [Material Design Icons Light](https://github.com/Templarian/MaterialDesignLight) | 0.2.63 | 257 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialLight/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialLight.svg?style=flat-square&&label=MaterialLight"></a> |
 | [Material design icons (Google)](https://github.com/google/material-design-icons) | 3.0.1 | 932 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.MaterialDesign/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.MaterialDesign.svg?style=flat-square&&label=MaterialDesign"></a> |
 | [Microns](https://github.com/stephenhutchings/microns) | 1.0.10 | 108 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Microns/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Microns.svg?style=flat-square&&label=Microns"></a> |
-| [Modern UI Icons](http://modernuiicons.com/) | | 1260 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern"></a> |
+| [Modern UI Icons](https://github.com/Templarian/WindowsIcons) | | 1260 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Modern/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Modern.svg?style=flat-square&&label=Modern"></a> |
 | [GitHub Octicons](https://octicons.github.com/) | 9.6.0 | 204 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Octicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Octicons.svg?style=flat-square&&label=Octicons"></a> |
 | [PICOL Icons](https://github.com/PicolSigns/Icons) | 1.1.0 | 549 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.PicolIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.PicolIcons.svg?style=flat-square&&label=PicolIcons"></a> |
 | [Pixelarticons](https://pixelarticons.com/) | 1.4.0 | 460 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.PixelartIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.PixelartIcons.svg?style=flat-square&&label=PixelartIcons"></a> |
