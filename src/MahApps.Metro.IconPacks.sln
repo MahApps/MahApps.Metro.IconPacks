@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Fon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.FontAwesome", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.FontAwesome.csproj", "{C7F2A63D-0B08-41BA-BE0C-ECBB2CC6ADFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Fontisto", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Fontisto.csproj", "{79E93C75-C0FF-4221-B245-A422E441CE03}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.ForkAwesome", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.ForkAwesome.csproj", "{70ECF2D4-3B42-4291-B06E-9BC0D247D8E9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Ionicons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Ionicons.csproj", "{FE8EA04F-2AA5-4060-A6EA-53B43F94EF96}"
@@ -482,6 +484,18 @@ Global
 		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Release|x64.Build.0 = Release|Any CPU
 		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Release|x86.ActiveCfg = Release|Any CPU
 		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Release|x86.Build.0 = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|x64.Build.0 = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|x86.Build.0 = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|x64.ActiveCfg = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|x64.Build.0 = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|x86.ActiveCfg = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
