@@ -33,6 +33,10 @@ namespace MahApps.Metro.IconPacks
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
+            foreach (var packIcon in PackIconCooliconsDataFactory.Create())
+            {
+                dictionary.Add(packIcon.Key, packIcon.Value);
+            }
             foreach (var packIcon in PackIconEntypoDataFactory.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);

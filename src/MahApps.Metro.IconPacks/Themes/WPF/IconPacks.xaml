@@ -4,6 +4,7 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.BootstrapIcons;component/Themes/PackIconBootstrapIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.BoxIcons;component/Themes/PackIconBoxIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Codicons;component/Themes/PackIconCodicons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Coolicons;component/Themes/PackIconCoolicons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Entypo;component/Themes/PackIconEntypo.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.EvaIcons;component/Themes/PackIconEvaIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FeatherIcons;component/Themes/PackIconFeatherIcons.xaml" />

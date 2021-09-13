@@ -42,6 +42,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     (typeof(PackIconBootstrapIconsKind), typeof(PackIconBootstrapIcons)),
                     (typeof(PackIconBoxIconsKind), typeof(PackIconBoxIcons)),
                     (typeof(PackIconCodiconsKind), typeof(PackIconCodicons)),
+                    (typeof(PackIconCooliconsKind), typeof(PackIconCoolicons)),
                     (typeof(PackIconEntypoKind), typeof(PackIconEntypo)),
                     (typeof(PackIconEvaIconsKind), typeof(PackIconEvaIcons)),
                     (typeof(PackIconFeatherIconsKind), typeof(PackIconFeatherIcons)),

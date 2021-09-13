@@ -13,6 +13,7 @@
         <ProjectReference Include="MahApps.Metro.IconPacks.BootstrapIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.BoxIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Codicons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Coolicons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Entypo.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.EvaIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.FeatherIcons.csproj" />
@@ -113,6 +114,16 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Codicons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Codicons\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Coolicons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Coolicons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Coolicons\Themes\PackIconCoolicons.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.Coolicons\Themes\PackIconCoolicons.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Coolicons\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.Coolicons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Entypo\*.*">
