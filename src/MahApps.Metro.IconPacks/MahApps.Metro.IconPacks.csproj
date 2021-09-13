@@ -81,7 +81,7 @@
             <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
         </ItemGroup>
     </Target>
-    <Target Name="GetMyPackageFiles" Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
+    <Target Name="GetMyPackageFiles" Condition=" $(TargetFramework.StartsWith('uap')) ">
         <ItemGroup>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Core</TargetPath>

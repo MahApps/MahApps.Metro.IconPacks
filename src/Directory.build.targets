@@ -7,10 +7,10 @@
         <Copyright>Copyright © 2016 - $([System.DateTime]::Today.ToString(yyyy)) MahApps.Metro</Copyright>
         <Description>IconPacks for stylish awesome WPF and UWP applications.</Description>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <Version>3.0.0.0</Version>
-        <AssemblyVersion>3.0.0.0</AssemblyVersion>
-        <FileVersion>3.0.0.0</FileVersion>
-        <InformationalVersion>3.0.0.0</InformationalVersion>
+        <Version>4.0.0.0</Version>
+        <AssemblyVersion>4.0.0.0</AssemblyVersion>
+        <FileVersion>4.0.0.0</FileVersion>
+        <InformationalVersion>4.0.0.0</InformationalVersion>
     </PropertyGroup>
 
     <!-- Sign assembly -->
@@ -46,27 +46,7 @@
                 <TargetPlatformMinVersion>10.0.$(DefaultTargetPlatformMinVersion).0</TargetPlatformMinVersion>
                 <DebugType>Full</DebugType>
             </PropertyGroup>
-            <!-- <ItemGroup>
-                <SDKReference Condition=" '$(UseWindowsDesktopSdk)' == 'true' and '$(TargetFramework)' == 'uap10.0.15063' " Include="WindowsDesktop, Version=10.0.15063.0">
-                    <Name>Windows Desktop Extensions for the UWP</Name>
-                </SDKReference>
-                <SDKReference Condition=" '$(UseWindowsDesktopSdk)' == 'true' and '$(TargetFramework)' == 'uap10.0.16299' " Include="WindowsDesktop, Version=10.0.16299.0">
-                    <Name>Windows Desktop Extensions for the UWP</Name>
-                </SDKReference>
-            </ItemGroup> -->
         </When>
     </Choose>
 
-<!--     <Target Name="GetUWPContracts" BeforeTargets="ResolveFrameworkReferences" Condition=" $(TargetFramework.StartsWith('uap')) ">
-        <CreateProperty Value="true">
-            <Output PropertyName="ImplicitlyExpandTargetPlatform" TaskParameter="Value"/>
-        </CreateProperty>
-        <CreateProperty Value="">
-            <Output PropertyName="WindowsWinmdFile" TaskParameter="Value"/>
-        </CreateProperty>
-        <ItemGroup>
-            <Reference Remove="@(_SdkWindowsImplicitReference)"/>
-        </ItemGroup>
-    </Target>
- -->
 </Project>
