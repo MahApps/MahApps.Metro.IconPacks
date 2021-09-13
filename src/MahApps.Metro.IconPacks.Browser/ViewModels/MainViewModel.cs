@@ -49,6 +49,7 @@ namespace MahApps.Metro.IconPacks.Browser.ViewModels
                     (typeof(PackIconFileIconsKind), typeof(PackIconFileIcons)),
                     (typeof(PackIconFontaudioKind), typeof(PackIconFontaudio)),
                     (typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome)),
+                    (typeof(PackIconFontistoKind), typeof(PackIconFontisto)),
                     (typeof(PackIconForkAwesomeKind), typeof(PackIconForkAwesome)),
                     (typeof(PackIconIoniconsKind), typeof(PackIconIonicons)),
                     (typeof(PackIconJamIconsKind), typeof(PackIconJamIcons)),

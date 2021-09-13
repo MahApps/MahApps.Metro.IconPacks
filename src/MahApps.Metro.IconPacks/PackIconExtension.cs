@@ -94,6 +94,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconFontAwesome, PackIconFontAwesomeKind>((PackIconFontAwesomeKind) this.Kind);
             }
 #endif
+#if ALL || FONTISTO
+            if (this.Kind is PackIconFontistoKind)
+            {
+                return this.GetPackIcon<PackIconFontisto, PackIconFontistoKind>((PackIconFontistoKind) this.Kind);
+            }
+#endif
 #if ALL || FORKAWESOME
             if (this.Kind is PackIconForkAwesomeKind)
             {

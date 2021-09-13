@@ -11,6 +11,7 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.FileIcons/Themes/PackIconFileIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Fontaudio/Themes/PackIconFontaudio.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.FontAwesome/Themes/PackIconFontAwesome.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Fontisto/Themes/PackIconFontisto.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.ForkAwesome/Themes/PackIconForkAwesome.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Ionicons/Themes/PackIconIonicons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.JamIcons/Themes/PackIconJamIcons.xaml" />
