@@ -1,4 +1,4 @@
-﻿v align="center">
+<div align="center">
 
   <a href="https://github.com/MahApps/MahApps.Metro.IconPacks">
     <img alt="MahApps.Metro.IconPacks" src="./resources/Icon.svg">
