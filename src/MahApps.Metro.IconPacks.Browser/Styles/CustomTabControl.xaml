@@ -463,6 +463,23 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconCooliconsKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconCoolicons Width="{TemplateBinding ActualWidth}"
+                                                         Height="{TemplateBinding ActualHeight}"
+                                                         HorizontalAlignment="Center"
+                                                         VerticalAlignment="Center"
+                                                         BorderBrush="{StaticResource SelectedIconBorderBrush}"
+                                                         BorderThickness="1"
+                                                         Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                                         Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                         SnapsToDevicePixels="True" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconUniconsKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
@@ -1081,6 +1098,19 @@
                                                                         HorizontalAlignment="Center"
                                                                         VerticalAlignment="Center"
                                                                         Kind="{Binding Value, Mode=OneWay}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconCooliconsKind}">
+                                <Setter TargetName="IconContent" Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                            <iconPacks:PackIconCoolicons Width="32"
+                                                                         Height="32"
+                                                                         HorizontalAlignment="Center"
+                                                                         VerticalAlignment="Center"
+                                                                         Kind="{Binding Value, Mode=OneWay}" />
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>

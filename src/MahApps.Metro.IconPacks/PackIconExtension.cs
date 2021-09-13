@@ -52,6 +52,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconCodicons, PackIconCodiconsKind>((PackIconCodiconsKind) this.Kind);
             }
 #endif
+#if ALL || COOLICONS
+            if (this.Kind is PackIconCooliconsKind)
+            {
+                return this.GetPackIcon<PackIconCoolicons, PackIconCooliconsKind>((PackIconCooliconsKind) this.Kind);
+            }
+#endif
 #if ALL || ENTYPO
             if (this.Kind is PackIconEntypoKind)
             {
