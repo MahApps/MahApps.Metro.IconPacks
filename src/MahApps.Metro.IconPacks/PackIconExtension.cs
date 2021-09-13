@@ -52,6 +52,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconCodicons, PackIconCodiconsKind>((PackIconCodiconsKind) this.Kind);
             }
 #endif
+#if ALL || COOLICONS
+            if (this.Kind is PackIconCooliconsKind)
+            {
+                return this.GetPackIcon<PackIconCoolicons, PackIconCooliconsKind>((PackIconCooliconsKind) this.Kind);
+            }
+#endif
 #if ALL || ENTYPO
             if (this.Kind is PackIconEntypoKind)
             {
@@ -86,6 +92,12 @@ namespace MahApps.Metro.IconPacks
             if (this.Kind is PackIconFontAwesomeKind)
             {
                 return this.GetPackIcon<PackIconFontAwesome, PackIconFontAwesomeKind>((PackIconFontAwesomeKind) this.Kind);
+            }
+#endif
+#if ALL || FONTISTO
+            if (this.Kind is PackIconFontistoKind)
+            {
+                return this.GetPackIcon<PackIconFontisto, PackIconFontistoKind>((PackIconFontistoKind) this.Kind);
             }
 #endif
 #if ALL || FORKAWESOME

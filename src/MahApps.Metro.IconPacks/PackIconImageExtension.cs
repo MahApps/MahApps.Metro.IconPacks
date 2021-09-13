@@ -39,6 +39,9 @@ namespace MahApps.Metro.IconPacks
                 case PackIconCodiconsKind kind:
                     PackIconCodiconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconCooliconsKind kind:
+                    PackIconCooliconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconEntypoKind kind:
                     PackIconEntypoDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
@@ -56,6 +59,9 @@ namespace MahApps.Metro.IconPacks
                     return data;
                 case PackIconFontAwesomeKind kind:
                     PackIconFontAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconFontistoKind kind:
+                    PackIconFontistoDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconForkAwesomeKind kind:
                     PackIconForkAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
@@ -130,9 +136,11 @@ namespace MahApps.Metro.IconPacks
                 case PackIconBootstrapIconsKind _:
                 case PackIconBoxIconsKind _:
                 case PackIconCodiconsKind _:
+                case PackIconCooliconsKind _:
                 case PackIconEvaIconsKind _:
                 case PackIconFileIconsKind _:
                 case PackIconFontaudioKind _:
+                case PackIconFontistoKind _:
                 case PackIconForkAwesomeKind _:
                 case PackIconJamIconsKind _:
                 case PackIconMaterialDesignKind _:
@@ -161,7 +169,7 @@ namespace MahApps.Metro.IconPacks
                 {
                     StartLineCap = PenLineCap.Round,
                     EndLineCap = PenLineCap.Round,
-                    LineJoin = PenLineJoin.Round,
+                    LineJoin = PenLineJoin.Round
                 };
                 geometryDrawing.Pen = pen;
             }

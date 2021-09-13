@@ -12,7 +12,7 @@
     /// List of available icons for use with <see cref="PackIconModern" />.
     /// </summary>
     /// <remarks>
-    /// All icons sourced from Modern UI Icons Font <see><cref>http://modernuiicons.com</cref></see>
+    /// All icons sourced from Modern UI Icons Font <see><cref>https://github.com/Templarian/WindowsIcons</cref></see>
     /// In accordance of <see><cref>https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt</cref></see>.
     /// </remarks>
     public enum PackIconModernKind
@@ -1277,6 +1277,6 @@
         [Description("appbar.xbox")] Xbox,
         [Description("appbar.youtube")] Youtube,
         [Description("appbar.youtube.play")] YoutubePlay,
-        [Description("appbar.zune")] Zune,
+        [Description("appbar.zune")] Zune
     }
 }

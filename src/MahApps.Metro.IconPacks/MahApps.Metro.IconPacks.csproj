@@ -13,12 +13,14 @@
         <ProjectReference Include="MahApps.Metro.IconPacks.BootstrapIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.BoxIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Codicons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Coolicons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Entypo.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.EvaIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.FeatherIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.FileIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Fontaudio.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.FontAwesome.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.Fontisto.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.ForkAwesome.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Ionicons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.JamIcons.csproj" />
@@ -79,7 +81,7 @@
             <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
         </ItemGroup>
     </Target>
-    <Target Name="GetMyPackageFiles" Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
+    <Target Name="GetMyPackageFiles" Condition=" $(TargetFramework.StartsWith('uap')) ">
         <ItemGroup>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Core\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Core</TargetPath>
@@ -113,6 +115,16 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Codicons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Codicons\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Coolicons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Coolicons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Coolicons\Themes\PackIconCoolicons.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.Coolicons\Themes\PackIconCoolicons.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Coolicons\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.Coolicons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Entypo\*.*">
@@ -173,6 +185,16 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.FontAwesome\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Fontisto\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.Fontisto</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Fontisto\Themes\PackIconFontisto.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.Fontisto\Themes\PackIconFontisto.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Fontisto\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.Fontisto\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.ForkAwesome\*.*">

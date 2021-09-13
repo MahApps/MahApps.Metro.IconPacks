@@ -5,7 +5,7 @@
                     xmlns:converter="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core"
                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                     xmlns:viewModels="clr-namespace:MahApps.Metro.IconPacks.Browser.ViewModels"
-                    xmlns:virtualizing="clr-namespace:MahApps.Metro.IconPacks.Browser.Virtualizing">
+                    xmlns:virtualizing="clr-namespace:MahApps.Metro.IconPacks.Browser.Controls">
 
     <SolidColorBrush x:Key="TabItemPanelBackgroundBrush" Color="{DynamicResource MahApps.Colors.Gray8}" />
     <SolidColorBrush x:Key="TabItemBackgroundIsSelectedBrush" Color="{DynamicResource MahApps.Colors.Gray2}" />
@@ -89,6 +89,23 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFontistoKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconFontisto Width="{TemplateBinding ActualWidth}"
+                                                        Height="{TemplateBinding ActualHeight}"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        BorderBrush="{StaticResource SelectedIconBorderBrush}"
+                                                        BorderThickness="1"
+                                                        Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                                        Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                        SnapsToDevicePixels="True" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconForkAwesomeKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
@@ -161,7 +178,15 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconRadixIcons Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{StaticResource SelectedIconBorderBrush}" Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconRadixIcons Width="{TemplateBinding ActualWidth}"
+                                                          Height="{TemplateBinding ActualHeight}"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"
+                                                          BorderBrush="{StaticResource SelectedIconBorderBrush}"
+                                                          BorderThickness="1"
+                                                          Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                                          Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                          SnapsToDevicePixels="True" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -170,7 +195,15 @@
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                            <iconPacks:PackIconRemixIcon Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}" SnapsToDevicePixels="True" BorderThickness="1" BorderBrush="{StaticResource SelectedIconBorderBrush}" Foreground="{DynamicResource MahApps.Brushes.AccentBase}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <iconPacks:PackIconRemixIcon Width="{TemplateBinding ActualWidth}"
+                                                         Height="{TemplateBinding ActualHeight}"
+                                                         HorizontalAlignment="Center"
+                                                         VerticalAlignment="Center"
+                                                         BorderBrush="{StaticResource SelectedIconBorderBrush}"
+                                                         BorderThickness="1"
+                                                         Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                                         Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                         SnapsToDevicePixels="True" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -316,14 +349,14 @@
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                             <iconPacks:PackIconFileIcons Width="{TemplateBinding ActualWidth}"
-                                                            Height="{TemplateBinding ActualHeight}"
-                                                            HorizontalAlignment="Center"
-                                                            VerticalAlignment="Center"
-                                                            BorderBrush="{StaticResource SelectedIconBorderBrush}"
-                                                            BorderThickness="1"
-                                                            Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
-                                                            Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
-                                                            SnapsToDevicePixels="True" />
+                                                         Height="{TemplateBinding ActualHeight}"
+                                                         HorizontalAlignment="Center"
+                                                         VerticalAlignment="Center"
+                                                         BorderBrush="{StaticResource SelectedIconBorderBrush}"
+                                                         BorderThickness="1"
+                                                         Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                                         Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                         SnapsToDevicePixels="True" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -333,14 +366,14 @@
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                             <iconPacks:PackIconFontaudio Width="{TemplateBinding ActualWidth}"
-                                                            Height="{TemplateBinding ActualHeight}"
-                                                            HorizontalAlignment="Center"
-                                                            VerticalAlignment="Center"
-                                                            BorderBrush="{StaticResource SelectedIconBorderBrush}"
-                                                            BorderThickness="1"
-                                                            Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
-                                                            Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
-                                                            SnapsToDevicePixels="True" />
+                                                         Height="{TemplateBinding ActualHeight}"
+                                                         HorizontalAlignment="Center"
+                                                         VerticalAlignment="Center"
+                                                         BorderBrush="{StaticResource SelectedIconBorderBrush}"
+                                                         BorderThickness="1"
+                                                         Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                                         Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                         SnapsToDevicePixels="True" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -401,14 +434,14 @@
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                             <iconPacks:PackIconBootstrapIcons Width="{TemplateBinding ActualWidth}"
-                                                        Height="{TemplateBinding ActualHeight}"
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        BorderBrush="{StaticResource SelectedIconBorderBrush}"
-                                                        BorderThickness="1"
-                                                        Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
-                                                        Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
-                                                        SnapsToDevicePixels="True" />
+                                                              Height="{TemplateBinding ActualHeight}"
+                                                              HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center"
+                                                              BorderBrush="{StaticResource SelectedIconBorderBrush}"
+                                                              BorderThickness="1"
+                                                              Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                                              Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                              SnapsToDevicePixels="True" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -447,6 +480,23 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
+            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconCooliconsKind}">
+                <Setter TargetName="IconContent" Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                            <iconPacks:PackIconCoolicons Width="{TemplateBinding ActualWidth}"
+                                                         Height="{TemplateBinding ActualHeight}"
+                                                         HorizontalAlignment="Center"
+                                                         VerticalAlignment="Center"
+                                                         BorderBrush="{StaticResource SelectedIconBorderBrush}"
+                                                         BorderThickness="1"
+                                                         Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                                         Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                         SnapsToDevicePixels="True" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconUniconsKind}">
                 <Setter TargetName="IconContent" Property="ContentTemplate">
                     <Setter.Value>
@@ -469,14 +519,14 @@
                     <Setter.Value>
                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                             <iconPacks:PackIconVaadinIcons Width="{TemplateBinding ActualWidth}"
-                                                       Height="{TemplateBinding ActualHeight}"
-                                                       HorizontalAlignment="Center"
-                                                       VerticalAlignment="Center"
-                                                       BorderBrush="{StaticResource SelectedIconBorderBrush}"
-                                                       BorderThickness="1"
-                                                       Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
-                                                       Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
-                                                       SnapsToDevicePixels="True" />
+                                                           Height="{TemplateBinding ActualHeight}"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           BorderBrush="{StaticResource SelectedIconBorderBrush}"
+                                                           BorderThickness="1"
+                                                           Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
+                                                           Kind="{Binding Value, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                                                           SnapsToDevicePixels="True" />
                         </DataTemplate>
                     </Setter.Value>
                 </Setter>
@@ -515,21 +565,21 @@
             <Grid Grid.Row="0"
                   RenderOptions.ClearTypeHint="Enabled"
                   TextOptions.TextFormattingMode="Display">
-                <TextBlock Text="{Binding Caption, StringFormat='{}{0} icon collection'}"
-                           Foreground="{DynamicResource MahApps.Brushes.Gray6}"
-                           FontWeight="Bold"
+                <TextBlock Margin="20 5 0 0"
                            FontSize="36"
-                           Margin="20 5 0 0" />
+                           FontWeight="Bold"
+                           Foreground="{DynamicResource MahApps.Brushes.Gray6}"
+                           Text="{Binding Caption, StringFormat='{}{0} icon collection'}" />
                 <TextBox x:Name="FilterTextBox"
                          Width="250"
-                         Margin="10,0,10,5"
+                         Margin="10 0 10 5"
                          HorizontalAlignment="Left"
                          VerticalAlignment="Bottom"
                          controls:TextBoxHelper.ClearTextButton="False"
                          controls:TextBoxHelper.UseFloatingWatermark="True"
                          controls:TextBoxHelper.Watermark="Filter by..."
                          Background="Transparent"
-                         BorderThickness="0,0,0,1"
+                         BorderThickness="0 0 0 1"
                          SnapsToDevicePixels="True"
                          Text="{Binding MainViewModel.FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=300}">
                     <TextBox.ToolTip>
@@ -547,7 +597,7 @@
                     </TextBox.ToolTip>
                 </TextBox>
 
-                <StackPanel Margin="10,5,10,0"
+                <StackPanel Margin="10 5 10 0"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
                             Orientation="Vertical">
@@ -562,13 +612,13 @@
 
                 </StackPanel>
 
-                <StackPanel Margin="10,0,10,5"
+                <StackPanel Margin="10 0 10 5"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Bottom"
                             Orientation="Horizontal">
                     <ContentControl Width="16"
                                     Height="16"
-                                    Margin="0,0,5,0"
+                                    Margin="0 0 5 0"
                                     VerticalAlignment="Bottom"
                                     Background="Transparent"
                                     Content="{Binding SelectedIcon, Mode=OneWay}"
@@ -577,7 +627,7 @@
                                     IsTabStop="False" />
                     <ContentControl Width="24"
                                     Height="24"
-                                    Margin="0,0,5,0"
+                                    Margin="0 0 5 0"
                                     VerticalAlignment="Bottom"
                                     Background="Transparent"
                                     Content="{Binding SelectedIcon, Mode=OneWay}"
@@ -586,7 +636,7 @@
                                     IsTabStop="False" />
                     <ContentControl Width="48"
                                     Height="48"
-                                    Margin="0,0,5,0"
+                                    Margin="0 0 5 0"
                                     VerticalAlignment="Bottom"
                                     Background="Transparent"
                                     Content="{Binding SelectedIcon, Mode=OneWay}"
@@ -645,9 +695,9 @@
                                     <Ellipse Width="22"
                                              HorizontalAlignment="Right"
                                              Fill="LightGray" />
-                                    <Rectangle Margin="11,0" Fill="LightGray" />
+                                    <Rectangle Margin="11 0" Fill="LightGray" />
                                 </Grid>
-                                <StackPanel Margin="11,0" Orientation="Horizontal">
+                                <StackPanel Margin="11 0" Orientation="Horizontal">
                                     <Button Grid.Column="0"
                                             Width="22"
                                             Height="22"
@@ -664,15 +714,14 @@
                                         </Button.ToolTip>
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconMaterial Width="7"
-                                                                        Margin="1,0"
+                                                                        Margin="1 0"
                                                                         Kind="ChevronLeft" />
                                             <iconPacks:PackIconMaterial Width="7"
-                                                                        Margin="1,0"
+                                                                        Margin="1 0"
                                                                         Kind="ChevronRight" />
                                         </StackPanel>
                                     </Button>
-                                    <Button Grid.Column="1"
-                                            Width="22"
+                                    <Button Width="22"
                                             Height="22"
                                             BorderThickness="0"
                                             Command="{Binding CopyToClipboardAsContent}"
@@ -688,8 +737,7 @@
                                                                     Height="14"
                                                                     Kind="CodeBraces" />
                                     </Button>
-                                    <Button Grid.Column="1"
-                                            Width="22"
+                                    <Button Width="22"
                                             Height="22"
                                             BorderThickness="0"
                                             Command="{Binding CopyToClipboardAsPathIcon}"
@@ -785,6 +833,19 @@
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconFontistoKind}">
+                                <Setter TargetName="IconContent" Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                            <iconPacks:PackIconFontisto Width="32"
+                                                                        Height="32"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        Kind="{Binding Value, Mode=OneWay}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
                             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconForkAwesomeKind}">
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
@@ -841,7 +902,11 @@
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                                            <iconPacks:PackIconRadixIcons Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding Value, Mode=OneWay}" />
+                                            <iconPacks:PackIconRadixIcons Width="32"
+                                                                          Height="32"
+                                                                          HorizontalAlignment="Center"
+                                                                          VerticalAlignment="Center"
+                                                                          Kind="{Binding Value, Mode=OneWay}" />
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>
@@ -850,7 +915,11 @@
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
-                                            <iconPacks:PackIconRemixIcon Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding Value, Mode=OneWay}" />
+                                            <iconPacks:PackIconRemixIcon Width="32"
+                                                                         Height="32"
+                                                                         HorizontalAlignment="Center"
+                                                                         VerticalAlignment="Center"
+                                                                         Kind="{Binding Value, Mode=OneWay}" />
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>
@@ -964,10 +1033,10 @@
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                                             <iconPacks:PackIconFileIcons Width="32"
-                                                                            Height="32"
-                                                                            HorizontalAlignment="Center"
-                                                                            VerticalAlignment="Center"
-                                                                            Kind="{Binding Value, Mode=OneWay}" />
+                                                                         Height="32"
+                                                                         HorizontalAlignment="Center"
+                                                                         VerticalAlignment="Center"
+                                                                         Kind="{Binding Value, Mode=OneWay}" />
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>
@@ -977,10 +1046,10 @@
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                                             <iconPacks:PackIconFontaudio Width="32"
-                                                                            Height="32"
-                                                                            HorizontalAlignment="Center"
-                                                                            VerticalAlignment="Center"
-                                                                            Kind="{Binding Value, Mode=OneWay}" />
+                                                                         Height="32"
+                                                                         HorizontalAlignment="Center"
+                                                                         VerticalAlignment="Center"
+                                                                         Kind="{Binding Value, Mode=OneWay}" />
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>
@@ -1029,10 +1098,10 @@
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                                             <iconPacks:PackIconBootstrapIcons Width="32"
-                                                                        Height="32"
-                                                                        HorizontalAlignment="Center"
-                                                                        VerticalAlignment="Center"
-                                                                        Kind="{Binding Value, Mode=OneWay}" />
+                                                                              Height="32"
+                                                                              HorizontalAlignment="Center"
+                                                                              VerticalAlignment="Center"
+                                                                              Kind="{Binding Value, Mode=OneWay}" />
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>
@@ -1063,6 +1132,19 @@
                                     </Setter.Value>
                                 </Setter>
                             </DataTrigger>
+                            <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconCooliconsKind}">
+                                <Setter TargetName="IconContent" Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
+                                            <iconPacks:PackIconCoolicons Width="32"
+                                                                         Height="32"
+                                                                         HorizontalAlignment="Center"
+                                                                         VerticalAlignment="Center"
+                                                                         Kind="{Binding Value, Mode=OneWay}" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
                             <DataTrigger Binding="{Binding IconType}" Value="{x:Type iconPacks:PackIconUniconsKind}">
                                 <Setter TargetName="IconContent" Property="ContentTemplate">
                                     <Setter.Value>
@@ -1081,10 +1163,10 @@
                                     <Setter.Value>
                                         <DataTemplate DataType="{x:Type viewModels:IIconViewModel}">
                                             <iconPacks:PackIconVaadinIcons Width="32"
-                                                                       Height="32"
-                                                                       HorizontalAlignment="Center"
-                                                                       VerticalAlignment="Center"
-                                                                       Kind="{Binding Value, Mode=OneWay}" />
+                                                                           Height="32"
+                                                                           HorizontalAlignment="Center"
+                                                                           VerticalAlignment="Center"
+                                                                           Kind="{Binding Value, Mode=OneWay}" />
                                         </DataTemplate>
                                     </Setter.Value>
                                 </Setter>
@@ -1113,10 +1195,10 @@
     <Style x:Key="CustomTabItemStyle" TargetType="{x:Type TabItem}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="Padding" Value="10" />
-        <Setter Property="MinWidth" Value="100" />
         <Setter Property="FontSize" Value="14" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="MinWidth" Value="100" />
+        <Setter Property="Padding" Value="10" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabItem}">
@@ -1157,12 +1239,12 @@
 
     <Style x:Key="CustomTabControlStyle" TargetType="{x:Type TabControl}">
         <Setter Property="Background" Value="{StaticResource TabControlBackgroundBrush}" />
-        <Setter Property="TabStripPlacement" Value="Top" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="ContentTemplate" Value="{StaticResource CustomTabItemItemTemplate}" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource CustomTabItemStyle}" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="ItemContainerStyle" Value="{StaticResource CustomTabItemStyle}" />
-        <Setter Property="ContentTemplate" Value="{StaticResource CustomTabItemItemTemplate}" />
+        <Setter Property="TabStripPlacement" Value="Top" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">

@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Box
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Codicons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Codicons.csproj", "{D9BF4500-ED93-4879-8C21-009CA7886AA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Coolicons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Coolicons.csproj", "{FD943567-EA3F-44D7-9AF4-5EF3A1084203}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Entypo", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Entypo.csproj", "{F6D84D92-189D-4A16-9612-C345B26DB14F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.EvaIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.EvaIcons.csproj", "{7DAE30B2-26A6-4496-9E3E-8E30F3D1265E}"
@@ -26,6 +28,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Fontaudio", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Fontaudio.csproj", "{07F804BA-8585-4108-9C8F-7413D2567DA1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.FontAwesome", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.FontAwesome.csproj", "{C7F2A63D-0B08-41BA-BE0C-ECBB2CC6ADFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MahApps.Metro.IconPacks.Fontisto", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.Fontisto.csproj", "{79E93C75-C0FF-4221-B245-A422E441CE03}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.ForkAwesome", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.ForkAwesome.csproj", "{70ECF2D4-3B42-4291-B06E-9BC0D247D8E9}"
 EndProject
@@ -468,6 +472,30 @@ Global
 		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Release|x64.Build.0 = Release|Any CPU
 		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Release|x86.ActiveCfg = Release|Any CPU
 		{07F804BA-8585-4108-9C8F-7413D2567DA1}.Release|x86.Build.0 = Release|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Debug|x64.Build.0 = Debug|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Debug|x86.Build.0 = Debug|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Release|x64.ActiveCfg = Release|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Release|x64.Build.0 = Release|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD943567-EA3F-44D7-9AF4-5EF3A1084203}.Release|x86.Build.0 = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|x64.Build.0 = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Debug|x86.Build.0 = Debug|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|x64.ActiveCfg = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|x64.Build.0 = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|x86.ActiveCfg = Release|Any CPU
+		{79E93C75-C0FF-4221-B245-A422E441CE03}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

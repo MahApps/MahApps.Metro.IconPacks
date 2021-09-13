@@ -61,7 +61,7 @@ namespace MahApps.Metro.IconPacks
             var geometryDrawing = new GeometryDrawing
             {
                 Geometry = Geometry.Parse(path),
-                Brush = foregroundBrush,
+                Brush = foregroundBrush
             };
 
             var drawingGroup = new DrawingGroup

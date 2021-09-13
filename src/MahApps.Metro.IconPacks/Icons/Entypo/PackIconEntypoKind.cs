@@ -428,6 +428,6 @@
         [Description("youko (Social Extension)")] Youko,
         [Description("youko-with-circle (Social Extension)")] YoukoWithCircle,
         [Description("youtube (Social Extension)")] Youtube,
-        [Description("youtube-with-circle (Social Extension)")] YoutubeWithCircle,
+        [Description("youtube-with-circle (Social Extension)")] YoutubeWithCircle
     }
 }

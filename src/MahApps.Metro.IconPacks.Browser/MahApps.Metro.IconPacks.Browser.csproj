@@ -1,13 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net47;netcoreapp3.1</TargetFrameworks>
+        <TargetFrameworks>net47;netcoreapp3.1;net5-windows</TargetFrameworks>
         <AssemblyName>MahApps.Metro.IconPacks.Browser</AssemblyName>
         <RootNamespace>MahApps.Metro.IconPacks.Browser</RootNamespace>
-        <!-- <DisableFody Condition=" '$(Configuration)' == 'Debug' or $(TargetFramework.StartsWith('netcoreapp')) ">true</DisableFody> -->
-        <!-- <DisableFody>true</DisableFody> -->
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <IsPackable>false</IsPackable>
         <!-- Workaround for https://github.com/dotnet/sourcelink/issues/91 -->
@@ -27,26 +25,57 @@
         <PackageReference Include="MahApps.Metro" Version="2.*" />
         <PackageReference Include="ControlzEx" Version="4.*" />
         <PackageReference Include="AsyncAwaitBestPractices" Version="4.*" />
+        <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
     </ItemGroup>
-    <!-- <ItemGroup Condition=" '$(Configuration)' != 'Debug' and !$(TargetFramework.StartsWith('netcoreapp')) ">
-        <PackageReference Include="Fody" Version="6.*">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Costura.Fody" Version="4.*" />
-    </ItemGroup> -->
+    <ItemGroup Condition="$(DefineConstants.Contains(NETCOREAPP)) == true">
+        <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+        <PackageReference Include="MaterialDesignColors" Version="2.0.1" />
+    </ItemGroup>
+    <ItemGroup Condition="$(DefineConstants.Contains(NETCOREAPP)) == false">
+        <PackageReference Include="MaterialDesignThemes" Version="3.0.1" />
+        <PackageReference Include="MaterialDesignColors" Version="1.2.7" />
+    </ItemGroup>
     <ItemGroup>
         <None Include="app.manifest" />
         <None Remove="App.config" />
-    </ItemGroup>
-    <ItemGroup Condition=" !$(TargetFramework.StartsWith('netcoreapp')) ">
-        <AppConfigWithTargetPath Include="App.$(TargetFramework).config">
-            <TargetPath>$(AssemblyName).config</TargetPath>
+        <AppConfigWithTargetPath Include="App.$(TargetFramework).config" Condition="$(DefineConstants.Contains(NETCOREAPP)) == false">
+            <TargetPath>$(AssemblyName).exe.config</TargetPath>
         </AppConfigWithTargetPath>
     </ItemGroup>
     <ItemGroup>
-      <Resource Remove="Icon.ico" />
-      <Resource Remove="Icon\Icon.ico" />
+      <_SettingsFiles Remove="Properties\Settings.settings" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Update="ExportTemplates\Bitmap.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ExportTemplates\Clipboard.Content.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ExportTemplates\Clipboard.Path.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ExportTemplates\Clipboard.PathData.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ExportTemplates\Clipboard.UWP.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ExportTemplates\Clipboard.WPF.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ExportTemplates\ReadMe.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ExportTemplates\SVG.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ExportTemplates\UWP.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="ExportTemplates\WPF.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
     <ItemGroup>
         <Compile DependentUpon="%(Filename)" SubType="Code" Update="**\obj\**\*.g$(DefaultLanguageSourceExtension)" />

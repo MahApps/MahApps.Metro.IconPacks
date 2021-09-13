@@ -1,0 +1,1 @@
+xstyler.exe -r -d ..\src\MahApps.Metro.IconPacks.Browser\ -c .\Options\MahApps.Metro.XAMLStyler.json

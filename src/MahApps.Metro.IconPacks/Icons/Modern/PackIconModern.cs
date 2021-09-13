@@ -10,10 +10,10 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// All icons sourced from Modern UI Icons Font <see><cref>http://modernuiicons.com</cref></see>
+    /// All icons sourced from Modern UI Icons Font <see><cref>https://github.com/Templarian/WindowsIcons</cref></see>
     /// In accordance of <see><cref>https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt</cref></see>.
     /// </summary>
-    [MetaData("Modern UI Icons", "http://modernuiicons.com/", "https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt")]
+    [MetaData("Modern UI Icons", "https://github.com/Templarian/WindowsIcons", "https://github.com/Templarian/WindowsIcons/blob/master/WindowsPhone/license.txt")]
     public class PackIconModern : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

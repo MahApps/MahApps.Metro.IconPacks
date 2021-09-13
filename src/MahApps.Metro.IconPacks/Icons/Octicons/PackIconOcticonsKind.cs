@@ -221,6 +221,6 @@
         [Description("Workflow (Workflow, Actions)")] Workflow,
         [Description("WorkflowAll (Workflow, Actions)")] WorkflowAll,
         [Description("X (Remove, Close, Delete)")] X,
-        [Description("Zap (Electricity, Lightning, Props, Like, Star, Save)")] Zap,
+        [Description("Zap (Electricity, Lightning, Props, Like, Star, Save)")] Zap
     }
 }

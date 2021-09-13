@@ -4,10 +4,11 @@
 
 #load sign.cake
 
-#tool GitVersion.CommandLine&version=5.3.7
-#tool gitreleasemanager
-#tool vswhere
-#addin Cake.Figlet
+#tool dotnet:?package=GitReleaseManager.Tool&version=0.12.0
+#tool dotnet:?package=GitVersion.Tool&version=5.6.6
+
+#tool vswhere&version=2.8.4
+#addin nuget:?package=Cake.Figlet&version=1.4.0
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -154,19 +155,13 @@ Task("CreateRelease")
     .WithCriteria(() => !isPullRequest)
     .Does(() =>
 {
-    var username = EnvironmentVariable("GITHUB_USERNAME");
-    if (string.IsNullOrEmpty(username))
-    {
-        throw new Exception("The GITHUB_USERNAME environment variable is not defined.");
-    }
-
     var token = EnvironmentVariable("GITHUB_TOKEN");
     if (string.IsNullOrEmpty(token))
     {
         throw new Exception("The GITHUB_TOKEN environment variable is not defined.");
     }
 
-    GitReleaseManagerCreate(username, token, "MahApps", repoName, new GitReleaseManagerCreateSettings {
+    GitReleaseManagerCreate(token, "MahApps", repoName, new GitReleaseManagerCreateSettings {
         Milestone         = gitVersion.MajorMinorPatch,
         Name              = gitVersion.AssemblySemFileVer,
         Prerelease        = isDevelopBranch,
