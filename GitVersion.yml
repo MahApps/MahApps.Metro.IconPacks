@@ -1,7 +1,7 @@
 assembly-versioning-scheme: Major
 assembly-file-versioning-scheme: MajorMinorPatchTag
+next-version: 4.9.0
 mode: ContinuousDeployment
-next-version: 4.8.0
 branches:
   master:
     regex: ^main
