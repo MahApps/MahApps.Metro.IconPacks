@@ -15,8 +15,6 @@
         <DebugType>full</DebugType>
         <NoWarn>$(NoWarn);CS1591</NoWarn>
         <NoError>$(NoError);CS1591</NoError>
-
-        <IsSampleProject>$(MSBuildProjectName.Contains('Browser'))</IsSampleProject>
     </PropertyGroup>
 
     <PropertyGroup>

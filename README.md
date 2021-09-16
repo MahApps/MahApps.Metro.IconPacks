@@ -3,7 +3,7 @@
   <a href="https://github.com/MahApps/MahApps.Metro.IconPacks">
     <img alt="MahApps.Metro.IconPacks" src="./resources/Icon.svg">
   </a>
-  <h1>MahApps.Metro.IconPacks</h1>
+  <h1>MahApps.Metro<br />IconPacks</h1>
   <p>
     Awesome icon packs for <code>WPF</code> and <code>UWP</code> in one library
   </p>
@@ -68,7 +68,9 @@ This `IconPacks` library contains controls, markup extensions and converters to 
 | [Weather Icons](https://github.com/erikflowers/weather-icons) | 2.0.10 | 219 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.WeatherIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.WeatherIcons.svg?style=flat-square&&label=WeatherIcons"></a> |
 | [Zondicons](https://www.zondicons.com) | | 297 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Zondicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Zondicons.svg?style=flat-square&&label=Zondicons"></a> |
 
-It's not necessary to install and use [MahApps.Metro](https://github.com/MahApps/MahApps.Metro), but it makes your `WPF` application nicer.
+## Note
+
+It's not necessary, but you can use these Icons together with [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) which makes your `WPF` application nicer.
 
 ## Let's get started
 
@@ -77,6 +79,16 @@ It's not necessary to install and use [MahApps.Metro](https://github.com/MahApps
 
 ## Want to say thanks?
 
-This framework is free and can be used for free, open source and commercial applications. It's tested and contributed by many people... So mainly hit the :star: button, that's all... thx :squirrel: (:dollar:, :euro:, :beer: or some other gifts are also being accepted...).
+This framework is free and can be used for free, open source and commercial applications.
 
-![iconbrowserfinal](./resources/iconpacks_latest.gif)
+It's tested and contributed by many people... So mainly hit the :star: button, that's all... thx :squirrel: (:dollar:, :euro:, :beer: or some other gifts are also being accepted...).
+
+Please give also a star to all available icon repositories.
+
+[Become a sponsor](https://github.com/sponsors/punker76) and show your support to this open source project.
+
+## IconPacks Browser
+
+The Browser for all available Icon packages can be found [here](https://github.com/MahApps/IconPacks.Browser).
+
+![iconbrowserfinal](./resources/iconpacks_browser_new.gif)

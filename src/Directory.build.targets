@@ -14,7 +14,7 @@
     </PropertyGroup>
 
     <!-- Sign assembly -->
-    <PropertyGroup Condition=" '$(IsSampleProject)' != 'true' ">
+    <PropertyGroup>
         <SignAssembly>True</SignAssembly>
         <AssemblyOriginatorKeyFile>$(MSBuildProjectDirectory)\..\iconpacks.public.snk</AssemblyOriginatorKeyFile>
         <DelaySign>false</DelaySign>
