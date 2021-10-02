@@ -4,6 +4,6 @@
         "rollForward": "latestFeature"
     },
     "msbuild-sdks": {
-        "MSBuild.Sdk.Extras": "2.1.2"
+        "MSBuild.Sdk.Extras": "3.0.38"
     }
 }
