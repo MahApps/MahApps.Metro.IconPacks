@@ -7,17 +7,17 @@ namespace MahApps.Metro.IconPacks
     public interface IPackIconCursorExtension 
     {
         /// <summary>
-        /// Get or set the hot spot point of the cursor. Default point is upper left corner (0,0)
+        /// Get or set the hot spot point of the cursor (from (0,0) to (255,255)). Default point is upper left corner (0,0)
         /// </summary>
         Point HotSpot { get; set; }
 
         /// <summary>
-        /// Get or set cursor width. Default value is 32
+        /// Get or set cursor width (1 to 256). Default value is 32
         /// </summary>
         double Width { get; set; }
 
         /// <summary>
-        /// Get or set cursor height. Default value is 32
+        /// Get or set cursor height (1 to 256). Default value is 32
         /// </summary>
         double Height { get; set; }
 

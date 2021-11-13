@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -13,14 +14,23 @@ namespace MahApps.Metro.IconPacks
         /// </summary>
         /// <param name="pathData"> String data of icon geometry.</param>
         /// <param name="transformGroup"> Transformation group of the icon (we get it from <see cref="BasePackIconImageExtension.GetPathData(object)"/>).</param>
-        /// <param name="width"> Width of cursor (optional, default is 32)</param>
-        /// <param name="height"> Width of cursor (optional, default is 32)</param>
+        /// <param name="width"> Width of cursor (optional, between 1 and 256, default is 32)</param>
+        /// <param name="height"> Width of cursor (optional, between 1 and 256, default is 32)</param>
         /// <returns>
         /// A <see cref="Geometry"/> object that contains the icon to be used in the cursor.
         /// The <see cref="Geometry"/> has all transformations to be scaled to desired size and aligned to top left corner.
         /// </returns>
         public static Geometry GetCursorGeometry(string pathData, TransformGroup transformGroup, double width = 32, double height = 32)
         {
+            if (width < 1 || width > 256)
+            {
+                throw new ArgumentOutOfRangeException(nameof(width) + " should be between 1 and 256.");
+            }
+            if (height < 1 || height > 256)
+            {
+                throw new ArgumentOutOfRangeException(nameof(height) + " should be between 1 and 256.");
+            }
+
             Geometry geometry = Geometry.Parse(pathData); // This geometry is frozen and can not be modified
             geometry = geometry.Clone(); // Create a modifiable copy of geometry.
 
@@ -46,12 +56,21 @@ namespace MahApps.Metro.IconPacks
         /// <param name="brush"> Fill <see cref="Brush"/>. If not set a white brush will be used.</param>
         /// <param name="strokeBrush"> Outline <see cref="Brush"/>. If not set a black brush will be used.</param>
         /// <param name="strokeThickness"> Outline thickness. Default is 0.5</param>
-        /// <param name="hotspot">Hot spot point of the cursor. Default is (0,0)</param>
+        /// <param name="hotspot">Hot spot point of the cursor (from (0,0) to (255,255)). Default is (0,0)</param>
         /// <returns>
         /// A <see cref="Cursor"/>.
         /// </returns>
         public static Cursor GeometryToCursor(Geometry geometry, Brush brush = null, Brush strokeBrush = null, double strokeThickness = 0.5, Point hotspot = default)
         {
+            if (hotspot.X < 0 || hotspot.X > 255)
+            {
+                throw new ArgumentOutOfRangeException("hotspot.X should be between 0 and 255.");
+            }
+            if (hotspot.Y < 0 || hotspot.Y > 255)
+            {
+                throw new ArgumentOutOfRangeException("hotspot.Y should be between 0 and 255.");
+            }
+
             Pen pen = new Pen(strokeBrush ?? DefaultStrokeBrush, strokeThickness);
             brush = brush ?? DefaultBrush;
 
@@ -88,6 +107,27 @@ namespace MahApps.Metro.IconPacks
         /// </returns>
         public static Cursor BitmapSourceToCursor(BitmapSource bitmapSource, Point hotSpot)
         {
+            if (hotSpot.X < 0 || hotSpot.X > 255)
+            {
+                throw new ArgumentOutOfRangeException("hotspot.X should be between 0 and 255.");
+            }
+            if (hotSpot.Y < 0 || hotSpot.Y > 255)
+            {
+                throw new ArgumentOutOfRangeException("hotspot.Y should be between 0 and 255.");
+            }
+
+            if (bitmapSource.Width < 1 || bitmapSource.Width > 256)
+            {
+                throw new ArgumentOutOfRangeException("BitmapSource.Width should be between 1 and 256.");
+            }
+            if (bitmapSource.Height < 1 || bitmapSource.Height > 256)
+            {
+                throw new ArgumentOutOfRangeException("BitmapSource.Height should be between 1 and 256.");
+            }
+            
+            double width = bitmapSource.Width == 256 ? 0 :  bitmapSource.Width;
+            double height = bitmapSource.Height == 256 ? 0 :  bitmapSource.Height;
+
             // Taken from https://stackoverflow.com/questions/46805/custom-cursor-in-wpf/27077188#27077188
 
             var pngStream = new MemoryStream();
@@ -100,8 +140,8 @@ namespace MahApps.Metro.IconPacks
             cursorStream.Write(new byte[2] { 0x00, 0x00 }, 0, 2);                               // ICONDIR: Reserved. Must always be 0.
             cursorStream.Write(new byte[2] { 0x02, 0x00 }, 0, 2);                               // ICONDIR: Specifies image type: 1 for icon (.ICO) image, 2 for cursor (.CUR) image. Other values are invalid
             cursorStream.Write(new byte[2] { 0x01, 0x00 }, 0, 2);                               // ICONDIR: Specifies number of images in the file.
-            cursorStream.Write(new byte[1] { (byte)bitmapSource.Width }, 0, 1);                 // ICONDIRENTRY: Specifies image width in pixels. Can be any number between 0 and 255. Value 0 means image width is 256 pixels.
-            cursorStream.Write(new byte[1] { (byte)bitmapSource.Height }, 0, 1);                // ICONDIRENTRY: Specifies image height in pixels. Can be any number between 0 and 255. Value 0 means image height is 256 pixels.
+            cursorStream.Write(new byte[1] { (byte)width }, 0, 1);                              // ICONDIRENTRY: Specifies image width in pixels. Can be any number between 0 and 255. Value 0 means image width is 256 pixels.
+            cursorStream.Write(new byte[1] { (byte)height }, 0, 1);                             // ICONDIRENTRY: Specifies image height in pixels. Can be any number between 0 and 255. Value 0 means image height is 256 pixels.
             cursorStream.Write(new byte[1] { 0x00 }, 0, 1);                                     // ICONDIRENTRY: Specifies number of colors in the color palette. Should be 0 if the image does not use a color palette.
             cursorStream.Write(new byte[1] { 0x00 }, 0, 1);                                     // ICONDIRENTRY: Reserved. Should be 0.
             cursorStream.Write(new byte[2] { (byte)hotSpot.X, 0x00 }, 0, 2);                    // ICONDIRENTRY: Specifies the horizontal coordinates of the hot spot in number of pixels from the left.
