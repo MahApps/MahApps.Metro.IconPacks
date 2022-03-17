@@ -1,4 +1,7 @@
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
+
 <div align="center">
+  <br />
 
   <a href="https://github.com/MahApps/MahApps.Metro.IconPacks">
     <img alt="MahApps.Metro.IconPacks" src="./resources/Icon.svg">
