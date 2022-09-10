@@ -42,7 +42,8 @@ namespace MahApps.Metro.IconPacks
             transformGroup.Children.Add(new TranslateTransform(-rect.X, -rect.Y));
 
             // Apply the requested size.
-            transformGroup.Children.Add(new ScaleTransform(width / rect.Width, height / rect.Height));
+            var aspectRatio = Math.Min(width / rect.Width, height / rect.Height);
+            transformGroup.Children.Add(new ScaleTransform(aspectRatio, aspectRatio));
 
 
             geometry.Freeze();
