@@ -39,7 +39,7 @@ This `IconPacks` library contains controls, markup extensions and converters to 
 | Icon collection | Version | &#8721; | NuGet |
 |---|--:|--:|:--|
 | Complete IconPacks collection with all Icons in one package | | | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks"></a> |
-| [Bootstrap Icons](https://icons.getbootstrap.com/) | 1.6.1 | 1406 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.BootstrapIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BootstrapIcons.svg?style=flat-square&&label=BootstrapIcons"></a> |
+| [Bootstrap Icons](https://icons.getbootstrap.com/) | 1.9.1 | 1811 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.BootstrapIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BootstrapIcons.svg?style=flat-square&&label=BootstrapIcons"></a> |
 | [Boxicons](https://boxicons.com/) | 2.0.9 | 1525 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.BoxIcons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BoxIcons.svg?style=flat-square&&label=BoxIcons"></a> |
 | [Codicons](https://github.com/microsoft/vscode-codicons) | 0.0.25 | 383 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Codicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Codicons.svg?style=flat-square&&label=Codicons"></a> |
 | [Coolicons](https://github.com/krystonschwarze/coolicons) | 2.5.0 | 412 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Coolicons/"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Coolicons.svg?style=flat-square&&label=Coolicons"></a> |
