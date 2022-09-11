@@ -2,13 +2,14 @@
 // TOOLS / ADDINS
 ///////////////////////////////////////////////////////////////////////////////
 
-#load sign.cake
-
+#tool dotnet:?package=NuGetKeyVaultSignTool&version=1.2.28
+#tool dotnet:?package=AzureSignTool&version=3.0.0
 #tool dotnet:?package=GitReleaseManager.Tool&version=0.12.1
-#tool dotnet:?package=GitVersion.Tool&version=5.7.0
+#tool dotnet:?package=GitVersion.Tool&version=5.6.3
+#tool dotnet:?package=XamlStyler.Console&version=3.2008.4
 
 #tool vswhere&version=2.8.4
-#addin nuget:?package=Cake.Figlet&version=1.4.0
+#addin nuget:?package=Cake.Figlet&version=2.0.1
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -26,6 +27,13 @@ var PACKAGE_DIR = Directory(Argument("artifact-dir", PROJECT_DIR + "Publish") + 
 ///////////////////////////////////////////////////////////////////////////////
 
 var repoName = "MahApps.Metro.IconPacks";
+var baseDir = MakeAbsolute(Directory(".")).ToString();
+var srcDir = baseDir + "/src";
+var solution = srcDir + "/MahApps.Metro.IconPacks.sln";
+
+var styler = Context.Tools.Resolve("xstyler.exe");
+var stylerFile = baseDir + "/Settings.XAMLStyler";
+
 var isLocal = BuildSystem.IsLocalBuild;
 
 // Set build version
@@ -33,6 +41,7 @@ if (isLocal == false || verbosity == Verbosity.Verbose)
 {
     GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.BuildServer });
 }
+
 GitVersion gitVersion = GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.Json });
 
 var isPullRequest = AppVeyor.Environment.PullRequest.IsPullRequest;
@@ -49,9 +58,6 @@ if (FileExists(msBuildPathExe) == false)
 {
     throw new NotImplementedException("You need at least Visual Studio 2019 to build this project.");
 }
-
-// Directories and Paths
-var solution = "./src/MahApps.Metro.IconPacks.sln";
 
 // Define global marcos.
 Action Abort = () => { throw new Exception("a non-recoverable fatal error occurred."); };
@@ -104,6 +110,7 @@ Task("Restore")
     .Does(() =>
 {
     NuGetRestore(solution, new NuGetRestoreSettings { MSBuildPath = msBuildPath.ToString() });
+    //DotNetCoreRestore(solution);
 });
 
 Task("Build")
@@ -132,6 +139,149 @@ Task("Build")
             );
 });
 
+void SignFiles(IEnumerable<FilePath> files, string description, string repoUrl)
+{
+    var vurl = EnvironmentVariable("azure-key-vault-url");
+    if(string.IsNullOrWhiteSpace(vurl)) {
+        Error("Could not resolve signing url.");
+        return;
+    }
+
+    var vcid = EnvironmentVariable("azure-key-vault-client-id");
+    if(string.IsNullOrWhiteSpace(vcid)) {
+        Error("Could not resolve signing client id.");
+        return;
+    }
+
+    var vctid = EnvironmentVariable("azure-key-vault-tenant-id");
+    if(string.IsNullOrWhiteSpace(vctid)) {
+        Error("Could not resolve signing client tenant id.");
+        return;
+    }
+
+    var vcs = EnvironmentVariable("azure-key-vault-client-secret");
+    if(string.IsNullOrWhiteSpace(vcs)) {
+        Error("Could not resolve signing client secret.");
+        return;
+    }
+
+    var vc = EnvironmentVariable("azure-key-vault-certificate");
+    if(string.IsNullOrWhiteSpace(vc)) {
+        Error("Could not resolve signing certificate.");
+        return;
+    }
+
+    var filesToSign = string.Join(" ", files.Select(f => MakeAbsolute(f).FullPath));
+
+    var processSettings = new ProcessSettings {
+        RedirectStandardOutput = true,
+        RedirectStandardError = true,
+        Arguments = new ProcessArgumentBuilder()
+            .Append("sign")
+            .Append(filesToSign)
+            .AppendSwitchQuoted("--file-digest", "sha256")
+            .AppendSwitchQuoted("--description", description)
+            .AppendSwitchQuoted("--description-url", repoUrl)
+            .Append("--no-page-hashing")
+            .AppendSwitchQuoted("--timestamp-rfc3161", "http://timestamp.digicert.com")
+            .AppendSwitchQuoted("--timestamp-digest", "sha256")
+            .AppendSwitchQuoted("--azure-key-vault-url", vurl)
+            .AppendSwitchQuotedSecret("--azure-key-vault-client-id", vcid)
+            .AppendSwitchQuotedSecret("--azure-key-vault-tenant-id", vctid)
+            .AppendSwitchQuotedSecret("--azure-key-vault-client-secret", vcs)
+            .AppendSwitchQuotedSecret("--azure-key-vault-certificate", vc)
+    };
+
+    using(var process = StartAndReturnProcess("tools/AzureSignTool", processSettings))
+    {
+        process.WaitForExit();
+
+        if (process.GetStandardOutput().Any())
+        {
+            Information($"Output:{Environment.NewLine}{string.Join(Environment.NewLine, process.GetStandardOutput())}");
+        }
+
+        if (process.GetStandardError().Any())
+        {
+            Information($"Errors occurred:{Environment.NewLine}{string.Join(Environment.NewLine, process.GetStandardError())}");
+        }
+
+        // This should output 0 as valid arguments supplied
+        Information("Exit code: {0}", process.GetExitCode());
+    }
+}
+
+void SignNuGet(string publishDir)
+{
+    if (!DirectoryExists(Directory(publishDir)))
+    {
+        return;
+    }
+
+    var vurl = EnvironmentVariable("azure-key-vault-url");
+    if(string.IsNullOrWhiteSpace(vurl)) {
+        Error("Could not resolve signing url.");
+        return;
+    }
+
+    var vcid = EnvironmentVariable("azure-key-vault-client-id");
+    if(string.IsNullOrWhiteSpace(vcid)) {
+        Error("Could not resolve signing client id.");
+        return;
+    }
+
+    var vcs = EnvironmentVariable("azure-key-vault-client-secret");
+    if(string.IsNullOrWhiteSpace(vcs)) {
+        Error("Could not resolve signing client secret.");
+        return;
+    }
+
+    var vc = EnvironmentVariable("azure-key-vault-certificate");
+    if(string.IsNullOrWhiteSpace(vc)) {
+        Error("Could not resolve signing certificate.");
+        return;
+    }
+
+    var nugetFiles = GetFiles(publishDir + "/*.nupkg");
+    foreach(var file in nugetFiles)
+    {
+        Information($"Sign file: {file}");
+        var processSettings = new ProcessSettings {
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            Arguments = new ProcessArgumentBuilder()
+                .Append("sign")
+                .Append(MakeAbsolute(file).FullPath)
+                .Append("--force")
+                .AppendSwitchQuoted("--file-digest", "sha256")
+                .AppendSwitchQuoted("--timestamp-rfc3161", "http://timestamp.digicert.com")
+                .AppendSwitchQuoted("--timestamp-digest", "sha256")
+                .AppendSwitchQuoted("--azure-key-vault-url", vurl)
+                .AppendSwitchQuotedSecret("--azure-key-vault-client-id", vcid)
+                .AppendSwitchQuotedSecret("--azure-key-vault-client-secret", vcs)
+                .AppendSwitchQuotedSecret("--azure-key-vault-certificate", vc)
+        };
+
+        using(var process = StartAndReturnProcess("tools/NuGetKeyVaultSignTool", processSettings))
+        {
+            process.WaitForExit();
+
+            if (process.GetStandardOutput().Any())
+            {
+                Information($"Output:{Environment.NewLine}{string.Join(Environment.NewLine, process.GetStandardOutput())}");
+            }
+
+            if (process.GetStandardError().Any())
+            {
+                Information($"Errors occurred:{Environment.NewLine}{string.Join(Environment.NewLine, process.GetStandardError())}");
+            }
+
+            // This should output 0 as valid arguments supplied
+            Information("Exit code: {0}", process.GetExitCode());
+        }
+    }
+}
+
 Task("Zip")
     .Does(() =>
 {
@@ -148,6 +298,18 @@ Task("Sign")
     SignFiles(files, "IconPacks Browser.", "https://github.com/MahApps/MahApps.Metro.IconPacks");
 
     SignNuGet(MakeAbsolute(PACKAGE_DIR).ToString());
+});
+
+Task("StyleXaml")
+    .Description("Ensures XAML Formatting is Clean")
+    .Does(() =>
+{
+    Func<IFileSystemInfo, bool> exclude_Dir =
+        fileSystemInfo => !fileSystemInfo.Path.Segments.Contains("obj");
+
+    var files = GetFiles(srcDir + "/**/*.xaml", new GlobberSettings { Predicate = exclude_Dir });
+    Information("\nChecking " + files.Count() + " file(s) for XAML Structure");
+    StartProcess(styler, "-f \"" + string.Join(",", files.Select(f => f.ToString())) + "\" -c \"" + stylerFile + "\"");
 });
 
 Task("CreateRelease")
@@ -177,15 +339,19 @@ Task("CreateRelease")
 Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
+//    .IsDependentOn("StyleXaml")
     .IsDependentOn("Build")
-    .IsDependentOn("Zip");
+    .IsDependentOn("Zip")
+    ;
 
 Task("appveyor")
     .IsDependentOn("Default")
-    .IsDependentOn("Sign");
+    .IsDependentOn("Sign")
+    ;
 
 Task("azure")
-    .IsDependentOn("Default");
+    .IsDependentOn("Default")
+    ;
 
 ///////////////////////////////////////////////////////////////////////////////
 // EXECUTION

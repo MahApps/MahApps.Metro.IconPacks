@@ -7,10 +7,10 @@
         <Copyright>Copyright © 2016 - $([System.DateTime]::Today.ToString(yyyy)) MahApps.Metro</Copyright>
         <Description>IconPacks for stylish awesome WPF and UWP applications.</Description>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <Version>4.0.0.0</Version>
-        <AssemblyVersion>4.0.0.0</AssemblyVersion>
-        <FileVersion>4.0.0.0</FileVersion>
-        <InformationalVersion>4.0.0.0</InformationalVersion>
+        <Version>5.0.0.0</Version>
+        <AssemblyVersion>5.0.0.0</AssemblyVersion>
+        <FileVersion>5.0.0.0</FileVersion>
+        <InformationalVersion>5.0.0.0</InformationalVersion>
     </PropertyGroup>
 
     <!-- Sign assembly -->
@@ -26,6 +26,7 @@
     <PropertyGroup>
         <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
     </PropertyGroup>
+
     <ItemGroup>
         <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
     </ItemGroup>

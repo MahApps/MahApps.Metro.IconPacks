@@ -6,24 +6,20 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;netcoreapp3.1;net5-windows;uap10.0.16299</TargetFrameworks>
+        <TargetFrameworks>net462;net47;netcoreapp3.1;net5.0-windows;uap10.0.16299</TargetFrameworks>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AutoGenerateBindingRedirects Condition=" $(TargetFramework.StartsWith('net4')) or $(TargetFramework.StartsWith('uap')) ">true</AutoGenerateBindingRedirects>
         <LangVersion>latest</LangVersion>
         <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
         <NoWarn>$(NoWarn);CS1591</NoWarn>
         <NoError>$(NoError);CS1591</NoError>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <DefineConstants Condition="'$(TargetFramework)' == 'net5.0-windows'">$(DefineConstants);NET5_0_OR_GREATER</DefineConstants>
     </PropertyGroup>
 
     <!-- .NET Framework and Core -->
     <PropertyGroup Condition=" !$(TargetFramework.StartsWith('uap')) ">
         <UseWpf>true</UseWpf>
+        <DebugType>Embedded</DebugType>
     </PropertyGroup>
 
     <!-- UAP -->
@@ -32,6 +28,7 @@
         <DefaultTargetPlatformMinVersion>16299</DefaultTargetPlatformMinVersion>
         <UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
         <EnableDefaultXamlItems>true</EnableDefaultXamlItems>
+        <DebugType>full</DebugType>
         <!-- 8002 is a strong named -> non-strong-named reference -->
         <!-- This is valid for platforms other than .NET Framework (and is needed for the UWP targets -->
         <NoWarn>$(NoWarn);8002</NoWarn>
@@ -51,12 +48,12 @@
         <!-- Optional: Include PDB in the built .nupkg -->
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
         <!-- https://github.com/dotnet/sourcelink/blob/master/docs/README.md#embedallsources -->
-        <!-- <EmbedAllSources>true</EmbedAllSources> -->
+        <EmbedAllSources>True</EmbedAllSources>
     </PropertyGroup>
 
     <!-- Add the references for all projects and targets -->
     <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2021.*" PrivateAssets="All" IncludeAssets="build;compile" />
+        <PackageReference Include="JetBrains.Annotations" Version="2022.*" PrivateAssets="All" IncludeAssets="build;compile" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.*">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
