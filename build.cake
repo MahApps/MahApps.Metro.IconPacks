@@ -333,7 +333,7 @@ Task("Default")
     .IsDependentOn("Build")
     ;
 
-Task("appveyor")
+Task("ci")
     .IsDependentOn("Default")
     .IsDependentOn("Sign")
     ;

@@ -23,11 +23,11 @@ skip_tags: true
 image: Visual Studio 2022
 test: false
 
-install:
-  # Install Windows SDK 10.0.18362
-  - ps: .\build\Install-WindowsSDK.ps1
-  # - ps: Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
-  # - ps: ./dotnet-install.ps1 -Version 8.0.100 -InstallDir "C:\Program Files\dotnet"
+# install:
+# Install Windows SDK 10.0.18362
+# - ps: .\build\Install-WindowsSDK.ps1
+# - ps: Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
+# - ps: ./dotnet-install.ps1 -Version 8.0.100 -InstallDir "C:\Program Files\dotnet"
 
 pull_requests:
   do_not_increment_build_number: false
@@ -35,7 +35,7 @@ pull_requests:
 build_script:
   - ps: dotnet --info
   - ps: gitversion /version
-  - ps: .\build.ps1 --target=appveyor
+  - ps: .\build.ps1 --target=ci
 
 artifacts:
   - path: \Publish\*.*
@@ -45,4 +45,4 @@ nuget:
 
 skip_commits:
   files:
-    - '**/*.md'
+    - "**/*.md"
