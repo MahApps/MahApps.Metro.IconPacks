@@ -54,14 +54,14 @@
     </ItemGroup>
 
     <!-- UWP Items include -->
-    <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' and '$(TargetFramework)' != 'uap10.0.16299' ">
+    <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' and '$(TargetFramework)' != 'uap10.0.18362' ">
         <Compile Remove="**\*Extension*.cs" />
     </ItemGroup>
 
     <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
         <Compile Remove="*.cs;Icons\**\*.cs;**\*Converter.cs" />
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
-        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Include="PackIconExtension.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.18362' " Include="PackIconExtension.cs" />
         <Page Generator="MSBuild:Compile"
               Include="Themes\UAP\IconPacks.xaml;Themes\UAP\Generic.xaml"
               Link="Themes\%(RecursiveDir)%(Filename)%(Extension)"
