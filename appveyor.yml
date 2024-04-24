@@ -24,10 +24,10 @@ image: Visual Studio 2022
 test: false
 
 install:
-  # Install Windows SDK 10.0.16299 and .NET 5
+  # Install Windows SDK 10.0.18362
   - ps: .\build\Install-WindowsSDK.ps1
-  - ps: Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
-  - ps: ./dotnet-install.ps1 -Version 8.0.100 -InstallDir "C:\Program Files\dotnet"
+  # - ps: Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
+  # - ps: ./dotnet-install.ps1 -Version 8.0.100 -InstallDir "C:\Program Files\dotnet"
 
 pull_requests:
   do_not_increment_build_number: false
