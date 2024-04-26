@@ -13,22 +13,13 @@
   <p>
     Supporting .NET Framework >= 4.6.2, >= .NET Core 3.1, >= .NET 5 (on Windows) and UWP (uap10.0.18362)
   </p>
-  <a href="https://gitter.im/MahApps/MahApps.Metro.IconPacks">
-    <img src="https://img.shields.io/badge/Gitter-Join%20Chat-green.svg?style=flat-square">
-  </a>
-  <a href="https://twitter.com/punker76">
-    <img src="https://img.shields.io/badge/twitter-%40punker76-55acee.svg?style=flat-square">
-  </a>
-  <a href="https://github.com/MahApps/MahApps.Metro.IconPacks/releases">
-    <img src="https://img.shields.io/github/release/MahApps/MahApps.Metro.IconPacks.svg?style=flat-square">
-  </a>
+  <a href="https://discord.gg/VrNeD7z48s" target="_blank" rel="noopener noreferrer"><img alt="Discord" src="https://img.shields.io/discord/411850591334301703?style=flat-square&label=Discord"></a>
+  <a href="https://twitter.com/punker76" target="_blank" rel="noopener noreferrer"><img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/punker76?style=flat-square&label=follow%20%40punker76%20on%20X"></a>
+  <a href="https://nrw.social/@punker76" target="_blank" rel="noopener noreferrer"><img alt="Mastodon Follow" src="https://img.shields.io/mastodon/follow/109291587306394177?domain=https%3A%2F%2Fnrw.social&style=flat-square&label=follow%20%40punker76%20on%20Mastodon"></a>
   <br />
-  <a href="https://dev.azure.com/mahapps/MahApps.Metro.IconPacks/_build?definitionId=3">
-    <img alt="azure-devops" src="https://img.shields.io/azure-devops/build/mahapps/6896073b-203e-45a5-892e-45600b9fe5ae/3.svg?logo=azure-devops&style=flat-square&label=dev">
-  </a>
-  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/develop">
-    <img alt="appveyor-ci-dev" src="https://img.shields.io/appveyor/ci/punker76/mahapps-metro-iconpacks/develop.svg?logo=appveyor&style=flat-square&&label=dev">
-  </a>
+  <a href="https://github.com/MahApps/MahApps.Metro.IconPacks/releases"><img src="https://img.shields.io/github/release/MahApps/MahApps.Metro.IconPacks.svg?style=flat-square&label=latest%20release"></a>
+  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/main" target="_blank" rel="noopener noreferrer"><img alt="AppVeyor Build (main)" src="https://img.shields.io/appveyor/build/punker76/mahapps-metro-iconpacks/main?style=flat-square&label=main"></a>
+  <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/develop" target="_blank" rel="noopener noreferrer"><img alt="AppVeyor Build (dev)" src="https://img.shields.io/appveyor/build/punker76/mahapps-metro-iconpacks/develop?style=flat-square&label=dev"></a>
   <br />
   <br />
 
