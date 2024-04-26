@@ -6,7 +6,7 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net462;net47;netcoreapp3.1;net5.0-windows;uap10.0.16299</TargetFrameworks>
+        <TargetFrameworks>net462;net47;netcoreapp3.1;net5.0-windows;uap10.0.18362</TargetFrameworks>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AutoGenerateBindingRedirects Condition=" $(TargetFramework.StartsWith('net4')) or $(TargetFramework.StartsWith('uap')) ">true</AutoGenerateBindingRedirects>
@@ -24,8 +24,8 @@
 
     <!-- UAP -->
     <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
-        <DefaultTargetPlatformVersion>16299</DefaultTargetPlatformVersion>
-        <DefaultTargetPlatformMinVersion>16299</DefaultTargetPlatformMinVersion>
+        <DefaultTargetPlatformVersion>18362</DefaultTargetPlatformVersion>
+        <DefaultTargetPlatformMinVersion>18362</DefaultTargetPlatformMinVersion>
         <UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
         <EnableDefaultXamlItems>true</EnableDefaultXamlItems>
         <DebugType>full</DebugType>

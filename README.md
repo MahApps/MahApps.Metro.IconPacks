@@ -11,7 +11,7 @@
     Awesome icon packs for <code>WPF</code> and <code>UWP</code> in one library
   </p>
   <p>
-    Supporting .NET Framework 4.5+, .NET Core 3 (3.0 and 3.1), .NET 5 (on Windows) and UWP
+    Supporting .NET Framework >= 4.6.2, >= .NET Core 3.1, >= .NET 5 (on Windows) and UWP (uap10.0.18362)
   </p>
   <a href="https://gitter.im/MahApps/MahApps.Metro.IconPacks">
     <img src="https://img.shields.io/badge/Gitter-Join%20Chat-green.svg?style=flat-square">

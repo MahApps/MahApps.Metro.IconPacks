@@ -282,21 +282,11 @@ void SignNuGet(string publishDir)
     }
 }
 
-Task("Zip")
-    .Does(() =>
-{
-    EnsureDirectoryExists(PACKAGE_DIR);
-    Zip($"./src/MahApps.Metro.IconPacks.Browser/bin/{configuration}/", $"{PACKAGE_DIR.ToString()}/IconPacks.Browser.{configuration}-v" + gitVersion.NuGetVersion + ".zip");
-});
-
 Task("Sign")
     .WithCriteria(() => !isPullRequest)
     .ContinueOnError()
     .Does(() =>
 {
-    var files = GetFiles("./src/MahApps.Metro.IconPacks.Browser/**/bin/**/*.exe");
-    SignFiles(files, "IconPacks Browser.", "https://github.com/MahApps/MahApps.Metro.IconPacks");
-
     SignNuGet(MakeAbsolute(PACKAGE_DIR).ToString());
 });
 
@@ -341,10 +331,9 @@ Task("Default")
     .IsDependentOn("Restore")
 //    .IsDependentOn("StyleXaml")
     .IsDependentOn("Build")
-    .IsDependentOn("Zip")
     ;
 
-Task("appveyor")
+Task("ci")
     .IsDependentOn("Default")
     .IsDependentOn("Sign")
     ;
