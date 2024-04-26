@@ -130,13 +130,6 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconRemixIconKind}">
-                <Setter TargetName="PART_IconPath" Property="LayoutTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleY="-1" />
-                    </Setter.Value>
-                </Setter>
-            </DataTrigger>
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconRPGAwesomeKind}">
                 <Setter TargetName="PART_IconPath" Property="LayoutTransform">
                     <Setter.Value>

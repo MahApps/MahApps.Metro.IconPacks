@@ -125,7 +125,6 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconJamIconsKind _:
                 case PackIconMaterialDesignKind _:
                 case PackIconRadixIconsKind _:
-                case PackIconRemixIconKind _:
                 case PackIconRPGAwesomeKind _:
                 case PackIconTypiconsKind _:
                 case PackIconVaadinIconsKind _:
