@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -7,7 +7,7 @@ using System.Windows.Media;
 namespace MahApps.Metro.IconPacks
 {
     [MarkupExtensionReturnType(typeof(Cursor))]
-    public class ForkAwesomeCursorExtension : ForkAwesomeImageExtension
+    public class ForkAwesomeCursorExtension : ForkAwesomeImageExtension, IPackIconCursorExtension
     {
         public ForkAwesomeCursorExtension() : base() => base.Brush = PackIconCursorHelper.DefaultBrush;
         public ForkAwesomeCursorExtension(PackIconForkAwesomeKind kind) : base(kind) => base.Brush = PackIconCursorHelper.DefaultBrush;

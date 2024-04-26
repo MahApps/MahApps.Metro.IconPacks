@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -7,7 +7,7 @@ using System.Windows.Media;
 namespace MahApps.Metro.IconPacks
 {
     [MarkupExtensionReturnType(typeof(Cursor))]
-    public class  BoxIconsCursorExtension : BoxIconsImageExtension, IPackIconCursorExtension
+    public class BoxIconsCursorExtension : BoxIconsImageExtension, IPackIconCursorExtension
     {
         public BoxIconsCursorExtension() : base() => base.Brush = PackIconCursorHelper.DefaultBrush;
         public BoxIconsCursorExtension(PackIconBoxIconsKind kind) : base(kind) => base.Brush = PackIconCursorHelper.DefaultBrush;

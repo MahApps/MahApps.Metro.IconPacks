@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -9,6 +9,9 @@ namespace MahApps.Metro.IconPacks
     [MarkupExtensionReturnType(typeof(Cursor))]
     public class MicronsCursorExtension : MicronsImageExtension, IPackIconCursorExtension
     {
+        public MicronsCursorExtension() : base() => base.Brush = PackIconCursorHelper.DefaultBrush;
+        public MicronsCursorExtension(PackIconMicronsKind kind) : base(kind) => base.Brush = PackIconCursorHelper.DefaultBrush;
+
         /// <inheritdoc/>
         public Point HotSpot { get; set; }
         /// <inheritdoc/>

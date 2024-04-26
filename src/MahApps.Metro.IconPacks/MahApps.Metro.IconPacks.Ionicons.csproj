@@ -24,9 +24,7 @@
         <Compile Remove="Themes\UAP\**\*.*;Themes\WPF\**\*.*" />
         <EmbeddedResource Include="**\$(AssemblyName).rd.xml" />
         <Compile Condition=" '$(TargetFramework)' != 'uap10.0.18362' " Exclude="**\*Extension*.cs;**\*ImageConverter*.cs" Include="**\$(IconsName)\*.cs" />
-        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.18362' " Exclude="**\*ImageExtension*.cs;**\*ImageConverter*.cs" Include="**\$(IconsName)\*.cs" />
-        <Compile Condition=" '$(TargetFramework)' != 'uap10.0.16299' " Exclude="**\*Extension*.cs;**\*ImageConverter*.cs" Include="**\$(IconsName)\*.cs" />
-        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.16299' " Exclude="**\*ImageExtension*.cs;**\*CursorExtension*.cs;**\*ImageConverter*.cs" Include="**\$(IconsName)\*.cs" />
+        <Compile Condition=" '$(TargetFramework)' == 'uap10.0.18362' " Exclude="**\*ImageExtension*.cs;**\*CursorExtension*.cs;**\*ImageConverter*.cs" Include="**\$(IconsName)\*.cs" />
         <Page Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" Generator="MSBuild:Compile" Include="Themes\UAP\$(IconsName)\*.xaml;Themes\UAP\PackIcon$(IconsName).xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" />
         <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
     </ItemGroup>
