@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// RemixIcon released under the [Apache License Version 2.0](<see><cref>https://github.com/Remix-Design/RemixIcon/blob/master/License</cref></see>)
+    /// RemixIcon released under the [Apache License Version 2.0](<see><cref>https://github.com/Remix-Design/RemixIcon?tab=Apache-2.0-1-ov-file#readme</cref></see>)
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/Remix-Design/RemixIcon</cref></see>.
     /// </summary>
     [MetaData("Remix Icon", "https://remixicon.com/", "https://github.com/Remix-Design/RemixIcon/blob/master/License")]
@@ -36,9 +36,6 @@ namespace MahApps.Metro.IconPacks
 
         public PathIconRemixIcon()
         {
-            var transformGroup = this.RenderTransform as TransformGroup ?? new TransformGroup();
-            var scaleTransform = new ScaleTransform() {ScaleY = -1};
-            transformGroup.Children.Insert(0, scaleTransform);
         }
 
         protected override void UpdateData()
