@@ -10,10 +10,10 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Coolicons icons are licensed under [CC 4.0](<see><cref>https://github.com/krystonschwarze/coolicons#license</cref></see>).
+    /// Coolicons icons are licensed under [CC 4.0](<see><cref>https://github.com/krystonschwarze/coolicons/blob/master/README.md#license</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/krystonschwarze/coolicons</cref></see>.
     /// </summary>
-    [MetaData("Coolicons", "https://github.com/krystonschwarze/coolicons", "https://github.com/krystonschwarze/coolicons#license")]
+    [MetaData("Coolicons", "https://github.com/krystonschwarze/coolicons", "https://github.com/krystonschwarze/coolicons/blob/master/README.md#license")]
     public class PackIconCoolicons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty
