@@ -12,8 +12,8 @@
     /// List of available icons for use with <see cref="PackIconFeatherIcons" />.
     /// </summary>
     /// <remarks>
-    /// Feather is licensed under the MIT License <see><cref>https://github.com/feathericons/feather/blob/master/LICENSE</cref></see>
-    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/feathericons/feather</cref></see>.
+    /// Feather is licensed under the MIT License <see><cref>https://github.com/feathericons/feather?tab=MIT-1-ov-file#readme</cref></see>
+    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://feathericons.com/</cref></see>.
     /// </remarks>
     public enum PackIconFeatherIconsKind
     {
@@ -159,7 +159,7 @@
         [Description("key (Password, Login, Authentication, Secure)")] Key,
         [Description("layers (Stack)")] Layers,
         [Description("layout (Window, Webpage)")] Layout,
-        [Description("life-buoy")] LifeBuoy,
+        [Description("life-buoy (Help, LifeRing, Support)")] LifeBuoy,
         [Description("link (Chain, Url)")] Link,
         [Description("link-2 (Chain, Url)")] Link2,
         [Description("linkedin (Logo, SocialMedia)")] Linkedin,

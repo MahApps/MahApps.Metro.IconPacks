@@ -10,10 +10,10 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Feather is licensed under the MIT License <see><cref>https://github.com/feathericons/feather/blob/master/LICENSE</cref></see>
-    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/feathericons/feather</cref></see>.
+    /// Feather is licensed under the MIT License <see><cref>https://github.com/feathericons/feather?tab=MIT-1-ov-file#readme</cref></see>
+    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://feathericons.com/</cref></see>.
     /// </summary>
-    [MetaData("Feather Icons", "https://feathericons.com/", "https://github.com/feathericons/feather/blob/master/LICENSE")]
+    [MetaData("Feather Icons", "https://feathericons.com/", "https://github.com/feathericons/feather?tab=MIT-1-ov-file#readme")]
     public class PackIconFeatherIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty
