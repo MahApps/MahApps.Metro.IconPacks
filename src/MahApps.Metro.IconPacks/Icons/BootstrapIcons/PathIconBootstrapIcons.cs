@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Bootstrap Icons are licensed under the [MIT license](<see><cref>https://github.com/twbs/icons/blob/main/LICENSE.md</cref></see>).
+    /// Bootstrap Icons are licensed under the [MIT license](<see><cref>https://github.com/twbs/icons?tab=MIT-1-ov-file#readme</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/twbs/icons</cref></see>.
     /// </summary>
-    [MetaData("Bootstrap Icons", "https://icons.getbootstrap.com/", "https://github.com/twbs/icons/blob/main/LICENSE.md")]
+    [MetaData("Bootstrap Icons", "https://icons.getbootstrap.com/", "https://github.com/twbs/icons?tab=MIT-1-ov-file#readme")]
     public class PathIconBootstrapIcons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
