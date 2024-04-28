@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// The Fontisto font is licensed under the [SIL OFL 1.1](<see><cref>https://github.com/kenangundogan/fontisto#license</cref></see>).
-    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://fontisto.com/</cref></see>.
+    /// The Fontisto font is licensed under the [SIL OFL 1.1](<see><cref>https://github.com/kenangundogan/fontisto?tab=readme-ov-file#license</cref></see>).
+    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/kenangundogan/fontisto</cref></see>.
     /// </summary>
-    [MetaData("Fontisto", "https://fontisto.com/", "https://github.com/kenangundogan/fontisto#license")]
+    [MetaData("Fontisto", "https://github.com/kenangundogan/fontisto", "https://github.com/kenangundogan/fontisto?tab=readme-ov-file#license")]
     public class PathIconFontisto : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

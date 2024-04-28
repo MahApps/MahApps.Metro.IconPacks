@@ -12,8 +12,8 @@
     /// List of available icons for use with <see cref="PackIconFontisto" />.
     /// </summary>
     /// <remarks>
-    /// The Fontisto font is licensed under the [SIL OFL 1.1](<see><cref>https://github.com/kenangundogan/fontisto#license</cref></see>).
-    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://fontisto.com/</cref></see>.
+    /// The Fontisto font is licensed under the [SIL OFL 1.1](<see><cref>https://github.com/kenangundogan/fontisto?tab=readme-ov-file#license</cref></see>).
+    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/kenangundogan/fontisto</cref></see>.
     /// </remarks>
     public enum PackIconFontistoKind
     {
