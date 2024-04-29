@@ -61,6 +61,9 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconMaterialLightKind kind:
                     PackIconMaterialLightDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconMemoryIconsKind kind:
+                    PackIconMemoryIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconMicronsKind kind:
                     PackIconMicronsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;

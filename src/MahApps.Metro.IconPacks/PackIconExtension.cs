@@ -136,6 +136,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconMaterialLight, PackIconMaterialLightKind>((PackIconMaterialLightKind) this.Kind);
             }
 #endif
+#if ALL || MEMORYICONS
+            if (this.Kind is PackIconMemoryIconsKind)
+            {
+                return this.GetPackIcon<PackIconMemoryIcons, PackIconMemoryIconsKind>((PackIconMemoryIconsKind) this.Kind);
+            }
+#endif
 #if ALL || MICRONS
             if (this.Kind is PackIconMicronsKind)
             {

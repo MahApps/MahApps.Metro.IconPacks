@@ -73,7 +73,8 @@ Setup(ctx =>
         throw new NotImplementedException($"{repoName} will only build on Windows because it's not possible to target WPF and Windows Forms from UNIX.");
     }
 
-    Information(Figlet(repoName));
+    Information(Figlet("MahApps.Metro"));
+    Information(Figlet("IconPacks"));
 
     Information("Informational   Version: {0}", gitVersion.InformationalVersion);
     Information("SemVer          Version: {0}", gitVersion.SemVer);
