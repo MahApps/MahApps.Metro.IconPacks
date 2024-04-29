@@ -12,8 +12,8 @@
         <AutoGenerateBindingRedirects Condition=" $(TargetFramework.StartsWith('net4')) or $(TargetFramework.StartsWith('uap')) ">true</AutoGenerateBindingRedirects>
         <LangVersion>latest</LangVersion>
         <DebugSymbols>true</DebugSymbols>
-        <NoWarn>$(NoWarn);CS1591</NoWarn>
-        <NoError>$(NoError);CS1591</NoError>
+        <NoWarn>$(NoWarn);CS1591;CS0618</NoWarn>
+        <NoError>$(NoError);CS1591;CS0618</NoError>
     </PropertyGroup>
 
     <!-- .NET Framework and Core -->
@@ -31,7 +31,8 @@
         <DebugType>full</DebugType>
         <!-- 8002 is a strong named -> non-strong-named reference -->
         <!-- This is valid for platforms other than .NET Framework (and is needed for the UWP targets -->
-        <NoWarn>$(NoWarn);8002</NoWarn>
+        <NoWarn>$(NoWarn);8002;CS0618</NoWarn>
+        <NoError>$(NoError);CS0618</NoError>
     </PropertyGroup>
 
     <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) and '$(Configuration)' == 'Release' ">
