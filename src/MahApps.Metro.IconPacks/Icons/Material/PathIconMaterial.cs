@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// All icons sourced from Material Design Icons Font <see><cref>https://materialdesignicons.com</cref></see>
-    /// In accordance of <see><cref>https://github.com/Templarian/MaterialDesign/blob/master/license.txt</cref></see>.
+    /// All icons sourced from Material Design Icons Font <see><cref>https://pictogrammers.com/library/mdi/</cref></see>
+    /// In accordance of <see><cref>https://github.com/Templarian/MaterialDesign?tab=License-1-ov-file#readme</cref></see>.
     /// </summary>
-    [MetaData("Material Design Icons", "https://materialdesignicons.com/", "https://github.com/Templarian/MaterialDesign/blob/master/LICENSE")]
+    [MetaData("Material Design Icons", "https://pictogrammers.com/library/mdi/", "https://github.com/Templarian/MaterialDesign?tab=License-1-ov-file#readme")]
     public class PathIconMaterial : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
