@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// All icons sourced from GitHub Octicons <see><cref>https://octicons.github.com</cref></see>
-    /// In accordance of <see><cref>https://github.com/primer/octicons/blob/master/LICENSE</cref></see>.
+    /// All icons sourced from GitHub Octicons <see><cref>https://github.com/primer/octicons</cref></see>
+    /// In accordance of <see><cref>https://github.com/primer/octicons?tab=MIT-1-ov-file#readme</cref></see>.
     /// </summary>
-    [MetaData("Octicons", "https://primer.style/octicons/", "https://github.com/primer/octicons/blob/master/LICENSE")]
+    [MetaData("Primer Octicons (GitHub)", "https://github.com/primer/octicons", "https://github.com/primer/octicons?tab=MIT-1-ov-file#readme")]
     public class PathIconOcticons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
