@@ -12,8 +12,8 @@
     /// List of available icons for use with <see cref="PackIconPixelartIcons" />.
     /// </summary>
     /// <remarks>
-    /// PixelartIcons are licensed under the [MIT license](<see><cref>https://github.com/halfmage/pixelarticons/blob/master/LICENSE</cref></see>).
-    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/halfmage/pixelarticons</cref></see>.
+    /// PixelartIcons are licensed under the [MIT license](<see><cref>https://github.com/halfmage/pixelarticons?tab=MIT-1-ov-file#readme</cref></see>).
+    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://pixelarticons.com/</cref></see>.
     /// </remarks>
     public enum PackIconPixelartIconsKind
     {
@@ -197,7 +197,7 @@
         [Description("credit-card-wireless")] CreditCardWireless,
         [Description("crop")] Crop,
         [Description("cut")] Cut,
-        [Description("dashbaord")] Dashbaord,
+        [Description("dashboard")] Dashboard,
         [Description("debug")] Debug,
         [Description("debug-check")] DebugCheck,
         [Description("debug-off")] DebugOff,
@@ -266,6 +266,8 @@
         [Description("gift")] Gift,
         [Description("git-branch")] GitBranch,
         [Description("git-commit")] GitCommit,
+        [Description("github")] Github,
+        [Description("github-2")] Github2,
         [Description("git-merge")] GitMerge,
         [Description("git-pull-request")] GitPullRequest,
         [Description("gps")] Gps,
@@ -320,6 +322,9 @@
         [Description("layout-rows")] LayoutRows,
         [Description("layout-sidebar-left")] LayoutSidebarLeft,
         [Description("layout-sidebar-right")] LayoutSidebarRight,
+        [Description("lightbulb")] Lightbulb,
+        [Description("lightbulb-2")] Lightbulb2,
+        [Description("lightbulb-on")] LightbulbOn,
         [Description("link")] Link,
         [Description("list")] List,
         [Description("list-box")] ListBox,
@@ -338,6 +343,7 @@
         [Description("mail-off")] MailOff,
         [Description("mail-unread")] MailUnread,
         [Description("map")] Map,
+        [Description("mastodon")] Mastodon,
         [Description("membercard")] Membercard,
         [Description("menu")] Menu,
         [Description("message")] Message,
@@ -433,7 +439,7 @@
         [Description("sliders")] Sliders,
         [Description("sliders-2")] Sliders2,
         [Description("sort")] Sort,
-        [Description("sort-alpabetic")] SortAlpabetic,
+        [Description("sort-alphabetic")] SortAlphabetic,
         [Description("sort-numeric")] SortNumeric,
         [Description("speaker")] Speaker,
         [Description("speed-fast")] SpeedFast,

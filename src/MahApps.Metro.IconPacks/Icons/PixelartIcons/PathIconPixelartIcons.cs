@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// PixelartIcons are licensed under the [MIT license](<see><cref>https://github.com/halfmage/pixelarticons/blob/master/LICENSE</cref></see>).
-    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/halfmage/pixelarticons</cref></see>.
+    /// PixelartIcons are licensed under the [MIT license](<see><cref>https://github.com/halfmage/pixelarticons?tab=MIT-1-ov-file#readme</cref></see>).
+    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://pixelarticons.com/</cref></see>.
     /// </summary>
-    [MetaData("Pixelarticons", "https://pixelarticons.com/", "https://github.com/halfmage/pixelarticons/blob/master/LICENSE")]
+    [MetaData("Pixelarticons", "https://pixelarticons.com/", "https://github.com/halfmage/pixelarticons?tab=MIT-1-ov-file#readme")]
     public class PathIconPixelartIcons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
