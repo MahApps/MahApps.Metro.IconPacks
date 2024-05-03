@@ -10,10 +10,10 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// The Microns icons are licensed under [CC BY-SA](<see><cref>https://creativecommons.org/licenses/by-sa/3.0/</cref></see>) license.
+    /// Microns font files are available under the SIL Open Font Licence, artwork available under the CC BY-SA Licence <see><cref>https://github.com/stephenhutchings/microns?tab=License-1-ov-file#readme</cref></see>.
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/stephenhutchings/microns</cref></see>.
     /// </summary>
-    [MetaData("Microns", "https://www.s-ings.com/projects/microns-icon-font/", "https://github.com/stephenhutchings/microns/blob/master/LICENCE.md")]
+    [MetaData("Microns", "https://github.com/stephenhutchings/microns", "https://github.com/stephenhutchings/microns?tab=License-1-ov-file#readme")]
     public class PackIconMicrons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty
