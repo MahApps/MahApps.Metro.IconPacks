@@ -72,14 +72,14 @@ namespace MahApps.Metro.IconPacks
                 case PackIconJamIconsKind kind:
                     PackIconJamIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconMaterialDesignKind kind:
-                    PackIconMaterialDesignDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
-                    return data;
                 case PackIconMaterialKind kind:
                     PackIconMaterialDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconMaterialLightKind kind:
                     PackIconMaterialLightDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconMaterialDesignKind kind:
+                    PackIconMaterialDesignDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconMemoryIconsKind kind:
                     PackIconMemoryIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
@@ -146,7 +146,6 @@ namespace MahApps.Metro.IconPacks
                 case PackIconFontistoKind _:
                 case PackIconForkAwesomeKind _:
                 case PackIconJamIconsKind _:
-                case PackIconMaterialDesignKind _:
                 case PackIconRadixIconsKind _:
                 case PackIconRPGAwesomeKind _:
                 case PackIconTypiconsKind _:

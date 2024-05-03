@@ -24,9 +24,9 @@
         <ProjectReference Include="MahApps.Metro.IconPacks.ForkAwesome.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Ionicons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.JamIcons.csproj" />
-        <ProjectReference Include="MahApps.Metro.IconPacks.MaterialDesign.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Material.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.MaterialLight.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.MaterialDesign.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.MemoryIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Microns.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Modern.csproj" />
@@ -228,16 +228,6 @@
                 <TargetPath>MahApps.Metro.IconPacks.JamIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
-            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\*.*">
-                <TargetPath>MahApps.Metro.IconPacks.MaterialDesign</TargetPath>
-            </BuildOutputInPackage>
-            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\Themes\PackIconMaterialDesign.xaml">
-                <TargetPath>MahApps.Metro.IconPacks.MaterialDesign\Themes\PackIconMaterialDesign.xaml</TargetPath>
-            </BuildOutputInPackage>
-            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\Themes\Generic.xaml">
-                <TargetPath>MahApps.Metro.IconPacks.MaterialDesign\Themes\Generic.xaml</TargetPath>
-            </BuildOutputInPackage>
-
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Material\*.*">
                 <TargetPath>MahApps.Metro.IconPacks.Material</TargetPath>
             </BuildOutputInPackage>
@@ -256,6 +246,16 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialLight\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.MaterialLight\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.MaterialDesign</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\Themes\PackIconMaterialDesign.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.MaterialDesign\Themes\PackIconMaterialDesign.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MaterialDesign\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.MaterialDesign\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MemoryIcons\*.*">

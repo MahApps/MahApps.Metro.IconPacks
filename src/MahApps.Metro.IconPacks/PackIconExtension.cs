@@ -118,12 +118,6 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconJamIcons, PackIconJamIconsKind>((PackIconJamIconsKind) this.Kind);
             }
 #endif
-#if ALL || MATERIALDESIGN
-            if (this.Kind is PackIconMaterialDesignKind)
-            {
-                return this.GetPackIcon<PackIconMaterialDesign, PackIconMaterialDesignKind>((PackIconMaterialDesignKind) this.Kind);
-            }
-#endif
 #if ALL || MATERIAL
             if (this.Kind is PackIconMaterialKind)
             {
@@ -134,6 +128,12 @@ namespace MahApps.Metro.IconPacks
             if (this.Kind is PackIconMaterialLightKind)
             {
                 return this.GetPackIcon<PackIconMaterialLight, PackIconMaterialLightKind>((PackIconMaterialLightKind) this.Kind);
+            }
+#endif
+#if ALL || MATERIALDESIGN
+            if (this.Kind is PackIconMaterialDesignKind)
+            {
+                return this.GetPackIcon<PackIconMaterialDesign, PackIconMaterialDesignKind>((PackIconMaterialDesignKind) this.Kind);
             }
 #endif
 #if ALL || MEMORYICONS

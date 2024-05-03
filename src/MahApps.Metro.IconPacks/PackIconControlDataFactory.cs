@@ -77,15 +77,15 @@ namespace MahApps.Metro.IconPacks
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconMaterialDesignDataFactory.Create())
-            {
-                dictionary.Add(packIcon.Key, packIcon.Value);
-            }
             foreach (var packIcon in PackIconMaterialDataFactory.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
             foreach (var packIcon in PackIconMaterialLightDataFactory.Create())
+            {
+                dictionary.Add(packIcon.Key, packIcon.Value);
+            }
+            foreach (var packIcon in PackIconMaterialDesignDataFactory.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
