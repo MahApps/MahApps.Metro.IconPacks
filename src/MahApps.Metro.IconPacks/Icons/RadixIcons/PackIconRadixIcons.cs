@@ -10,10 +10,10 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// RadixIcons licensed under the MIT License <see><cref>https://github.com/modulz/radix-icons/blob/master/LICENSE</cref></see>
-    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/modulz/radix-icons</cref></see>.
+    /// RadixIcons licensed under the MIT License <see><cref>https://github.com/radix-ui/icons?tab=MIT-1-ov-file#readme</cref></see>
+    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/radix-ui/icons</cref></see>.
     /// </summary>
-    [MetaData("Radix Icons", "https://icons.modulz.app/", "https://github.com/modulz/radix-icons/blob/master/LICENSE")]
+    [MetaData("Radix Icons", "https://github.com/radix-ui/icons", "https://github.com/radix-ui/icons?tab=MIT-1-ov-file#readme")]
     public class PackIconRadixIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty
