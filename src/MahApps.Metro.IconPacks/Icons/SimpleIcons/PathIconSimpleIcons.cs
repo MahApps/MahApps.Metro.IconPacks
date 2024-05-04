@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// All SVG icons for popular brands, maintained by Dan Leech <see><cref>https://twitter.com/bathtype</cref></see>.
-    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/danleech/simple-icons</cref></see>.
+    /// Simple Icons licensed under <see><cref>https://github.com/simple-icons/simple-icons?tab=CC0-1.0-1-ov-file#readme</cref></see>. Please read the legal disclaimer <see><cref>https://github.com/simple-icons/simple-icons/blob/master/DISCLAIMER.md</cref></see>.
+    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/simple-icons/simple-icons</cref></see>.
     /// </summary>
-    [MetaData("Simple Icons", "https://simpleicons.org/", "https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md")]
+    [MetaData("Simple Icons", "https://github.com/simple-icons/simple-icons", "https://github.com/simple-icons/simple-icons?tab=CC0-1.0-1-ov-file#readme")]
     public class PathIconSimpleIcons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
