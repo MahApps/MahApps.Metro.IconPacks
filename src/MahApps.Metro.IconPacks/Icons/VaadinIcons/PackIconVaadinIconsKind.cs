@@ -12,7 +12,7 @@
     /// List of available icons for use with <see cref="PackIconVaadinIcons" />.
     /// </summary>
     /// <remarks>
-    /// Vaadin Icons are licensed under the [Apache License 2.0](<see><cref>https://github.com/vaadin/vaadin-icons/blob/master/LICENSE</cref></see>).
+    /// Vaadin Icons are licensed under Creative Commons [CC-BY 4.0](<see><cref>https://github.com/vaadin/web-components/tree/main/packages/icons#license</cref></see>) license.
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/vaadin/vaadin-icons</cref></see>.
     /// </remarks>
     public enum PackIconVaadinIconsKind
@@ -102,7 +102,7 @@
         [Description("building-o (e7b7, Location, structure, headquarters, office)")] BuildingOutline,
         [Description("bullets (e629, Text editor, list, order)")] Bullets,
         [Description("bullseye (e6fa, Sign, target, hit, rings)")] Bullseye,
-        [Description("buss (e90c, Transportation, vehicle, car, charter, coach)")] Buss,
+        [Description("bus (e90c, Transportation, vehicle, car, charter, coach)")] Bus,
         [Description("button (e62a, Web application, layout, html, component, navigation)")] Button,
         [Description("calc (e68c, Ledger, calculator, math)")] Calc,
         [Description("calc-book (e62b, Ledger, accounting, bookkeeping, calculator)")] CalcBook,
@@ -322,7 +322,7 @@
         [Description("form (e64b, Web application, layout, html, component)")] Form,
         [Description("forward (e77c, Media, Player, next)")] Forward,
         [Description("frown-o (e6a4, Social, Sign, unhappy, sad, emoji)")] FrownOutline,
-        [Description("funcion (e64c, Web application, math, code)")] Funcion,
+        [Description("function (e64c, Web application, math, code)")] Function,
         [Description("funnel (e931, Charts, graph, diagram, filter, limit, define)")] Funnel,
         [Description("gamepad (e714, Media, Item, game, pad, joystick)")] Gamepad,
         [Description("gavel (e6a5, Tools, Item, auction, justice, hammer)")] Gavel,
@@ -417,7 +417,7 @@
         [Description("margin-right (e659, Web application, css, layout, html)")] MarginRight,
         [Description("margin-top (e65a, Web application, css, layout, html)")] MarginTop,
         [Description("medal (e6b3, Item, achievement, award)")] Medal,
-        [Description("megafone (e6b4, Social, Item, campaign, marketing)")] Megafone,
+        [Description("megaphone (e6b4, Social, Item, campaign, marketing)")] Megaphone,
         [Description("meh-o (e6b5, Social, Sign, blah, whatever, bored, emoji)")] MehOutline,
         [Description("menu (e7b3, Web application, hamburger, bars)")] Menu,
         [Description("microphone (e72a, Media, Player, Item, record, voice)")] Microphone,
@@ -460,7 +460,7 @@
         [Description("padding-top (e664, Web application, css, layout, html)")] PaddingTop,
         [Description("paintbrush (e6b8, Tools, Item, paint)")] Paintbrush,
         [Description("paint-roll (e666, Tools, Item, paint)")] PaintRoll,
-        [Description("palete (e667, Tools, Item, color, paint)")] Palete,
+        [Description("palette (e667, Tools, Item, color, paint)")] Palette,
         [Description("panel (e668, Web application, layout, html, component)")] Panel,
         [Description("paperclip (e72d, Office, Item, attachment)")] Paperclip,
         [Description("paperplane (e6b9, Office, email, send)")] Paperplane,
@@ -619,7 +619,7 @@
         [Description("train (e67e, Transportation, railroad)")] Train,
         [Description("trash (e80b, Web application, delete, remove, garbage, bin)")] Trash,
         [Description("tree-table (e67f, Web application, layout, html, component, navigation)")] TreeTable,
-        [Description("trendind-down (e960, Charts, graph, diagram, line-chart, table, lower)")] TrendindDown,
+        [Description("trending-down (e960, Charts, graph, diagram, line-chart, table, lower)")] TrendingDown,
         [Description("trending-up (e961, Charts, graph, diagram, line-chart, table, rise)")] TrendingUp,
         [Description("trophy (e743, Item, prize, champion, award)")] Trophy,
         [Description("truck (e6dd, Transportation, vehicle, delivery, logistics, shipping, pickup)")] Truck,

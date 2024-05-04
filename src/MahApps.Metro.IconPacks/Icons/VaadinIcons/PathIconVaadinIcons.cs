@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Vaadin Icons are licensed under the [Apache License 2.0](<see><cref>https://github.com/vaadin/vaadin-icons/blob/master/LICENSE</cref></see>).
+    /// Vaadin Icons are licensed under Creative Commons [CC-BY 4.0](<see><cref>https://github.com/vaadin/web-components/tree/main/packages/icons#license</cref></see>) license.
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/vaadin/vaadin-icons</cref></see>.
     /// </summary>
-    [MetaData("Vaadin Icons", "https://vaadin.com/icons", "https://github.com/vaadin/vaadin-icons/blob/master/LICENSE")]
+    [MetaData("Vaadin Icons", "https://vaadin.com/icons", "https://github.com/vaadin/web-components/tree/main/packages/icons#license")]
     public class PathIconVaadinIcons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
