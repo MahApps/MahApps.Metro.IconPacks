@@ -78,6 +78,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.MemoryIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.MemoryIcons.csproj", "{A4425946-87FA-4F7A-A9BF-A97D73608BBE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.CircumIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.CircumIcons.csproj", "{F98A503F-1CC4-4243-91CF-995048C81856}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -496,6 +498,18 @@ Global
 		{A4425946-87FA-4F7A-A9BF-A97D73608BBE}.Release|x64.Build.0 = Release|Any CPU
 		{A4425946-87FA-4F7A-A9BF-A97D73608BBE}.Release|x86.ActiveCfg = Release|Any CPU
 		{A4425946-87FA-4F7A-A9BF-A97D73608BBE}.Release|x86.Build.0 = Release|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Debug|x64.Build.0 = Debug|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Debug|x86.Build.0 = Debug|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Release|x64.ActiveCfg = Release|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Release|x64.Build.0 = Release|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Release|x86.ActiveCfg = Release|Any CPU
+		{F98A503F-1CC4-4243-91CF-995048C81856}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
