@@ -8,10 +8,10 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// Unicons are licensed under [Apache 2.0](<see><cref>https://github.com/Iconscout/unicons/blob/master/LICENSE</cref></see>).
+    /// Unicons are Open Source icons and licensed under [IconScout Simple License](<see><cref>https://github.com/Iconscout/unicons?tab=readme-ov-file#license</cref></see>).
     /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/Iconscout/unicons</cref></see>.
     /// </summary>
-    [MetaData("Unicons", "https://iconscout.com/unicons", "https://github.com/Iconscout/unicons/blob/master/LICENSE")]
+    [MetaData("Unicons", "https://github.com/Iconscout/unicons", "https://github.com/Iconscout/unicons?tab=readme-ov-file#license")]
     public class PathIconUnicons : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
