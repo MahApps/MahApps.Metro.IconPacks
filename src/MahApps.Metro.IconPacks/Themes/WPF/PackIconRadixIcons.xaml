@@ -29,11 +29,7 @@
                           Stretch="Uniform"
                           Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
                           SnapsToDevicePixels="False"
-                          UseLayoutRounding="False">
-                        <Path.LayoutTransform>
-                            <ScaleTransform ScaleY="-1" />
-                        </Path.LayoutTransform>
-                    </Path>
+                          UseLayoutRounding="False" />
                 </Viewbox>
             </Grid>
         </Grid>

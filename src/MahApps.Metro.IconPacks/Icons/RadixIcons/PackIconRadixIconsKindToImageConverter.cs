@@ -1,6 +1,4 @@
-﻿using System.Windows.Media;
-
-namespace MahApps.Metro.IconPacks.Converter
+﻿namespace MahApps.Metro.IconPacks.Converter
 {
     public class PackIconRadixIconsKindToImageConverter : PackIconKindToImageConverterBase
     {
@@ -13,12 +11,6 @@ namespace MahApps.Metro.IconPacks.Converter
                 PackIconRadixIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
-        }
-
-        /// <inheritdoc />
-        protected override ScaleTransform GetScaleTransform(object iconKind)
-        {
-            return new ScaleTransform(1, -1);
         }
     }
 }
