@@ -81,6 +81,10 @@ namespace MahApps.Metro.IconPacks
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
+            foreach (var packIcon in PackIconLucideDataFactory.Create())
+            {
+                dictionary.Add(packIcon.Key, packIcon.Value);
+            }
             foreach (var packIcon in PackIconMaterialDataFactory.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
