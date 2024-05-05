@@ -55,6 +55,9 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconJamIconsKind kind:
                     PackIconJamIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconLucideKind kind:
+                    PackIconLucideDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconMaterialKind kind:
                     PackIconMaterialDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
@@ -129,6 +132,7 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconFontistoKind _:
                 case PackIconForkAwesomeKind _:
                 case PackIconJamIconsKind _:
+                case PackIconLucideKind _:
                 case PackIconRPGAwesomeKind _:
                 case PackIconTypiconsKind _:
                 case PackIconVaadinIconsKind _:
