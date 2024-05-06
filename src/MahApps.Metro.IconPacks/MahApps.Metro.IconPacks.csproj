@@ -23,6 +23,7 @@
         <ProjectReference Include="MahApps.Metro.IconPacks.FontAwesome.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Fontisto.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.ForkAwesome.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.GameIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Ionicons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.JamIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Lucide.csproj" />
@@ -218,6 +219,16 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.ForkAwesome\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.ForkAwesome\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.GameIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.GameIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.GameIcons\Themes\PackIconGameIcons.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.GameIcons\Themes\PackIconGameIcons.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.GameIcons\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.GameIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Ionicons\*.*">

@@ -69,6 +69,9 @@ namespace MahApps.Metro.IconPacks
                 case PackIconForkAwesomeKind kind:
                     PackIconForkAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconGameIconsKind kind:
+                    PackIconGameIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconIoniconsKind kind:
                     PackIconIoniconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
