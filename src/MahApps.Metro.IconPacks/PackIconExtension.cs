@@ -112,6 +112,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconForkAwesome, PackIconForkAwesomeKind>((PackIconForkAwesomeKind) this.Kind);
             }
 #endif
+#if ALL || GAMEICONS
+            if (this.Kind is PackIconGameIconsKind)
+            {
+                return this.GetPackIcon<PackIconGameIcons, PackIconGameIconsKind>((PackIconGameIconsKind) this.Kind);
+            }
+#endif
 #if ALL || IONICONS
             if (this.Kind is PackIconIoniconsKind)
             {
