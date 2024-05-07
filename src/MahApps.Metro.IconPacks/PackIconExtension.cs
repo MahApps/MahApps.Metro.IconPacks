@@ -34,12 +34,6 @@ namespace MahApps.Metro.IconPacks
         public override object ProvideValue(IServiceProvider serviceProvider)
 #endif
         {
-#if ALL || PHOSPHORICONS
-            if (this.Kind is PackIconPhosphorIconsKind)
-            {
-                return this.GetPackIcon<PackIconPhosphorIcons, PackIconPhosphorIconsKind>((PackIconPhosphorIconsKind) this.Kind);
-            }
-#endif
 #if ALL || BOOTSTRAPICONS
             if (this.Kind is PackIconBootstrapIconsKind)
             {
@@ -182,6 +176,12 @@ namespace MahApps.Metro.IconPacks
             if (this.Kind is PackIconOcticonsKind)
             {
                 return this.GetPackIcon<PackIconOcticons, PackIconOcticonsKind>((PackIconOcticonsKind) this.Kind);
+            }
+#endif
+#if ALL || PHOSPHORICONS
+            if (this.Kind is PackIconPhosphorIconsKind)
+            {
+                return this.GetPackIcon<PackIconPhosphorIcons, PackIconPhosphorIconsKind>((PackIconPhosphorIconsKind) this.Kind);
             }
 #endif
 #if ALL || PICOLICONS

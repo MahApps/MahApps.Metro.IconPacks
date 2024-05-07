@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PhosphorIcons;component/Themes/PackIconPhosphorIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.BootstrapIcons;component/Themes/PackIconBootstrapIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.BoxIcons;component/Themes/PackIconBoxIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.CircumIcons;component/Themes/PackIconCircumIcons.xaml" />
@@ -26,6 +25,7 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Microns;component/Themes/PackIconMicrons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Modern;component/Themes/PackIconModern.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Octicons;component/Themes/PackIconOcticons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PhosphorIcons;component/Themes/PackIconPhosphorIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PicolIcons;component/Themes/PackIconPicolIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PixelartIcons;component/Themes/PackIconPixelartIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.RadixIcons;component/Themes/PackIconRadixIcons.xaml" />

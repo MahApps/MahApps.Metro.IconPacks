@@ -21,10 +21,6 @@ namespace MahApps.Metro.IconPacks
         internal static IDictionary<Enum, string> Create()
         {
             var dictionary = new Dictionary<Enum, string>();
-            foreach (var packIcon in PackIconPhosphorIconsDataFactory.Create())
-            {
-                dictionary.Add(packIcon.Key, packIcon.Value);
-            }
             foreach (var packIcon in PackIconBootstrapIconsDataFactory.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
@@ -118,6 +114,10 @@ namespace MahApps.Metro.IconPacks
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
             foreach (var packIcon in PackIconOcticonsDataFactory.Create())
+            {
+                dictionary.Add(packIcon.Key, packIcon.Value);
+            }
+            foreach (var packIcon in PackIconPhosphorIconsDataFactory.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
