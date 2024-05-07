@@ -25,6 +25,7 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Microns/Themes/PackIconMicrons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Modern/Themes/PackIconModern.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Octicons/Themes/PackIconOcticons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.PhosphorIcons/Themes/PackIconPhosphorIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.PicolIcons/Themes/PackIconPicolIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.PixelartIcons/Themes/PackIconPixelartIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.RadixIcons/Themes/PackIconRadixIcons.xaml" />

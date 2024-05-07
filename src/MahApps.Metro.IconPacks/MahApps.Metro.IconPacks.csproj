@@ -34,6 +34,7 @@
         <ProjectReference Include="MahApps.Metro.IconPacks.Microns.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Modern.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.Octicons.csproj" />
+        <ProjectReference Include="MahApps.Metro.IconPacks.PhosphorIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.PicolIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.PixelartIcons.csproj" />
         <ProjectReference Include="MahApps.Metro.IconPacks.RadixIcons.csproj" />
@@ -329,6 +330,16 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Octicons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Octicons\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.PhosphorIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.PhosphorIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.PhosphorIcons\Themes\PackIconPhosphorIcons.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.PhosphorIcons\Themes\PackIconPhosphorIcons.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.PhosphorIcons\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.PhosphorIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.PicolIcons\*.*">

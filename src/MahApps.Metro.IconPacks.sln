@@ -84,6 +84,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Luc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.GameIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.GameIcons.csproj", "{ED5CB032-C631-48B4-AE1F-16B88300A025}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.PhosphorIcons", "MahApps.Metro.IconPacks\MahApps.Metro.IconPacks.PhosphorIcons.csproj", "{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -538,6 +540,18 @@ Global
 		{ED5CB032-C631-48B4-AE1F-16B88300A025}.Release|x64.Build.0 = Release|Any CPU
 		{ED5CB032-C631-48B4-AE1F-16B88300A025}.Release|x86.ActiveCfg = Release|Any CPU
 		{ED5CB032-C631-48B4-AE1F-16B88300A025}.Release|x86.Build.0 = Release|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Debug|x64.Build.0 = Debug|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Debug|x86.Build.0 = Debug|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Release|x64.ActiveCfg = Release|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Release|x64.Build.0 = Release|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Release|x86.ActiveCfg = Release|Any CPU
+		{A7C655E4-3B56-4C5B-91B2-0BA28EC7E243}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

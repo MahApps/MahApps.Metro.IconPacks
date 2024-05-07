@@ -102,6 +102,9 @@ namespace MahApps.Metro.IconPacks
                 case PackIconOcticonsKind kind:
                     PackIconOcticonsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconPhosphorIconsKind kind:
+                    PackIconPhosphorIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconPicolIconsKind kind:
                     PackIconPicolIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
