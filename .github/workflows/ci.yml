@@ -28,7 +28,7 @@ jobs:
       - name: Run the Cake script
         uses: cake-build/cake-action@v1
         with:
-          cake-version: tool-manifest
+          cake-version: 2.3.0
           verbosity: Normal
           script-path: build.cake
           target: ci

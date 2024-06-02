@@ -2,13 +2,14 @@
 // TOOLS / ADDINS
 ///////////////////////////////////////////////////////////////////////////////
 
-#tool dotnet:?package=NuGetKeyVaultSignTool&version=1.2.28
-#tool dotnet:?package=AzureSignTool&version=3.0.0
-#tool dotnet:?package=GitReleaseManager.Tool&version=0.12.1
-#tool dotnet:?package=GitVersion.Tool&version=5.6.3
-#tool dotnet:?package=XamlStyler.Console&version=3.2008.4
+#tool dotnet:?package=NuGetKeyVaultSignTool&version=3.2.3
+#tool dotnet:?package=AzureSignTool&version=4.0.1
+#tool dotnet:?package=GitReleaseManager.Tool&version=0.15.0
+#tool dotnet:?package=XamlStyler.Console&version=3.2206.4
 
 #tool vswhere&version=2.8.4
+
+#tool nuget:?package=GitVersion.CommandLine&version=5.12.0
 #addin nuget:?package=Cake.Figlet&version=2.0.1
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -35,6 +36,8 @@ var styler = Context.Tools.Resolve("xstyler.exe");
 var stylerFile = baseDir + "/Settings.XAMLStyler";
 
 var isLocal = BuildSystem.IsLocalBuild;
+var isAppVeyorBuild = AppVeyor.IsRunningOnAppVeyor;
+var isGitHubActionsBuild = GitHubActions.IsRunningOnGitHubActions;
 
 // Set build version
 if (isLocal == false || verbosity == Verbosity.Verbose)
@@ -44,11 +47,11 @@ if (isLocal == false || verbosity == Verbosity.Verbose)
 
 GitVersion gitVersion = GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.Json });
 
-var isPullRequest = AppVeyor.Environment.PullRequest.IsPullRequest;
+var isPullRequest = (isAppVeyorBuild && AppVeyor.Environment.PullRequest.IsPullRequest) || (isGitHubActionsBuild && GitHubActions.Environment.PullRequest.IsPullRequest);
+
 var branchName = gitVersion.BranchName;
 var isDevelopBranch = StringComparer.OrdinalIgnoreCase.Equals("develop", branchName);
 var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("main", branchName);
-var isTagged = AppVeyor.Environment.Repository.Tag.IsTag;
 
 var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = false });
 var msBuildPath = latestInstallationPath.Combine("./MSBuild/Current/Bin");
@@ -128,7 +131,7 @@ Task("Build")
     };
     MSBuild(solution, msBuildSettings
             .SetMaxCpuCount(0)
-            .WithProperty("GeneratePackageOnBuild", isLocal || (target == "appveyor" && !isPullRequest) ? "true" : "false")
+            .WithProperty("GeneratePackageOnBuild", "true")
             .WithProperty("PackageOutputPath", MakeAbsolute(PACKAGE_DIR).ToString())
             .WithProperty("RepositoryBranch", branchName)
             .WithProperty("RepositoryCommit", gitVersion.Sha)
@@ -304,7 +307,6 @@ Task("StyleXaml")
 });
 
 Task("CreateRelease")
-    .WithCriteria(() => !isTagged)
     .WithCriteria(() => !isPullRequest)
     .Does(() =>
 {
