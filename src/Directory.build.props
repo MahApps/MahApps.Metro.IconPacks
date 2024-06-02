@@ -6,20 +6,24 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net462;net47;netcoreapp3.1;net5.0-windows;uap10.0.18362</TargetFrameworks>
+        <TargetFrameworks>net8.0-windows;net6.0-windows;net47;net462;uap10.0.18362</TargetFrameworks>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
         <AutoGenerateBindingRedirects Condition=" $(TargetFramework.StartsWith('net4')) or $(TargetFramework.StartsWith('uap')) ">true</AutoGenerateBindingRedirects>
         <LangVersion>latest</LangVersion>
-        <DebugSymbols>true</DebugSymbols>
         <NoWarn>$(NoWarn);CS1591;CS0618</NoWarn>
         <NoError>$(NoError);CS1591;CS0618</NoError>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</DefaultItemExcludes>
+        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</ExtrasDefaultPageExcludes>
     </PropertyGroup>
 
     <!-- .NET Framework and Core -->
     <PropertyGroup Condition=" !$(TargetFramework.StartsWith('uap')) ">
         <UseWpf>true</UseWpf>
-        <DebugType>Embedded</DebugType>
     </PropertyGroup>
 
     <!-- UAP -->
@@ -28,7 +32,6 @@
         <DefaultTargetPlatformMinVersion>18362</DefaultTargetPlatformMinVersion>
         <UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
         <EnableDefaultXamlItems>true</EnableDefaultXamlItems>
-        <DebugType>full</DebugType>
         <!-- 8002 is a strong named -> non-strong-named reference -->
         <!-- This is valid for platforms other than .NET Framework (and is needed for the UWP targets -->
         <NoWarn>$(NoWarn);8002;CS0618</NoWarn>
@@ -52,18 +55,20 @@
         <EmbedAllSources>True</EmbedAllSources>
     </PropertyGroup>
 
+    <!-- PDB-Options -->
+    <PropertyGroup>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>Embedded</DebugType>
+    </PropertyGroup>
+
     <!-- Add the references for all projects and targets -->
     <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2022.*" PrivateAssets="All" IncludeAssets="build;compile" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.*">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-        </PackageReference>
+        <PackageReference Include="JetBrains.Annotations" Version="2023.*" PrivateAssets="All" IncludeAssets="build;compile" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="**\*.png;**\*.jpg;**\*.ico;**\*.cur" />
-        <Resource Include="**\*.png;**\*.jpg;**\*.ico;**\*.cur" />
+        <None Remove="**\*.png;**\*.jpg;**\*.ico;**\*.ttf;**\*.cur" />
+        <Resource Include="**\*.png;**\*.jpg;**\*.ico;**\*.ttf;**\*.cur" Exclude="**\bin\**\*.*;**\obj\**\*.*" />
     </ItemGroup>
 
     <ItemGroup>
@@ -74,9 +79,9 @@
     Fix for .NET Core 3.0, see https://github.com/dotnet/core-sdk/issues/192, it 
     uses obj/release instead of [outputdirectory] 
     -->
-    <PropertyGroup Condition=" '$(DotNetPackIntermediateOutputPath)' != '' ">
+    <!-- <PropertyGroup Condition=" '$(DotNetPackIntermediateOutputPath)' != '' ">
         <IntermediateOutputPath>$(DotNetPackIntermediateOutputPath)</IntermediateOutputPath>
-    </PropertyGroup>
+    </PropertyGroup> -->
 
     <!--
     // This task disable doc warnings in the auto-generated XamlTypeInfo.g.cs file,

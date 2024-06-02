@@ -21,19 +21,35 @@
         <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     </PropertyGroup>
 
+    <!-- NuGet -->
+    <ItemGroup>
+        <!-- Workaround for https://github.com/dotnet/sdk/issues/11105 -->
+        <SourceRoot Include="$(NuGetPackageRoot)" Condition="'$(NuGetPackageRoot)' != ''" />
+        <None Include="..\..\resources\logo_small.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <Authors>Jan Karger</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/MahApps/MahApps.Metro.IconPacks</PackageProjectUrl>
+        <PackageIcon>logo_small.png</PackageIcon>
+        <PackageTags>WPF;UWP;UAP;Windows;Windows10;WinRT;App;Universal;UI;Metro;Modern;ModernUI;Material;XAML;Toolkit;Library;.NET;Icon</PackageTags>
+        <PackageReleaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/MahApps/MahApps.Metro.IconPacks.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
     <!-- Workaround. Remove once we're on 3.1.300+
     https://github.com/dotnet/sourcelink/issues/572 -->
-    <PropertyGroup>
+    <!-- <PropertyGroup>
         <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
-    </PropertyGroup>
+    </PropertyGroup> -->
 
     <ItemGroup>
         <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
-    </ItemGroup>
-
-    <!-- Workaround for https://github.com/dotnet/sdk/issues/11105 -->
-    <ItemGroup>
-        <SourceRoot Include="$(NuGetPackageRoot)" Condition="'$(NuGetPackageRoot)' != ''" />
     </ItemGroup>
 
     <ItemGroup>

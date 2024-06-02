@@ -1,38 +1,24 @@
 ﻿using System;
-#if (NETFX_CORE || WINDOWS_UWP)
-using Windows.UI.Xaml.Markup;
-#else
 using System.Windows.Markup;
-#endif
 
 namespace MahApps.Metro.IconPacks
 {
-#if (NETFX_CORE || WINDOWS_UWP)
-    [MarkupExtensionReturnType(ReturnType = typeof(PackIconBase))]
-#else
     [MarkupExtensionReturnType(typeof(PackIconBase))]
-#endif
     public class PackIconExtension : BasePackIconExtension
     {
         public PackIconExtension()
         {
         }
 
-#if !(NETFX_CORE || WINDOWS_UWP)
         public PackIconExtension(Enum kind)
         {
             this.Kind = kind;
         }
 
         [ConstructorArgument("kind")]
-#endif
         public Enum Kind { get; set; }
 
-#if (NETFX_CORE || WINDOWS_UWP)
-        protected override object ProvideValue()
-#else
         public override object ProvideValue(IServiceProvider serviceProvider)
-#endif
         {
 #if ALL || BOOTSTRAPICONS
             if (this.Kind is PackIconBootstrapIconsKind)

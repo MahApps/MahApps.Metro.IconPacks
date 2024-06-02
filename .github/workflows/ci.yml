@@ -18,9 +18,10 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: |
-            5.x
-      - name: Install Windows SDK version (18362)
+          dotnet-version: | 
+            6.x
+            8.x
+      - name: Install Windows SDK version (default is 18362)
         uses: GuillaumeFalourd/setup-windows10-sdk-action@v2
       - name: List dotnet sdks
         run: dotnet --info
