@@ -11,7 +11,7 @@
     Awesome icon packs for <code>WPF</code> and <code>UWP</code> in one library
   </p>
   <p>
-    Supporting .NET Framework >= 4.6.2, >= .NET Core 3.1, >= .NET 5 (on Windows) and UWP (uap10.0.18362)
+    Supporting .NET Framework >= 4.6.2, >= .NET 6 (on Windows) and UWP (uap10.0.18362)
   </p>
   <a href="https://discord.gg/VrNeD7z48s" target="_blank" rel="noopener noreferrer"><img alt="Discord" src="https://img.shields.io/discord/411850591334301703?style=flat-square&label=Discord"></a>
   <a href="https://twitter.com/punker76" target="_blank" rel="noopener noreferrer"><img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/punker76?style=flat-square&label=follow%20%40punker76%20on%20X"></a>

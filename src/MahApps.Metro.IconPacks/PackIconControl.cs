@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-#if (NETFX_CORE || WINDOWS_UWP)
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Data;
-#else
 using System.Windows;
-#endif
 
 namespace MahApps.Metro.IconPacks
 {
@@ -33,27 +27,18 @@ namespace MahApps.Metro.IconPacks
             set { SetValue(KindProperty, value); }
         }
 
-#if !(NETFX_CORE || WINDOWS_UWP)
         static PackIconControl()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(PackIconControl), new FrameworkPropertyMetadata(typeof(PackIconControl)));
         }
-#endif
 
         public PackIconControl()
         {
-#if NETFX_CORE || WINDOWS_UWP
-            this.DefaultStyleKey = typeof(PackIconControl);
-#endif
         }
 
         protected override void SetKind<TKind>(TKind iconKind)
         {
-#if NETFX_CORE || WINDOWS_UWP
-            BindingOperations.SetBinding(this, PackIconControl.KindProperty, new Binding() { Source = iconKind, Mode = BindingMode.OneTime });
-#else
             this.SetCurrentValue(KindProperty, iconKind);
-#endif
         }
 
         protected override void UpdateData()
