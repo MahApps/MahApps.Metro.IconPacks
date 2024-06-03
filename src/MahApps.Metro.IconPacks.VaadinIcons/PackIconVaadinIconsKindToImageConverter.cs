@@ -10,7 +10,7 @@ namespace MahApps.Metro.IconPacks.Converter
             string data = null;
             if (iconKind is PackIconVaadinIconsKind kind)
             {
-                PackIconVaadinIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                PackIconDataFactory<PackIconVaadinIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
         }

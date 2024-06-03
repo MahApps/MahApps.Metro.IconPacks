@@ -21,147 +21,147 @@ namespace MahApps.Metro.IconPacks
         internal static IDictionary<Enum, string> Create()
         {
             var dictionary = new Dictionary<Enum, string>();
-            foreach (var packIcon in PackIconBootstrapIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconBootstrapIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconBoxIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconBoxIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconCircumIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconCircumIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconCodiconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconCodiconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconCooliconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconCooliconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconEntypoDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconEntypoKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconEvaIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconEvaIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconFeatherIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconFeatherIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconFileIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconFileIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconFontaudioDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconFontaudioKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconFontAwesomeDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconFontAwesomeKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconFontistoDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconFontistoKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconForkAwesomeDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconForkAwesomeKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconGameIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconGameIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconIoniconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconIoniconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconJamIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconJamIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconLucideDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconLucideKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconMaterialDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconMaterialKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconMaterialLightDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconMaterialLightKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconMaterialDesignDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconMaterialDesignKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconMemoryIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconMemoryIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconMicronsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconMicronsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconModernDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconModernKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconOcticonsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconOcticonsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconPhosphorIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconPhosphorIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconPicolIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconPicolIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconPixelartIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconPixelartIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconRadixIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconRadixIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconRemixIconDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconRemixIconKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconRPGAwesomeDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconRPGAwesomeKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconSimpleIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconSimpleIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconTypiconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconTypiconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconUniconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconUniconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconVaadinIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconVaadinIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconWeatherIconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconWeatherIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconZondiconsDataFactory.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconZondiconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
