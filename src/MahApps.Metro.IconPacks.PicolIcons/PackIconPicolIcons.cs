@@ -64,7 +64,7 @@ namespace MahApps.Metro.IconPacks
             if (Kind != default(PackIconPicolIconsKind))
             {
                 string data = null;
-                PackIconPicolIconsDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
+                PackIconDataFactory<PackIconPicolIconsKind>.DataIndex.Value?.TryGetValue(Kind, out data);
                 this.Data = data;
             }
             else

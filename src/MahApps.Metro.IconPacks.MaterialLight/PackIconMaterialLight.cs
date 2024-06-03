@@ -64,7 +64,7 @@ namespace MahApps.Metro.IconPacks
             if (Kind != default(PackIconMaterialLightKind))
             {
                 string data = null;
-                PackIconMaterialLightDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
+                PackIconDataFactory<PackIconMaterialLightKind>.DataIndex.Value?.TryGetValue(Kind, out data);
                 this.Data = data;
             }
             else

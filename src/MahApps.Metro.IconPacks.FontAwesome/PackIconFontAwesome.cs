@@ -64,7 +64,7 @@ namespace MahApps.Metro.IconPacks
             if (Kind != default(PackIconFontAwesomeKind))
             {
                 string data = null;
-                PackIconFontAwesomeDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
+                PackIconDataFactory<PackIconFontAwesomeKind>.DataIndex.Value?.TryGetValue(Kind, out data);
                 this.Data = data;
             }
             else

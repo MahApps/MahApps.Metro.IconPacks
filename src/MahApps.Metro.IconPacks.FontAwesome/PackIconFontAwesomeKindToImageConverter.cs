@@ -8,7 +8,7 @@
             string data = null;
             if (iconKind is PackIconFontAwesomeKind kind)
             {
-                PackIconFontAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                PackIconDataFactory<PackIconFontAwesomeKind>.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
         }

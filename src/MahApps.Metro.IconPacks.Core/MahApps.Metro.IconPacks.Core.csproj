@@ -7,14 +7,22 @@
         <Title>MahApps.Metro.IconPacks.Core</Title>
         <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
         <GenerateLibraryLayout>true</GenerateLibraryLayout>
-        <!-- <IsPackable>false</IsPackable> -->
     </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="System.Web" Condition="'$(TargetFramework)' == 'net462' or '$(TargetFramework)' == 'net47'" />
+        <Reference Include="System.Web.Extensions" Condition="'$(TargetFramework)' == 'net462' or '$(TargetFramework)' == 'net47'" />
+        <PackageReference Include="System.Text.Json" Version="6.0.9" Condition="'$(TargetFramework)' == 'net6.0-windows'" />
+        <PackageReference Include="System.Text.Json" Version="8.0.3" Condition="'$(TargetFramework)' == 'net8.0-windows' or '$(TargetFramework)' == 'uap10.0.18362'" />
+    </ItemGroup>
+
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
         <None Remove="**\*.rd.xml" />
         <Compile Remove="PathIcon*.cs" />
         <Compile Remove="Attributes\DescriptionAttribute.cs" />
     </ItemGroup>
+
     <!-- UWP Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
         <Compile Remove="Converter\PackIconKindToImageConverterBase.cs;PackIconImageExtension.cs;PackIconCursorExtension.cs;PackIconCursorHelper.cs" />

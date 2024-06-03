@@ -13,6 +13,11 @@
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Compile Remove="Resources\*.*" />
+        <EmbeddedResource Include="Resources\*.*" />
+    </ItemGroup>
+
     <!-- WPF Items include -->
     <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
         <None Remove="**\*.rd.xml" />

@@ -44,7 +44,7 @@ namespace MahApps.Metro.IconPacks
         protected override void UpdateData()
         {
             string data = null;
-            PackIconJamIconsDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
+            PackIconDataFactory<PackIconJamIconsKind>.DataIndex.Value?.TryGetValue(Kind, out data);
             if (string.IsNullOrEmpty(data))
             {
                 this.Data = default(Geometry);

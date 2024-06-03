@@ -30,7 +30,7 @@ namespace MahApps.Metro.IconPacks
             string data = null;
             if (iconKind is PackIconFileIconsKind kind)
             {
-                PackIconFileIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                PackIconDataFactory<PackIconFileIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
         }

@@ -8,7 +8,7 @@
             string data = null;
             if (iconKind is PackIconZondiconsKind kind)
             {
-                PackIconZondiconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                PackIconDataFactory<PackIconZondiconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
         }

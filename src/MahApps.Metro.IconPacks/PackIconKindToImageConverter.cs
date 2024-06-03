@@ -11,112 +11,112 @@ namespace MahApps.Metro.IconPacks.Converter
             switch (iconKind)
             {
                 case PackIconBootstrapIconsKind kind:
-                    PackIconBootstrapIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconBootstrapIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconBoxIconsKind kind:
-                    PackIconBoxIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconBoxIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconCircumIconsKind kind:
-                    PackIconCircumIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconCircumIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconCodiconsKind kind:
-                    PackIconCodiconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconCodiconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconCooliconsKind kind:
-                    PackIconCooliconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconCooliconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconEntypoKind kind:
-                    PackIconEntypoDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconEntypoKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconEvaIconsKind kind:
-                    PackIconEvaIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconEvaIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconFeatherIconsKind kind:
-                    PackIconFeatherIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconFeatherIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconFileIconsKind kind:
-                    PackIconFileIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconFileIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconFontaudioKind kind:
-                    PackIconFontaudioDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconFontaudioKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconFontAwesomeKind kind:
-                    PackIconFontAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconFontAwesomeKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconFontistoKind kind:
-                    PackIconFontistoDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconFontistoKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconForkAwesomeKind kind:
-                    PackIconForkAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconForkAwesomeKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconGameIconsKind kind:
-                    PackIconGameIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconGameIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconIoniconsKind kind:
-                    PackIconIoniconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconIoniconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconJamIconsKind kind:
-                    PackIconJamIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconJamIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconLucideKind kind:
-                    PackIconLucideDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconLucideKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconMaterialKind kind:
-                    PackIconMaterialDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconMaterialKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconMaterialLightKind kind:
-                    PackIconMaterialLightDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconMaterialLightKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconMaterialDesignKind kind:
-                    PackIconMaterialDesignDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconMaterialDesignKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconMemoryIconsKind kind:
-                    PackIconMemoryIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconMemoryIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconMicronsKind kind:
-                    PackIconMicronsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconMicronsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconModernKind kind:
-                    PackIconModernDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconModernKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconOcticonsKind kind:
-                    PackIconOcticonsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconOcticonsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconPhosphorIconsKind kind:
-                    PackIconPhosphorIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconPhosphorIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconPicolIconsKind kind:
-                    PackIconPicolIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconPicolIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconPixelartIconsKind kind:
-                    PackIconPixelartIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconPixelartIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconRadixIconsKind kind:
-                    PackIconRadixIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconRadixIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconRemixIconKind kind:
-                    PackIconRemixIconDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconRemixIconKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconRPGAwesomeKind kind:
-                    PackIconRPGAwesomeDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconRPGAwesomeKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconSimpleIconsKind kind:
-                    PackIconSimpleIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconSimpleIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconTypiconsKind kind:
-                    PackIconTypiconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconTypiconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconUniconsKind kind:
-                    PackIconUniconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconUniconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconVaadinIconsKind kind:
-                    PackIconVaadinIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconVaadinIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconWeatherIconsKind kind:
-                    PackIconWeatherIconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconWeatherIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconZondiconsKind kind:
-                    PackIconZondiconsDataFactory.DataIndex.Value?.TryGetValue(kind, out data);
+                    PackIconDataFactory<PackIconZondiconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 default:
                     return null;
