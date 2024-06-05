@@ -4,7 +4,7 @@
 
 #tool dotnet:?package=NuGetKeyVaultSignTool&version=3.2.3
 #tool dotnet:?package=AzureSignTool&version=4.0.1
-#tool dotnet:?package=GitReleaseManager.Tool&version=0.15.0
+#tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0
 #tool dotnet:?package=XamlStyler.Console&version=3.2206.4
 
 #tool vswhere&version=2.8.4
