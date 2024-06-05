@@ -234,6 +234,12 @@ void SignNuGet(string publishDir)
         return;
     }
 
+    var vctid = EnvironmentVariable("azure-key-vault-tenant-id");
+    if(string.IsNullOrWhiteSpace(vctid)) {
+        Error("Could not resolve signing client tenant id.");
+        return;
+    }
+
     var vcs = EnvironmentVariable("azure-key-vault-client-secret");
     if(string.IsNullOrWhiteSpace(vcs)) {
         Error("Could not resolve signing client secret.");
@@ -247,42 +253,26 @@ void SignNuGet(string publishDir)
     }
 
     var nugetFiles = GetFiles(publishDir + "/*.nupkg");
+    var signTool = Context.Tools.Resolve("NuGetKeyVaultSignTool.exe");
+
     foreach(var file in nugetFiles)
     {
         Information($"Sign file: {file}");
-        var processSettings = new ProcessSettings {
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            Arguments = new ProcessArgumentBuilder()
-                .Append("sign")
-                .Append(MakeAbsolute(file).FullPath)
-                .Append("--force")
-                .AppendSwitchQuoted("--file-digest", "sha256")
-                .AppendSwitchQuoted("--timestamp-rfc3161", "http://timestamp.digicert.com")
-                .AppendSwitchQuoted("--timestamp-digest", "sha256")
-                .AppendSwitchQuoted("--azure-key-vault-url", vurl)
-                .AppendSwitchQuotedSecret("--azure-key-vault-client-id", vcid)
-                .AppendSwitchQuotedSecret("--azure-key-vault-client-secret", vcs)
-                .AppendSwitchQuotedSecret("--azure-key-vault-certificate", vc)
-        };
 
-        using(var process = StartAndReturnProcess("tools/NuGetKeyVaultSignTool", processSettings))
-        {
-            process.WaitForExit();
-
-            if (process.GetStandardOutput().Any())
-            {
-                Information($"Output:{Environment.NewLine}{string.Join(Environment.NewLine, process.GetStandardOutput())}");
-            }
-
-            if (process.GetStandardError().Any())
-            {
-                Information($"Errors occurred:{Environment.NewLine}{string.Join(Environment.NewLine, process.GetStandardError())}");
-            }
-
-            // This should output 0 as valid arguments supplied
-            Information("Exit code: {0}", process.GetExitCode());
-        }
+        ExecuteProcess(signTool,
+                        new ProcessArgumentBuilder()
+                            .Append("sign")
+                            .Append(MakeAbsolute(file).FullPath)
+                            .Append("--force")
+                            .AppendSwitchQuoted("--file-digest", "sha256")
+                            .AppendSwitchQuoted("--timestamp-rfc3161", "http://timestamp.digicert.com")
+                            .AppendSwitchQuoted("--timestamp-digest", "sha256")
+                            .AppendSwitchQuoted("--azure-key-vault-url", vurl)
+                            .AppendSwitchQuotedSecret("--azure-key-vault-client-id", vcid)
+                            .AppendSwitchQuotedSecret("--azure-key-vault-tenant-id", vctid)
+                            .AppendSwitchQuotedSecret("--azure-key-vault-client-secret", vcs)
+                            .AppendSwitchQuotedSecret("--azure-key-vault-certificate", vc)
+                        );
     }
 }
 
@@ -324,6 +314,53 @@ Task("CreateRelease")
         WorkingDirectory  = "."
     });
 });
+
+void ExecuteProcess(FilePath fileName, ProcessArgumentBuilder arguments, string workingDirectory = null)
+{
+  if (!FileExists(fileName))
+  {
+    throw new Exception($"File not found: {fileName}");
+  }
+
+  var processSettings = new ProcessSettings
+  {
+    RedirectStandardOutput = true,
+    RedirectStandardError = true,
+    Arguments = arguments
+  };
+
+  if (!string.IsNullOrEmpty(workingDirectory))
+  {
+    processSettings.WorkingDirectory = workingDirectory;
+  }
+
+  Information($"Arguments: {arguments.RenderSafe()}");
+
+  using(var process = StartAndReturnProcess(fileName, processSettings))
+  {
+    process.WaitForExit();
+
+    if (process.GetStandardOutput().Any())
+    {
+      Information($"Output:{Environment.NewLine} {string.Join(Environment.NewLine, process.GetStandardOutput())}");
+    }
+
+    if (process.GetStandardError().Any())
+    {
+      // Information($"Errors occurred:{Environment.NewLine} {string.Join(Environment.NewLine, process.GetStandardError())}");
+      throw new Exception($"Errors occurred:{Environment.NewLine} {string.Join(Environment.NewLine, process.GetStandardError())}");
+    }
+
+    // This should output 0 as valid arguments supplied
+    var exitCode = process.GetExitCode();
+    Information($"Exit code: {exitCode}");
+
+    if (exitCode > 0)
+    {
+      throw new Exception($"Exit code: {exitCode}");
+    }
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // TASK TARGETS
