@@ -26,7 +26,5 @@
 -->
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
   <Library Name="MahApps.Metro.IconPacks">
-  	<Assembly Name="MahApps.Metro.IconPacks" Activate="Required All" Browse="Required All" Serialize="Required All" Dynamic="Required All" />
-    <Assembly Name="MahApps.Metro.IconPacks.Core" Activate="Required All" Browse="Required All" Serialize="Required All" Dynamic="Required All" />
   </Library>
 </Directives>

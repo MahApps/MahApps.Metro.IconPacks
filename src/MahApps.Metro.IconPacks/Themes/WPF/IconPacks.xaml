@@ -3,6 +3,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.BootstrapIcons;component/Themes/PackIconBootstrapIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.BoxIcons;component/Themes/PackIconBoxIcons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.CircumIcons;component/Themes/PackIconCircumIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Codicons;component/Themes/PackIconCodicons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Coolicons;component/Themes/PackIconCoolicons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Entypo;component/Themes/PackIconEntypo.xaml" />
@@ -13,14 +14,18 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FontAwesome;component/Themes/PackIconFontAwesome.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Fontisto;component/Themes/PackIconFontisto.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.ForkAwesome;component/Themes/PackIconForkAwesome.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.GameIcons;component/Themes/PackIconGameIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Ionicons;component/Themes/PackIconIonicons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.JamIcons;component/Themes/PackIconJamIcons.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialDesign;component/Themes/PackIconMaterialDesign.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Lucide;component/Themes/PackIconLucide.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Material;component/Themes/PackIconMaterial.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialLight;component/Themes/PackIconMaterialLight.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialDesign;component/Themes/PackIconMaterialDesign.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MemoryIcons;component/Themes/PackIconMemoryIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Microns;component/Themes/PackIconMicrons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Modern;component/Themes/PackIconModern.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Octicons;component/Themes/PackIconOcticons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PhosphorIcons;component/Themes/PackIconPhosphorIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PicolIcons;component/Themes/PackIconPicolIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PixelartIcons;component/Themes/PackIconPixelartIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.RadixIcons;component/Themes/PackIconRadixIcons.xaml" />

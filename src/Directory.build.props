@@ -6,19 +6,19 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net45;net46;net47;netcoreapp3.0;netcoreapp3.1;net5-windows;uap10.0.16299</TargetFrameworks>
+        <TargetFrameworks>net8.0-windows;net6.0-windows;net47;net462;uap10.0.18362</TargetFrameworks>
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GenerateLibraryLayout>true</GenerateLibraryLayout>
         <AutoGenerateBindingRedirects Condition=" $(TargetFramework.StartsWith('net4')) or $(TargetFramework.StartsWith('uap')) ">true</AutoGenerateBindingRedirects>
         <LangVersion>latest</LangVersion>
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <NoWarn>$(NoWarn);CS1591</NoWarn>
-        <NoError>$(NoError);CS1591</NoError>
+        <NoWarn>$(NoWarn);CS1591;CS0618</NoWarn>
+        <NoError>$(NoError);CS1591;CS0618</NoError>
     </PropertyGroup>
 
     <PropertyGroup>
-        <DefineConstants Condition="'$(TargetFramework)' == 'net5.0-windows'">$(DefineConstants);NET5_0_OR_GREATER</DefineConstants>
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</DefaultItemExcludes>
+        <ExtrasDefaultPageExcludes>$(ExtrasDefaultPageExcludes);$(MSBuildProjectDirectory)\Themes\**\*.*</ExtrasDefaultPageExcludes>
     </PropertyGroup>
 
     <!-- .NET Framework and Core -->
@@ -28,13 +28,14 @@
 
     <!-- UAP -->
     <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
-        <DefaultTargetPlatformVersion>16299</DefaultTargetPlatformVersion>
-        <DefaultTargetPlatformMinVersion>16299</DefaultTargetPlatformMinVersion>
+        <DefaultTargetPlatformVersion>18362</DefaultTargetPlatformVersion>
+        <DefaultTargetPlatformMinVersion>18362</DefaultTargetPlatformMinVersion>
         <UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
         <EnableDefaultXamlItems>true</EnableDefaultXamlItems>
         <!-- 8002 is a strong named -> non-strong-named reference -->
         <!-- This is valid for platforms other than .NET Framework (and is needed for the UWP targets -->
-        <NoWarn>$(NoWarn);8002</NoWarn>
+        <NoWarn>$(NoWarn);8002;CS0618</NoWarn>
+        <NoError>$(NoError);CS0618</NoError>
     </PropertyGroup>
 
     <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) and '$(Configuration)' == 'Release' ">
@@ -51,87 +52,27 @@
         <!-- Optional: Include PDB in the built .nupkg -->
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.xaml;.xml</AllowedOutputExtensionsInPackageBuildOutputFolder>
         <!-- https://github.com/dotnet/sourcelink/blob/master/docs/README.md#embedallsources -->
-        <!-- <EmbedAllSources>true</EmbedAllSources> -->
+        <EmbedAllSources>True</EmbedAllSources>
+    </PropertyGroup>
+
+    <!-- PDB-Options -->
+    <PropertyGroup>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>Embedded</DebugType>
     </PropertyGroup>
 
     <!-- Add the references for all projects and targets -->
     <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2021.*" PrivateAssets="All" IncludeAssets="build;compile" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.*">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-        </PackageReference>
+        <PackageReference Include="JetBrains.Annotations" Version="2023.*" PrivateAssets="All" IncludeAssets="build;compile" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="**\*.png;**\*.jpg;**\*.ico;**\*.cur" />
-        <Resource Include="**\*.png;**\*.jpg;**\*.ico;**\*.cur" />
+        <None Remove="**\*.png;**\*.jpg;**\*.ico;**\*.ttf;**\*.cur" />
+        <Resource Include="**\*.png;**\*.jpg;**\*.ico;**\*.ttf;**\*.cur" Exclude="**\bin\**\*.*;**\obj\**\*.*" />
     </ItemGroup>
 
     <ItemGroup>
         <SourceRoot Include="$(MSBuildThisFileDirectory)/" />
     </ItemGroup>
-
-    <!-- 
-    Fix for .NET Core 3.0, see https://github.com/dotnet/core-sdk/issues/192, it 
-    uses obj/release instead of [outputdirectory] 
-    -->
-    <PropertyGroup Condition=" '$(DotNetPackIntermediateOutputPath)' != '' ">
-        <IntermediateOutputPath>$(DotNetPackIntermediateOutputPath)</IntermediateOutputPath>
-    </PropertyGroup>
-
-    <!--
-    // This task disable doc warnings in the auto-generated XamlTypeInfo.g.cs file,
-    // and also hides the public class from intellisense.
-    -->
-    <UsingTask TaskName="XamlTypeInfoBuildTask" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
-        <ParameterGroup>
-            <InputFilename ParameterType="System.String" Required="true" />
-        </ParameterGroup>
-        <Task>
-            <Reference Include="System.Core" />
-            <Using Namespace="System" />
-            <Using Namespace="Microsoft.Build.Framework" />
-            <Using Namespace="Microsoft.Build.Utilities" />
-            <Code Type="Fragment" Language="cs">
-                <![CDATA[
-                //Note: If this task returns 'false' it will break the shared project manager project picker and intellisense.
-                //so we always return true.
-                try {
-                    Log.LogMessage(MessageImportance.Normal, "XamlTypeInfoBuildTask: InputFilename = " + InputFilename);
-                    if (!System.IO.File.Exists(InputFilename)) 
-                    {
-                        return true; 
-                    }
-                    string code = System.IO.File.ReadAllText(InputFilename);
-                    if (code.StartsWith("#pragma warning disable 1591")) //Already modified 
-                        return true; 
-                    int idx = code.IndexOf("[global::System.CodeDom.Compiler.GeneratedCodeAttribute"); 
-                    if (idx < 0) 
-                    {
-                        return true; 
-                    }
-                    string insert = "[global::System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]\n    "; 
-                    code = "#pragma warning disable 1591\n" + code.Substring(0, idx) + insert + code.Substring(idx) + 
-                        "#pragma warning restore 1591\n"; 
-                    System.IO.File.WriteAllText(InputFilename, code); 
-                    Log.LogMessage(MessageImportance.Normal, "XamlTypeInfoBuildTask: File now modified");
-                    return true; 
-                }
-                catch (Exception ex) {
-                    ex = new Exception("XamlTypeInfoBuildTask: " + ex.Message, ex);
-                    Log.LogErrorFromException(ex);
-                    return false;
-                }
-            ]]>
-            </Code>
-        </Task>
-    </UsingTask>
-    <Target Name="XamlTypeInfoBuildTask"
-            Condition=" $(TargetFramework.StartsWith('uap')) and '$(DesignTimeBuild)' != 'true' "
-            AfterTargets="MarkupCompilePass2"
-            BeforeTargets="CoreCompile">
-        <XamlTypeInfoBuildTask InputFilename="$(IntermediateOutputPath)\XamlTypeInfo.g.cs" />
-    </Target>
 
 </Project>

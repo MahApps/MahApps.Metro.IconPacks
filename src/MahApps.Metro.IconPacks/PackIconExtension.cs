@@ -1,38 +1,24 @@
 ﻿using System;
-#if (NETFX_CORE || WINDOWS_UWP)
-using Windows.UI.Xaml.Markup;
-#else
 using System.Windows.Markup;
-#endif
 
 namespace MahApps.Metro.IconPacks
 {
-#if (NETFX_CORE || WINDOWS_UWP)
-    [MarkupExtensionReturnType(ReturnType = typeof(PackIconBase))]
-#else
     [MarkupExtensionReturnType(typeof(PackIconBase))]
-#endif
     public class PackIconExtension : BasePackIconExtension
     {
         public PackIconExtension()
         {
         }
 
-#if !(NETFX_CORE || WINDOWS_UWP)
         public PackIconExtension(Enum kind)
         {
             this.Kind = kind;
         }
 
         [ConstructorArgument("kind")]
-#endif
         public Enum Kind { get; set; }
 
-#if (NETFX_CORE || WINDOWS_UWP)
-        protected override object ProvideValue()
-#else
         public override object ProvideValue(IServiceProvider serviceProvider)
-#endif
         {
 #if ALL || BOOTSTRAPICONS
             if (this.Kind is PackIconBootstrapIconsKind)
@@ -44,6 +30,12 @@ namespace MahApps.Metro.IconPacks
             if (this.Kind is PackIconBoxIconsKind)
             {
                 return this.GetPackIcon<PackIconBoxIcons, PackIconBoxIconsKind>((PackIconBoxIconsKind) this.Kind);
+            }
+#endif
+#if ALL || CIRCUMICONS
+            if (this.Kind is PackIconCircumIconsKind)
+            {
+                return this.GetPackIcon<PackIconCircumIcons, PackIconCircumIconsKind>((PackIconCircumIconsKind) this.Kind);
             }
 #endif
 #if ALL || CODICONS
@@ -106,6 +98,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconForkAwesome, PackIconForkAwesomeKind>((PackIconForkAwesomeKind) this.Kind);
             }
 #endif
+#if ALL || GAMEICONS
+            if (this.Kind is PackIconGameIconsKind)
+            {
+                return this.GetPackIcon<PackIconGameIcons, PackIconGameIconsKind>((PackIconGameIconsKind) this.Kind);
+            }
+#endif
 #if ALL || IONICONS
             if (this.Kind is PackIconIoniconsKind)
             {
@@ -118,10 +116,10 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconJamIcons, PackIconJamIconsKind>((PackIconJamIconsKind) this.Kind);
             }
 #endif
-#if ALL || MATERIALDESIGN
-            if (this.Kind is PackIconMaterialDesignKind)
+#if ALL || LUCIDE
+            if (this.Kind is PackIconLucideKind)
             {
-                return this.GetPackIcon<PackIconMaterialDesign, PackIconMaterialDesignKind>((PackIconMaterialDesignKind) this.Kind);
+                return this.GetPackIcon<PackIconLucide, PackIconLucideKind>((PackIconLucideKind) this.Kind);
             }
 #endif
 #if ALL || MATERIAL
@@ -134,6 +132,18 @@ namespace MahApps.Metro.IconPacks
             if (this.Kind is PackIconMaterialLightKind)
             {
                 return this.GetPackIcon<PackIconMaterialLight, PackIconMaterialLightKind>((PackIconMaterialLightKind) this.Kind);
+            }
+#endif
+#if ALL || MATERIALDESIGN
+            if (this.Kind is PackIconMaterialDesignKind)
+            {
+                return this.GetPackIcon<PackIconMaterialDesign, PackIconMaterialDesignKind>((PackIconMaterialDesignKind) this.Kind);
+            }
+#endif
+#if ALL || MEMORYICONS
+            if (this.Kind is PackIconMemoryIconsKind)
+            {
+                return this.GetPackIcon<PackIconMemoryIcons, PackIconMemoryIconsKind>((PackIconMemoryIconsKind) this.Kind);
             }
 #endif
 #if ALL || MICRONS
@@ -152,6 +162,12 @@ namespace MahApps.Metro.IconPacks
             if (this.Kind is PackIconOcticonsKind)
             {
                 return this.GetPackIcon<PackIconOcticons, PackIconOcticonsKind>((PackIconOcticonsKind) this.Kind);
+            }
+#endif
+#if ALL || PHOSPHORICONS
+            if (this.Kind is PackIconPhosphorIconsKind)
+            {
+                return this.GetPackIcon<PackIconPhosphorIcons, PackIconPhosphorIconsKind>((PackIconPhosphorIconsKind) this.Kind);
             }
 #endif
 #if ALL || PICOLICONS

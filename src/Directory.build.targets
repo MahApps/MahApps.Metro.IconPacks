@@ -7,10 +7,10 @@
         <Copyright>Copyright © 2016 - $([System.DateTime]::Today.ToString(yyyy)) MahApps.Metro</Copyright>
         <Description>IconPacks for stylish awesome WPF and UWP applications.</Description>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-        <Version>4.0.0.0</Version>
-        <AssemblyVersion>4.0.0.0</AssemblyVersion>
-        <FileVersion>4.0.0.0</FileVersion>
-        <InformationalVersion>4.0.0.0</InformationalVersion>
+        <Version>5.0.0.0</Version>
+        <AssemblyVersion>5.0.0.0</AssemblyVersion>
+        <FileVersion>5.0.0.0</FileVersion>
+        <InformationalVersion>5.0.0.0</InformationalVersion>
     </PropertyGroup>
 
     <!-- Sign assembly -->
@@ -21,18 +21,29 @@
         <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     </PropertyGroup>
 
-    <!-- Workaround. Remove once we're on 3.1.300+
-    https://github.com/dotnet/sourcelink/issues/572 -->
-    <PropertyGroup>
-        <TargetFrameworkMonikerAssemblyAttributesPath>$([System.IO.Path]::Combine('$(IntermediateOutputPath)','$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)'))</TargetFrameworkMonikerAssemblyAttributesPath>
-    </PropertyGroup>
+    <!-- NuGet -->
     <ItemGroup>
-        <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
+        <!-- Workaround for https://github.com/dotnet/sdk/issues/11105 -->
+        <SourceRoot Include="$(NuGetPackageRoot)" Condition="'$(NuGetPackageRoot)' != ''" />
+        <None Include="..\..\resources\logo_small.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
     </ItemGroup>
 
-    <!-- Workaround for https://github.com/dotnet/sdk/issues/11105 -->
+    <PropertyGroup>
+        <Authors>Jan Karger</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/MahApps/MahApps.Metro.IconPacks</PackageProjectUrl>
+        <PackageIcon>logo_small.png</PackageIcon>
+        <PackageTags>WPF;UWP;UAP;Windows;Windows10;WinRT;App;Universal;UI;Metro;Modern;ModernUI;Material;XAML;Toolkit;Library;.NET;Icon</PackageTags>
+        <PackageReleaseNotes>https://github.com/MahApps/MahApps.Metro.IconPacks/releases</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/MahApps/MahApps.Metro.IconPacks.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
     <ItemGroup>
-        <SourceRoot Include="$(NuGetPackageRoot)" Condition="'$(NuGetPackageRoot)' != ''" />
+        <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)"/>
     </ItemGroup>
 
     <ItemGroup>

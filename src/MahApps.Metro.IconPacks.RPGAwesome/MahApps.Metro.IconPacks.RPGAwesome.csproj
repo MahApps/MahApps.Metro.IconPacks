@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="MSBuild.Sdk.Extras">
+    <!-- Project properties -->
+    <PropertyGroup>
+        <DefineConstants>$(DefineConstants);RPGAWESOME</DefineConstants>
+        <IconsName>RPGAwesome</IconsName>
+        <AssemblyName>MahApps.Metro.IconPacks.RPGAwesome</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.RPGAwesome</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Resources\*.*" />
+        <EmbeddedResource Include="Resources\*.*" />
+    </ItemGroup>
+
+    <!-- WPF Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+        <None Remove="**\*.rd.xml" />
+        <Compile Remove="Path*.*" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" />
+    </ItemGroup>
+
+    <!-- UWP Items include -->
+    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+        <Compile Remove="*Image*.cs;*Cursor*.cs" />
+        <Compile Remove="Themes\**\*.*" />
+        <EmbeddedResource Include="Properties\$(AssemblyName).rd.xml" />
+        <Page Generator="MSBuild:Compile" Include="Themes\UAP\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" />
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
+    </ItemGroup>
+
+</Project>
