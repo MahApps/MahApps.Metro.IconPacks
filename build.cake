@@ -5,12 +5,11 @@
 #tool dotnet:?package=NuGetKeyVaultSignTool&version=3.2.3
 #tool dotnet:?package=AzureSignTool&version=4.0.1
 #tool dotnet:?package=GitReleaseManager.Tool&version=0.17.0
-#tool dotnet:?package=XamlStyler.Console&version=3.2206.4
+#tool dotnet:?package=XamlStyler.Console&version=3.2404.2
 
 #tool vswhere&version=2.8.4
 
 #tool nuget:?package=GitVersion.CommandLine&version=5.12.0
-#addin nuget:?package=Cake.Figlet&version=2.0.1
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -47,11 +46,10 @@ if (isLocal == false || verbosity == Verbosity.Verbose)
 
 GitVersion gitVersion = GitVersion(new GitVersionSettings { OutputType = GitVersionOutput.Json });
 
-var isPullRequest = (isAppVeyorBuild && AppVeyor.Environment.PullRequest.IsPullRequest) || (isGitHubActionsBuild && GitHubActions.Environment.PullRequest.IsPullRequest);
-
+var isPrerelease = gitVersion.NuGetVersion.Contains("-");
 var branchName = gitVersion.BranchName;
-var isDevelopBranch = StringComparer.OrdinalIgnoreCase.Equals("develop", branchName);
-var isReleaseBranch = StringComparer.OrdinalIgnoreCase.Equals("main", branchName);
+
+var isPullRequest = (isAppVeyorBuild && AppVeyor.Environment.PullRequest.IsPullRequest) || (isGitHubActionsBuild && GitHubActions.Environment.PullRequest.IsPullRequest);
 
 var latestInstallationPath = VSWhereLatest(new VSWhereLatestSettings { IncludePrerelease = false });
 var msBuildPath = latestInstallationPath.Combine("./MSBuild/Current/Bin");
@@ -75,9 +73,9 @@ Setup(ctx =>
     {
         throw new NotImplementedException($"{repoName} will only build on Windows because it's not possible to target WPF and Windows Forms from UNIX.");
     }
-
-    Information(Figlet("MahApps.Metro"));
-    Information(Figlet("IconPacks"));
+    
+    Spectre.Console.AnsiConsole.Write(new Spectre.Console.FigletText("MahApps.Metro"));
+    Spectre.Console.AnsiConsole.Write(new Spectre.Console.FigletText("IconPacks"));
 
     Information("Informational   Version: {0}", gitVersion.InformationalVersion);
     Information("SemVer          Version: {0}", gitVersion.SemVer);
@@ -85,6 +83,7 @@ Setup(ctx =>
     Information("MajorMinorPatch Version: {0}", gitVersion.MajorMinorPatch);
     Information("NuGet           Version: {0}", gitVersion.NuGetVersion);
     Information("IsLocalBuild           : {0}", isLocal);
+    Information("IsPrerelease           : {0}", isPrerelease);
     Information("Branch                 : {0}", branchName);
     Information("Configuration          : {0}", configuration);
     Information("MSBuildPath            : {0}", msBuildPath);
@@ -135,11 +134,11 @@ Task("Build")
             .WithProperty("PackageOutputPath", MakeAbsolute(PACKAGE_DIR).ToString())
             .WithProperty("RepositoryBranch", branchName)
             .WithProperty("RepositoryCommit", gitVersion.Sha)
-            .WithProperty("Version", isReleaseBranch ? gitVersion.MajorMinorPatch : gitVersion.NuGetVersion)
+            .WithProperty("Version", gitVersion.NuGetVersion)
             .WithProperty("AssemblyVersion", gitVersion.AssemblySemVer)
             .WithProperty("FileVersion", gitVersion.AssemblySemFileVer)
             .WithProperty("InformationalVersion", gitVersion.InformationalVersion)
-            .WithProperty("ContinuousIntegrationBuild", isReleaseBranch ? "true" : "false")
+            .WithProperty("ContinuousIntegrationBuild", "true")
             );
 });
 
@@ -309,7 +308,7 @@ Task("CreateRelease")
     GitReleaseManagerCreate(token, "MahApps", repoName, new GitReleaseManagerCreateSettings {
         Milestone         = gitVersion.MajorMinorPatch,
         Name              = gitVersion.AssemblySemFileVer,
-        Prerelease        = isDevelopBranch,
+        Prerelease        = isPrerelease,
         TargetCommitish   = branchName,
         WorkingDirectory  = "."
     });
