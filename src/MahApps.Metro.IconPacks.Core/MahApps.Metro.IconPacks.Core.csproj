@@ -12,8 +12,8 @@
     <ItemGroup>
         <Reference Include="System.Web" Condition="'$(TargetFramework)' == 'net462' or '$(TargetFramework)' == 'net47'" />
         <Reference Include="System.Web.Extensions" Condition="'$(TargetFramework)' == 'net462' or '$(TargetFramework)' == 'net47'" />
-        <PackageReference Include="System.Text.Json" Version="6.0.9" Condition="'$(TargetFramework)' == 'net6.0-windows'" />
-        <PackageReference Include="System.Text.Json" Version="8.0.3" Condition="'$(TargetFramework)' == 'net8.0-windows' or '$(TargetFramework)' == 'uap10.0.18362'" />
+        <PackageReference Include="System.Text.Json" Version="6.0.10" Condition="'$(TargetFramework)' == 'net6.0-windows'" />
+        <PackageReference Include="System.Text.Json" Version="8.0.5" Condition="'$(TargetFramework)' == 'net8.0-windows' or '$(TargetFramework)' == 'uap10.0.18362'" />
     </ItemGroup>
 
     <!-- WPF Items include -->

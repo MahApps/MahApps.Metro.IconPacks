@@ -63,7 +63,7 @@
 
     <!-- Add the references for all projects and targets -->
     <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2023.*" PrivateAssets="All" IncludeAssets="build;compile" />
+        <PackageReference Include="JetBrains.Annotations" Version="2024.*" PrivateAssets="All" IncludeAssets="build;compile" />
     </ItemGroup>
 
     <ItemGroup>

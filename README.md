@@ -79,13 +79,13 @@ It's not necessary, but you can use these Icons together with [MahApps.Metro](ht
 
 ## Want to say thanks?
 
-This framework is free and can be used for free, open source and commercial applications.
+This library is free and can be used in open source and commercial applications.
 
-It's tested and contributed by many people... So mainly hit the :star: button, that's all... thx :squirrel: (:dollar:, :euro:, :beer: or some other gifts are also being accepted...).
+It's tested, contributed and used by many people... So mainly hit the :star: button, that's all... thx :squirrel: (:dollar:, :euro:, :beer: or some other gifts are also being accepted...).
 
-Please give also a star to all available icon repositories.
+Please don't forget to give also a star to all available icon repositories.
 
-[Become a sponsor](https://github.com/sponsors/punker76) and show your support to this open source project.
+<!-- [Become a sponsor](https://github.com/sponsors/punker76) and show your support to this open source project. -->
 
 ## IconPacks Browser
 
