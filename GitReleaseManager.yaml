@@ -13,10 +13,12 @@ export:
 issue-labels-include:
 - Breaking Change
 - Bug
+- Bug Fix
 - Enhancement
 - Feature
 - Feature Request
 - Icon Update
+- Improvement
 - Hacktoberfest
 issue-labels-exclude:
 - Internal Refactoring
