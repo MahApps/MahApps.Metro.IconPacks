@@ -23,11 +23,11 @@ skip_tags: true
 image: Visual Studio 2022
 test: false
 
-# install:
+install:
+  - ps: Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
+  - ps: ./dotnet-install.ps1 -Version 8.0.403 -InstallDir "C:\Program Files\dotnet"
 # Install Windows SDK 10.0.18362
 # - ps: .\build\Install-WindowsSDK.ps1
-# - ps: Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
-# - ps: ./dotnet-install.ps1 -Version 8.0.100 -InstallDir "C:\Program Files\dotnet"
 
 pull_requests:
   do_not_increment_build_number: false
