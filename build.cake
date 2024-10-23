@@ -368,7 +368,7 @@ void ExecuteProcess(FilePath fileName, ProcessArgumentBuilder arguments, string 
 Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
-//    .IsDependentOn("StyleXaml")
+    .IsDependentOn("StyleXaml")
     .IsDependentOn("Build")
     ;
 

@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:MahApps.Metro.IconPacks"
+                    xmlns:converter="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core"
                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-                    xmlns:converter="clr-namespace:MahApps.Metro.IconPacks.Converter;assembly=MahApps.Metro.IconPacks.Core">
+                    xmlns:local="clr-namespace:MahApps.Metro.IconPacks">
 
     <ControlTemplate x:Key="MahApps.Templates.PackIconControl" TargetType="{x:Type local:PackIconControl}">
         <Grid>
@@ -11,26 +11,23 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
             <Grid x:Name="PART_InnerGrid"
+                  Margin="{TemplateBinding BorderThickness}"
                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                  RenderTransformOrigin="0.5 0.5"
-                  Margin="{TemplateBinding BorderThickness}">
+                  RenderTransformOrigin="0.5 0.5">
                 <Grid.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform x:Name="FlipTransform"
-                                        ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleXValueConverter}}"
-                                        ScaleY="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleYValueConverter}}" />
-                        <RotateTransform x:Name="RotationTransform"
-                                         Angle="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RotationAngle, Mode=OneWay}" />
+                        <ScaleTransform x:Name="FlipTransform" ScaleX="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleXValueConverter}}" ScaleY="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Flip, Mode=OneWay, Converter={converter:FlipToScaleYValueConverter}}" />
+                        <RotateTransform x:Name="RotationTransform" Angle="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=RotationAngle, Mode=OneWay}" />
                         <RotateTransform x:Name="SpinTransform" />
                     </TransformGroup>
                 </Grid.RenderTransform>
                 <Viewbox Margin="{TemplateBinding Padding}">
                     <Path x:Name="PART_IconPath"
-                          Fill="{TemplateBinding Foreground}"
-                          Stretch="Uniform"
                           Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                          Fill="{TemplateBinding Foreground}"
                           SnapsToDevicePixels="False"
+                          Stretch="Uniform"
                           UseLayoutRounding="False" />
                 </Viewbox>
             </Grid>
@@ -73,13 +70,13 @@
             </DataTrigger>
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconFeatherIconsKind}">
                 <Setter TargetName="PART_IconPath" Property="Fill" Value="{x:Null}" />
+                <Setter TargetName="PART_IconPath" Property="Height" Value="24" />
                 <Setter TargetName="PART_IconPath" Property="Stroke" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground, Mode=OneWay}" />
-                <Setter TargetName="PART_IconPath" Property="StrokeThickness" Value="2" />
-                <Setter TargetName="PART_IconPath" Property="StrokeStartLineCap" Value="Round" />
                 <Setter TargetName="PART_IconPath" Property="StrokeEndLineCap" Value="Round" />
                 <Setter TargetName="PART_IconPath" Property="StrokeLineJoin" Value="Round" />
+                <Setter TargetName="PART_IconPath" Property="StrokeStartLineCap" Value="Round" />
+                <Setter TargetName="PART_IconPath" Property="StrokeThickness" Value="2" />
                 <Setter TargetName="PART_IconPath" Property="Width" Value="24" />
-                <Setter TargetName="PART_IconPath" Property="Height" Value="24" />
             </DataTrigger>
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconFileIconsKind}">
                 <Setter TargetName="PART_IconPath" Property="LayoutTransform">
@@ -148,18 +145,18 @@
     </ControlTemplate>
 
     <Style x:Key="MahApps.Styles.PackIconControl" TargetType="{x:Type local:PackIconControl}">
-        <Setter Property="Height" Value="16" />
-        <Setter Property="Width" Value="16" />
-        <Setter Property="Padding" Value="0" />
         <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Height" Value="16" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="SnapsToDevicePixels" Value="False" />
-        <Setter Property="UseLayoutRounding" Value="False" />
-        <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconControl}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="SnapsToDevicePixels" Value="False" />
+        <Setter Property="Template" Value="{StaticResource MahApps.Templates.PackIconControl}" />
+        <Setter Property="UseLayoutRounding" Value="False" />
+        <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Width" Value="16" />
     </Style>
 
 </ResourceDictionary>
