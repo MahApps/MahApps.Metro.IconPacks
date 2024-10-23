@@ -19,7 +19,6 @@ environment:
   azure-key-vault-certificate:
     secure: BSPdW2TgnQtoQXXbeDECug==
 
-skip_tags: true
 image: Visual Studio 2022
 test: false
 
