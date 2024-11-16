@@ -12,7 +12,7 @@
     /// List of available icons for use with <see cref="PackIconEntypo" />.
     /// </summary>
     /// <remarks>
-    /// All icons sourced from Entypo+ Icons Font <see><cref>http://www.entypo.com</cref></see>
+    /// All icons sourced from Entypo+ Icons Font <see><cref>http://www.entypo.com</cref></see> by Daniel Bruce <see><cref>https://www.danielbruce.se/</cref></see>
     /// Licensed under [CC BY 4.0](<see><cref>http://creativecommons.org/licenses/by-sa/4.0/</cref></see>).
     /// </remarks>
     public enum PackIconEntypoKind
