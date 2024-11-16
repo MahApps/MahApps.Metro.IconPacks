@@ -13,9 +13,10 @@
   <p>
     Supporting .NET Framework >= 4.6.2, >= .NET 6 (on Windows) and UWP (uap10.0.18362)
   </p>
+  <a href="https://discord.gg/VrNeD7z48s" target="_blank" rel="noopener noreferrer"><img alt="Bluesky" src="https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&logoColor=fff&style=flat-square&label=follow%20%40punker76"></a>
+  <a href="https://twitter.com/punker76" target="_blank" rel="noopener noreferrer"><img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/punker76?logo=X&logoColor=white&style=flat-square&label=follow%20%40punker76"></a>
+  <a href="https://nrw.social/@punker76" target="_blank" rel="noopener noreferrer"><img alt="Mastodon Follow" src="https://img.shields.io/mastodon/follow/109291587306394177?domain=https%3A%2F%2Fnrw.social&style=flat-square&label=follow%20%40punker76&logo=Mastodon"></a>
   <a href="https://discord.gg/VrNeD7z48s" target="_blank" rel="noopener noreferrer"><img alt="Discord" src="https://img.shields.io/discord/411850591334301703?style=flat-square&label=Discord"></a>
-  <a href="https://twitter.com/punker76" target="_blank" rel="noopener noreferrer"><img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/punker76?style=flat-square&label=follow%20%40punker76%20on%20X"></a>
-  <a href="https://nrw.social/@punker76" target="_blank" rel="noopener noreferrer"><img alt="Mastodon Follow" src="https://img.shields.io/mastodon/follow/109291587306394177?domain=https%3A%2F%2Fnrw.social&style=flat-square&label=follow%20%40punker76%20on%20Mastodon"></a>
   <br />
   <a href="https://github.com/MahApps/MahApps.Metro.IconPacks/releases"><img src="https://img.shields.io/github/release/MahApps/MahApps.Metro.IconPacks.svg?style=flat-square&label=latest%20release"></a>
   <a href="https://ci.appveyor.com/project/punker76/mahapps-metro-iconpacks/branch/main" target="_blank" rel="noopener noreferrer"><img alt="AppVeyor Build (with branch)" src="https://img.shields.io/appveyor/build/punker76/mahapps-metro-iconpacks/main?style=flat-square&logo=appveyor&label=main"></a>
@@ -81,9 +82,11 @@ It's not necessary, but you can use these Icons together with [MahApps.Metro](ht
 
 This library is free and can be used in open source and commercial applications.
 
-It's tested, contributed and used by many people... So mainly hit the :star: button, that's all... thx :squirrel: (:dollar:, :euro:, :beer: or some other gifts are also being accepted...).
+It's tested, contributed and used by me and many other people... So mainly hit the :star: button, that's all. :heart: :chipmunk: ( :dollar: or :euro: or :coffee: or :beer: or some other gifts are also being accepted...).
 
-Please don't forget to give also a star to all available icon repositories.
+## Icons
+
+Please don't forget to give also a :star: to all used icon repositories!!!
 
 <!-- [Become a sponsor](https://github.com/sponsors/punker76) and show your support to this open source project. -->
 
