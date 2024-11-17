@@ -10,7 +10,7 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// All icons sourced from GitHub Octicons <see><cref>https://github.com/Klarr-Agency/Circum-Icons</cref></see>
+    /// All icons sourced from GitHub Circum Icons <see><cref>https://github.com/Klarr-Agency/Circum-Icons</cref></see>
     /// In accordance of <see><cref>https://github.com/Klarr-Agency/Circum-Icons?tab=MPL-2.0-1-ov-file</cref></see>.
     /// </summary>
     [MetaData("Circum Icons Free", "https://github.com/Klarr-Agency/Circum-Icons", "https://github.com/Klarr-Agency/Circum-Icons?tab=MPL-2.0-1-ov-file")]

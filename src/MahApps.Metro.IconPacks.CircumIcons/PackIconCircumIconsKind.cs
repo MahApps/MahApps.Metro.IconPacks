@@ -12,7 +12,7 @@
     /// List of available icons for use with <see cref="PackIconCircumIcons" />.
     /// </summary>
     /// <remarks>
-    /// All icons sourced from GitHub Octicons <see><cref>https://github.com/Klarr-Agency/Circum-Icons</cref></see>
+    /// All icons sourced from GitHub Circum Icons <see><cref>https://github.com/Klarr-Agency/Circum-Icons</cref></see>
     /// In accordance of <see><cref>https://github.com/Klarr-Agency/Circum-Icons?tab=MPL-2.0-1-ov-file</cref></see>.
     /// </remarks>
     public enum PackIconCircumIconsKind
