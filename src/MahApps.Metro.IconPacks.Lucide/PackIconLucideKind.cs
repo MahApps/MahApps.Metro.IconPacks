@@ -274,6 +274,7 @@
         [Description("calendar-plus-2 (E5BB, date, day, month, year, event, add, subscribe, create, new)")] CalendarPlus2,
         [Description("calendar-range (E2BD, date, day, month, year, event, range, period)")] CalendarRange,
         [Description("calendar-search (E306, date, day, month, year, events, search)")] CalendarSearch,
+        [Description("calendar-sync (E63B, repeat, refresh, reconnect, transfer, backup, date, month, year, event, subscribe, recurring, schedule, reminder, automatic, auto)")] CalendarSync,
         [Description("calendar-x (E2BE, date, day, month, year, event, remove, busy)")] CalendarX,
         [Description("calendar-x-2 (E2BF, date, day, month, year, event, remove)")] CalendarX2,
         [Description("camera (E068, photo, webcam, video)")] Camera,
