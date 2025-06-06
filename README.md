@@ -8,10 +8,10 @@
   </a>
   <h1>MahApps.Metro<br />IconPacks</h1>
   <p>
-    Awesome icon packs for <code>WPF</code> and <code>UWP</code> in one library
+    Awesome icon packs for <code>WPF</code> in one library
   </p>
   <p>
-    Supporting .NET Framework >= 4.6.2, >= .NET 6 (on Windows) and UWP (uap10.0.18362)
+    Supporting .NET Framework >= 4.6.2, >= .NET 6 (on Windows)
   </p>
   <a href="https://discord.gg/VrNeD7z48s" target="_blank" rel="noopener noreferrer"><img alt="Bluesky" src="https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&logoColor=fff&style=flat-square&label=follow%20%40punker76"></a>
   <a href="https://twitter.com/punker76" target="_blank" rel="noopener noreferrer"><img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/punker76?logo=X&logoColor=white&style=flat-square&label=follow%20%40punker76"></a>
@@ -29,9 +29,11 @@
 
 This `IconPacks` library contains controls, markup extensions and converters to use these awesome icons in a simple way.
 
+The same icons are also available for [Avalonia](https://avaloniaui.net/ at [IconPacks.Avalonia](https://github.com/MahApps/IconPacks.Avalonia) which makes your `Avalonia` applications nicer.
+
 | Icon collection | Version | &#8721; | NuGet |
 |---|--:|--:|:--|
-| Complete IconPacks collection with all Icons in one package | | 55514 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks"></a> |
+| Complete IconPacks collection with all Icons in one package | | 55524 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.svg?style=flat-square&&label=IconPacks"></a> |
 | [Bootstrap Icons](https://icons.getbootstrap.com/) | 1.11.3 | 2050 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.BootstrapIcons/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BootstrapIcons.svg?style=flat-square&&label=BootstrapIcons"></a> |
 | [Boxicons](https://boxicons.com/) | 2.1.4 | 1634 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.BoxIcons/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.BoxIcons.svg?style=flat-square&&label=BoxIcons"></a> |
 | [Circum Icons Free](https://github.com/Klarr-Agency/Circum-Icons) | 2.0.2 | 288 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.CircumIcons/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.CircumIcons.svg?style=flat-square&&label=CircumIcons"></a> |
@@ -42,7 +44,7 @@ This `IconPacks` library contains controls, markup extensions and converters to 
 | [Feather Icons](https://feathericons.com/) | 4.29.1 | 287 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FeatherIcons/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FeatherIcons.svg?style=flat-square&&label=FeatherIcons"></a> |
 | [File Icons](https://github.com/file-icons/icons) | 2.1.47 | 920 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FileIcons/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FileIcons.svg?style=flat-square&&label=FileIcons"></a> |
 | [Fontaudio](https://github.com/fefanto/fontaudio) | 1.1.0 | 155 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Fontaudio/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Fontaudio.svg?style=flat-square&&label=Fontaudio"></a> |
-| [Font Awesome Free](https://fontawesome.com/) | 6.6.0 | 2050 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome"></a> |
+| [Font Awesome Free](https://fontawesome.com/) | 6.7.2 | 2060 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.FontAwesome/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.FontAwesome.svg?style=flat-square&&label=FontAwesome"></a> |
 | [Fontisto](https://github.com/kenangundogan/fontisto) | 3.0.4 | 616 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.Fontisto/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.Fontisto.svg?style=flat-square&&label=Fontisto"></a> |
 | [Fork Awesome](https://forkaweso.me/) | 1.2.0 | 794 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.ForkAwesome/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.ForkAwesome.svg?style=flat-square&&label=ForkAwesome"></a> |
 | [Game Icons](https://github.com/game-icons/icons) | Apr 7, 2024 | 4149 | <a href="https://www.nuget.org/packages/MahApps.Metro.IconPacks.GameIcons/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/nuget/dt/MahApps.Metro.IconPacks.GameIcons.svg?style=flat-square&&label=GameIcons"></a> |
