@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<Project Sdk="MSBuild.Sdk.Extras">
-    <!-- Project properties -->
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <AssemblyName>MahApps.Metro.IconPacks.Core</AssemblyName>
         <Title>MahApps.Metro.IconPacks.Core</Title>
@@ -10,21 +9,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Reference Include="System.Web" Condition="'$(TargetFramework)' == 'net462' or '$(TargetFramework)' == 'net47'" />
-        <Reference Include="System.Web.Extensions" Condition="'$(TargetFramework)' == 'net462' or '$(TargetFramework)' == 'net47'" />
+        <Reference Include="System.Web" Condition="'$(IsBuildingForLegacyFramework)' == 'true'" />
+        <Reference Include="System.Web.Extensions" Condition="'$(IsBuildingForLegacyFramework)' == 'true'" />
         <PackageReference Include="System.Text.Json" Version="6.0.10" Condition="'$(TargetFramework)' == 'net6.0-windows'" />
-        <PackageReference Include="System.Text.Json" Version="8.0.5" Condition="'$(TargetFramework)' == 'net8.0-windows' or '$(TargetFramework)' == 'uap10.0.18362'" />
+        <PackageReference Include="System.Text.Json" Version="8.0.5" Condition="'$(TargetFramework)' == 'net8.0-windows' or '$(IsUwp)' == 'true'" />
     </ItemGroup>
 
     <!-- WPF Items include -->
-    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+    <ItemGroup Condition="'$(IsWpf)' == 'true'">
         <None Remove="**\*.rd.xml" />
         <Compile Remove="PathIcon*.cs" />
         <Compile Remove="Attributes\DescriptionAttribute.cs" />
     </ItemGroup>
 
     <!-- UWP Items include -->
-    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+    <ItemGroup Condition="'$(IsUwp)' == 'true'">
         <Compile Remove="Converter\PackIconKindToImageConverterBase.cs;PackIconImageExtension.cs;PackIconCursorExtension.cs;PackIconCursorHelper.cs" />
         <EmbeddedResource Include="Properties\$(AssemblyName).rd.xml" />
         <Page Include="**\*.xaml" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" />

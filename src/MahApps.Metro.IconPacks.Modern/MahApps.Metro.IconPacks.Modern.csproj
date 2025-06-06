@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras">
-    <!-- Project properties -->
-    <PropertyGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
         <DefineConstants>$(DefineConstants);MODERN</DefineConstants>
         <IconsName>Modern</IconsName>
         <AssemblyName>MahApps.Metro.IconPacks.Modern</AssemblyName>
@@ -19,14 +19,14 @@
     </ItemGroup>
 
     <!-- WPF Items include -->
-    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+    <ItemGroup Condition="'$(IsWpf)' == 'true'">
         <None Remove="**\*.rd.xml" />
         <Compile Remove="Path*.*" />
         <Page Generator="MSBuild:Compile" Include="Themes\WPF\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" />
     </ItemGroup>
 
     <!-- UWP Items include -->
-    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' == 'uap'">
+    <ItemGroup Condition="'$(IsUwp)' == 'true'">
         <Compile Remove="*Image*.cs;*Cursor*.cs" />
         <Compile Remove="Themes\**\*.*" />
         <EmbeddedResource Include="Properties\$(AssemblyName).rd.xml" />
