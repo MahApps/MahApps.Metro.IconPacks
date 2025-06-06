@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="MSBuild.Sdk.Extras">
-    <!-- Project properties -->
-    <PropertyGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
         <DefineConstants>$(DefineConstants);ALL</DefineConstants>
         <AssemblyName>MahApps.Metro.IconPacks</AssemblyName>
         <Title>MahApps.Metro.IconPacks</Title>
@@ -50,7 +50,7 @@
     </ItemGroup>
 
     <!-- WPF Items include -->
-    <ItemGroup Condition="'$(_SdkShortFrameworkIdentifier)' != 'uap'">
+    <ItemGroup Condition="'$(IsWpf)' == 'true'">
         <None Remove="**\*.rd.xml" />
         <Page Generator="MSBuild:Compile"
               Include="Themes\WPF\*.xaml"
@@ -63,7 +63,7 @@
         <Compile Remove="**\*Extension*.cs" />
     </ItemGroup> -->
 
-    <ItemGroup Condition=" '$(_SdkShortFrameworkIdentifier)' == 'uap' ">
+    <ItemGroup Condition="'$(IsUwp)' == 'true'">
         <Compile Remove="*.cs" />
         <Compile Remove="Themes\**\*.*" />
         <EmbeddedResource Include="Properties\$(AssemblyName).rd.xml" />
@@ -85,7 +85,7 @@
             <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'All'))" />
         </ItemGroup>
     </Target>
-    <Target Name="GetMyPackageFiles" Condition=" $(TargetFramework.StartsWith('uap')) ">
+    <Target Name="GetMyPackageFiles" Condition="'$(IsUwp)' == 'true'">
         <ItemGroup>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.BootstrapIcons\*.*">
