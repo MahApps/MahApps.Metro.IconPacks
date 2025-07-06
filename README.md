@@ -8,7 +8,7 @@
   </a>
   <h1>MahApps.Metro<br />IconPacks</h1>
   <p>
-    Awesome icon packs for <code>WPF</code> in one library
+    Really awesome icon packs for <code>WPF</code> in one library
   </p>
   <p>
     Supporting .NET Framework >= 4.6.2, >= .NET 6 (on Windows)
@@ -27,9 +27,9 @@
 
 </div>
 
-This `IconPacks` library contains controls, markup extensions and converters to use these awesome icons in a simple way.
+The `IconPacks` library contains controls, markup extensions and converters to use these awesome icons with your applications in a simple way.
 
-The same icons are also available for [Avalonia](https://avaloniaui.net/ at [IconPacks.Avalonia](https://github.com/MahApps/IconPacks.Avalonia) which makes your `Avalonia` applications nicer.
+The same icons are also available for [Avalonia](https://avaloniaui.net/ with the [IconPacks.Avalonia](https://github.com/MahApps/IconPacks.Avalonia) packages which makes your `Avalonia` applications nicer.
 
 | Icon collection | Version | &#8721; | NuGet |
 |---|--:|--:|:--|
