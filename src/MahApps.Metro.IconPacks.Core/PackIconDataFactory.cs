@@ -1,6 +1,10 @@
-﻿using System;
+﻿using MahApps.Metro.IconPacks.Utils;
+using System;
 using System.Collections.Generic;
-using MahApps.Metro.IconPacks.Utils;
+#if NET8_0_OR_GREATER || WINDOWS_UWP
+using System.Text.Json;
+using System.Text.Json.Serialization.Metadata;
+#endif
 
 namespace MahApps.Metro.IconPacks
 {
@@ -37,8 +41,14 @@ namespace MahApps.Metro.IconPacks
             }
 
             return dictionary;
-#else
+#elif NET6_0
             return System.Text.Json.JsonSerializer.Deserialize<Dictionary<TEnum, string>>(json);
+#else
+            var options = new JsonSerializerOptions
+            {
+                TypeInfoResolver = new DefaultJsonTypeInfoResolver()
+            };
+            return System.Text.Json.JsonSerializer.Deserialize<Dictionary<TEnum, string>>(json, options);
 #endif
         }
     }
