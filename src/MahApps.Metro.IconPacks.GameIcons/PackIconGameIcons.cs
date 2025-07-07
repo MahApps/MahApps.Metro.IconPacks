@@ -11,9 +11,9 @@ namespace MahApps.Metro.IconPacks
 {
     /// <summary>
     /// All icons sourced from Game Icons <see><cref>https://github.com/game-icons/icons</cref></see>
-    /// In accordance of <see><cref>https://github.com/game-icons/icons?tab=License-1-ov-file#readme</cref></see>.
+    /// In accordance of <see><cref>https://github.com/game-icons/icons?tab=License-1-ov-file</cref></see>.
     /// </summary>
-    [MetaData("Game Icons", "https://github.com/game-icons/icons", "https://github.com/game-icons/icons?tab=License-1-ov-file#readme")]
+    [MetaData("Game Icons", "https://github.com/game-icons/icons", "https://github.com/game-icons/icons?tab=License-1-ov-file")]
     public class PackIconGameIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty
