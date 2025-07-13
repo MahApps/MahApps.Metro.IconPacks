@@ -23,6 +23,7 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialDesign;component/Themes/PackIconMaterialDesign.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MemoryIcons;component/Themes/PackIconMemoryIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Microns;component/Themes/PackIconMicrons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MingCuteIcons;component/Themes/PackIconMingCuteIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Modern;component/Themes/PackIconModern.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Octicons;component/Themes/PackIconOcticons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PhosphorIcons;component/Themes/PackIconPhosphorIcons.xaml" />
