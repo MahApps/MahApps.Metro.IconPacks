@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+        <DefineConstants>$(DefineConstants);MINGCUTEICONS</DefineConstants>
+        <IconsName>MingCuteIcons</IconsName>
+        <AssemblyName>MahApps.Metro.IconPacks.MingCuteIcons</AssemblyName>
+        <Title>MahApps.Metro.IconPacks.MingCuteIcons</Title>
+        <RootNamespace>MahApps.Metro.IconPacks</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.Core\MahApps.Metro.IconPacks.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Resources\*.*" />
+        <EmbeddedResource Include="Resources\*.*" />
+    </ItemGroup>
+
+    <!-- WPF Items include -->
+    <ItemGroup Condition="'$(IsWpf)' == 'true'">
+        <None Remove="**\*.rd.xml" />
+        <Compile Remove="Path*.*" />
+        <Page Generator="MSBuild:Compile" Include="Themes\WPF\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" />
+    </ItemGroup>
+
+    <!-- UWP Items include -->
+    <ItemGroup Condition="'$(IsUwp)' == 'true'">
+        <Compile Remove="*Image*.cs;*Cursor*.cs" />
+        <Compile Remove="Themes\**\*.*" />
+        <EmbeddedResource Include="Properties\$(AssemblyName).rd.xml" />
+        <Page Generator="MSBuild:Compile" Include="Themes\UAP\*.xaml" Link="Themes\%(RecursiveDir)%(Filename)%(Extension)" SubType="Designer" Exclude="**\bin\**\*.xaml;**\obj\**\*.xaml" />
+        <Compile DependentUpon="%(Filename)" Update="**\*.xaml.cs" />
+    </ItemGroup>
+
+</Project>
