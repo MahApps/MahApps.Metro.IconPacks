@@ -164,6 +164,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconModern, PackIconModernKind>((PackIconModernKind) this.Kind);
             }
 #endif
+#if ALL || MYNAUIICONS
+            if (this.Kind is PackIconMynaUIIconsKind)
+            {
+                return this.GetPackIcon<PackIconMynaUIIcons, PackIconMynaUIIconsKind>((PackIconMynaUIIconsKind) this.Kind);
+            }
+#endif
 #if ALL || OCTICONS
             if (this.Kind is PackIconOcticonsKind)
             {
