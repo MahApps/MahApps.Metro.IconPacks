@@ -35,6 +35,7 @@
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Microns\MahApps.Metro.IconPacks.Microns.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.MingCuteIcons\MahApps.Metro.IconPacks.MingCuteIcons.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Modern\MahApps.Metro.IconPacks.Modern.csproj" />
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.MynaUIIcons\MahApps.Metro.IconPacks.MynaUIIcons.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Octicons\MahApps.Metro.IconPacks.Octicons.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.PhosphorIcons\MahApps.Metro.IconPacks.PhosphorIcons.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.PicolIcons\MahApps.Metro.IconPacks.PicolIcons.csproj" />
@@ -327,6 +328,16 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Modern\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Modern\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MynaUIIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.MynaUIIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MynaUIIcons\Themes\PackIconMynaUIIcons.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.MynaUIIcons\Themes\PackIconMynaUIIcons.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.MynaUIIcons\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.MynaUIIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Octicons\*.*">
