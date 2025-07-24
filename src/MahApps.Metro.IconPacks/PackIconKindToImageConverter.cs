@@ -40,6 +40,12 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconFontaudioKind kind:
                     PackIconDataFactory<PackIconFontaudioKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconFontAwesome5Kind kind:
+                    PackIconDataFactory<PackIconFontAwesome5Kind>.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconFontAwesome6Kind kind:
+                    PackIconDataFactory<PackIconFontAwesome6Kind>.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconFontAwesomeKind kind:
                     PackIconDataFactory<PackIconFontAwesomeKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;

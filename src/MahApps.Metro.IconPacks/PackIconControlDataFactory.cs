@@ -61,6 +61,14 @@ namespace MahApps.Metro.IconPacks
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
+            foreach (var packIcon in PackIconDataFactory<PackIconFontAwesome5Kind>.Create())
+            {
+                dictionary.Add(packIcon.Key, packIcon.Value);
+            }
+            foreach (var packIcon in PackIconDataFactory<PackIconFontAwesome6Kind>.Create())
+            {
+                dictionary.Add(packIcon.Key, packIcon.Value);
+            }
             foreach (var packIcon in PackIconDataFactory<PackIconFontAwesomeKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);

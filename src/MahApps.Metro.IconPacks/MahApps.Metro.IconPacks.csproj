@@ -21,6 +21,8 @@
         <ProjectReference Include="..\MahApps.Metro.IconPacks.FeatherIcons\MahApps.Metro.IconPacks.FeatherIcons.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.FileIcons\MahApps.Metro.IconPacks.FileIcons.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Fontaudio\MahApps.Metro.IconPacks.Fontaudio.csproj" />
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.FontAwesome5\MahApps.Metro.IconPacks.FontAwesome5.csproj" />
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.FontAwesome6\MahApps.Metro.IconPacks.FontAwesome6.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.FontAwesome\MahApps.Metro.IconPacks.FontAwesome.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Fontisto\MahApps.Metro.IconPacks.Fontisto.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.ForkAwesome\MahApps.Metro.IconPacks.ForkAwesome.csproj" />
@@ -188,6 +190,26 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Fontaudio\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.Fontaudio\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome5\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.FontAwesome5</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome5\Themes\PackIconFontAwesome5.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.FontAwesome5\Themes\PackIconFontAwesome5.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome5\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.FontAwesome5\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome6\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.FontAwesome6</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome6\Themes\PackIconFontAwesome6.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.FontAwesome6\Themes\PackIconFontAwesome6.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome6\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.FontAwesome6\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.FontAwesome\*.*">
