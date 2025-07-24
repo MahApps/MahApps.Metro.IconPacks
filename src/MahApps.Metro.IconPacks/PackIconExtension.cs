@@ -80,6 +80,18 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconFontaudio, PackIconFontaudioKind>((PackIconFontaudioKind) this.Kind);
             }
 #endif
+#if ALL || FONTAWESOME5
+            if (this.Kind is PackIconFontAwesome5Kind)
+            {
+                return this.GetPackIcon<PackIconFontAwesome5, PackIconFontAwesome5Kind>((PackIconFontAwesome5Kind) this.Kind);
+            }
+#endif
+#if ALL || FONTAWESOME6
+            if (this.Kind is PackIconFontAwesome6Kind)
+            {
+                return this.GetPackIcon<PackIconFontAwesome6, PackIconFontAwesome6Kind>((PackIconFontAwesome6Kind) this.Kind);
+            }
+#endif
 #if ALL || FONTAWESOME
             if (this.Kind is PackIconFontAwesomeKind)
             {
@@ -152,10 +164,22 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconMicrons, PackIconMicronsKind>((PackIconMicronsKind) this.Kind);
             }
 #endif
+#if ALL || MINGCUTEICONS
+            if (this.Kind is PackIconMingCuteIconsKind)
+            {
+                return this.GetPackIcon<PackIconMingCuteIcons, PackIconMingCuteIconsKind>((PackIconMingCuteIconsKind) this.Kind);
+            }
+#endif
 #if ALL || MODERN
             if (this.Kind is PackIconModernKind)
             {
                 return this.GetPackIcon<PackIconModern, PackIconModernKind>((PackIconModernKind) this.Kind);
+            }
+#endif
+#if ALL || MYNAUIICONS
+            if (this.Kind is PackIconMynaUIIconsKind)
+            {
+                return this.GetPackIcon<PackIconMynaUIIcons, PackIconMynaUIIconsKind>((PackIconMynaUIIconsKind) this.Kind);
             }
 #endif
 #if ALL || OCTICONS

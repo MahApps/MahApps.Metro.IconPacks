@@ -40,6 +40,12 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconFontaudioKind kind:
                     PackIconDataFactory<PackIconFontaudioKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconFontAwesome5Kind kind:
+                    PackIconDataFactory<PackIconFontAwesome5Kind>.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconFontAwesome6Kind kind:
+                    PackIconDataFactory<PackIconFontAwesome6Kind>.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconFontAwesomeKind kind:
                     PackIconDataFactory<PackIconFontAwesomeKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
@@ -76,8 +82,14 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconMicronsKind kind:
                     PackIconDataFactory<PackIconMicronsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconMingCuteIconsKind kind:
+                    PackIconDataFactory<PackIconMingCuteIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconModernKind kind:
                     PackIconDataFactory<PackIconModernKind>.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
+                case PackIconMynaUIIconsKind kind:
+                    PackIconDataFactory<PackIconMynaUIIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconOcticonsKind kind:
                     PackIconDataFactory<PackIconOcticonsKind>.DataIndex.Value?.TryGetValue(kind, out data);
@@ -139,6 +151,8 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconForkAwesomeKind _:
                 case PackIconJamIconsKind _:
                 case PackIconLucideKind _:
+                case PackIconMingCuteIconsKind _:
+                case PackIconMynaUIIconsKind _:
                 case PackIconRPGAwesomeKind _:
                 case PackIconTypiconsKind _:
                 case PackIconVaadinIconsKind _:

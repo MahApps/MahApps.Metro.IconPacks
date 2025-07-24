@@ -11,6 +11,8 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FeatherIcons;component/Themes/PackIconFeatherIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FileIcons;component/Themes/PackIconFileIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Fontaudio;component/Themes/PackIconFontaudio.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FontAwesome5;component/Themes/PackIconFontAwesome5.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FontAwesome6;component/Themes/PackIconFontAwesome6.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.FontAwesome;component/Themes/PackIconFontAwesome.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Fontisto;component/Themes/PackIconFontisto.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.ForkAwesome;component/Themes/PackIconForkAwesome.xaml" />
@@ -23,7 +25,9 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialDesign;component/Themes/PackIconMaterialDesign.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MemoryIcons;component/Themes/PackIconMemoryIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Microns;component/Themes/PackIconMicrons.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MingCuteIcons;component/Themes/PackIconMingCuteIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Modern;component/Themes/PackIconModern.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MynaUIIcons;component/Themes/PackIconMynaUIIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Octicons;component/Themes/PackIconOcticons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PhosphorIcons;component/Themes/PackIconPhosphorIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.PicolIcons;component/Themes/PackIconPicolIcons.xaml" />

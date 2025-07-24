@@ -11,7 +11,7 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from Font Awesome Free <see><cref>https://fontawesome.com/</cref></see> - License <see><cref>https://fontawesome.com/license/free</cref></see>
     /// GitHub <see><cref>https://fontawesome.com/</cref></see>
     /// </summary>
-    [MetaData("Font Awesome Free", "https://fontawesome.com/", "https://fontawesome.com/license/free")]
+    [MetaData("Font Awesome Free v7", "https://fontawesome.com/", "https://fontawesome.com/license/free")]
     public class PathIconFontAwesome : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty

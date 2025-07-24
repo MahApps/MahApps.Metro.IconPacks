@@ -6,12 +6,26 @@
 
     <!-- Project properties -->
     <PropertyGroup>
-        <TargetFrameworks>net8.0-windows;net6.0-windows;net47;net462;uap10.0.18362</TargetFrameworks>
+        <!--<TargetFrameworks>net8.0-windows;net6.0-windows;net47;net462;uap10.0.18362</TargetFrameworks>-->
+        <TargetFrameworks>net8.0-windows;net6.0-windows;net47;net462</TargetFrameworks>
+
+		<IsUwp Condition="'$(IsUwp)'==''">false</IsUwp>
+		<IsUwp Condition="$(TargetFramework.Contains('10.0'))">true</IsUwp>
+		<IsWpf Condition="'$(IsWpf)'==''">false</IsWpf>
+		<IsWpf Condition="'$(IsUwp)' == 'false'">true</IsWpf>
+
+        <IsBuildingForLegacyFramework>false</IsBuildingForLegacyFramework>
+        <IsBuildingForLegacyFramework Condition="$(TargetFramework.StartsWith('net4'))">true</IsBuildingForLegacyFramework>
+
+        <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">true</IsAotCompatible>
+
         <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GenerateLibraryLayout>true</GenerateLibraryLayout>
-        <AutoGenerateBindingRedirects Condition=" $(TargetFramework.StartsWith('net4')) or $(TargetFramework.StartsWith('uap')) ">true</AutoGenerateBindingRedirects>
+        <AutoGenerateBindingRedirects Condition="'$(IsBuildingForLegacyFramework)' == 'true' or '$(IsUwp)' == 'true'">true</AutoGenerateBindingRedirects>
+
         <LangVersion>latest</LangVersion>
+
         <NoWarn>$(NoWarn);CS1591;CS0618</NoWarn>
         <NoError>$(NoError);CS1591;CS0618</NoError>
     </PropertyGroup>
@@ -22,12 +36,12 @@
     </PropertyGroup>
 
     <!-- .NET Framework and Core -->
-    <PropertyGroup Condition=" !$(TargetFramework.StartsWith('uap')) ">
+    <PropertyGroup Condition="'$(IsWpf)' == 'true'">
         <UseWpf>true</UseWpf>
     </PropertyGroup>
 
     <!-- UAP -->
-    <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
+    <PropertyGroup Condition="'$(IsUwp)' == 'true'">
         <DefaultTargetPlatformVersion>18362</DefaultTargetPlatformVersion>
         <DefaultTargetPlatformMinVersion>18362</DefaultTargetPlatformMinVersion>
         <UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
@@ -36,9 +50,6 @@
         <!-- This is valid for platforms other than .NET Framework (and is needed for the UWP targets -->
         <NoWarn>$(NoWarn);8002;CS0618</NoWarn>
         <NoError>$(NoError);CS0618</NoError>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) and '$(Configuration)' == 'Release' ">
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
