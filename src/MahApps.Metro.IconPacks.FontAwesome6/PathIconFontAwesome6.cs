@@ -11,37 +11,37 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from Font Awesome Free <see><cref>https://fontawesome.com/</cref></see> - License <see><cref>https://fontawesome.com/license/free</cref></see>
     /// GitHub <see><cref>https://fontawesome.com/</cref></see>
     /// </summary>
-    [MetaData("Font Awesome Free v7", "https://fontawesome.com/", "https://fontawesome.com/license/free")]
-    public class PathIconFontAwesome : PathIconControlBase
+    [MetaData("Font Awesome Free v6", "https://fontawesome.com/", "https://fontawesome.com/license/free")]
+    public class PathIconFontAwesome6 : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconFontAwesomeKind), typeof(PathIconFontAwesome), new PropertyMetadata(default(PackIconFontAwesomeKind), KindPropertyChangedCallback));
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconFontAwesome6Kind), typeof(PathIconFontAwesome6), new PropertyMetadata(default(PackIconFontAwesome6Kind), KindPropertyChangedCallback));
 
         private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != e.OldValue)
             {
-                ((PathIconFontAwesome)dependencyObject).UpdateData();
+                ((PathIconFontAwesome6)dependencyObject).UpdateData();
             }
         }
 
         /// <summary>
         /// Gets or sets the icon to display.
         /// </summary>
-        public PackIconFontAwesomeKind Kind
+        public PackIconFontAwesome6Kind Kind
         {
-            get { return (PackIconFontAwesomeKind)GetValue(KindProperty); }
+            get { return (PackIconFontAwesome6Kind)GetValue(KindProperty); }
             set { SetValue(KindProperty, value); }
         }
 
-        public PathIconFontAwesome()
+        public PathIconFontAwesome6()
         {
         }
 
         protected override void UpdateData()
         {
             string data = null;
-            PackIconDataFactory<PackIconFontAwesomeKind>.DataIndex.Value?.TryGetValue(Kind, out data);
+            PackIconDataFactory<PackIconFontAwesome6Kind>.DataIndex.Value?.TryGetValue(Kind, out data);
             if (string.IsNullOrEmpty(data))
             {
                 this.Data = default(Geometry);

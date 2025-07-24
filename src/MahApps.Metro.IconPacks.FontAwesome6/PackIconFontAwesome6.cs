@@ -13,47 +13,47 @@ namespace MahApps.Metro.IconPacks
     /// All icons sourced from Font Awesome Free <see><cref>https://fontawesome.com/</cref></see> - License <see><cref>https://fontawesome.com/license/free</cref></see>
     /// GitHub <see><cref>https://fontawesome.com/</cref></see>
     /// </summary>
-    [MetaData("Font Awesome Free v7", "https://fontawesome.com/", "https://fontawesome.com/license/free")]
-    public class PackIconFontAwesome : PackIconControlBase
+    [MetaData("Font Awesome Free v6", "https://fontawesome.com/", "https://fontawesome.com/license/free")]
+    public class PackIconFontAwesome6 : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconFontAwesomeKind), typeof(PackIconFontAwesome), new PropertyMetadata(default(PackIconFontAwesomeKind), KindPropertyChangedCallback));
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconFontAwesome6Kind), typeof(PackIconFontAwesome6), new PropertyMetadata(default(PackIconFontAwesome6Kind), KindPropertyChangedCallback));
 
         private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != e.OldValue)
             {
-                ((PackIconFontAwesome)dependencyObject).UpdateData();
+                ((PackIconFontAwesome6)dependencyObject).UpdateData();
             }
         }
 
         /// <summary>
         /// Gets or sets the icon to display.
         /// </summary>
-        public PackIconFontAwesomeKind Kind
+        public PackIconFontAwesome6Kind Kind
         {
-            get { return (PackIconFontAwesomeKind)GetValue(KindProperty); }
+            get { return (PackIconFontAwesome6Kind)GetValue(KindProperty); }
             set { SetValue(KindProperty, value); }
         }
 
 #if !(NETFX_CORE || WINDOWS_UWP)
-        static PackIconFontAwesome()
+        static PackIconFontAwesome6()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(PackIconFontAwesome), new FrameworkPropertyMetadata(typeof(PackIconFontAwesome)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(PackIconFontAwesome6), new FrameworkPropertyMetadata(typeof(PackIconFontAwesome6)));
         }
 #endif
 
-        public PackIconFontAwesome()
+        public PackIconFontAwesome6()
         {
 #if NETFX_CORE || WINDOWS_UWP
-            this.DefaultStyleKey = typeof(PackIconFontAwesome);
+            this.DefaultStyleKey = typeof(PackIconFontAwesome6);
 #endif
         }
 
         protected override void SetKind<TKind>(TKind iconKind)
         {
 #if NETFX_CORE || WINDOWS_UWP
-            BindingOperations.SetBinding(this, PackIconFontAwesome.KindProperty, new Binding() { Source = iconKind, Mode = BindingMode.OneTime });
+            BindingOperations.SetBinding(this, PackIconFontAwesome6.KindProperty, new Binding() { Source = iconKind, Mode = BindingMode.OneTime });
 #else
             this.SetCurrentValue(KindProperty, iconKind);
 #endif
@@ -61,10 +61,10 @@ namespace MahApps.Metro.IconPacks
 
         protected override void UpdateData()
         {
-            if (Kind != default(PackIconFontAwesomeKind))
+            if (Kind != default(PackIconFontAwesome6Kind))
             {
                 string data = null;
-                PackIconDataFactory<PackIconFontAwesomeKind>.DataIndex.Value?.TryGetValue(Kind, out data);
+                PackIconDataFactory<PackIconFontAwesome6Kind>.DataIndex.Value?.TryGetValue(Kind, out data);
                 this.Data = data;
             }
             else
