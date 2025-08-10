@@ -128,6 +128,12 @@ namespace MahApps.Metro.IconPacks
                 return this.GetPackIcon<PackIconJamIcons, PackIconJamIconsKind>((PackIconJamIconsKind) this.Kind);
             }
 #endif
+#if ALL || KEYRUNEICONS
+            if (this.Kind is PackIconKeyruneIconsKind)
+            {
+                return this.GetPackIcon<PackIconKeyruneIcons, PackIconKeyruneIconsKind>((PackIconKeyruneIconsKind) this.Kind);
+            }
+#endif
 #if ALL || LUCIDE
             if (this.Kind is PackIconLucideKind)
             {

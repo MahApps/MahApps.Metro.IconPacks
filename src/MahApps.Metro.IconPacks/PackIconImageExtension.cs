@@ -84,6 +84,9 @@ namespace MahApps.Metro.IconPacks
                 case PackIconJamIconsKind kind:
                     PackIconDataFactory<PackIconJamIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconKeyruneIconsKind kind:
+                    PackIconDataFactory<PackIconKeyruneIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconLucideKind kind:
                     PackIconDataFactory<PackIconLucideKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
