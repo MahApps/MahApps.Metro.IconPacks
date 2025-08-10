@@ -19,6 +19,7 @@
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.GameIcons/Themes/PackIconGameIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Ionicons/Themes/PackIconIonicons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.JamIcons/Themes/PackIconJamIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.KeyruneIcons/Themes/PackIconKeyruneIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Lucide/Themes/PackIconLucide.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Material/Themes/PackIconMaterial.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.MaterialLight/Themes/PackIconMaterialLight.xaml" />
