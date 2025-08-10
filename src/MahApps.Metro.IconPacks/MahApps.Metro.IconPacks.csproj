@@ -29,6 +29,7 @@
         <ProjectReference Include="..\MahApps.Metro.IconPacks.GameIcons\MahApps.Metro.IconPacks.GameIcons.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Ionicons\MahApps.Metro.IconPacks.Ionicons.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.JamIcons\MahApps.Metro.IconPacks.JamIcons.csproj" />
+        <ProjectReference Include="..\MahApps.Metro.IconPacks.KeyruneIcons\MahApps.Metro.IconPacks.KeyruneIcons.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Lucide\MahApps.Metro.IconPacks.Lucide.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.Material\MahApps.Metro.IconPacks.Material.csproj" />
         <ProjectReference Include="..\MahApps.Metro.IconPacks.MaterialLight\MahApps.Metro.IconPacks.MaterialLight.csproj" />
@@ -270,6 +271,16 @@
             </BuildOutputInPackage>
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.JamIcons\Themes\Generic.xaml">
                 <TargetPath>MahApps.Metro.IconPacks.JamIcons\Themes\Generic.xaml</TargetPath>
+            </BuildOutputInPackage>
+
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.KeyruneIcons\*.*">
+                <TargetPath>MahApps.Metro.IconPacks.KeyruneIcons</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.KeyruneIcons\Themes\PackIconKeyruneIcons.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.KeyruneIcons\Themes\PackIconKeyruneIcons.xaml</TargetPath>
+            </BuildOutputInPackage>
+            <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.KeyruneIcons\Themes\Generic.xaml">
+                <TargetPath>MahApps.Metro.IconPacks.KeyruneIcons\Themes\Generic.xaml</TargetPath>
             </BuildOutputInPackage>
 
             <BuildOutputInPackage Include="$(OutDir)MahApps.Metro.IconPacks.Lucide\*.*">
