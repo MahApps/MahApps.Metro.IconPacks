@@ -25,6 +25,10 @@ namespace MahApps.Metro.IconPacks
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
+            foreach (var packIcon in PackIconDataFactory<PackIconBoxIcons2Kind>.Create())
+            {
+                dictionary.Add(packIcon.Key, packIcon.Value);
+            }
             foreach (var packIcon in PackIconDataFactory<PackIconBoxIconsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);

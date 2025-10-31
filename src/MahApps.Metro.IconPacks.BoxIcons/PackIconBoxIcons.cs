@@ -10,10 +10,10 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// BoxIcons licensed under [SIL OFL 1.1](<see><cref>http://scripts.sil.org/OFL</cref></see>)
-    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/atisawd/boxicons</cref></see>.
+    /// BoxIcons v3 licensed under [CC 4.0 License](<see><cref>https://docs.boxicons.com/license/free</cref></see>)
+    /// Project web site <see><cref>https://boxicons.com/</cref></see>.
     /// </summary>
-    [MetaData("Boxicons", "https://boxicons.com/", "https://boxicons.com/usage/#license")]
+    [MetaData("Boxicons v3", "https://boxicons.com/", "https://docs.boxicons.com/license/free")]
     public class PackIconBoxIcons : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty

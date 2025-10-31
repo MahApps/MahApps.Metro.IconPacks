@@ -10,10 +10,10 @@ using System.Windows;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// All icons sourced from Google Material Design icon font - <see><cref>https://github.com/google/material-design-icons</cref></see>
-    /// Google Material Design are licensed under the Apache License 2.0 <see><cref>https://github.com/google/material-design-icons?tab=Apache-2.0-1-ov-file#readme</cref></see>
+    /// All icons sourced from GitHub <see><cref>https://github.com/marella/material-icons</cref></see>
+    /// In accordance of <see><cref>https://github.com/marella/material-icons?tab=Apache-2.0-1-ov-file</cref></see>
     /// </summary>
-    [MetaData("Material Icons (Google)", "https://github.com/google/material-design-icons", "https://github.com/google/material-design-icons?tab=Apache-2.0-1-ov-file#readme")]
+    [MetaData("Material Icons (Google)", "https://github.com/marella/material-icons", "https://github.com/marella/material-icons?tab=Apache-2.0-1-ov-file")]
     public class PackIconMaterialDesign : PackIconControlBase
     {
         public static readonly DependencyProperty KindProperty
