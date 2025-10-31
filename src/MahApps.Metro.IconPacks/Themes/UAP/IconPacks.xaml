@@ -2,6 +2,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.BootstrapIcons/Themes/PackIconBootstrapIcons.xaml" />
+        <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.BoxIcons2/Themes/PackIconBoxIcons2.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.BoxIcons/Themes/PackIconBoxIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.CircumIcons/Themes/PackIconCircumIcons.xaml" />
         <ResourceDictionary Source="ms-appx:///MahApps.Metro.IconPacks.Codicons/Themes/PackIconCodicons.xaml" />

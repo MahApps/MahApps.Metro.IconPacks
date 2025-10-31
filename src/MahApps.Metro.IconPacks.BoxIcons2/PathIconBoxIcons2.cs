@@ -8,33 +8,33 @@ using Windows.UI.Xaml.Media;
 namespace MahApps.Metro.IconPacks
 {
     /// <summary>
-    /// BoxIcons v3 licensed under [CC 4.0 License](<see><cref>https://docs.boxicons.com/license/free</cref></see>)
-    /// Project web site <see><cref>https://boxicons.com/</cref></see>.
+    /// BoxIcons licensed under [MIT](<see><cref>https://v2.boxicons.com/usage#license</cref></see>)
+    /// Contributions, corrections and requests can be made on GitHub <see><cref>https://github.com/atisawd/boxicons</cref></see>.
     /// </summary>
-    [MetaData("Boxicons v3", "https://boxicons.com/", "https://docs.boxicons.com/license/free")]
-    public class PathIconBoxIcons : PathIconControlBase
+    [MetaData("Boxicons v2", "https://v2.boxicons.com/", "https://v2.boxicons.com/usage#license")]
+    public class PathIconBoxIcons2 : PathIconControlBase
     {
         public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(PackIconBoxIconsKind), typeof(PathIconBoxIcons), new PropertyMetadata(default(PackIconBoxIconsKind), KindPropertyChangedCallback));
+            = DependencyProperty.Register(nameof(Kind), typeof(PackIconBoxIcons2Kind), typeof(PathIconBoxIcons2), new PropertyMetadata(default(PackIconBoxIcons2Kind), KindPropertyChangedCallback));
 
         private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != e.OldValue)
             {
-                ((PathIconBoxIcons)dependencyObject).UpdateData();
+                ((PathIconBoxIcons2)dependencyObject).UpdateData();
             }
         }
 
         /// <summary>
         /// Gets or sets the icon to display.
         /// </summary>
-        public PackIconBoxIconsKind Kind
+        public PackIconBoxIcons2Kind Kind
         {
-            get { return (PackIconBoxIconsKind)GetValue(KindProperty); }
+            get { return (PackIconBoxIcons2Kind)GetValue(KindProperty); }
             set { SetValue(KindProperty, value); }
         }
 
-        public PathIconBoxIcons()
+        public PathIconBoxIcons2()
         {
             var transformGroup = this.RenderTransform as TransformGroup ?? new TransformGroup();
             var scaleTransform = new ScaleTransform() {ScaleY = -1};
@@ -44,7 +44,7 @@ namespace MahApps.Metro.IconPacks
         protected override void UpdateData()
         {
             string data = null;
-            PackIconDataFactory<PackIconBoxIconsKind>.DataIndex.Value?.TryGetValue(Kind, out data);
+            PackIconDataFactory<PackIconBoxIcons2Kind>.DataIndex.Value?.TryGetValue(Kind, out data);
             if (string.IsNullOrEmpty(data))
             {
                 this.Data = default(Geometry);
