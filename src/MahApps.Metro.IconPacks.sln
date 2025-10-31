@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.BootstrapIcons", "MahApps.Metro.IconPacks.BootstrapIcons\MahApps.Metro.IconPacks.BootstrapIcons.csproj", "{2185BE12-20E2-4FB5-8B49-E8BD0F71D6F2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.BoxIcons2", "MahApps.Metro.IconPacks.BoxIcons2\MahApps.Metro.IconPacks.BoxIcons2.csproj", "{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.BoxIcons", "MahApps.Metro.IconPacks.BoxIcons\MahApps.Metro.IconPacks.BoxIcons.csproj", "{EA043463-47C1-4888-92E0-826872C331A8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Codicons", "MahApps.Metro.IconPacks.Codicons\MahApps.Metro.IconPacks.Codicons.csproj", "{D9BF4500-ED93-4879-8C21-009CA7886AA1}"
@@ -38,6 +40,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Ionicons", "MahApps.Metro.IconPacks.Ionicons\MahApps.Metro.IconPacks.Ionicons.csproj", "{FE8EA04F-2AA5-4060-A6EA-53B43F94EF96}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.JamIcons", "MahApps.Metro.IconPacks.JamIcons\MahApps.Metro.IconPacks.JamIcons.csproj", "{A4629F65-0780-430D-B820-89CBD4D1C80E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.KeyruneIcons", "MahApps.Metro.IconPacks.KeyruneIcons\MahApps.Metro.IconPacks.KeyruneIcons.csproj", "{562BA634-ADF4-C7AD-89CC-180CC89BC51F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.Material", "MahApps.Metro.IconPacks.Material\MahApps.Metro.IconPacks.Material.csproj", "{478EDDA9-E8B2-4226-A74A-A23DAB083973}"
 EndProject
@@ -94,8 +98,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.build.targets = Directory.build.targets
 		global.json = global.json
 	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MahApps.Metro.IconPacks.KeyruneIcons", "MahApps.Metro.IconPacks.KeyruneIcons\MahApps.Metro.IconPacks.KeyruneIcons.csproj", "{562BA634-ADF4-C7AD-89CC-180CC89BC51F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -623,6 +625,18 @@ Global
 		{562BA634-ADF4-C7AD-89CC-180CC89BC51F}.Release|x64.Build.0 = Release|Any CPU
 		{562BA634-ADF4-C7AD-89CC-180CC89BC51F}.Release|x86.ActiveCfg = Release|Any CPU
 		{562BA634-ADF4-C7AD-89CC-180CC89BC51F}.Release|x86.Build.0 = Release|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Debug|x64.Build.0 = Debug|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Debug|x86.Build.0 = Debug|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Release|x64.ActiveCfg = Release|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Release|x64.Build.0 = Release|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Release|x86.ActiveCfg = Release|Any CPU
+		{12DB074A-32F5-4E4A-CF66-E3E3D08204E2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
