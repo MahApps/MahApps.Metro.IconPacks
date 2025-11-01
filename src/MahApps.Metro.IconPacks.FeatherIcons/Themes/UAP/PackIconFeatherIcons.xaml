@@ -21,15 +21,9 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
                 <Viewbox Margin="{TemplateBinding Padding}">
-                    <Path Width="24"
-                          Height="24"
-                          Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                    <Path Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
+                          Fill="{TemplateBinding Foreground}"
                           Stretch="Uniform"
-                          Stroke="{TemplateBinding Foreground}"
-                          StrokeEndLineCap="Round"
-                          StrokeLineJoin="Round"
-                          StrokeStartLineCap="Round"
-                          StrokeThickness="2"
                           UseLayoutRounding="False" />
                 </Viewbox>
             </Grid>
