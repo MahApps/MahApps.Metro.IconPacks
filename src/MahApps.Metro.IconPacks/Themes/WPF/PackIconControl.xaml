@@ -75,16 +75,6 @@
                     </Setter.Value>
                 </Setter>
             </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconFeatherIconsKind}">
-                <Setter TargetName="PART_IconPath" Property="Fill" Value="{x:Null}" />
-                <Setter TargetName="PART_IconPath" Property="Height" Value="24" />
-                <Setter TargetName="PART_IconPath" Property="Stroke" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground, Mode=OneWay}" />
-                <Setter TargetName="PART_IconPath" Property="StrokeEndLineCap" Value="Round" />
-                <Setter TargetName="PART_IconPath" Property="StrokeLineJoin" Value="Round" />
-                <Setter TargetName="PART_IconPath" Property="StrokeStartLineCap" Value="Round" />
-                <Setter TargetName="PART_IconPath" Property="StrokeThickness" Value="2" />
-                <Setter TargetName="PART_IconPath" Property="Width" Value="24" />
-            </DataTrigger>
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Kind, Converter={converter:DataTypeValueConverter}}" Value="{x:Type iconPacks:PackIconFileIconsKind}">
                 <Setter TargetName="PART_IconPath" Property="LayoutTransform">
                     <Setter.Value>

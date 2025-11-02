@@ -1,6 +1,4 @@
-﻿using System.Windows.Media;
-
-namespace MahApps.Metro.IconPacks.Converter
+﻿namespace MahApps.Metro.IconPacks.Converter
 {
     public class PackIconFeatherIconsKindToImageConverter : PackIconKindToImageConverterBase
     {
@@ -13,31 +11,6 @@ namespace MahApps.Metro.IconPacks.Converter
                 PackIconDataFactory<PackIconFeatherIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
             }
             return data;
-        }
-
-        /// <inheritdoc />
-        protected override DrawingGroup GetDrawingGroup(object iconKind, Brush foregroundBrush, string path)
-        {
-            var geometryDrawing = new GeometryDrawing
-            {
-                Geometry = Geometry.Parse(path)
-            };
-
-            var pen = new Pen(foregroundBrush, 2d)
-            {
-                StartLineCap = PenLineCap.Round,
-                EndLineCap = PenLineCap.Round,
-                LineJoin = PenLineJoin.Round
-            };
-            geometryDrawing.Pen = pen;
-
-            var drawingGroup = new DrawingGroup
-            {
-                Children = { geometryDrawing },
-                Transform = this.GetTransformGroup(iconKind)
-            };
-
-            return drawingGroup;
         }
     }
 }
