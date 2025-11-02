@@ -36,9 +36,6 @@ namespace MahApps.Metro.IconPacks
 
         public PathIconForkAwesome()
         {
-            var transformGroup = this.RenderTransform as TransformGroup ?? new TransformGroup();
-            var scaleTransform = new ScaleTransform() {ScaleY = -1};
-            transformGroup.Children.Insert(0, scaleTransform);
         }
 
         protected override void UpdateData()

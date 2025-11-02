@@ -26,11 +26,7 @@
                           Fill="{TemplateBinding Foreground}"
                           SnapsToDevicePixels="False"
                           Stretch="Uniform"
-                          UseLayoutRounding="False">
-                        <Path.LayoutTransform>
-                            <ScaleTransform ScaleY="-1" />
-                        </Path.LayoutTransform>
-                    </Path>
+                          UseLayoutRounding="False" />
                 </Viewbox>
             </Grid>
         </Grid>

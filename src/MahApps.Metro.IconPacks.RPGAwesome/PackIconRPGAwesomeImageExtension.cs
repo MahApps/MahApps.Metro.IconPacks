@@ -34,11 +34,5 @@ namespace MahApps.Metro.IconPacks
             }
             return data;
         }
-
-        /// <inheritdoc />
-        protected override ScaleTransform GetScaleTransform(object iconKind)
-        {
-            return new ScaleTransform(1, -1);
-        }
     }
 }
