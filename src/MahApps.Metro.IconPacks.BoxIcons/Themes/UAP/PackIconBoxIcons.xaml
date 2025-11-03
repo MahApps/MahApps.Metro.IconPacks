@@ -23,13 +23,8 @@
                 <Viewbox Margin="{TemplateBinding Padding}">
                     <Path Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay, Converter={converter:NullToUnsetValueConverter}}"
                           Fill="{TemplateBinding Foreground}"
-                          RenderTransformOrigin="0.5 0.5"
                           Stretch="Uniform"
-                          UseLayoutRounding="False">
-                        <Path.RenderTransform>
-                            <ScaleTransform ScaleY="-1" />
-                        </Path.RenderTransform>
-                    </Path>
+                          UseLayoutRounding="False" />
                 </Viewbox>
             </Grid>
         </Grid>
