@@ -29,7 +29,7 @@
 
 The `IconPacks` library contains controls, markup extensions and converters to use these awesome icons with your applications in a simple way.
 
-The same icons are also available for [Avalonia](https://avaloniaui.net/ with the [IconPacks.Avalonia](https://github.com/MahApps/IconPacks.Avalonia) packages which makes your `Avalonia` applications nicer.
+The same icons are also available for [Avalonia](https://avaloniaui.net/) with the [IconPacks.Avalonia](https://github.com/MahApps/IconPacks.Avalonia) packages which makes your `Avalonia` applications nicer.
 
 | Icon collection | Version | &#8721; | NuGet |
 |---|--:|--:|:--|
