@@ -105,6 +105,10 @@ namespace MahApps.Metro.IconPacks
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
+            foreach (var packIcon in PackIconDataFactory<PackIconMaterialDesignKind>.Create())
+            {
+                dictionary.Add(packIcon.Key, packIcon.Value);
+            }
             foreach (var packIcon in PackIconDataFactory<PackIconMaterialKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
@@ -113,7 +117,7 @@ namespace MahApps.Metro.IconPacks
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }
-            foreach (var packIcon in PackIconDataFactory<PackIconMaterialDesignKind>.Create())
+            foreach (var packIcon in PackIconDataFactory<PackIconMaterialSymbolsKind>.Create())
             {
                 dictionary.Add(packIcon.Key, packIcon.Value);
             }

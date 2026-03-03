@@ -22,9 +22,10 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.JamIcons;component/Themes/PackIconJamIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.KeyruneIcons;component/Themes/PackIconKeyruneIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Lucide;component/Themes/PackIconLucide.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialDesign;component/Themes/PackIconMaterialDesign.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Material;component/Themes/PackIconMaterial.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialLight;component/Themes/PackIconMaterialLight.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialDesign;component/Themes/PackIconMaterialDesign.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MaterialSymbols;component/Themes/PackIconMaterialSymbols.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MemoryIcons;component/Themes/PackIconMemoryIcons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.Microns;component/Themes/PackIconMicrons.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks.MingCuteIcons;component/Themes/PackIconMingCuteIcons.xaml" />

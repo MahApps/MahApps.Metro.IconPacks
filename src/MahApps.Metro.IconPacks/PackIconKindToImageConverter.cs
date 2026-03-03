@@ -73,14 +73,17 @@ namespace MahApps.Metro.IconPacks.Converter
                 case PackIconLucideKind kind:
                     PackIconDataFactory<PackIconLucideKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
+                case PackIconMaterialDesignKind kind:
+                    PackIconDataFactory<PackIconMaterialDesignKind>.DataIndex.Value?.TryGetValue(kind, out data);
+                    return data;
                 case PackIconMaterialKind kind:
                     PackIconDataFactory<PackIconMaterialKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconMaterialLightKind kind:
                     PackIconDataFactory<PackIconMaterialLightKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
-                case PackIconMaterialDesignKind kind:
-                    PackIconDataFactory<PackIconMaterialDesignKind>.DataIndex.Value?.TryGetValue(kind, out data);
+                case PackIconMaterialSymbolsKind kind:
+                    PackIconDataFactory<PackIconMaterialSymbolsKind>.DataIndex.Value?.TryGetValue(kind, out data);
                     return data;
                 case PackIconMemoryIconsKind kind:
                     PackIconDataFactory<PackIconMemoryIconsKind>.DataIndex.Value?.TryGetValue(kind, out data);
