@@ -32,7 +32,6 @@
                 </Viewbox>
             </Grid>
         </Grid>
-        <ControlTemplate.Triggers />
     </ControlTemplate>
 
     <Style x:Key="MahApps.Styles.PackIconControl" TargetType="{x:Type local:PackIconControl}">
